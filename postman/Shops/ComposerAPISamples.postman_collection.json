@@ -1,0 +1,803 @@
+{
+	"info": {
+		"_postman_id": "d70f6487-e8e9-4b1d-8e72-395ae0b0b59a",
+		"name": "ComposerAPISamples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Views",
+			"description": null,
+			"item": [
+				{
+					"name": "Composer Dashboard",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"ComposerDashboard\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Composer Templates",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"ComposerTemplates\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ComposerTemplate Master",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"Entity-ComposerTemplate-MyTemplate\",\n    \"viewName\":\"Master\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ComposerTemplate Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"Entity-ComposerTemplate-MyTemplate\",\n    \"viewName\":\"Details\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Template - View",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"CreateTemplate\",\n    \"forAction\":\"CreateTemplate\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DoActions",
+			"description": null,
+			"item": [
+				{
+					"name": "Clear Templates",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"@odata.context\": \"https://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"Name\": \"\",\r\n\t\"Policies\": [],\r\n\t\"DisplayName\": \"\",\r\n\t\"EntityId\": \"\",\r\n\t\"Action\": \"ClearTemplates\",\r\n\t\"ItemId\": \"Entity-ComposerTemplate-MyTemplate\",\r\n\t\"Properties\": [],\r\n\t\"ChildViews\": [],\r\n\t\"DisplayRank\": 500,\r\n\t\"UiHint\": \"Flat\",\r\n\t\"Icon\": \"chart_column_stacked\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Template",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"@odata.context\": \"https://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n    \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n    \"Name\": \"CreateTemplate\",\n    \"Policies\": [],\n    \"DisplayName\": \"CreateTemplate\",\n    \"EntityId\": \"\",\n    \"EntityVersion\": 1,\n    \"Action\": \"CreateTemplate\",\n    \"ItemId\": \"\",\n    \"Properties\": [\n        {\n            \"Name\": \"Name\",\n            \"Policies\": [],\n            \"DisplayName\": \"Name\",\n            \"Value\": \"postmantemplate\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        },\n        {\n            \"Name\": \"DisplayName\",\n            \"Policies\": [],\n            \"DisplayName\": \"Display Name\",\n            \"Value\": \"postman template\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": false\n        },\n        {\n            \"Name\": \"ViewName\",\n            \"Policies\": [],\n            \"DisplayName\": \"View Name\",\n            \"Value\": \"postmandtemplateview\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        },\n        {\n            \"Name\": \"ViewDisplayName\",\n            \"Policies\": [],\n            \"DisplayName\": \"View Display Name\",\n            \"Value\": \"postman template view\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": false\n        }\n    ],\n    \"ChildViews\": [],\n    \"DisplayRank\": 500,\n    \"UiHint\": \"Flat\",\n    \"Icon\": \"chart_column_stacked\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Template",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"@odata.context\": \"https://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"Name\": \"\",\r\n\t\"Policies\": [],\r\n\t\"DisplayName\": \"\",\r\n\t\"EntityId\": \"\",\r\n\t\"Action\": \"RemoveTemplate\",\r\n\t\"ItemId\": \"Entity-ComposerTemplate-MyTemplate\",\r\n\t\"Properties\": [],\r\n\t\"ChildViews\": [],\r\n\t\"DisplayRank\": 500,\r\n\t\"UiHint\": \"Flat\",\r\n\t\"Icon\": \"chart_column_stacked\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manage Template Tags",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"@odata.context\": \"https://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"Name\": \"ManageTemplateTags\",\r\n\t\"Policies\": [],\r\n\t\"DisplayName\": \"ManageTemplateTags\",\r\n\t\"EntityId\": \"\",\r\n\t\"Action\": \"ManageTemplateTags\",\r\n\t\"ItemId\": \"Entity-ComposerTemplate-MyTemplate\",\r\n\t\"Properties\": [{\r\n\t\t\t\"Name\": \"Tags\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Tags\",\r\n\t\t\t\"Value\": \"[\\r\\n  \\\"template1\\\"\\r\\n]\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"List\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Tags\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}\r\n\t],\r\n\t\"ChildViews\": [],\r\n\t\"DisplayRank\": 500,\r\n\t\"UiHint\": \"Flat\",\r\n\t\"Icon\": \"chart_column_stacked\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Link Template to Entities",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"@odata.context\": \"https://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n\t\"Name\": \"LinkTemplateToEntities\",\r\n\t\"Policies\": [],\r\n\t\"DisplayName\": \"Link To Entities\",\r\n\t\"EntityId\": \"\",\r\n\t\"Action\": \"LinkTemplateToEntities\",\r\n\t\"ItemId\": \"Entity-ComposerTemplate-MyTemplate\",\r\n\t\"Properties\": [\r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Catalog.SellableItem\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Catalog.SellableItem\",\r\n\t\t\t\"Value\": \"true\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}, \r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Catalog.Catalog\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Catalog.Catalog\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Catalog.Category\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Catalog.Category\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Promotions.PromotionBook\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Promotions.PromotionBook\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}, \r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Promotions.Promotion\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Promotions.Promotion\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}, \r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Pricing.PriceBook\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Pricing.PriceBook\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}, \r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Pricing.PriceCard\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Pricing.PriceCard\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Customers.Customer\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Customers.Customer\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"Name\": \"Sitecore.Commerce.Plugin.Orders.Order\",\r\n\t\t\t\"Policies\": [],\r\n\t\t\t\"DisplayName\": \"Sitecore.Commerce.Plugin.Orders.Order\",\r\n\t\t\t\"Value\": \"false\",\r\n\t\t\t\"IsHidden\": false,\r\n\t\t\t\"OriginalType\": \"System.Boolean\",\r\n\t\t\t\"IsReadOnly\": false,\r\n\t\t\t\"UiType\": \"Options\",\r\n\t\t\t\"IsRequired\": true\r\n\t\t}\r\n\t],\r\n\t\"ChildViews\": [],\r\n\t\"DisplayRank\": 500,\r\n\t\"UiHint\": \"Flat\",\r\n\t\"Icon\": \"chart_column_stacked\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Associate To Item Definitions - Select Catalog",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"@odata.context\": \"https://test526ca2:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n\t\"Name\": \"AssociateComposerTemplateToItemDefinitions\",\n\t\"Policies\": [],\n\t\"DisplayName\": \"Associate To Item Definitions\",\n\t\"EntityId\": \"\",\n\t\"Action\": \"SelectCatalogToAssociateComposerTemplateToItemDefinitions\",\n\t\"ItemId\": \"Entity-ComposerTemplate-LinkTemplateToEntitiesPCYm4RXKrSTemplate\",\n\t\"Properties\": [{\n\t\t\"Name\": \"Catalog\",\n\t\t\"Policies\": [{\n\t\t\t\"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n\t\t\t\"PolicyId\": \"73bab4cd26d64b4eac7e0635927770da\",\n\t\t\t\"Models\": [],\n\t\t\t\"List\": [{\n\t\t\t\t\"Name\": \"Catalog\",\n\t\t\t\t\"Policies\": [],\n\t\t\t\t\"DisplayName\": \"Catalog\",\n\t\t\t\t\"IsDefault\": false\n\t\t\t}],\n\t\t\t\"AllowMultiSelect\": false\n\t\t}],\n\t\t\"DisplayName\": \"Catalog\",\n\t\t\"Value\": \"Catalog\",\n\t\t\"IsHidden\": false,\n\t\t\"OriginalType\": \"System.String\",\n\t\t\"IsReadOnly\": false,\n\t\t\"UiType\": \"\",\n\t\t\"IsRequired\": true\n\t}],\n\t\"ChildViews\": [],\n\t\"DisplayRank\": 500,\n\t\"UiHint\": \"Flat\",\n\t\"Icon\": \"chart_column_stacked\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Associate To Item Definitions",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n\t\"Name\": \"AssociateComposerTemplateToItemDefinitions\",\n\t\"Policies\": [],\n\t\"DisplayName\": \"Associate To Item Definitions\",\n\t\"EntityId\": \"\",\n\t\"Action\": \"AssociateComposerTemplateToItemDefinitions\",\n\t\"ItemId\": \"Entity-ComposerTemplate-LinkTemplateToEntitiesPCYm4RXKrSTemplate\",\n\t\"Properties\": [{\n\t\t\"Name\": \"Catalog\",\n\t\t\"Policies\": [{\n\t\t\t\"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n\t\t\t\"PolicyId\": \"f56f0ad996234e30b6a38963f1ecd38e\",\n\t\t\t\"Models\": [],\n\t\t\t\"List\": [{\n\t\t\t\t\"Name\": \"Catalog\",\n\t\t\t\t\"Policies\": [],\n\t\t\t\t\"DisplayName\": \"Catalog\",\n\t\t\t\t\"IsDefault\": false\n\t\t\t}],\n\t\t\t\"AllowMultiSelect\": false\n\t\t}],\n\t\t\"DisplayName\": \"Catalog\",\n\t\t\"Value\": \"Catalog\",\n\t\t\"IsHidden\": false,\n\t\t\"OriginalType\": \"System.String\",\n\t\t\"IsReadOnly\": true,\n\t\t\"UiType\": \"SelectList\",\n\t\t\"IsRequired\": true\n\t},\n\t{\n\t\t\"Name\": \"Definition1\",\n\t\t\"Policies\": [],\n\t\t\"DisplayName\": \"Definition1\",\n\t\t\"Value\": \"true\",\n\t\t\"IsHidden\": false,\n\t\t\"OriginalType\": \"System.Boolean\",\n\t\t\"IsReadOnly\": false,\n\t\t\"UiType\": \"Options\",\n\t\t\"IsRequired\": true\n\t}],\n\t\"ChildViews\": [],\n\t\"DisplayRank\": 500,\n\t\"UiHint\": \"Flat\",\n\t\"Icon\": \"chart_column_stacked\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"description": null,
+			"item": [
+				{
+					"name": "Get Composer Template",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/ComposerTemplates('mytemplate')?$expand=Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"ComposerTemplates('mytemplate')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Components"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Composer Templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/ComposerTemplates",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"ComposerTemplates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

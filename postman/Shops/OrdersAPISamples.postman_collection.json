@@ -1,0 +1,5082 @@
+{
+	"info": {
+		"_postman_id": "56075057-15ea-4e6e-a433-e3aa071986b6",
+		"name": "OrdersAPISamples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Create order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c360b79f-2bc5-4e89-b71e-ed4d6d9cd621",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findOrderId(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Orders.CreatedOrder';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"OrderId\", jsonData.Models.find(findOrderId).OrderId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							},
+							{
+								"key": "PolicyKeys",
+								"value": "ZeroMinionDelay"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"Cart01\", \"email\": \"g@g.com\"}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/CreateOrder()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"CreateOrder()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/Orders",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"Orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findCustomerId(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Core.ContactComponent';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"CustomerId\", jsonData.Components.find(findCustomerId).CustomerId);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/Orders('{{OrderId}}')?$expand=Lines($expand=ChildComponents),Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"Orders('{{OrderId}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Lines($expand=ChildComponents),Components"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\":\"{{OrderId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/CancelOrder()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"CancelOrder()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set order status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\":\"{{OrderId}}\",\n    \"status\": \"CustomStatus\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/SetOrderStatus()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"SetOrderStatus()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Rma",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "314bb6b6-46a7-4149-88ad-c80e71ec1b12",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findRmaId(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Returns.RmaAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"RmaId\", \"Entity-ReturnMerchandiseAuthorization-\" + jsonData.Models.find(findRmaId).RmaId);",
+									"postman.setGlobalVariable(\"RmaFriendlyId\", jsonData.Models.find(findRmaId).RmaId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\":\"{{OrderId}}\",\n    \"reason\": \"don't like it\",\n    \"lines\":[{\n    \t\"LineId\": \"{{LineId}}\",\n    \t\"Quantity\": \"1\"\n    }]\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/RequestRma()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"RequestRma()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rma",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/ReturnMerchandiseAuthorizations('{{RmaFriendlyId}}')?$expand=Lines($expand=ChildComponents),Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"ReturnMerchandiseAuthorizations('{{RmaFriendlyId}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Lines($expand=ChildComponents),Components"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rmas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/ReturnMerchandiseAuthorizations",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"ReturnMerchandiseAuthorizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returned Item Received",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rmaFriendlyId\":\"{{RmaId}}\",\n    \"refundPaymentId\": \"2532c222bbf9489d88aa7e323876fac6\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/ReturnedItemReceived()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"ReturnedItemReceived()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SalesActivity",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/SalesActivities('{{SalesActivityId}}')?$expand=Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"SalesActivities('{{SalesActivityId}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Components"
+								}
+							]
+						},
+						"description": "Get a SalesActivity entity by Id"
+					},
+					"response": []
+				},
+				{
+					"name": "SalesActivities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/SalesActivities",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"SalesActivities"
+							]
+						},
+						"description": "Get all of the Sales Activity entities"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order Sales Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetOrderSalesActivities(orderId='{{OrderId}}')?$expand=Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetOrderSalesActivities(orderId='{{OrderId}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Components"
+								}
+							]
+						},
+						"description": "Gets all of the Sales Activities from an order"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Do Actions",
+			"item": [
+				{
+					"name": "Cancel Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"CancelOrder\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hold order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"HoldOrder\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"AddLineItem\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"AddLineItem\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Item\",\n      \"Policies\": [],\n      \"DisplayName\": \"Item\",\n      \"Value\": \"Adventure Works Catalog|AW188-06|20\",\n      \"IsHidden\": false\n    },\n    {\n      \"Name\": \"Quantity\",\n      \"Policies\": [\n      ],\n      \"DisplayName\": \"Quantity\",\n      \"Value\": \"2.0\",\n      \"IsHidden\": false\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"EditLineItem\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"EditLineItem\",\n  \"ItemId\": \"{{LineId}}\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"ParentId\",\n      \"Policies\": [],\n      \"DisplayName\": \"ParentId\",\n      \"Value\": \"{{OrderId}}\",\n      \"IsHidden\": true\n    },\n    {\n      \"Name\": \"ItemId\",\n      \"Policies\": [],\n      \"DisplayName\": \"ItemId\",\n      \"Value\": \"{{LineId}}\",\n      \"IsHidden\": true\n    },\n    {\n      \"Name\": \"Quantity\",\n      \"Policies\": [],\n      \"DisplayName\": \"Quantity\",\n      \"Value\": \"3\",\n      \"IsHidden\": false\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"DeleteLineItem\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"DeleteLineItem\",\n  \"ItemId\": \"{{LineId}}\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\t\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel OnHold Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"CancelOnHoldOrder\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Release Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"ReleaseOrder\",\n  \"Policies\": [],\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"ReleaseOrder\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Rma - Validate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"RequestRma\",\n  \"Policies\": [],\n  \"DisplayName\": \"RequestRma\",\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"ValidateRmaRequest\",\n  \"ItemId\": \"{{LineId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"5\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"ParentId\",\n      \"Policies\": [],\n      \"DisplayName\": \"Parent Id\",\n      \"Value\": \"{{OrderId}}\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"ItemId\",\n      \"Policies\": [],\n      \"DisplayName\": \"Item Id\",\n      \"Value\": \"{{LineId}}\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"RmaReason\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"66f7a59cb1a74c7d97aaae987f1979e3\",\n          \"Models\": [],\n          \"RuleSet\": null,\n          \"List\": [\n            {\n              \"Name\": \"WrongItem\",\n              \"Policies\": [],\n              \"DisplayName\": \"The wrong item was sent\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"DidNotLike\",\n              \"Policies\": [],\n              \"DisplayName\": \"Customer did not like item\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Reason\",\n      \"Value\": \"DidNotLike\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"Quantity\",\n      \"Policies\": [],\n      \"DisplayName\": \"Quantity\",\n      \"Value\": \"1.0\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.Decimal\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Rma - Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"RequestRma\",\n      \"Policies\": [],\n      \"DisplayName\": \"Request Rma\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"RequestRma\",\n      \"ItemId\": \"{{LineId}}\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"4\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"ParentId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Parent Id\",\n          \"Value\": \"{{OrderId}}\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"ItemId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Item Id\",\n          \"Value\": \"{{LineId}}\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"RmaReason\",\n          \"Policies\": [],\n          \"DisplayName\": \"Reason\",\n          \"Value\": \"DidNotLike\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"1.0\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Decimal\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"RefundTotal\",\n          \"Policies\": [],\n          \"DisplayName\": \"RefundTotal\",\n          \"Value\": \"49.23000\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.Decimal\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"RmaRequestValidReason\",\n          \"Policies\": [],\n          \"DisplayName\": \"RmaRequestValidReason\",\n          \"Value\": \"Return can be requested.\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"CanRequestRma\",\n          \"Policies\": [],\n          \"DisplayName\": \"CanRequestRma\",\n          \"Value\": \"True\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.Boolean\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"WantToContinue\",\n          \"Policies\": [],\n          \"DisplayName\": \"WantToContinue\",\n          \"Value\": \"True\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.Boolean\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Fulfillment Option - ShipToMe - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"OrderFulfillmentDetails\",\n  \"Policies\": [],\n  \"DisplayName\": \"OrderFulfillmentDetails\",\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"SelectFulfillmentOption\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Option\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"51ba52c8e13e40c780ef032240ca7d7b\",\n          \"Models\": [],\n          \"RuleSet\": null,\n          \"List\": [\n            {\n              \"Name\": \"ShipToMe\",\n              \"Policies\": [],\n              \"DisplayName\": \"Ship items\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Option\",\n      \"Value\": \"ShipToMe\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"Dropdown\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Country - ShipToMe - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"OrderFulfillmentDetails\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"GetCountryRegionsForFulfillment\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n           \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"f14fa1dbc81646ce83ebcb3b47bd8f3c\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"CA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fulfillment Methods  - ShipToMe - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"OrderFulfillmentDetails\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"GetFulfillmentMethods\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"CountryCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country Code\",\n          \"Value\": \"CA\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"Canada\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FirstName\",\n          \"Policies\": [],\n          \"DisplayName\": \"First Name\",\n          \"Value\": \"first name\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LastName\",\n          \"Policies\": [],\n          \"DisplayName\": \"Last Name\",\n          \"Value\": \"last name\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address1\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 1\",\n          \"Value\": \"address 1\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address2\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 2\",\n          \"Value\": \"address 2\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"City\",\n          \"Policies\": [],\n          \"DisplayName\": \"City\",\n          \"Value\": \"city\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"ZipPostalCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Zip Postal Code\",\n          \"Value\": \"q1w2e3\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"PhoneNumber\",\n          \"Policies\": [],\n          \"DisplayName\": \"Phone Number\",\n          \"Value\": \"123 123 1234\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"State\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"07a05d0161ba4c4b91e5671019cb7336\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [\n                {\n                  \"Name\": \"ON\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Ontario\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"QC\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Quebec\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"State\",\n          \"Value\": \"ON\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Fulfillment - ShipToMe - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SetFulfillment\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"CountryCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country Code\",\n          \"Value\": \"CA\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"Canada\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FirstName\",\n          \"Policies\": [],\n          \"DisplayName\": \"First Name\",\n          \"Value\": \"first name\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LastName\",\n          \"Policies\": [],\n          \"DisplayName\": \"Last Name\",\n          \"Value\": \"last name\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address1\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 1\",\n          \"Value\": \"address 1\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address2\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 2\",\n          \"Value\": \"address 2\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"City\",\n          \"Policies\": [],\n          \"DisplayName\": \"City\",\n          \"Value\": \"city\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"ZipPostalCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Zip/Postal Code\",\n          \"Value\": \"q1w2e3\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"PhoneNumber\",\n          \"Policies\": [],\n          \"DisplayName\": \"Phone\",\n          \"Value\": \"123 123 1234\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"State\",\n          \"Policies\": [],\n          \"DisplayName\": \"State\",\n          \"Value\": \"Ontario\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"StateCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"State Code\",\n          \"Value\": \"ON\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FulfillmentOptionName\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"65795d58e40b4f7a9d468d9aa4e9efcf\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [\n                {\n                  \"Name\": \"E14965B9-306A-43C4-BFFC-3C67BE8726FA\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Ground\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"219d386d-6f57-4b8c-9107-e5b94d8c7a79\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Next Day Air\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"5c36605e-7e9d-4dfd-a415-d6774a263e73\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Standard\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"c32b2b81-c961-4bd9-a846-222a7331f4de\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Standard Overnight\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Fulfillment Option Name\",\n          \"Value\": \"E14965B9-306A-43C4-BFFC-3C67BE8726FA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Fulfillment Option - Split - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"OrderFulfillmentDetails\",\n  \"Policies\": [],\n  \"DisplayName\": \"Order Fulfillment Details\",\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"SelectFulfillmentOption\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Option\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"2a67a65e424845579db7450b433f87ed\",\n          \"Models\": [],\n          \"RuleSet\": null,\n          \"List\": [\n            {\n              \"Name\": \"SplitShipping\",\n              \"Policies\": [],\n              \"DisplayName\": \"Select delivery options by item\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Option\",\n      \"Value\": \"SplitShipping\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"Dropdown\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Fulfillment Option - Digital - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SelectFulfillmentOption\",\n      \"ItemId\": \"d79fa0a7e4e34c028fbed3f6024762f3\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"13bc2fa2a54941b187cce2f99f2af893\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Item\",\n          \"Policies\": [],\n          \"DisplayName\": \"Item\",\n          \"Value\": \"Habitat Gift Cards ($50)\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"48c3d6ca642e45fcbec75100ed3d2a7e\",\n              \"Models\": [],\n              \"List\": [\n                {\n                  \"Name\": \"Digital\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Digital\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"Digital\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Fulfillment Option - Digital - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SetFulfillment\",\n      \"ItemId\": \"d79fa0a7e4e34c028fbed3f6024762f3\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"13bc2fa2a54941b187cce2f99f2af893\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Item\",\n          \"Policies\": [],\n          \"DisplayName\": \"Item\",\n          \"Value\": \"Habitat Gift Cards ($50)\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"Digital\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"EmailAddress\",\n          \"Policies\": [],\n          \"DisplayName\": \"Email Address\",\n          \"Value\": \"jae@doe.com\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"EmailContent\",\n          \"Policies\": [],\n          \"DisplayName\": \"Email Content\",\n          \"Value\": \"this is a email\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"FulfillmentOptionId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Fulfillment Option Id\",\n          \"Value\": \"7e077edc-7103-460b-988f-78b0211b9261\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"FulfillmentOptionName\",\n          \"Policies\": [],\n          \"DisplayName\": \"Fulfillment Option Name\",\n          \"Value\": \"Email\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Fulfillment Option - ShipToMe - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SelectFulfillmentOption\",\n      \"ItemId\": \"e6cae9b9d1c94fc5a05c40cfe07a36cc\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"e6cae9b9d1c94fc5a05c40cfe07a36cc\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"a435024047604330800549662e767650\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [\n                {\n                  \"Name\": \"ShipToMe\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Ship items\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Country - ShipToMe - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"GetCountryRegionsForFulfillment\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"e6cae9b9d1c94fc5a05c40cfe07a36cc\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"a789f4e4f13d484bac9738b752ba1105\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [\n                {\n                  \"Name\": \"CA\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Canada\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"US\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"United States\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"CA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fulfillment Methods  - ShipToMe - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"GetFulfillmentMethods\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"e6cae9b9d1c94fc5a05c40cfe07a36cc\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"CA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"CountryCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country Code\",\n          \"Value\": \"CA\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"State\",\n          \"Policies\": [],\n          \"DisplayName\": \"State\",\n          \"Value\": \"Ontario\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n         {\n          \"Name\": \"StateCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"State Code\",\n          \"Value\": \"ON\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FirstName\",\n          \"Policies\": [],\n          \"DisplayName\": \"First Name\",\n          \"Value\": \"jane\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LastName\",\n          \"Policies\": [],\n          \"DisplayName\": \"Last Name\",\n          \"Value\": \"doe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address1\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 1\",\n          \"Value\": \"123 st\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address2\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 2\",\n          \"Value\": \"\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"City\",\n          \"Policies\": [],\n          \"DisplayName\": \"City\",\n          \"Value\": \"city\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"ZipPostalCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Zip/Postal Code\",\n          \"Value\": \"q1w2e3\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"PhoneNumber\",\n          \"Policies\": [],\n          \"DisplayName\": \"Phone\",\n          \"Value\": \"123 123 1234\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Fulfillment - ShipToMe - Line",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"Order Fulfillment Details\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SetFulfillment\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LineId\",\n          \"Policies\": [],\n          \"DisplayName\": \"Line Id\",\n          \"Value\": \"e6cae9b9d1c94fc5a05c40cfe07a36cc\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"ShipToMe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Country\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country\",\n          \"Value\": \"CA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"CountryCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Country Code\",\n          \"Value\": \"CA\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"State\",\n          \"Policies\": [],\n          \"DisplayName\": \"State\",\n          \"Value\": \"Ontario\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"StateCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"State Code\",\n          \"Value\": \"ON\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FirstName\",\n          \"Policies\": [],\n          \"DisplayName\": \"First Name\",\n          \"Value\": \"jane\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"LastName\",\n          \"Policies\": [],\n          \"DisplayName\": \"Last Name\",\n          \"Value\": \"doe\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address1\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 1\",\n          \"Value\": \"123 st\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Address2\",\n          \"Policies\": [],\n          \"DisplayName\": \"Address 2\",\n          \"Value\": \"\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"City\",\n          \"Policies\": [],\n          \"DisplayName\": \"City\",\n          \"Value\": \"city\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"ZipPostalCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"Zip/Postal Code\",\n          \"Value\": \"q1w2e3\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"PhoneNumber\",\n          \"Policies\": [],\n          \"DisplayName\": \"Phone\",\n          \"Value\": \"123 123 1234\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"StateCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"State Code\",\n          \"Value\": \"ON\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FulfillmentOptionName\",\n          \"Policies\": [\n            {\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n              \"PolicyId\": \"485a9fe654be4c0fbc17574886adc5f5\",\n              \"Models\": [],\n              \"RuleSet\": null,\n              \"List\": [\n                {\n                  \"Name\": \"E14965B9-306A-43C4-BFFC-3C67BE8726FA\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Ground\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"219d386d-6f57-4b8c-9107-e5b94d8c7a79\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Next Day Air\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"5c36605e-7e9d-4dfd-a415-d6774a263e73\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Standard\",\n                  \"IsDefault\": false\n                },\n                {\n                  \"Name\": \"c32b2b81-c961-4bd9-a846-222a7331f4de\",\n                  \"Policies\": [],\n                  \"DisplayName\": \"Standard Overnight\",\n                  \"IsDefault\": false\n                }\n              ],\n              \"AllowMultiSelect\": false\n            }\n          ],\n          \"DisplayName\": \"Fulfillment Option Name\",\n          \"Value\": \"E14965B9-306A-43C4-BFFC-3C67BE8726FA\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"Dropdown\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Fulfillment Option - Digital - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"OrderFulfillmentDetails\",\n  \"Policies\": [],\n  \"DisplayName\": \"OrderFulfillmentDetails\",\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"SelectFulfillmentOption\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Option\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"40e3d81e602c4d1e9991d9d517d09fb7\",\n          \"Models\": [],\n          \"RuleSet\": null,\n          \"List\": [\n            {\n              \"Name\": \"Digital\",\n              \"Policies\": [],\n              \"DisplayName\": \"Email\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Option\",\n      \"Value\": \"Digital\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"Dropdown\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Fulfillment Option - Digital - Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderFulfillmentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"OrderFulfillmentDetails\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"SetFulfillment\",\n      \"ItemId\": \"\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"Digital\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"EmailAddress\",\n          \"Policies\": [],\n          \"DisplayName\": \"Email Address\",\n          \"Value\": \"jane@doe.com\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"EmailContent\",\n          \"Policies\": [],\n          \"DisplayName\": \"Email Content\",\n          \"Value\": \"email content\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FulfillmentOptionId\",\n          \"Policies\": [],\n          \"DisplayName\": \"FulfillmentOptionId\",\n          \"Value\": \"7E077EDC-7103-460B-988F-78B0211B9261\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"FulfillmentOptionName\",\n          \"Policies\": [],\n          \"DisplayName\": \"FulfillmentOptionName\",\n          \"Value\": \"Electronic\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"System.String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Select Payment Option - Federated",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"Name\": \"OrderPaymentDetails\",\r\n  \"Policies\": [],\r\n  \"DisplayName\": \"OrderPaymentDetails\",\r\n  \"EntityId\": \"{{OrderId}}\",\r\n  \"Action\": \"SelectPaymentOption\",\r\n  \"ItemId\": \"\",\r\n  \"Properties\": [\r\n    {\r\n      \"Name\": \"Version\",\r\n      \"Policies\": [],\r\n      \"DisplayName\": \"Version\",\r\n      \"Value\": \"2\",\r\n      \"IsHidden\": true,\r\n      \"OriginalType\": \"Int32\",\r\n      \"IsReadOnly\": true,\r\n      \"UiType\": \"\"\r\n    },\r\n    {\r\n      \"Name\": \"Option\",\r\n      \"Policies\": [\r\n        {\r\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\r\n          \"PolicyId\": \"ee6a5552d0fc40bdb1b175955bca88ce\",\r\n          \"Models\": [],\r\n          \"RuleSet\": null,\r\n          \"List\": [\r\n            {\r\n              \"Name\": \"GiftCard\",\r\n              \"Policies\": [],\r\n              \"DisplayName\": \"GiftCard\",\r\n              \"IsDefault\": false\r\n            },\r\n            {\r\n              \"Name\": \"Federated\",\r\n              \"Policies\": [],\r\n              \"DisplayName\": \"Federated\",\r\n              \"IsDefault\": false\r\n            }\r\n          ],\r\n          \"AllowMultiSelect\": false\r\n        }\r\n      ],\r\n      \"DisplayName\": \"Option\",\r\n      \"Value\": \"Federated\",\r\n      \"IsHidden\": false,\r\n      \"OriginalType\": \"String\",\r\n      \"IsReadOnly\": false,\r\n      \"UiType\": \"\"\r\n    }\r\n  ],\r\n  \"ChildViews\": [],\r\n  \"DisplayRank\": 500,\r\n  \"UiHint\": \"Flat\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Country - Federated",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n      \"Name\": \"OrderPaymentDetails\",\r\n      \"Policies\": [],\r\n      \"DisplayName\": \"OrderPaymentDetails\",\r\n      \"EntityId\": \"{{OrderId}}\",\r\n      \"Action\": \"GetCountryRegionsForFederatedPayment\",\r\n      \"ItemId\": \"\",\r\n      \"Properties\": [\r\n        {\r\n          \"Name\": \"Version\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Version\",\r\n          \"Value\": \"2\",\r\n          \"IsHidden\": true,\r\n          \"OriginalType\": \"Int32\",\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Option\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Option\",\r\n          \"Value\": \"Federated\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"PaymentMethodNonce\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"NameOnCard\",\r\n          \"Value\": \"PaymentNonce\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"System.String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Amount\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Amount\",\r\n          \"Value\": \"64.23\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"System.Decimal\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Country\",\r\n          \"Policies\": [\r\n            {\r\n              \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\r\n              \"PolicyId\": \"8bbd0287cee74e23849f7443e883e414\",\r\n              \"Models\": [],\r\n              \"RuleSet\": null,\r\n              \"List\": [],\r\n              \"AllowMultiSelect\": false\r\n            }\r\n          ],\r\n          \"DisplayName\": \"Country\",\r\n          \"Value\": \"CA\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"System.String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"Dropdown\"\r\n        }\r\n      ],\r\n      \"ChildViews\": [],\r\n      \"DisplayRank\": 500,\r\n      \"UiHint\": \"Flat\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add payment - Federated",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n      \"Name\": \"OrderPaymentDetails\",\r\n      \"Policies\": [],\r\n      \"DisplayName\": \"OrderPaymentDetails\",\r\n      \"EntityId\": \"{{OrderId}}\",\r\n      \"Action\": \"AddPayment\",\r\n      \"ItemId\": \"cd012c31477747b889526ea5b95c361e\",\r\n      \"Properties\": [\r\n        {\r\n          \"Name\": \"Version\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Version\",\r\n          \"Value\": \"2\",\r\n          \"IsHidden\": true,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Option\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Option\",\r\n          \"Value\": \"Federated\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"PaymentOptionId\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"PaymentOptionId\",\r\n          \"Value\": \"3C86B4A2-7D72-4110-A697-82D6CD0B6619\",\r\n          \"IsHidden\": true,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"PaymentOptionName\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"PaymentOptionName\",\r\n          \"Value\": \"Federated\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"PaymentMethodNonce\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"PaymentMethodNonce\",\r\n          \"Value\": \"fake-valid-nonce\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Amount\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Amount\",\r\n          \"Value\": \"113.45\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"AddressName\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Address Name\",\r\n          \"Value\": \"Home\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"CountryCode\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Country Code\",\r\n          \"Value\": \"CA\",\r\n          \"IsHidden\": true,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Country\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Country\",\r\n          \"Value\": \"Canada\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": null,\r\n          \"IsReadOnly\": true,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"State\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"State\",\r\n          \"Value\": \"ON\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"FirstName\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"First Name\",\r\n          \"Value\": \"jane\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"LastName\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Last Name\",\r\n          \"Value\": \"doe\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Address1\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Address 1\",\r\n          \"Value\": \"123 street\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"Address2\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Address 2\",\r\n          \"Value\": \"\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"City\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"City\",\r\n          \"Value\": \"city\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"ZipPostalCode\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Zip Postal Code\",\r\n          \"Value\": \"zip\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        },\r\n        {\r\n          \"Name\": \"PhoneNumber\",\r\n          \"Policies\": [],\r\n          \"DisplayName\": \"Phone Number\",\r\n          \"Value\": \"phone\",\r\n          \"IsHidden\": false,\r\n          \"OriginalType\": \"String\",\r\n          \"IsReadOnly\": false,\r\n          \"UiType\": \"\"\r\n        }\r\n      ],\r\n      \"ChildViews\": [],\r\n      \"DisplayRank\": 500,\r\n      \"UiHint\": \"Flat\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Payment Option - GitfCard",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"OrderPaymentDetails\",\n  \"Policies\": [],\n  \"DisplayName\": \"OrderPaymentDetails\",\n  \"EntityId\": \"{{OrderId}}\",\n  \"Action\": \"SelectPaymentOption\",\n  \"ItemId\": \"5eafda1bd7aa449b8903b295788dba88\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Option\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"ee6a5552d0fc40bdb1b175955bca88ce\",\n          \"Models\": [],\n          \"RuleSet\": null,\n          \"List\": [\n            {\n              \"Name\": \"GiftCard\",\n              \"Policies\": [],\n              \"DisplayName\": \"GiftCard\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"CreditCard\",\n              \"Policies\": [],\n              \"DisplayName\": \"CreditCard\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Option\",\n      \"Value\": \"GiftCard\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"Dropdown\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add payment - GiftCard",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"OrderPaymentDetails\",\n      \"Policies\": [],\n      \"DisplayName\": \"OrderPaymentDetails\",\n      \"EntityId\": \"{{OrderId}}\",\n      \"Action\": \"AddPayment\",\n      \"ItemId\": \"5eafda1bd7aa449b8903b295788dba88\",\n      \"Properties\": [\n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"2\",\n          \"IsHidden\": true,\n          \"OriginalType\": null,\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Option\",\n          \"Policies\": [],\n          \"DisplayName\": \"Option\",\n          \"Value\": \"GiftCard\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },{\n          \"Name\": \"PaymentOptionName\",\n          \"Policies\": [],\n          \"DisplayName\": \"PaymentOptionName\",\n          \"Value\": \"GiftCard\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"PaymentOptionId\",\n          \"Policies\": [],\n          \"DisplayName\": \"PaymentOptionId\",\n          \"Value\": \"C6E45321-A7CD-4992-AAE7-95A5F04F8BC0\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"GiftCardCode\",\n          \"Policies\": [],\n          \"DisplayName\": \"GiftCardCode\",\n          \"Value\": \"GC1000000\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"Amount\",\n          \"Policies\": [],\n          \"DisplayName\": \"Amount\",\n          \"Value\": \"20\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\"\n    }"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Void payment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"Name\": \"\",\r\n  \"Policies\": [],\r\n  \"EntityId\": \"{{OrderId}}\",\r\n  \"Action\": \"VoidPayment\",\r\n  \"ItemId\": \"ae75c2b4048b49a89763648eeb72b7a1\",\r\n  \"Properties\": [\r\n   {\r\n      \"Name\": \"Version\",\r\n      \"Policies\": [],\r\n      \"DisplayName\": \"Version\",\r\n      \"Value\": \"1\",\r\n      \"IsHidden\": true,\r\n      \"OriginalType\": \"System.Int32\",\r\n      \"IsReadOnly\": true,\r\n      \"UiType\": \"\"\r\n    }\r\n  ],\r\n  \"ChildViews\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refund payment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\r\n  \"Name\": \"\",\r\n  \"Policies\": [],\r\n  \"EntityId\": \"{{OrderId}}\",\r\n  \"Action\": \"RefundPayment\",\r\n  \"ItemId\": \"39e2b3325ade4b7a968ea403a70a8246\",\r\n  \"Properties\": [\r\n   {\r\n      \"Name\": \"Version\",\r\n      \"Policies\": [],\r\n      \"DisplayName\": \"Version\",\r\n      \"Value\": \"3\",\r\n      \"IsHidden\": true,\r\n      \"OriginalType\": \"System.Int32\",\r\n      \"IsReadOnly\": true,\r\n      \"UiType\": \"\"\r\n    }\r\n  ],\r\n  \"ChildViews\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lists",
+			"item": [
+				{
+					"name": "Lists - Sales Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='SalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='SalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Orders index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='OrdersIndex',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='OrdersIndex',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='Orders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='Orders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Pending Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PendingOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PendingOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Pending Orders 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PendingOrders.1',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PendingOrders.1',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Pending Orders 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PendingOrders.2',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PendingOrders.2',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Waiting For Availability Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='WaitingForAvailabilityOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='WaitingForAvailabilityOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Problem Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PendingOrders.2',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PendingOrders.2',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Released Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='ReleasedOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='ReleasedOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Completed Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='CompletedOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='CompletedOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - AnonymousOrders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='AnonymousOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='AnonymousOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Sales Charges",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='SalesCharges',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='SalesCharges',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - OnHold Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "Storefront"
+							},
+							{
+								"key": "ShopperId",
+								"value": "User01"
+							},
+							{
+								"key": "Language",
+								"value": "en-US"
+							},
+							{
+								"key": "Currency",
+								"value": "USD"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "CustomerId"
+							},
+							{
+								"key": "Roles",
+								"value": "Role1|Role2|Role3|"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='OnHoldOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='OnHoldOrders',type='Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Shipments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='Shipments',type='Sitecore.Commerce.Plugin.Fulfillment.Shipment, Sitecore.Commerce.Plugin.Fulfillment',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='Shipments',type='Sitecore.Commerce.Plugin.Fulfillment.Shipment, Sitecore.Commerce.Plugin.Fulfillment',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListMetadata - PendingOrders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetListMetadata(listName='PendingOrders')",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetListMetadata(listName='PendingOrders')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Rmas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='ReturnMerchandiseAuthorizations',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='ReturnMerchandiseAuthorizations',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Pending Rmas ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PendingRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PendingRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Refund Pending Rmas ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='RefundPendingRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='RefundPendingRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Completed Rmas ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='CompletedRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='CompletedRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Problem Rmas ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='ProblemRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='ProblemRmas',type='Sitecore.Commerce.Plugin.Returns.ReturnMerchandiseAuthorization, Sitecore.Commerce.Plugin.Returns',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Settle Sales Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='SettleSalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='SettleSalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists - Settled Sales Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='SettledSalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)?$expand=Items($expand=Components)",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='SettledSalesActivities',type='Sitecore.Commerce.Plugin.Orders.SalesActivity, Sitecore.Commerce.Plugin.Orders',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items($expand=Components)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Views",
+			"item": [
+				{
+					"name": "Order - Master",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"Master\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Preview",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"Preview\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Summary",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"Summary\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - EditLineItem",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"EditLineItem\",\n    \"forAction\":\"EditLineItem\",\n    \"itemId\":\"{{LineId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - RequestRma",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"RequestRma\",\n    \"forAction\":\"RequestRma\",\n    \"itemId\":\"{{LineId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - AddLineItem",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{OrderId}}\",\n    \"viewName\":\"AddLineItem\",\n    \"forAction\":\"AddLineItem\",\n    \"itemId\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Fulfillments",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderFulfillments\",\n    \"forAction\": \"\",\n    \"itemId\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Fulfillment Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderFulfillmentDetails\",\n    \"forAction\": \"\",\n    \"itemId\": \"d912cd787d6745b2a1ac7a6f6c2e2b27\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Fulfillment - For Select",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderFulfillmentDetails\",\n    \"forAction\": \"SelectFulfillmentOption\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Line Fulfillment - For Select ",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderFulfillmentDetails\",\n    \"forAction\": \"SelectFulfillmentOption\",\n    \"itemId\": \"{{LineId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Payments",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderPayments\",\n    \"forAction\": \"\",\n    \"itemId\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Payment Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderPaymentDetails\",\n    \"forAction\": \"\",\n    \"itemId\": \"5eafda1bd7aa449b8903b295788dba88\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Payment - For Select",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderPaymentDetails\",\n    \"forAction\": \"SelectPaymentOption\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Entitlements",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderEntitlements\",\n    \"forAction\": \"\",\n    \"itemId\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - SalesActivities",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"SalesActivities\",\n    \"forAction\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Returns - Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"RequestRma\",\n    \"forAction\": \"ValidateRmaRequest\",\n    \"itemId\": \"{{LineId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Rmas",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"OrderRmas\",\n    \"forAction\": \"\",\n    \"itemId\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Rma Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\": \"{{OrderId}}\",\n    \"viewName\": \"Details\",\n    \"forAction\": \"\",\n    \"itemId\": \"Entity-ReturnMerchandiseAuthorization-306ede007a7a4148988ff310f7756284\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Dashboard",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"OrdersDashboard\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IOActions>
+  <IOAction path="wwwroot\data\Environments\PlugIn.Search.Azure.PolicySet-1.0.0.json" action="disable" /> 
+</IOActions>

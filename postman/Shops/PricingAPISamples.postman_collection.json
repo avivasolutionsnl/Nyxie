@@ -1,0 +1,5198 @@
+{
+	"info": {
+		"_postman_id": "ac17a911-9ab1-4591-b367-0550d6619a2d",
+		"name": "PricingAPISamples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Add  price book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findBookAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceBookAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"BookId\", \"Entity-PriceBook-\" + jsonData.Models.find(findBookAdded).Name);",
+									"postman.setGlobalVariable(\"BookName\", jsonData.Models.find(findBookAdded).Name);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"PostmanPriceBook\",\n    \"description\": \"this is my book's description\",\n    \"displayName\": \"this is my book's display name\",\n    \"currencySetId\": \"{4B494292-598E-4A61-A156-D7501F7953ED}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AddPriceBook()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AddPriceBook()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit  price book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"friendlyId\": \"{{BookName}}\",\n    \"description\": \"this is a book's edited description\",\n    \"displayName\": \"this is my book's edited display name\",\n    \"currencySetId\": \"{073B17E0-09FE-411E-89F8-1662B15537CC}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/EditPriceBook()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"EditPriceBook()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Price books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/PriceBooks",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"PriceBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get price book",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/PriceBooks('{{BookName}}')?$expand=Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"PriceBooks('{{BookName}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Components"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Catalogs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetPriceBookAssociatedCatalogs(bookName='{{BookName}}')",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetPriceBookAssociatedCatalogs(bookName='{{BookName}}')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Associate catalog to book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookName\": \"{{BookName}}\",\n    \"catalogName\": \"A\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AssociateCatalogToPriceBook()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AssociateCatalogToPriceBook()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disassociate catalog from book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookName\": \"{{BookName}}\",\n    \"catalogName\": \"A\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DisassociateCatalogFromPriceBook()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DisassociateCatalogFromPriceBook()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add  price card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findCardAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceCardAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"CardId\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).PriceCardFriendlyId);",
+									"postman.setGlobalVariable(\"CardFriendlyId\", jsonData.Models.find(findCardAdded).PriceCardFriendlyId);",
+									"postman.setGlobalVariable(\"CardName\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).Name);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"bookName\": \"{{BookName}}\",\n   \"name\": \"PostmanPriceCard\",\n   \"description\": \"this is my card's description\",\n   \"displayName\": \"this is my card's display name\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AddPriceCard()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AddPriceCard()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get price card",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/PriceCards('{{CardFriendlyId}}')?$expand=Snapshots($expand=ChildComponents),Components",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"PriceCards('{{CardFriendlyId}}')"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Snapshots($expand=ChildComponents),Components"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Price cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/PriceCards",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"PriceCards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit  price card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"friendlyId\": \"{{CardFriendlyId}}\",\n    \"description\": \"this is a card's edited description\",\n    \"displayName\": \"this is my card's edited display name\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/EditPriceCard()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"EditPriceCard()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate price card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findCardAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceCardAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"CloneCardId\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).PriceCardFriendlyId);",
+									"postman.setGlobalVariable(\"CloneCardFriendlyId\", jsonData.Models.find(findCardAdded).PriceCardFriendlyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"priceCardFriendlyIdToDuplicate\": \"{{CardFriendlyId}}\",\n   \"priceCardNameOfDuplicate\": \"postmanpricecardduplicate\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DuplicatePriceCard()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DuplicatePriceCard()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  price card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"friendlyId\":\"{{CardFriendlyId}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DeletePriceCard()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DeletePriceCard()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add  price snapshot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findSnapshotAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceSnapshotAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"SnapshotId\", jsonData.Models.find(findSnapshotAdded).PriceSnapshotId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"beginDate\": \"06/16/2016\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AddPriceSnapshot()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AddPriceSnapshot()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit price snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"beginDate\": \"06/16/2016\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/EditPriceSnapshot()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"EditPriceSnapshot()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set snapshot status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotIds\":[\"{{SnapshotId}}\"],\n    \"status\": \"ReadyForApproval\",\n    \"comment\": \"I'm changing this snapshot status.\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/SetPriceSnapshotsApprovalStatus()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"SetPriceSnapshotsApprovalStatus()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove price snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\": \"{{SnapshotId}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/RemovePriceSnapshot()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"RemovePriceSnapshot()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add price tier",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findTierAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceTierAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"TierId\", jsonData.Models.find(findTierAdded).PriceTierId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"tierCurrency\": \"USD\",\n    \"tierQuantity\": 20,\n    \"tierPrice\": 100\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AddPriceTier()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AddPriceTier()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit price tier",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"tierId\": \"{{TierId}}\",\n    \"tierPrice\": 100\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/EditPriceTier()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"EditPriceTier()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove  price tier",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"tierId\": \"{{TierId}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/RemovePriceTier()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"RemovePriceTier()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add price snapshot tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"tagName\": \"tag01\",\n    \"isTagExcluded\": false\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/AddPriceSnapshotTag()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"AddPriceSnapshotTag()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove  price snapshot tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardFriendlyId\":\"{{CardFriendlyId}}\",\n    \"snapshotId\":\"{{SnapshotId}}\",\n    \"tagName\": \"tag01\"\n}\n"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/RemovePriceSnapshotTag()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"RemovePriceSnapshotTag()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Do Actions",
+			"item": [
+				{
+					"name": "Add Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findBookAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceBookAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"BookId\", \"Entity-PriceBook-\" + jsonData.Models.find(findBookAdded).Name);",
+									"postman.setGlobalVariable(\"BookName\", jsonData.Models.find(findBookAdded).Name);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"Details\",\n  \"Policies\": [],\n  \"EntityId\": \"\",\n  \"Action\": \"AddPriceBook\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n    {\n      \"Name\": \"Name\",\n      \"Policies\": [],\n      \"DisplayName\": \"Name\",\n      \"Value\": \"postmanpricebook\",\n      \"IsHidden\": false\n    },\n    {\n      \"Name\": \"DisplayName\",\n      \"Policies\": [],\n      \"DisplayName\": \"DisplayName\",\n      \"Value\": \"this is my book's display name\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"Description\",\n      \"Policies\": [],\n      \"DisplayName\": \"Description\",\n      \"Value\": \"this is my book's description\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"CurrencySetId\",\n      \"Policies\": [],\n      \"DisplayName\": \"CurrencySetId\",\n      \"Value\": \"4b494292-598e-4a61-a156-d7501f7953ed\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"Details\",\n  \"Policies\": [],\n  \"EntityId\": \"{{BookId}}\",\n  \"Action\": \"EditPriceBook\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Name\",\n      \"Policies\": [],\n      \"DisplayName\": \"Name\",\n      \"Value\": \"postmanpricebook\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"ViewProperty\",\n      \"IsReadOnly\": true\n    },\n    {\n      \"Name\": \"Description\",\n      \"Policies\": [],\n      \"DisplayName\": \"Description\",\n      \"Value\": \"edited description\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"ViewProperty\",\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"DisplayName\",\n      \"Policies\": [],\n      \"DisplayName\": \"DisplayName\",\n      \"Value\": \"edited display name\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"ViewProperty\",\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"CurrencySetId\",\n      \"Policies\": [],\n      \"DisplayName\": \"CurrencySetId\",\n      \"Value\": \"073B17E0-09FE-411E-89F8-1662B15537CC\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Associate Catalog",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceBookCatalogs\",\n  \"Policies\": [],\n  \"DisplayName\": \"PriceBookCatalogs\",\n  \"EntityId\": \"{{BookId}}\",\n  \"Action\": \"AssociateCatalog\",\n  \"ItemId\": \"\",\n  \"Properties\": [ \n        {\n          \"Name\": \"Version\",\n          \"Policies\": [],\n          \"DisplayName\": \"Version\",\n          \"Value\": \"1\",\n          \"IsHidden\": true,\n          \"OriginalType\": \"Int32\",\n          \"IsReadOnly\": true,\n          \"UiType\": \"\"\n        },\n        {\n          \"Name\": \"CatalogName\",\n          \"Policies\": [],\n          \"DisplayName\": \"CatalogName\",\n          \"Value\": \"A\",\n          \"IsHidden\": false,\n          \"OriginalType\": \"String\",\n          \"IsReadOnly\": false,\n          \"UiType\": \"\"\n        }\n    ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"List\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disassociate Catalog",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"DisplayName\": \"\",\n  \"EntityId\": \"{{BookId}}\",\n  \"Action\": \"DisassociateCatalog\",\n  \"ItemId\": \"A\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"List\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findCardAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceCardAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"CardId\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).PriceCardFriendlyId);",
+									"postman.setGlobalVariable(\"CardFriendlyId\", jsonData.Models.find(findCardAdded).PriceCardFriendlyId);",
+									"postman.setGlobalVariable(\"CardName\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).Name);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"Details\",\n  \"Policies\": [],\n  \"EntityId\": \"{{BookId}}\",\n  \"Action\": \"AddPriceCard\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Name\",\n      \"Policies\": [],\n      \"DisplayName\": \"Name\",\n      \"Value\": \"postmanpricecard\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n     {\n      \"Name\": \"Description\",\n      \"Policies\": [],\n      \"DisplayName\": \"Description\",\n      \"Value\": \"this is my card's description\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"DisplayName\",\n      \"Policies\": [],\n      \"DisplayName\": \"DisplayName\",\n      \"Value\": \"this is my card's display name\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"Details\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"EditPriceCard\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n     {\n      \"Name\": \"BookName\",\n      \"Policies\": [],\n      \"DisplayName\": \"BookName\",\n      \"Value\": \"PostmanPriceBook\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": true\n    },\n    {\n      \"Name\": \"Name\",\n      \"Policies\": [],\n      \"DisplayName\": \"Name\",\n      \"Value\": \"PostmanPriceCard\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": true\n    },\n    {\n      \"Name\": \"Description\",\n      \"Policies\": [],\n      \"DisplayName\": \"Description\",\n      \"Value\": \"this is my card's edited description\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"DisplayName\",\n      \"Policies\": [],\n      \"DisplayName\": \"DisplayName\",\n      \"Value\": \"this is my card's edited display name\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"BookId\",\n      \"Policies\": [],\n      \"DisplayName\": \"BookId\",\n      \"Value\": \"Entity-PriceBook-PostmanPriceBook\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": true\n    },\n    {\n      \"Name\": \"Id\",\n      \"Policies\": [],\n      \"DisplayName\": \"Id\",\n      \"Value\": \"Entity-PriceCard-PostmanPriceBook-PostmanPriceCard\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": true\n    },\n    {\n      \"Name\": \"FriendlyId\",\n      \"Policies\": [],\n      \"DisplayName\": \"FriendlyId\",\n      \"Value\": \"PostmanPriceBook-PostmanPriceCard\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": true\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findCardAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceCardAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"CloneCardId\", \"Entity-PriceCard-\" + jsonData.Models.find(findCardAdded).PriceCardFriendlyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"Details\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"DuplicatePriceCard\",\n  \"ItemId\": \"\",\n  \"Properties\": [ \n  \t{\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"DuplicateCardName\",\n      \"Policies\": [],\n      \"DisplayName\": \"DuplicateCardName\",\n      \"Value\": \"postmanpricecardduplicate\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Delete Card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{BookId}}\",\n  \"Action\": \"DeletePriceCard\",\n  \"ItemId\": \"{{CardId}}\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Snapshot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findSnapshotAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceSnapshotAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"SnapshotId\", jsonData.Models.find(findSnapshotAdded).PriceSnapshotId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceSnapshotDetails\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"AddPriceSnapshot\",\n  \"ItemId\": \"\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"BeginDate\",\n      \"Policies\": [],\n      \"DisplayName\": \"BeginDate\",\n      \"Value\": \"02/04/2020\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"String\",\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceSnapshotDetails\",\n  \"Policies\": [],\n  \"DisplayName\": \"Price Snapshot Details\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"EditPriceSnapshot\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"BeginDate\",\n      \"Policies\": [],\n      \"DisplayName\": \"Begin Date\",\n      \"Value\": \"2/4/2017 5:00:00 AM\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.DateTime\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RemovePriceSnapshot\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [ \n  \t{\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Snapshot Approval",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"SetSnapshotApprovalStatus\",\n  \"Policies\": [],\n  \"DisplayName\": \"SetSnapshotApprovalStatus\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RequestSnapshotApproval\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Comment\",\n      \"Policies\": [],\n      \"DisplayName\": \"Comment\",\n      \"Value\": \"it's ready!!\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"SetSnapshotApprovalStatus\",\n  \"Policies\": [],\n  \"DisplayName\": \"SetSnapshotApprovalStatus\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RejectSnapshot\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"3\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Comment\",\n      \"Policies\": [],\n      \"DisplayName\": \"Comment\",\n      \"Value\": \"no good enough prices\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"SetSnapshotApprovalStatus\",\n  \"Policies\": [],\n  \"DisplayName\": \"SetSnapshotApprovalStatus\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"ApproveSnapshot\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Comment\",\n      \"Policies\": [],\n      \"DisplayName\": \"Comment\",\n      \"Value\": \"no good enough prices\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retract Snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"SetSnapshotApprovalStatus\",\n  \"Policies\": [],\n  \"DisplayName\": \"SetSnapshotApprovalStatus\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RetractSnapshot\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"2\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Comment\",\n      \"Policies\": [],\n      \"DisplayName\": \"Comment\",\n      \"Value\": \"oops\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": false,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Flat\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Currency - USD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n    \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n    \"Name\": \"PriceRow\",\n    \"Policies\": [],\n    \"DisplayName\": \"Price Row\",\n    \"EntityId\": \"{{CardId}}\",\n    \"Action\": \"SelectCurrency\",\n    \"ItemId\": \"{{SnapshotId}}\",\n    \"Properties\": [\n        {\n            \"Name\": \"Version\",\n            \"Policies\": [],\n            \"DisplayName\": \"Version\",\n            \"Value\": \"7\",\n            \"IsHidden\": true,\n            \"OriginalType\": \"System.Int32\",\n            \"IsReadOnly\": true,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        },\n        {\n            \"Name\": \"Currency\",\n            \"Policies\": [\n                {\n                    \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n                    \"PolicyId\": \"a3e6c566c6ad4446acfee7fcec1cb209\",\n                    \"Models\": [],\n                    \"List\": [\n                        {\n                            \"Name\": \"CAD\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"CAD\",\n                            \"IsDefault\": false\n                        },\n                        {\n                            \"Name\": \"USD\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"USD\",\n                            \"IsDefault\": false\n                        },\n                        {\n                            \"Name\": \"EUR\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"EUR\",\n                            \"IsDefault\": false\n                        }\n                    ],\n                    \"AllowMultiSelect\": false\n                }\n            ],\n            \"DisplayName\": \"Currency\",\n            \"Value\": \"USD\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        }\n    ],\n    \"ChildViews\": [],\n    \"DisplayRank\": 500,\n    \"UiHint\": \"Flat\",\n    \"Icon\": \"dashboard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Currency - USD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceRow\",\n  \"Policies\": [],\n  \"DisplayName\": \"Price Row\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"AddCurrency\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"8\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"Currency\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"97645eeba74c4a65b82a6f1f8254c5ce\",\n          \"Models\": [],\n          \"List\": [\n            {\n              \"Name\": \"CAD\",\n              \"Policies\": [],\n              \"DisplayName\": \"CAD\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"USD\",\n              \"Policies\": [],\n              \"DisplayName\": \"USD\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"EUR\",\n              \"Policies\": [],\n              \"DisplayName\": \"EUR\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Currency\",\n      \"Value\": \"USD\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    }\n  ],\n  \"ChildViews\": [\n    {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"PriceCell\",\n      \"Policies\": [],\n      \"DisplayName\": \"PriceCell\",\n      \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n      \"Action\": null,\n      \"ItemId\": \"65e5721232274d3aa69f6431c08a7566\",\n      \"Properties\": [\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"1\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Price\",\n          \"Policies\": [],\n          \"DisplayName\": \"Price\",\n          \"Value\": \"100\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\",\n      \"Icon\": \"dashboard\"\n    },\n    {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"PriceCell\",\n      \"Policies\": [],\n      \"DisplayName\": \"PriceCell\",\n      \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n      \"Action\": null,\n      \"ItemId\": \"65e5721232274d3aa69f6431c08a7566\",\n      \"Properties\": [\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"2\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Price\",\n          \"Policies\": [],\n          \"DisplayName\": \"Price\",\n          \"Value\": \"200\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\",\n      \"Icon\": \"dashboard\"\n    }\n  ],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Grid\",\n  \"Icon\": \"dashboard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Currency - USD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n    \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n    \"Name\": \"PriceRow\",\n    \"Policies\": [],\n    \"DisplayName\": \"Price Row\",\n    \"EntityId\": \"{{CardId}}\",\n    \"Action\": \"EditCurrency\",\n    \"ItemId\": \"{{SnapshotId}}|USD\",\n    \"Properties\": [\n        {\n            \"Name\": \"Version\",\n            \"Policies\": [],\n            \"DisplayName\": \"Version\",\n            \"Value\": \"10\",\n            \"IsHidden\": true,\n            \"OriginalType\": \"System.Int32\",\n            \"IsReadOnly\": true,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        },\n        {\n            \"Name\": \"Currency\",\n            \"Policies\": [],\n            \"DisplayName\": \"Currency\",\n            \"Value\": \"USD\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": true,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        }\n    ],\n    \"ChildViews\": [\n        {\n            \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n            \"Name\": \"PriceCell\",\n            \"Policies\": [],\n            \"DisplayName\": \"PriceCell\",\n            \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n            \"Action\": null,\n            \"ItemId\": \"cdb3270bcac842a1b6d5ad14e54f97ea|USD\",\n            \"Properties\": [\n                {\n                    \"Name\": \"Quantity\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Quantity\",\n                    \"Value\": \"1.0\",\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": true,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                },\n                {\n                    \"Name\": \"Price\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Price\",\n                    \"Value\": \"101.0\",\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": false,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                }\n            ],\n            \"ChildViews\": [],\n            \"DisplayRank\": 500,\n            \"UiHint\": \"Flat\",\n            \"Icon\": \"dashboard\"\n        },\n        {\n            \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n            \"Name\": \"PriceCell\",\n            \"Policies\": [],\n            \"DisplayName\": \"PriceCell\",\n            \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n            \"Action\": null,\n            \"ItemId\": \"cdb3270bcac842a1b6d5ad14e54f97ea|USD\",\n            \"Properties\": [\n                {\n                    \"Name\": \"Quantity\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Quantity\",\n                    \"Value\": \"2.0\",\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": true,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                },\n                {\n                    \"Name\": \"Price\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Price\",\n                    \"Value\": null,\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": false,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                }\n            ],\n            \"ChildViews\": [],\n            \"DisplayRank\": 500,\n            \"UiHint\": \"Flat\",\n            \"Icon\": \"dashboard\"\n        },\n        {\n            \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n            \"Name\": \"PriceCell\",\n            \"Policies\": [],\n            \"DisplayName\": \"PriceCell\",\n            \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n            \"Action\": null,\n            \"ItemId\": \"cdb3270bcac842a1b6d5ad14e54f97ea|USD\",\n            \"Properties\": [\n                {\n                    \"Name\": \"Quantity\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Quantity\",\n                    \"Value\": \"3\",\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": true,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                },\n                {\n                    \"Name\": \"Price\",\n                    \"Policies\": [],\n                    \"DisplayName\": \"Price\",\n                    \"Value\": \"300\",\n                    \"IsHidden\": false,\n                    \"OriginalType\": \"System.Decimal\",\n                    \"IsReadOnly\": false,\n                    \"UiType\": \"\",\n                    \"IsRequired\": true\n                }\n            ],\n            \"ChildViews\": [],\n            \"DisplayRank\": 500,\n            \"UiHint\": \"Flat\",\n            \"Icon\": \"dashboard\"\n        }\n    ],\n    \"DisplayRank\": 500,\n    \"UiHint\": \"Grid\",\n    \"Icon\": \"dashboard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Currency - CAD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"@odata.context\": \"http://localhost:5000/Api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n    \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n    \"Name\": \"PriceRow\",\n    \"Policies\": [],\n    \"DisplayName\": \"Price Row\",\n    \"EntityId\": \"{{CardId}}\",\n    \"Action\": \"SelectCurrency\",\n    \"ItemId\": \"{{SnapshotId}}\",\n    \"Properties\": [\n        {\n            \"Name\": \"Version\",\n            \"Policies\": [],\n            \"DisplayName\": \"Version\",\n            \"Value\": \"7\",\n            \"IsHidden\": true,\n            \"OriginalType\": \"System.Int32\",\n            \"IsReadOnly\": true,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        },\n        {\n            \"Name\": \"Currency\",\n            \"Policies\": [\n                {\n                    \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n                    \"PolicyId\": \"a3e6c566c6ad4446acfee7fcec1cb209\",\n                    \"Models\": [],\n                    \"List\": [\n                        {\n                            \"Name\": \"CAD\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"CAD\",\n                            \"IsDefault\": false\n                        },\n                        {\n                            \"Name\": \"USD\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"USD\",\n                            \"IsDefault\": false\n                        },\n                        {\n                            \"Name\": \"EUR\",\n                            \"Policies\": [],\n                            \"DisplayName\": \"EUR\",\n                            \"IsDefault\": false\n                        }\n                    ],\n                    \"AllowMultiSelect\": false\n                }\n            ],\n            \"DisplayName\": \"Currency\",\n            \"Value\": \"CAD\",\n            \"IsHidden\": false,\n            \"OriginalType\": \"System.String\",\n            \"IsReadOnly\": false,\n            \"UiType\": \"\",\n            \"IsRequired\": true\n        }\n    ],\n    \"ChildViews\": [],\n    \"DisplayRank\": 500,\n    \"UiHint\": \"Flat\",\n    \"Icon\": \"dashboard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Currency - CAD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceRow\",\n  \"Policies\": [],\n  \"DisplayName\": \"Price Row\",\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"AddCurrency\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n    {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    },\n    {\n      \"Name\": \"Currency\",\n      \"Policies\": [\n        {\n          \"@odata.type\": \"#Sitecore.Commerce.Core.AvailableSelectionsPolicy\",\n          \"PolicyId\": \"97645eeba74c4a65b82a6f1f8254c5ce\",\n          \"Models\": [],\n          \"List\": [\n            {\n              \"Name\": \"CAD\",\n              \"Policies\": [],\n              \"DisplayName\": \"CAD\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"USD\",\n              \"Policies\": [],\n              \"DisplayName\": \"USD\",\n              \"IsDefault\": false\n            },\n            {\n              \"Name\": \"EUR\",\n              \"Policies\": [],\n              \"DisplayName\": \"EUR\",\n              \"IsDefault\": false\n            }\n          ],\n          \"AllowMultiSelect\": false\n        }\n      ],\n      \"DisplayName\": \"Currency\",\n      \"Value\": \"CAD\",\n      \"IsHidden\": false,\n      \"OriginalType\": \"System.String\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\",\n      \"IsRequired\": true\n    }\n  ],\n  \"ChildViews\": [\n    {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"PriceCell\",\n      \"Policies\": [],\n      \"DisplayName\": \"PriceCell\",\n      \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n      \"Action\": null,\n      \"ItemId\": \"65e5721232274d3aa69f6431c08a7566\",\n      \"Properties\": [\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"3\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Price\",\n          \"Policies\": [],\n          \"DisplayName\": \"Price\",\n          \"Value\": \"300\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\",\n      \"Icon\": \"dashboard\"\n    },\n    {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"PriceCell\",\n      \"Policies\": [],\n      \"DisplayName\": \"PriceCell\",\n      \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n      \"Action\": null,\n      \"ItemId\": \"65e5721232274d3aa69f6431c08a7566\",\n      \"Properties\": [\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"4\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Price\",\n          \"Policies\": [],\n          \"DisplayName\": \"Price\",\n          \"Value\": \"400\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\",\n      \"Icon\": \"dashboard\"\n    },\n    {\n      \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n      \"Name\": \"PriceCell\",\n      \"Policies\": [],\n      \"DisplayName\": \"PriceCell\",\n      \"EntityId\": \"Entity-PriceCard-postmanpricebook-postmanpricecard\",\n      \"Action\": null,\n      \"ItemId\": \"65e5721232274d3aa69f6431c08a7566\",\n      \"Properties\": [\n        {\n          \"Name\": \"Quantity\",\n          \"Policies\": [],\n          \"DisplayName\": \"Quantity\",\n          \"Value\": \"5\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        },\n        {\n          \"Name\": \"Price\",\n          \"Policies\": [],\n          \"DisplayName\": \"Price\",\n          \"Value\": \"500\",\n          \"IsHidden\": false,\n          \"OriginalType\": null,\n          \"IsReadOnly\": false,\n          \"UiType\": \"\",\n          \"IsRequired\": true\n        }\n      ],\n      \"ChildViews\": [],\n      \"DisplayRank\": 500,\n      \"UiHint\": \"Flat\",\n      \"Icon\": \"dashboard\"\n    }\n  ],\n  \"DisplayRank\": 500,\n  \"UiHint\": \"Grid\",\n  \"Icon\": \"dashboard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Currency - CAD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RemoveCurrency\",\n  \"ItemId\": \"{{SnapshotId}}|CAD\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Tier (NOT IN USED)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"function findTierAdded(model) {",
+									"    var type = '@odata.type';",
+									"    return model[type] === '#Sitecore.Commerce.Plugin.Pricing.PriceTierAdded';",
+									"}",
+									"",
+									"postman.setGlobalVariable(\"TierId\", jsonData.Models.find(findTierAdded).PriceTierId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceTierDetails\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"AddPriceTier\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Quantity\",\n      \"Policies\": [],\n      \"DisplayName\": \"Quantity\",\n      \"Value\": 10,\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"Currency\",\n      \"Policies\": [],\n      \"DisplayName\": \"Currency\",\n      \"Value\": \"USD\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"Price\",\n      \"Policies\": [],\n      \"DisplayName\": \"Price\",\n      \"Value\": 1,\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Tier (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceTierDetails\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"EditPriceTier\",\n  \"ItemId\": \"{{SnapshotId}}|{{TierId}}\",\n  \"Properties\": [ \n  \t{\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Price\",\n      \"Policies\": [],\n      \"DisplayName\": \"Price\",\n      \"Value\": 20,\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Tier (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RemovePriceTier\",\n  \"ItemId\": \"{{SnapshotId}}|{{TierId}}\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"PriceTagDetails\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"AddPriceTag\",\n  \"ItemId\": \"{{SnapshotId}}\",\n  \"Properties\": [\n  \t {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    },\n    {\n      \"Name\": \"Name\",\n      \"Policies\": [],\n      \"DisplayName\": \"Name\",\n      \"Value\": \"postmantag\",\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    },\n    {\n      \"Name\": \"Excluded\",\n      \"Policies\": [],\n      \"DisplayName\": \"Excluded\",\n      \"Value\": true,\n      \"IsHidden\": false,\n      \"OriginalType\": null,\n      \"IsReadOnly\": false\n    }\n  ],\n  \"ChildViews\": []\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"@odata.context\": \"http://localhost:5000/api/$metadata#Sitecore.Commerce.EntityViews.EntityView\",\n  \"@odata.type\": \"#Sitecore.Commerce.EntityViews.EntityView\",\n  \"Name\": \"\",\n  \"Policies\": [],\n  \"EntityId\": \"{{CardId}}\",\n  \"Action\": \"RemovePriceTag\",\n  \"ItemId\": \"{{SnapshotId}}|postmantag\",\n  \"Properties\": [\n   {\n      \"Name\": \"Version\",\n      \"Policies\": [],\n      \"DisplayName\": \"Version\",\n      \"Value\": \"1\",\n      \"IsHidden\": true,\n      \"OriginalType\": \"System.Int32\",\n      \"IsReadOnly\": true,\n      \"UiType\": \"\"\n    }\t\n  ],\n  \"ChildViews\": [],\n  \"DisplayRank\": 500\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/DoUxAction()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"DoUxAction()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entity Views",
+			"item": [
+				{
+					"name": "Books",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"PriceBooks\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Master",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"Master\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"Details\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Details - For Add",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"Details\",\n    \"itemId\": \"\",\n    \"forAction\":\"AddPriceBook\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Details - For Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"Details\",\n    \"itemId\": \"\",\n    \"forAction\":\"EditPriceBook\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Cards",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"PriceBookCards\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Catalogs",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"PriceBookCatalogs\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Catalogs - For Associate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"PriceBookCatalogs\",\n    \"forAction\":\"AssociateCatalog\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Master",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"Master\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"Details\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Details - For Add",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{BookId}}\",\n    \"viewName\":\"Details\",\n    \"itemId\": \"\",\n    \"forAction\":\"AddPriceCard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Details - For Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"Details\",\n    \"itemId\": \"\",\n    \"forAction\":\"EditPriceCard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Details - For Duplicate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"Details\",\n    \"forAction\":\"DuplicatePriceCard\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card - Snapshots",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceCardSnapshots\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceSnapshotDetails\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Details - For Add",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceSnapshotDetails\",\n    \"itemId\": \"\",\n    \"forAction\":\"AddPriceSnapshot\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Details - For Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceSnapshotDetails\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"EditPriceSnapshot\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Status - For Request Approval",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"SetSnapshotApprovalStatus\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"RequestSnapshotApproval\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Status - For Reject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"SetSnapshotApprovalStatus\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"RejectSnapshot\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Status - For Approved",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"SetSnapshotApprovalStatus\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"ApproveSnapshot\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Status - For Retract",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"SetSnapshotApprovalStatus\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"RetractSnapshot\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Pricing",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"Pricing\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot -  Price Row",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceRow\",\n    \"itemId\": \"{{SnapshotId}}|USD\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot -  Price Row - For Select",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceRow\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"SelectCurrency\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot -  Price Row - For Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceRow\",\n    \"itemId\": \"{{SnapshotId}}|USD\",\n    \"forAction\":\"EditCurrency\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Tiers (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceSnapshotTiers\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot - Tier Details (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceTierDetails\",\n    \"itemId\": \"{{SnapshotId}}|{{TierId}}\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot - Tier Details - For Add (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceTierDetails\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"AddPriceTier\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot - Tier Details - For Edit (NOT IN USED)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceTierDetails\",\n    \"itemId\": \"{{SnapshotId}}|{{TierId}}\",\n    \"forAction\":\"EditPriceTier\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Snapshot - Tags",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceSnapshotTags\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot - Tag Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceTagDetails\",\n    \"itemId\": \"{{SnapshotId}}|tag01\",\n    \"forAction\":\"\"\n}\n    "
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Snapshot - Tag Details - For Add",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"{{CardId}}\",\n    \"viewName\":\"PriceTagDetails\",\n    \"itemId\": \"{{SnapshotId}}\",\n    \"forAction\":\"AddPriceTag\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pricing Dashboard",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entityId\":\"\",\n    \"viewName\":\"PricingDashboard\",\n    \"forAction\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetEntityView()",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetEntityView()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List",
+			"item": [
+				{
+					"name": "Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PriceBooks',type='Sitecore.Commerce.Plugin.Pricing.PriceBook, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PriceBooks',type='Sitecore.Commerce.Plugin.Pricing.PriceBook, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book - Cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PriceBooks-AdventureWorksPriceBook-Pricecards',type='Sitecore.Commerce.Plugin.Pricing.PriceCard, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PriceBooks-AdventureWorksPriceBook-Pricecards',type='Sitecore.Commerce.Plugin.Pricing.PriceCard, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ShopName",
+								"value": "{{ShopName}}"
+							},
+							{
+								"key": "ShopperId",
+								"value": "{{ShopperId}}"
+							},
+							{
+								"key": "Language",
+								"value": "{{Language}}"
+							},
+							{
+								"key": "Currency",
+								"value": "{{Currency}}"
+							},
+							{
+								"key": "Environment",
+								"value": "{{Environment}}"
+							},
+							{
+								"key": "GeoLocation",
+								"value": "{{GeoLocation}}"
+							},
+							{
+								"key": "CustomerId",
+								"value": "{{CustomerId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{SitecoreIdToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ServiceHost}}/{{ShopsApi}}/GetList(id='PriceCards',type='Sitecore.Commerce.Plugin.Pricing.PriceCard, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)?$expand=Items",
+							"host": [
+								"{{ServiceHost}}"
+							],
+							"path": [
+								"{{ShopsApi}}",
+								"GetList(id='PriceCards',type='Sitecore.Commerce.Plugin.Pricing.PriceCard, Sitecore.Commerce.Plugin.Pricing',skip=0,take=10)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Items"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
