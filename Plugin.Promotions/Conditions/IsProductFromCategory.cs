@@ -23,7 +23,7 @@ namespace Plugin.Promotions.Conditions
             {
                 return false;
             }
-            return cart.Lines.Any(line => line.GetComponent<CategoryComponent>().ParentCategoryList == category);            
+            return cart.Lines.Any(line => line.GetComponent<CategoryComponent>().ParentCategoryList.Contains(category));            
         }
     }
 }

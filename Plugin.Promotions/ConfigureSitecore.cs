@@ -14,6 +14,7 @@ namespace Sitecore.Commerce.Plugin.Sample
     using Sitecore.Commerce.Plugin.Carts;
     using global::Plugin.Promotions.Pipelines.Blocks;
     using Sitecore.Framework.Rules;
+    using Sitecore.Commerce.EntityViews;
 
     /// <summary>
     /// The configure sitecore class.
@@ -33,6 +34,7 @@ namespace Sitecore.Commerce.Plugin.Sample
 
             services.Sitecore().Pipelines(config => config             
                .ConfigurePipeline<IAddCartLinePipeline>(configure => configure.Add<AddCategoryBlock>().Before<PersistCartBlock>())
+               .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Replace<Promotions.GetPromotionQualificationDetailsViewBlock, GetPromotionQualificationDetailsViewBlock>())
                );
 
             services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterThisAssembly()));
