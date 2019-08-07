@@ -34,7 +34,8 @@ namespace Sitecore.Commerce.Plugin.Sample
 
             services.Sitecore().Pipelines(config => config             
                .ConfigurePipeline<IAddCartLinePipeline>(configure => configure.Add<AddCategoryBlock>().Before<PersistCartBlock>())
-               .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Replace<Promotions.GetPromotionQualificationDetailsViewBlock, GetPromotionQualificationDetailsViewBlock>())
+               .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Add<CategoryConditionDetailsViewBlock>().After<Promotions.GetPromotionQualificationDetailsViewBlock>())
+               
                );
 
             services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterThisAssembly()));

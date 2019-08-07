@@ -10,6 +10,9 @@
     <PackageLicenseUrl>http://www.sitecore.net/platform/pricing.aspx</PackageLicenseUrl>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Pipelines\Blocks\GetPromotionQualificationDetailsViewBlock.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Sitecore.Commerce.Core">
