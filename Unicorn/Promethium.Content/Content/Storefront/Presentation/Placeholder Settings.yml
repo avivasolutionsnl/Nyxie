@@ -1,0 +1,14 @@
+﻿---
+ID: "6bff1e0c-d17a-4882-ad66-af45d872c4b0"
+Parent: "3741ec48-a89c-4f04-ad42-3daf95e2eda7"
+Template: "0339bac0-78c1-43c1-b930-f8c26a5fdf80"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Placeholder Settings
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T121836Z

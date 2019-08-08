@@ -1,0 +1,89 @@
+﻿---
+ID: "95495133-dc41-485d-b459-f9bd51b80041"
+Parent: "fbded70d-4add-429f-bac7-aed26fccef08"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Page Content/Product Information/Product Information/Item Number
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
+    {FCD285DA-9AB2-4C8D-B185-5A7487A9BA1B}
+    {98B41352-5A4B-4067-B924-18A4B50F0A53}
+    {F4218805-86DD-4A01-A94D-7342FC392BCC}
+    {6354D18E-54E9-45AD-9EC7-510769DB4809}
+    {ACA5C9A3-CDA0-49B6-893F-1D4A7CB595B0}
+    {C645DD63-2462-470C-A48D-8B55757A2DB3}
+    {7C02E9F5-54B5-4EF4-BD10-F4C5D448A48C}
+    {6ECA12E9-F4D5-4F6E-9C3C-6DF716BC593B}
+    {98E1C490-65E2-4F23-A4FD-D2D496CB387B}
+    {73A99860-05A0-4DC1-82F1-10D31267E43F}
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Type: Rules
+  Value: <ruleset />
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 75
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "product-number"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Varenummer
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180913T161245Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Artikelnummer
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180913T161119Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Item Number
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171101T111328Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 商品番号
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180913T161200Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

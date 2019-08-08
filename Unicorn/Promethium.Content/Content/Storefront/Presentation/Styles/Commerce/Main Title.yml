@@ -1,0 +1,18 @@
+﻿---
+ID: "b2df29a6-b9e3-4d80-ab7d-45a5332c04f1"
+Parent: "24c98bbb-a52f-40c7-a0ea-556d2568d0b7"
+Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Commerce/Main Title
+DB: master
+SharedFields:
+- ID: "09147fb2-ebfb-4949-8c8e-26a424409d5e"
+  Hint: Value
+  Value: "main-title"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171109T140841Z

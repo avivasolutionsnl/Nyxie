@@ -1,0 +1,18 @@
+﻿---
+ID: "7692d1be-aad4-4bf8-95d2-519baae8361d"
+Parent: "50eebb2c-67d6-453e-869a-b739b88fd594"
+Template: "456067df-fc7d-4639-9177-41f69e81c927"
+Path: /sitecore/content/MyTenant/Storefront/Settings/Twitter Apps
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122047Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

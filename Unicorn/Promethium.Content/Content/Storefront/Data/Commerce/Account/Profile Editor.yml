@@ -1,0 +1,71 @@
+﻿---
+ID: "26fa5c0e-cdc0-4865-98b8-93c3b5382271"
+Parent: "132ae138-8aa3-4f18-b26c-10c69f96fa9c"
+Template: "56f8800b-d28a-494f-82e5-06f98a736a3a"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Account/Profile Editor
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083405Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "fe55f1ca-d7f7-4129-81a8-e6c1b2cc9c8f"
+      Hint: "Save Changes Button In-Progress Label"
+      Value: Gemmer ...
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122101Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153530Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122101Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085920Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7c54e617-479f-4e57-92b4-fdd23edc2138"
+      Hint: Email Address Hint Text
+      Value: Eメール アドレス
+    - ID: "9adb429e-2b04-4c67-9258-6428a5d3ac82"
+      Hint: Email Address Label
+      Value: Eメール アドレス

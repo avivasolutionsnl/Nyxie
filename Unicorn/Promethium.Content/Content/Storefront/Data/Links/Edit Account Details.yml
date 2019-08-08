@@ -1,0 +1,78 @@
+﻿---
+ID: "67092859-3db9-4110-8c81-36f4b972ea11"
+Parent: "1626bacb-2ce1-4210-9a5b-af3294d47809"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/MyTenant/Storefront/Data/Links/Edit Account Details
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083009Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Edit account details" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{367889DB-A40F-4709-8FBC-BEB83F623396}" />
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084813Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Kontodetails bearbeiten" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{367889DB-A40F-4709-8FBC-BEB83F623396}" />
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170720T064409Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Edit account details" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{367889DB-A40F-4709-8FBC-BEB83F623396}" />
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122212Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085344Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Edit account details" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{367889DB-A40F-4709-8FBC-BEB83F623396}" />

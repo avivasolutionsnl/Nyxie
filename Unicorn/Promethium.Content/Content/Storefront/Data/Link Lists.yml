@@ -1,0 +1,18 @@
+﻿---
+ID: "88836725-085f-40e5-b0bc-e10c3c1bcc68"
+Parent: "8d878d14-d030-4e26-a886-8b77b4832a6b"
+Template: "2fb317e5-509a-4be9-b348-bf79168665c9"
+Path: /sitecore/content/MyTenant/Storefront/Data/Link Lists
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122006Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

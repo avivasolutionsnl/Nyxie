@@ -1,0 +1,67 @@
+﻿---
+ID: "fdf6c562-1246-4255-94a7-20a58a941830"
+Parent: "0e87a213-165f-468a-ba6c-c2cde1d34aa7"
+Template: "eec7911b-0b41-4f6f-99a5-af47c1ae3dbd"
+Path: /sitecore/content/MyTenant/Storefront/Home/category
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/16x16/elements4.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {EEC7911B-0B41-4F6F-99A5-AF47C1AE3DBD}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {30D31F08-F559-435A-98BD-F31D0319EB0F}
+    {612FB369-AD88-4BCD-A1F6-8BF8FC375E07}
+    {9F40B47C-932D-4ECA-9848-3878DCC8AEE8}
+    {41073D29-3B4C-4FB7-957D-43AB10186F02}
+    {49AF6443-ADAE-4247-B3D9-A1A54731F571}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{CA82BFE0-F62F-441C-A30D-BDFC3380D68C}"
+- ID: "d85db4ec-ff89-4f9c-9e7c-a9e0654797fc"
+  Hint: __Editor
+  Value: 
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kategori
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kategorie
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Category
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170529T101155Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Category
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Category
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: カテゴリー
+  Versions:

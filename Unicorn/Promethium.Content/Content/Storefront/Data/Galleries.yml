@@ -1,0 +1,18 @@
+﻿---
+ID: "fdc7f8b0-fe49-4a11-a473-8313026bcd0c"
+Parent: "8d878d14-d030-4e26-a886-8b77b4832a6b"
+Template: "83db28a0-f7f6-42fc-ad48-d0a2d4b644d6"
+Path: /sitecore/content/MyTenant/Storefront/Data/Galleries
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T121941Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
