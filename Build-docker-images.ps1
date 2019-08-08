@@ -16,6 +16,8 @@ docker-compose -f docker-compose.yml -f docker-compose.build.yml stop
 
 docker-compose -f docker-compose.yml -f docker-compose.build.yml up -d mssql
 
+Start-Sleep -Milliseconds 10000
+
 docker exec promethium_mssql_1 powershell c:\Persist-Databases.ps1
 
 docker-compose -f docker-compose.yml -f docker-compose.build.yml stop 
