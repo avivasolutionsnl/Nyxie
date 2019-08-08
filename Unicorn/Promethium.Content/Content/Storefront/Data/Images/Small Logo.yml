@@ -1,0 +1,114 @@
+﻿---
+ID: "630e252a-9b45-4d7c-a1fc-4e9a818a06c4"
+Parent: "e15a2983-0a92-4ac5-a9c9-064bd9125209"
+Template: "bb8a85ab-1f6d-4518-8772-1c9f4f8dac18"
+Path: /sitecore/content/MyTenant/Storefront/Data/Images/Small Logo
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1100
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Lille logo
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180517T102124Z
+    - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
+      Hint: TargetUrl
+      Value: |
+        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{0E87A213-165F-468A-BA6C-C2CDE1D34AA7}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
+      Hint: Image
+      Value: |
+        <image mediaid="{2BE3A8BD-B9C9-4467-ABDD-DE830E232561}" />
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kleines Logo
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180517T101531Z
+    - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
+      Hint: TargetUrl
+      Value: |
+        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{0E87A213-165F-468A-BA6C-C2CDE1D34AA7}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
+      Hint: Image
+      Value: |
+        <image mediaid="{2BE3A8BD-B9C9-4467-ABDD-DE830E232561}" />
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Small Logo
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171119T171417Z
+    - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
+      Hint: TargetUrl
+      Value: |
+        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{0E87A213-165F-468A-BA6C-C2CDE1D34AA7}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
+      Hint: Image
+      Value: |
+        <image mediaid="{2BE3A8BD-B9C9-4467-ABDD-DE830E232561}" />
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122207Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 小ロゴ
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180517T102911Z
+    - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
+      Hint: TargetUrl
+      Value: |
+        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{0E87A213-165F-468A-BA6C-C2CDE1D34AA7}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
+      Hint: Image
+      Value: |
+        <image mediaid="{2BE3A8BD-B9C9-4467-ABDD-DE830E232561}" />

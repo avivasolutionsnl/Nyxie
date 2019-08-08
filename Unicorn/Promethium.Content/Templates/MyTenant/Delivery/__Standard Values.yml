@@ -1,0 +1,60 @@
+﻿---
+ID: "0f8c352b-5b08-4919-9445-8cb35e84a80d"
+Parent: "f55ad5fa-31ba-4aca-a7e7-618e8f26ab14"
+Template: "f55ad5fa-31ba-4aca-a7e7-618e8f26ab14"
+Path: /sitecore/templates/Project/MyTenant/Delivery/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {EEC7911B-0B41-4F6F-99A5-AF47C1AE3DBD}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {612FB369-AD88-4BCD-A1F6-8BF8FC375E07}
+    {30D31F08-F559-435A-98BD-F31D0319EB0F}
+    {9F40B47C-932D-4ECA-9848-3878DCC8AEE8}
+    {41073D29-3B4C-4FB7-957D-43AB10186F02}
+    {49AF6443-ADAE-4247-B3D9-A1A54731F571}
+    {45D5E10A-2F7E-4CA7-8A9A-878443904B97}
+    {85B1449D-668E-4850-A089-7FAAE429F415}
+    {0B123EAE-E514-4BA1-A29F-1CD5B05F0CCD}
+    {A66E27B5-BA2E-4DBC-B1D4-4CA293FF413A}
+    {8D639104-8CAE-43EB-AC58-7E4A298EBE0D}
+    {8F387801-823B-4BF4-A962-1CBA5409581E}
+    {A2CBA687-C817-4538-ACEC-A0E3C0DFCCB9}
+    {4C4B3D06-1D99-407E-A859-B4679A03BF6B}
+    {577E39EF-4D8A-455E-ADF5-502FB01D07A0}
+    {DCBD99DF-885D-4D25-AE7F-2EFFBB83F076}
+    {DEE48119-2CC0-418B-A3E8-81BC295199FA}
+    {C1A63821-BA0F-4AB6-B497-BC9EFFB6198B}
+    {B51A22C2-1B2E-4564-A3D1-97F144AEA636}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{E9658F6A-2775-4AB7-8147-54B66BDF1351}"
+- ID: "d4952280-2d7d-4bf4-a99a-ea36dad0f0a7"
+  Hint: Body Css Class
+  Value: "checkout-delivery-page"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171214T025117Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Delivery

@@ -1,0 +1,74 @@
+﻿---
+ID: "de309b0c-adda-461a-9aba-3050fc3319bd"
+Parent: "132ae138-8aa3-4f18-b26c-10c69f96fa9c"
+Template: "476011d6-59de-47a6-8256-d453f6016fc8"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Account/Registration
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122102Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122102Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153552Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122102Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085755Z
+    - ID: "4dd3330d-6ade-4791-8d19-c193ebb09aec"
+      Hint: Password Label
+      Value: パスワード
+    - ID: "5a666691-bbd1-4bdd-be59-e8e4491bf7a2"
+      Hint: Email Address Label
+      Value: Eメール アドレス
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "70a114a4-ce07-4487-8a7d-8901ec5a9c13"
+      Hint: Email Address Hint Text
+      Value: Eメール アドレス
+    - ID: "e6741721-2708-491b-8993-68835f19382d"
+      Hint: Password Hint Text
+      Value: パスワード

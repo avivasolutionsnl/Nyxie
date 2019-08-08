@@ -1,0 +1,23 @@
+﻿---
+ID: "9a17a333-27c1-4447-a38f-50f362f36b69"
+Parent: "3879b76c-db4d-4a7b-b56c-f07f2e8a1949"
+Template: "c8e2a53c-6eac-49e2-bbc6-3ea8d0861834"
+Path: /sitecore/content/MyTenant/Storefront/Data/Search/Location Filter
+DB: master
+BranchID: "957565a0-bf0d-4f8b-bf2c-4a8f40ec9080"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0A5BE50D-6D61-4A22-B28A-05C52AF9307D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122120Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

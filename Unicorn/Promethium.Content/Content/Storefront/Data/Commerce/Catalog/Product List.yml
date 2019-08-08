@@ -1,0 +1,98 @@
+﻿---
+ID: "b40d858a-14d3-4c45-beb5-4c7cb3fc0037"
+Parent: "061f5dec-0c73-4f75-998e-009bcb2247e6"
+Template: "ce2182b7-6240-4fbb-a91b-7f1597847400"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Catalog/Product List
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20445782-f3ea-4800-b100-a98fe115029d"
+      Hint: Product Page Link Text
+      Value: Detaljer
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083251Z
+    - ID: "31770082-97cd-4e48-b322-1a3d11c4587a"
+      Hint: Show More Products Text
+      Value: Vis mere
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "e1b656c5-052f-44eb-9093-0f2c0bffba4c"
+      Hint: Show More Products Tooltip
+      Value: Vis flere produkter
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20445782-f3ea-4800-b100-a98fe115029d"
+      Hint: Product Page Link Text
+      Value: Details
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085053Z
+    - ID: "31770082-97cd-4e48-b322-1a3d11c4587a"
+      Hint: Show More Products Text
+      Value: Mehr anzeigen
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "e1b656c5-052f-44eb-9093-0f2c0bffba4c"
+      Hint: Show More Products Tooltip
+      Value: Mehr Produkte zeigen
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20445782-f3ea-4800-b100-a98fe115029d"
+      Hint: Product Page Link Text
+      Value: Details
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153710Z
+    - ID: "31770082-97cd-4e48-b322-1a3d11c4587a"
+      Hint: Show More Products Text
+      Value: Show more
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e1b656c5-052f-44eb-9093-0f2c0bffba4c"
+      Hint: Show More Products Tooltip
+      Value: Show more products
+    - ID: "fae69faa-3d38-422f-9f88-2691275975ac"
+      Hint: Save Percent Lead
+      Value: Save up to
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122104Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085738Z
+    - ID: "31770082-97cd-4e48-b322-1a3d11c4587a"
+      Hint: Show More Products Text
+      Value: さらに表示
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "e1b656c5-052f-44eb-9093-0f2c0bffba4c"
+      Hint: Show More Products Tooltip
+      Value: さらに商品を表示

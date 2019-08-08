@@ -1,0 +1,14 @@
+﻿---
+ID: "ebebba99-1967-4c95-9fe6-d30f2a67c6bd"
+Parent: "6099f823-8b04-439a-8a81-58bd6911fb5e"
+Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
+Path: /sitecore/media library/Themes/MyTenant/Storefront
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T121825Z

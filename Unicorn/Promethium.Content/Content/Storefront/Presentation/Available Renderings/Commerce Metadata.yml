@@ -1,0 +1,26 @@
+﻿---
+ID: "3e5a81b1-242e-4ca3-b8b7-98bee18c5d0c"
+Parent: "c7415a6a-96bf-4c4b-9620-0d1c46e07fdd"
+Template: "bf70a40b-6d0e-4639-9862-24bb8946094b"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Available Renderings/Commerce Metadata
+DB: master
+SharedFields:
+- ID: "715ae6c0-71c8-4744-ab4f-65362d20ad65"
+  Hint: Renderings
+  Type: TreelistEx
+  Value: |
+    {432E53A1-E676-4A07-92BC-A3EF517A5811}
+    {D2EB2C0D-5453-4430-B4C4-B98F26F21447}
+    {B761C521-23CC-4F51-8340-15F5483BE921}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180119T045456Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
