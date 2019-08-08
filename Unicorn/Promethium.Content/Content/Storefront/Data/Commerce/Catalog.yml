@@ -1,0 +1,72 @@
+﻿---
+ID: "061f5dec-0c73-4f75-998e-009bcb2247e6"
+Parent: "ed7f0be3-2c34-46a9-ba48-837af455c317"
+Template: "5e61fad9-65f8-4bf3-a223-b5916d38c911"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Catalog
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {4603A786-5BCD-4A19-B71E-B402310D29EC}
+    {39BA527D-0D56-47C5-9217-7168DC4A8D65}
+    {CE2182B7-6240-4FBB-A91B-7F1597847400}
+    {C8598D36-CEAC-4548-BC82-0DCAA3B07A2A}
+    {C6084556-AE7D-40DC-A278-1F8B5BE8BE79}
+    {5B77A415-90D2-4414-97CA-03A4E241957B}
+    {247B66F8-62F6-49BA-B397-84F34F2F88EF}
+    {0B7CD8EC-0A11-459A-9827-7D792B5BF6BA}
+    {583F9B29-2917-4A35-B7E5-F5DDE0A98DD4}
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122057Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122057Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153314Z
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122057Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122057Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

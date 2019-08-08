@@ -1,0 +1,130 @@
+﻿---
+ID: "afed90cb-ae16-4673-8c79-df4e54ebafad"
+Parent: "0e87a213-165f-468a-ba6c-c2cde1d34aa7"
+Template: "b51a22c2-1b2e-4564-a3d1-97f144aea636"
+Path: /sitecore/content/MyTenant/Storefront/Home/buygiftcard
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Apps/16x16/gift card.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {EEC7911B-0B41-4F6F-99A5-AF47C1AE3DBD}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {612FB369-AD88-4BCD-A1F6-8BF8FC375E07}
+    {9F40B47C-932D-4ECA-9848-3878DCC8AEE8}
+    {41073D29-3B4C-4FB7-957D-43AB10186F02}
+    {49AF6443-ADAE-4247-B3D9-A1A54731F571}
+    {30D31F08-F559-435A-98BD-F31D0319EB0F}
+    {45D5E10A-2F7E-4CA7-8A9A-878443904B97}
+    {85B1449D-668E-4850-A089-7FAAE429F415}
+    {0B123EAE-E514-4BA1-A29F-1CD5B05F0CCD}
+    {A66E27B5-BA2E-4DBC-B1D4-4CA293FF413A}
+    {8D639104-8CAE-43EB-AC58-7E4A298EBE0D}
+    {8F387801-823B-4BF4-A962-1CBA5409581E}
+    {A2CBA687-C817-4538-ACEC-A0E3C0DFCCB9}
+    {4C4B3D06-1D99-407E-A859-B4679A03BF6B}
+    {577E39EF-4D8A-455E-ADF5-502FB01D07A0}
+    {DCBD99DF-885D-4D25-AE7F-2EFFBB83F076}
+    {DEE48119-2CC0-418B-A3E8-81BC295199FA}
+    {C1A63821-BA0F-4AB6-B497-BC9EFFB6198B}
+    {B51A22C2-1B2E-4564-A3D1-97F144AEA636}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{CA82BFE0-F62F-441C-A30D-BDFC3380D68C}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: "-150"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{25387B48-1D7E-4DFF-8CB1-F25B343BC1BE}"
+          p:before="*"
+          s:ds="{18D3CFCC-6328-4036-B804-B0DDE879E9BD}"
+          s:id="{C4222625-2637-43FE-82D7-341009A277CA}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/column-2-1" />
+        <r
+          uid="{46BFE7AE-F881-4789-9B06-95468EC7CBF5}"
+          p:after="r[@uid='{25387B48-1D7E-4DFF-8CB1-F25B343BC1BE}']"
+          s:id="{32C08A8F-1576-4DED-905D-DDAB77466027}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/column-2-1" />
+        <r
+          uid="{675B0955-66EA-46D8-92F7-14EB7BDEEB09}"
+          p:after="r[@uid='{46BFE7AE-F881-4789-9B06-95468EC7CBF5}']"
+          s:ds="{4758BC1B-2627-4646-A5A3-AEB21FA6A7E9}"
+          s:id="{63B19D58-0764-495A-80CB-4B06C99C3F70}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/column-2-1" />
+        <r
+          uid="{DFA15B1C-3E12-4A29-98AB-0384ACB829F2}"
+          p:after="r[@uid='{675B0955-66EA-46D8-92F7-14EB7BDEEB09}']"
+          s:ds="{6E8E0079-111F-4443-BA7F-0F22791172F2}"
+          s:id="{93BC3DB7-582A-48EE-ADE8-F410561FA411}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/column-2-1" />
+        <r
+          uid="{16E732A0-8EC7-462B-92FB-C9761FEBBD00}"
+          p:after="r[@uid='{DFA15B1C-3E12-4A29-98AB-0384ACB829F2}']"
+          s:id="{24A792CF-1F2A-4A0D-9CEE-89B6BC696C55}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/column-1-1" />
+        <r
+          uid="{7BAB3D98-B4B9-4B4D-9668-289136755E92}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2={44167434-4C6C-4524-B050-18A0732E110F}&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth2={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Køb gavekort
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kaufen Sie eine Geschenkkarte
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Buy Gift Card
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170728T030101Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Buy Gift Card
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Buy Gift Card
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ギフト カードを購入
+  Versions:

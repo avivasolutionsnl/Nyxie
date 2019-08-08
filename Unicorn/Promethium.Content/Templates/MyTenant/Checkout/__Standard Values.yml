@@ -1,0 +1,44 @@
+﻿---
+ID: "754882f9-572e-4d65-884f-2c8390225bfb"
+Parent: "28387f24-0d8c-4903-bbe0-d78ab621aa9e"
+Template: "28387f24-0d8c-4903-bbe0-d78ab621aa9e"
+Path: /sitecore/templates/Project/MyTenant/Checkout/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {F55AD5FA-31BA-4ACA-A7E7-618E8F26AB14}
+    {CDA76F1B-543F-4A7E-97E1-6FAEDF493DF0}
+    {E970D49D-D6CE-4467-A96D-09E24B95DBF7}
+    {7083FC13-67F6-4517-8451-A60A6F4C1CF6}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{E9658F6A-2775-4AB7-8147-54B66BDF1351}"
+- ID: "d4952280-2d7d-4bf4-a99a-ea36dad0f0a7"
+  Hint: Body Css Class
+  Value: "checkout-page"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171214T025048Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Checkout

@@ -1,0 +1,139 @@
+﻿---
+ID: "6e0b084b-4427-4d8b-8739-d4a7d02311de"
+Parent: "90938ad1-85d6-4e60-81f7-23f39ca78991"
+Template: "cae08569-888b-493d-875f-401d69842710"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Default Commerce Header
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "new-header-with-navigation"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{4DFAE107-537E-449B-9CD7-CB659347E412}"
+          p:before="*"
+          s:ds="{D366931E-2521-4B90-8187-481CBC25195E}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters={4C80E2ED-07D6-4652-A90B-3820049E9CE4}|{2FF25A31-B1F1-4B00-8131-71323148B1F1}|{0DA3126E-497A-4DA6-9A15-EC8B151F8D7C}&amp;FieldNames&amp;Styles&amp;RenderingIdentifier&amp;Reset Caching Options"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
+        <r
+          uid="{BB8FA88C-5DFB-4CF1-9B7A-0A3844FEBBEF}"
+          p:after="r[@uid='{4DFAE107-537E-449B-9CD7-CB659347E412}']"
+          s:cac="1"
+          s:ds="{CBE398FB-45C3-46B6-A882-EAE8DA04D0B4}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters=%7BFD09A9D2-113E-49B8-B481-F0B4FFE9B498%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FData%2FImages%2FLarge%20Logo"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1"
+          s:ciu="1" />
+        <r
+          uid="{F8C5CAA6-8E2C-442F-81CF-C834CE508E4B}"
+          p:after="r[@uid='{BB8FA88C-5DFB-4CF1-9B7A-0A3844FEBBEF}']"
+          s:id="{A6AEE2E8-BFB1-4D86-BA02-5E73C723B38E}"
+          s:par="GridParameters"
+          s:ph="/header/sxa-base-header-structure/row-3-1/container-2/column-1-1" />
+        <r
+          uid="{B46F1610-7414-4879-BDF7-97958EC0D9F1}"
+          p:after="r[@uid='{F8C5CAA6-8E2C-442F-81CF-C834CE508E4B}']"
+          s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles={9644FAB3-EF1E-48AC-BC21-29DF609CA1EC}|{99CD46EF-0FBE-4D3B-94AC-F8BF7B9F749B}|{53ED503C-BCF7-4632-9EB7-CABD26E72088}&amp;BreadcrumbRoot&amp;Separator=&gt;&amp;IsNavigation&amp;Filter"
+          s:ph="/header/sxa-base-header-structure/row-3-1/container-2/column-1-1" />
+        <r
+          uid="{65655D3D-C166-4D3A-885E-AB723ADFACBB}"
+          p:after="r[@uid='{B46F1610-7414-4879-BDF7-97958EC0D9F1}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=1&amp;EnabledPlaceholders=1&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;ColumnWidth2={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;DynamicPlaceholderId=1"
+          s:ph="/header/sxa-base-header-structure/row-3-1/container-2" />
+        <r
+          uid="{A0E16828-F235-4547-B0CC-7FCA0C00692D}"
+          p:after="r[@uid='{65655D3D-C166-4D3A-885E-AB723ADFACBB}']"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles&amp;DynamicPlaceholderId=2"
+          s:ph="/header/sxa-base-header-structure/row-3-1" />
+        <r
+          uid="{4F92BA23-B9C7-44E2-B421-7F3F073EF6E5}"
+          p:after="r[@uid='{A0E16828-F235-4547-B0CC-7FCA0C00692D}']"
+          s:id="{7F30A08E-92A2-4C33-B9CF-0AA6AEB064C3}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{F2FCE948-4F77-44AF-A188-B2030061F793}|{08B60EE1-3F06-4C49-9449-E7420AFE5A2F}|{3EBE0FCB-B055-4BFD-8C61-5FD42C9A8E9D}"
+          s:ph="/header/sxa-base-header-structure/row-2-1" />
+        <r
+          uid="{EA7F2D83-49F6-42E3-8422-A3FCBDE62F81}"
+          p:after="r[@uid='{4F92BA23-B9C7-44E2-B421-7F3F073EF6E5}']"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles&amp;DynamicPlaceholderId=1"
+          s:ph="/header/sxa-base-header-structure/row-1-1" />
+        <r
+          uid="{1D26AA9D-CE98-4E29-9E72-DBA67E82FA4F}"
+          p:after="r[@uid='{EA7F2D83-49F6-42E3-8422-A3FCBDE62F81}']"
+          s:ds="{A49A5C69-6EB5-42DA-83AB-6DA21E171802}"
+          s:id="{29E9F4F9-F2AC-4AB1-80E5-EBB3CFF7E9F2}"
+          s:par="GridParameters&amp;Search Page Link=/sitecore/content/MyTenant/Storefront/Home/search"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
+        <r
+          uid="{88A67B3E-F87C-4F66-96BF-607E1F118A59}"
+          p:after="r[@uid='{1D26AA9D-CE98-4E29-9E72-DBA67E82FA4F}']"
+          s:id="{EAF925D2-529E-4A5B-90DE-87184D3BA735}"
+          s:par="GridParameters={FD09A9D2-113E-49B8-B481-F0B4FFE9B498}|{4FFF2CDD-A1C1-4EAC-A6D8-63E57B9CD7E7}"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
+        <r
+          uid="{0F3E6797-2E5B-4E18-9DFC-507DEAAF24D9}"
+          p:after="r[@uid='{88A67B3E-F87C-4F66-96BF-607E1F118A59}']"
+          s:ds="{B10B33F0-1BE6-4FED-8F95-23012FFEA632}"
+          s:id="{04B9A10C-2092-4E29-BDA3-79571F5F19FC}"
+          s:par="GridParameters&amp;View Cart Link=%7B00DAC9A8-20F5-4967-AB2C-8673ED556A5D%7D&amp;Checkout Link=%7BCCC643FE-4AF6-43DE-9461-0F35C7ECEA9C%7D&amp;Hide Checkout Button"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
+        <r
+          uid="{2E9C4896-2643-4C50-852F-A805E5D6389A}"
+          p:after="*[1=2]"
+          s:ds="{575A9383-E70B-4327-B964-F3C42751A31C}"
+          s:id="{18F9EE55-D1CB-41E2-9238-78DB8BDB1AE2}"
+          s:par="GridParameters&amp;Profile Edit Page Link=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FHome%2Faccountmanagement%2Feditprofile"
+          s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Standard handels-header"
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Standard Commerce Header
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Default Commerce Header
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171122T055137Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
+      Hint: Base Partial Design
+      Value: "{8DB6B65D-61BB-4147-9D1E-F3E04BA8D688}"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: デフォルトのCommerce ヘッダー
+  Versions:

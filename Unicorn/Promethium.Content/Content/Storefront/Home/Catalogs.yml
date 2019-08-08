@@ -1,0 +1,22 @@
+﻿---
+ID: "7cf010ad-a826-40f2-8139-9f653ac63b03"
+Parent: "0e87a213-165f-468a-ba6c-c2cde1d34aa7"
+Template: "334e2b54-f913-411d-b159-a7b16d65242c"
+Path: /sitecore/content/MyTenant/Storefront/Home/Catalogs
+DB: master
+SharedFields:
+- ID: "ed3ebccd-a230-4659-923f-014707e1945d"
+  Hint: Selected Catalogs
+  Value: Habitat_Master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190129T050938Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

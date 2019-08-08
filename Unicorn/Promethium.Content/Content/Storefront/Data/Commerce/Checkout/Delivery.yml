@@ -1,0 +1,83 @@
+﻿---
+ID: "e5a1ed17-ac3a-49d7-a2d6-d3dd850f73b5"
+Parent: "7f32cb99-ce85-4ed4-83d8-f68f8a4b8cc9"
+Template: "abbadeb8-d7c2-492f-a96e-ba78d898328e"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Checkout/Delivery
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083334Z
+    - ID: "3c527720-2c82-4eff-932a-6072dfeda6ac"
+      Hint: Previous Button Label
+      Value: Fortsæt med at shoppe fantastiske produkter
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "c13d2d38-e9db-489c-ad66-cb7afbd7fdcf"
+      Hint: Name Label
+      Value: "Navn:"
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085136Z
+    - ID: "3c527720-2c82-4eff-932a-6072dfeda6ac"
+      Hint: Previous Button Label
+      Value: Fahren Sie damit fort, tolle  Produkte einzukaufen
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "c13d2d38-e9db-489c-ad66-cb7afbd7fdcf"
+      Hint: Name Label
+      Value: "Name:"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153942Z
+    - ID: "3c527720-2c82-4eff-932a-6072dfeda6ac"
+      Hint: Previous Button Label
+      Value: Continue shopping great products
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "c13d2d38-e9db-489c-ad66-cb7afbd7fdcf"
+      Hint: Name Label
+      Value: Name
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122107Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085839Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "c13d2d38-e9db-489c-ad66-cb7afbd7fdcf"
+      Hint: Name Label
+      Value: 名前

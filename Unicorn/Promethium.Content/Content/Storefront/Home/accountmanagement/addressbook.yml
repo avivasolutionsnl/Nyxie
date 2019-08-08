@@ -1,0 +1,113 @@
+﻿---
+ID: "61e275c3-dea3-44c7-847f-aa950706fa9c"
+Parent: "72d8caea-40c9-429a-ae16-14140eece2bb"
+Template: "8d639104-8cae-43eb-ac58-7e4a298ebe0d"
+Path: /sitecore/content/MyTenant/Storefront/Home/accountmanagement/addressbook
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/16x16/map_location.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {EEC7911B-0B41-4F6F-99A5-AF47C1AE3DBD}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {612FB369-AD88-4BCD-A1F6-8BF8FC375E07}
+    {30D31F08-F559-435A-98BD-F31D0319EB0F}
+    {41073D29-3B4C-4FB7-957D-43AB10186F02}
+    {9F40B47C-932D-4ECA-9848-3878DCC8AEE8}
+    {49AF6443-ADAE-4247-B3D9-A1A54731F571}
+    {45D5E10A-2F7E-4CA7-8A9A-878443904B97}
+    {85B1449D-668E-4850-A089-7FAAE429F415}
+    {0B123EAE-E514-4BA1-A29F-1CD5B05F0CCD}
+    {A66E27B5-BA2E-4DBC-B1D4-4CA293FF413A}
+    {8D639104-8CAE-43EB-AC58-7E4A298EBE0D}
+    {8F387801-823B-4BF4-A962-1CBA5409581E}
+    {A2CBA687-C817-4538-ACEC-A0E3C0DFCCB9}
+    {4C4B3D06-1D99-407E-A859-B4679A03BF6B}
+    {577E39EF-4D8A-455E-ADF5-502FB01D07A0}
+    {DCBD99DF-885D-4D25-AE7F-2EFFBB83F076}
+    {DEE48119-2CC0-418B-A3E8-81BC295199FA}
+    {C1A63821-BA0F-4AB6-B497-BC9EFFB6198B}
+    {B51A22C2-1B2E-4564-A3D1-97F144AEA636}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{D1082285-54E2-4DC3-B9B4-E20DFDACD9A6}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{487887F2-B93F-4949-A8C5-B3DA62DB3E9B}"
+          p:before="*"
+          s:ds="{9B71EA1B-D4FD-4C9B-88C2-132D19E114BA}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="GridParameters&amp;Styles={B2DF29A6-B9E3-4D80-AB7D-45A5332C04F1}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{69681DD1-9A93-4D79-B1D3-2C5C1914545D}"
+          p:after="r[@uid='{487887F2-B93F-4949-A8C5-B3DA62DB3E9B}']"
+          s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+          s:par="GridParameters&amp;Styles={F029CBFB-691A-40E8-B66C-4400E7F911B3}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{0D297C26-6443-4E9E-93D6-3AF251EF76CA}"
+          p:after="r[@uid='{69681DD1-9A93-4D79-B1D3-2C5C1914545D}']"
+          s:ds="{655617FC-1894-44A9-8524-36A4AA2C12B1}"
+          s:id="{ECF139E2-C760-4EF1-847D-3B1A7718A051}"
+          s:par="Account Management Page Link=%7B72D8CAEA-40C9-429A-AE16-14140EECE2BB%7D&amp;GridParameters"
+          s:ph="/main/container-1" />
+        <r
+          uid="{2ED71791-529A-4635-AB95-E2840D71ECF0}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles={44167434-4C6C-4524-B050-18A0732E110F}&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Adressebog
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Adressbuch 
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Address Book
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170508T060411Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Address Book
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Address Book
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: アドレス帳
+  Versions:

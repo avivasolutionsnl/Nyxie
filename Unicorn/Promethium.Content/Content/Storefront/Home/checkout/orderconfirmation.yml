@@ -1,0 +1,131 @@
+﻿---
+ID: "b23dc32c-3297-4378-9b35-4c7e377d6b62"
+Parent: "ccc643fe-4af6-43de-9461-0f35c7ecea9c"
+Template: "e970d49d-d6ce-4467-a96d-09e24b95dbf7"
+Path: /sitecore/content/MyTenant/Storefront/Home/checkout/orderconfirmation
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {EEC7911B-0B41-4F6F-99A5-AF47C1AE3DBD}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {612FB369-AD88-4BCD-A1F6-8BF8FC375E07}
+    {41073D29-3B4C-4FB7-957D-43AB10186F02}
+    {9F40B47C-932D-4ECA-9848-3878DCC8AEE8}
+    {49AF6443-ADAE-4247-B3D9-A1A54731F571}
+    {30D31F08-F559-435A-98BD-F31D0319EB0F}
+    {45D5E10A-2F7E-4CA7-8A9A-878443904B97}
+    {85B1449D-668E-4850-A089-7FAAE429F415}
+    {0B123EAE-E514-4BA1-A29F-1CD5B05F0CCD}
+    {A66E27B5-BA2E-4DBC-B1D4-4CA293FF413A}
+    {8D639104-8CAE-43EB-AC58-7E4A298EBE0D}
+    {8F387801-823B-4BF4-A962-1CBA5409581E}
+    {A2CBA687-C817-4538-ACEC-A0E3C0DFCCB9}
+    {4C4B3D06-1D99-407E-A859-B4679A03BF6B}
+    {577E39EF-4D8A-455E-ADF5-502FB01D07A0}
+    {DCBD99DF-885D-4D25-AE7F-2EFFBB83F076}
+    {DEE48119-2CC0-418B-A3E8-81BC295199FA}
+    {C1A63821-BA0F-4AB6-B497-BC9EFFB6198B}
+    {B51A22C2-1B2E-4564-A3D1-97F144AEA636}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{BEF2C9F4-0815-4603-9F94-06884E3E8E7D}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{15EDC979-901D-468D-AC2C-6267E0B46F43}"
+          p:before="*"
+          s:ds="{8056950E-1F51-4EB9-B70D-57C1DFC757A6}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par=""
+          s:ph="/main/container-1/column-1-2" />
+        <r
+          uid="{7A80968F-05F3-4C28-A87D-6BB794F3F9B6}"
+          p:after="r[@uid='{15EDC979-901D-468D-AC2C-6267E0B46F43}']"
+          s:ds="{BC7CDC42-6C90-4FA3-82D0-9D259CF32948}"
+          s:id="{E4D1D252-5689-4F23-8655-B9AC90D36F15}"
+          s:par=""
+          s:ph="/main/container-1/column-1-2" />
+        <r
+          uid="{8FFD6D85-B4AC-41E1-A00A-3ADC4127637C}"
+          p:after="r[@uid='{7A80968F-05F3-4C28-A87D-6BB794F3F9B6}']"
+          s:ds="{AA5CB68D-A1B8-41B1-98C4-4DB180AB41C9}"
+          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;RenderingIdentifier"
+          s:ph="/main/container-1/column-1-2" />
+        <r
+          uid="{C181852F-713F-4D92-B376-132AC6EF31E0}"
+          p:after="r[@uid='{8FFD6D85-B4AC-41E1-A00A-3ADC4127637C}']"
+          s:ds="{0CFCF0CB-66A0-427A-B0B2-3D5B40E56099}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/container-1/column-2-2" />
+        <r
+          uid="{19AFBB9B-4395-47EC-B181-11C55E9A0739}"
+          p:after="r[@uid='{C181852F-713F-4D92-B376-132AC6EF31E0}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=2&amp;Caching=0|0|0|0|0|0|0|0&amp;SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;ColumnWidth2={2040C827-8640-4E61-907E-D3D5A25696C3}|{F58A39D5-1B62-4A8A-95AD-65B3878BB873}&amp;Styles2&amp;ColumnWidth1={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{F2FCE948-4F77-44AF-A188-B2030061F793}|{2040C827-8640-4E61-907E-D3D5A25696C3}|{F58A39D5-1B62-4A8A-95AD-65B3878BB873}&amp;Styles1"
+          s:ph="/main/container-1" />
+        <r
+          uid="{DF95A546-2F2C-45DB-B1E2-43F3668E3458}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles={44167434-4C6C-4524-B050-18A0732E110F}&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+      </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}">
+        <p:d />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ordrebekræftelse
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Bestellbestätigung
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Order Confirmation
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170326T054336Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Order Confirmation
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: OrderConfirmation
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 注文の確認
+  Versions:

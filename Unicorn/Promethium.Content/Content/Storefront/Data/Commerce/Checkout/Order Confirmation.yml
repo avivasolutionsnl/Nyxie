@@ -1,0 +1,83 @@
+﻿---
+ID: "bc7cdc42-6c90-4fa3-82d0-9d259cf32948"
+Parent: "7f32cb99-ce85-4ed4-83d8-f68f8a4b8cc9"
+Template: "be8d531a-ca6b-43b7-a087-ef14523a72ea"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Checkout/Order Confirmation
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17c1910d-014e-4047-bfca-63de7435fec1"
+      Hint: Status Label
+      Value: Statussen for din ordre er
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083108Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "a2d507c1-9e01-4ede-86cd-7106c1abf84a"
+      Hint: Confirmation Number Label
+      Value: Dit ordrebekræftelsesnummer er
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17c1910d-014e-4047-bfca-63de7435fec1"
+      Hint: Status Label
+      Value: Der Status Ihrer Bestellung ist
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084906Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "a2d507c1-9e01-4ede-86cd-7106c1abf84a"
+      Hint: Confirmation Number Label
+      Value: Ihre Bestellbestätigungsnummer lautet
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17c1910d-014e-4047-bfca-63de7435fec1"
+      Hint: Status Label
+      Value: The status of your order is
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153947Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190808T122107Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17c1910d-014e-4047-bfca-63de7435fec1"
+      Hint: Status Label
+      Value: ご注文状況は
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085501Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "a2d507c1-9e01-4ede-86cd-7106c1abf84a"
+      Hint: Confirmation Number Label
+      Value: 注文確認番号

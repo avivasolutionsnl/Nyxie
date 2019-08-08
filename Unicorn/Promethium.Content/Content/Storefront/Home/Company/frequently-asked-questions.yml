@@ -1,0 +1,86 @@
+﻿---
+ID: "ab54ae6d-8882-43ec-a5f6-2fcb6c5cc6fa"
+Parent: "da2d4db4-2d65-4553-abd8-73db05a178d6"
+Template: "612fb369-ad88-4bcd-a1f6-8bf8fc375e07"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Company/frequently-asked-questions"
+DB: master
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{D1082285-54E2-4DC3-B9B4-E20DFDACD9A6}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{9AFE154D-BEE7-4933-BA0A-2F830716CD7E}"
+          p:before="*"
+          s:ds="{28E1A8F1-C41F-4D51-808D-B872FE0D8181}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={B2DF29A6-B9E3-4D80-AB7D-45A5332C04F1}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{CE62D7B8-6BEE-4419-8518-1EC1044F43F4}"
+          p:after="r[@uid='{9AFE154D-BEE7-4933-BA0A-2F830716CD7E}']"
+          s:ds="{2B0B8E61-57FA-41A7-970D-A6530522B7EA}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{9A4D8FA9-557E-4D1E-A061-53E5C56B0A64}"
+          p:after="r[@uid='{CE62D7B8-6BEE-4419-8518-1EC1044F43F4}']"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+        <r
+          uid="{6C6D4E4F-72D2-424F-9BB7-B695F7156D05}"
+          p:after="*[1=2]"
+          s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ofte stillede spørgsmål
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Frequently Asked Questions
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Frequently Asked Questions
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170414T074049Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: FAQ
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Frequently Asked Questions
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: よくあるご質問
+  Versions:
