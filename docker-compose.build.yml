@@ -1,0 +1,20 @@
+version: '2.4'
+
+services:
+ solr:
+  build: 
+    context: ./Docker/solr
+    args:
+      BASE_IMAGE: avivasolutionsnl.azurecr.io/sitecore-xc-solr-sxa:9.1.0-20190528
+
+ mssql:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-mssql-sxa:9.1.0-20190528
+
+ sitecore:
+  volumes:  
+    - .\files:C:\files-mount  
+    - .\docker\sitecore:c:\sitecore
+  build:
+    context: ./Docker/sitecore
+    args:
+      BASE_IMAGE: avivasolutionsnl.azurecr.io/sitecore-xc-sitecore-sxa:9.1.0-20190528

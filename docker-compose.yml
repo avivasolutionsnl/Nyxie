@@ -1,0 +1,84 @@
+version: '2.4'
+
+services:
+ commerce:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-commerce:9.1.0-20190528
+  mem_limit: 4096m
+  cpu_count: 6
+  command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
+  networks:
+    - promethium
+  volumes:
+    - .\logs\commerce\CommerceAuthoring_Sc9:C:\inetpub\wwwroot\CommerceAuthoring_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceMinions_Sc9:C:\inetpub\wwwroot\CommerceMinions_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceOps_Sc9:C:\inetpub\wwwroot\CommerceOps_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceShops_Sc9:C:\inetpub\wwwroot\CommerceShops_Sc9\wwwroot\logs
+    - .\build\commerce:C:\Workspace
+  depends_on:
+    - xconnect
+    - mssql
+    - solr
+    - sitecore
+    - identity
+
+ identity:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-identity:9.1.0-20190528
+  command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
+  networks:
+    - promethium
+  volumes:
+    - .\logs\identity:C:\inetpub\wwwroot\identity\app_data\logs
+  depends_on:
+    - mssql
+
+ mssql:
+  image: avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20190528
+  mem_limit: 4096m
+  cpu_count: 4
+  networks:
+    - promethium
+  volumes:
+    - .\databases\wip:C:\Data
+
+ sitecore:
+  image: avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20190528
+  mem_limit: 8192m
+  cpu_count: 6
+  command: -commerceHostname commerce -identityHostname identity
+  networks:
+    - promethium
+  volumes:
+    - .\logs\sitecore:C:\inetpub\wwwroot\sitecore\App_Data\logs
+    - .\build\website:C:\Workspace
+    - .\Unicorn:C:\inetpub\wwwroot\sitecore\App_Data\Unicorn
+    - .\license:C:\license
+  depends_on:
+    - xconnect
+    - mssql
+    - solr
+    - identity
+
+ solr:
+  image: avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20190528
+  mem_limit: 4096m
+  cpu_count: 4
+  networks:
+    - promethium
+  volumes:
+    - .\cores:C:\Data
+
+ xconnect:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-xconnect:9.1.0-20190528
+  networks:
+    - promethium
+  volumes:
+    - .\logs\xconnect:C:\inetpub\wwwroot\xconnect\App_data\Logs
+    - .\license:C:\license
+  depends_on:
+    - mssql
+    - solr
+
+networks:
+  promethium:
+    external:
+      name: nat

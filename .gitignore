@@ -12,6 +12,14 @@
 *.user
 *.sln.docstates
 
+files
+license
+cores*/
+databases*/
+logs/commerce
+logs/sitecore
+logs/xconnect
+
 # Build results
 [Dd]ebug/
 [Rr]elease/
