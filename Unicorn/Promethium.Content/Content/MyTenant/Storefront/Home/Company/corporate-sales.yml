@@ -1,13 +1,13 @@
 ﻿---
-ID: "ceb8120a-5935-4f97-aba5-f4b7ecc73acb"
-Parent: "795a268a-406f-4a34-91b3-0d3cec16aa7c"
-Template: "d220392b-8b42-4e8a-86f9-a346e4658321"
+ID: "950addbb-6ec2-4327-8cac-94063c2100d6"
+Parent: "9b9ca043-bcb9-42fb-a3f0-ba4eae8074dd"
+Template: "98f19afa-1ae7-42ef-af06-bc30e6b5ded3"
 Path: "/sitecore/content/MyTenant/Storefront/Home/Company/corporate-sales"
 DB: master
 SharedFields:
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
-  Value: "{9B2E20F3-C54A-4EDC-A0F0-AD1C1856D062}"
+  Value: "{C0E938B0-3918-4EB7-80CB-123AADE8FD47}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -19,14 +19,14 @@ SharedFields:
         <r
           uid="{EDBE6F62-C3B8-47DA-8A69-B6631D66A95E}"
           p:before="*"
-          s:ds="{CB07CC12-C426-4872-A781-D2526B237859}"
+          s:ds="{EBFF5108-0EC0-479A-B684-D4372699911B}"
           s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={A838576C-D768-42B9-807C-B17C39EE5BFF}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={AA575BF9-6D53-4FE5-B777-00EF4251DEA2}"
           s:ph="/main/container-1" />
         <r
           uid="{AB571436-2BEB-4A84-8D4D-98156CC8A95A}"
           p:after="r[@uid='{EDBE6F62-C3B8-47DA-8A69-B6631D66A95E}']"
-          s:ds="{87CE468A-C29A-4BA3-9211-17CA630CD219}"
+          s:ds="{BEE9C1BB-4E40-4784-877D-4B256C8E3068}"
           s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
           s:ph="/main/container-1" />

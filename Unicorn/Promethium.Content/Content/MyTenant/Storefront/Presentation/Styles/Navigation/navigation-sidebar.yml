@@ -1,6 +1,6 @@
 ﻿---
-ID: "4b4b37ba-6e66-4b24-aa7c-3d8483a3878e"
-Parent: "59712ef9-c82a-4c21-b447-2e3498ab250f"
+ID: "2341f9b6-7c65-4e3f-9816-198486a59170"
+Parent: "2a57367f-e0d2-43c0-91c3-b54b36236d58"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: "/sitecore/content/MyTenant/Storefront/Presentation/Styles/Navigation/navigation-sidebar"
 DB: master
@@ -34,7 +34,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111925Z
+      Value: 20190809T120515Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

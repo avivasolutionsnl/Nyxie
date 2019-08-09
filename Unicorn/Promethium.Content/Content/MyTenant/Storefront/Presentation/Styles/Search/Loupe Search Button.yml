@@ -1,6 +1,6 @@
 ﻿---
-ID: "37e42501-43c2-4109-9f6e-550f3da73f75"
-Parent: "1c579905-9d8c-4879-b4df-97f1cc0d6154"
+ID: "7c569fc5-393b-4d80-9bfb-7cbaa6123323"
+Parent: "e460195e-8654-4fb5-a84b-884e8c0eecfc"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Search/Loupe Search Button
 DB: master
@@ -23,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111927Z
+      Value: 20190809T120517Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

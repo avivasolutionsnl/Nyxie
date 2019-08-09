@@ -1,7 +1,7 @@
 ﻿---
-ID: "1cf1834e-35eb-4786-9ef1-c007f1696247"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "51fd157a-f988-422a-9da6-b33ef6a5cc09"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Default Main Category Page Content
 DB: master
 SharedFields:
@@ -22,21 +22,21 @@ SharedFields:
         <r
           uid="{E82D91D8-1401-4332-86B4-3C8EC115E6A6}"
           p:before="*"
-          s:ds="{A3CE1A89-E70E-4BD0-9D96-742C2394071B}"
+          s:ds="{6E2F791A-5722-4E6E-86E4-9E3E0E34C731}"
           s:id="{EA89C258-F47F-4A76-A9E2-DF450985B897}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{968D2D51-1E55-4D75-9679-528029D8A2E8}|{8636EB85-386A-42BA-AA14-D5F592867741}|{689708EA-D282-4A39-9F6F-6F95F428942F}"
           s:ph="/main/column-2-2" />
         <r
           uid="{F4B675C6-FCD2-4A1A-A4AB-B2D316D08651}"
           p:after="r[@uid='{E82D91D8-1401-4332-86B4-3C8EC115E6A6}']"
-          s:ds="{4DC05CD7-1C1D-4928-9D7C-CE1D3CB3845C}"
+          s:ds="{2BFD1061-6A7E-4F7D-8775-A6F2846B7A88}"
           s:id="{C1DE5434-8570-46CB-BF87-FC33DBDFD89E}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{5D87E990-D33A-4613-BE6D-0D0235197254}|{1864351A-0EDC-4650-95C0-7AB675D646AF}|{2A09D451-70CD-4A11-868C-3C56B6A7749C}"
           s:ph="/main/column-2-2" />
         <r
           uid="{55F6562F-CB97-4370-B0B4-901A06DB0686}"
           p:after="r[@uid='{F4B675C6-FCD2-4A1A-A4AB-B2D316D08651}']"
-          s:ds="{5150D94B-76A8-4D29-8B62-19C877527D17}"
+          s:ds="{2FC76B7F-2BEE-4FC4-8F12-55548AE472C4}"
           s:id="{9CA5EB05-780A-438F-AABE-18B09C97D5FD}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{4D4B771B-9954-430E-AEE1-E76C54BD50C3}|{2DAC5C5F-3B64-4A60-9A98-262F32C05800}|{BC2E9EFE-9CAA-4B85-9310-D503C36485ED}&amp;Results per Page Values=12|18|24|30"
           s:ph="/main/column-2-2" />
@@ -55,14 +55,14 @@ SharedFields:
         <r
           uid="{3CB64BB0-AFCD-4C43-AA81-032271DF21BC}"
           p:after="r[@uid='{1DD24F95-0CA5-45BB-9EB2-045AFC18E1F9}']"
-          s:ds="{2F35CBBF-ABF2-4D96-8AFF-2C3B8C1BF87A}"
+          s:ds="{1001A926-5A1F-4A1B-BE5C-C54AB1E18BC7}"
           s:id="{54729A57-6D74-4A3D-A870-174F70FC6288}"
           s:par="GridParameters&amp;Show No Result Message&amp;Use Lazy Loading&amp;Max Page Size=12"
           s:ph="/main/column-2-2" />
         <r
           uid="{476649C4-A26B-4852-B97A-F6889A7C24C3}"
           p:after="r[@uid='{3CB64BB0-AFCD-4C43-AA81-032271DF21BC}']"
-          s:ds="{058C78C1-0AB2-4FE1-A970-199135C586E3}"
+          s:ds="{7C172E12-B25C-4B27-985F-568DEEB222F1}"
           s:id="{2A6D6B26-5912-4AD1-B396-47669C2AEBEE}"
           s:par="GridParameters&amp;Pages on Each Side of Current Page=5"
           s:ph="/main/column-2-2" />

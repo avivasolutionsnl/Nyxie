@@ -1,13 +1,13 @@
 ﻿---
-ID: "eb1e2828-346b-4b13-ad91-021c94dea717"
-Parent: "11343245-51d9-4081-8645-dbe2b8f3b373"
-Template: "da84cd7a-217b-476e-ab19-96840872a080"
+ID: "d7df3549-bf20-4625-b1f7-f34a023030c3"
+Parent: "75952940-d49b-4417-8794-ecdfcd303282"
+Template: "deff2260-e741-45f9-99cb-42c2e2d42344"
 Path: /sitecore/content/MyTenant/Storefront/Home/landingpages/drone
 DB: master
 SharedFields:
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
-  Value: "{9B2E20F3-C54A-4EDC-A0F0-AD1C1856D062}"
+  Value: "{C0E938B0-3918-4EB7-80CB-123AADE8FD47}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -33,9 +33,9 @@ SharedFields:
         <r
           uid="{DD3B8766-6C58-4C86-9612-C334B7C6E321}"
           p:after="r[@uid='{E0D5E0C7-1887-45C3-A90E-56BA09B5ABEE}']"
-          s:ds="{C1985A15-1632-43AC-8FE5-A736AE8E804C}"
+          s:ds="{8E9CDA3C-E796-44B6-8F07-E302A48A7693}"
           s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles=%7B6BA63F11-C04F-4E6E-AF9C-A2AF63158FA3%7D&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles=%7BAD177601-F799-450F-BC1F-F049552A28C7%7D&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="/main/row-1-1" />
         <r
           uid="{8D346872-33A1-46E9-B2FC-5520AA713351}"
@@ -47,12 +47,12 @@ SharedFields:
           uid="{C27D2796-455B-45E4-A6CE-EB305E6A1749}"
           p:after="r[@uid='{8D346872-33A1-46E9-B2FC-5520AA713351}']"
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B7F878872-DA73-4862-85BF-363D6D7DD8E9%7D&amp;Styles&amp;RenderingIdentifier"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B9F9CC1A8-8D80-4B80-8E21-ECB0CA8E4428%7D&amp;Styles&amp;RenderingIdentifier"
           s:ph="/main/row-2-1/Container-21/column-2-1" />
         <r
           uid="{60BED01E-0649-45C0-94BF-06DE91C75C16}"
           p:after="r[@uid='{C27D2796-455B-45E4-A6CE-EB305E6A1749}']"
-          s:ds="{3096F0FD-898D-47B9-A21E-5EE287804C7C}"
+          s:ds="{F41F5A7A-6EA4-41EA-92AF-9D151DD827AC}"
           s:id="{B79DF484-3464-441A-811C-DC1BFEED8CA1}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="/main/row-2-1/Container-21/column-2-1" />
@@ -65,14 +65,14 @@ SharedFields:
         <r
           uid="{7B09C285-8629-432F-8662-8A2E29E9CFB0}"
           p:after="r[@uid='{9F3FDC74-9D41-469E-A872-BF7C75311D02}']"
-          s:ds="{B9BBEE36-818F-4586-B023-AB319A320598}"
+          s:ds="{BF37BCD0-29A2-44D2-95F7-1B784FA84944}"
           s:id="{63B19D58-0764-495A-80CB-4B06C99C3F70}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="/main/row-2-1/Container-21/column-2-1" />
         <r
           uid="{4A176DA7-2A39-46A2-ABCD-195BDDD4122B}"
           p:after="r[@uid='{7B09C285-8629-432F-8662-8A2E29E9CFB0}']"
-          s:ds="{FBC1F9E3-3792-4DED-B9A4-6B6B25782190}"
+          s:ds="{48766A88-DDB4-4B88-AB6D-25959B630BA5}"
           s:id="{93BC3DB7-582A-48EE-ADE8-F410561FA411}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="/main/row-2-1/Container-21/column-2-1" />

@@ -1,6 +1,6 @@
 ﻿---
-ID: "82f39546-f582-45db-871e-62f4c9c2bf26"
-Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+ID: "11682adc-c5ff-4cdc-9318-e8ce9320cb2a"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Billing
 DB: master
@@ -11,13 +11,13 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{C77CE1E3-80D0-431E-8F25-7921723888E8}"
+  Value: "{EF645DD4-A87F-4C03-A6C8-AFE5C0D0E4D5}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 3000
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{C9AF4AC1-96A6-456B-A66B-4E15657EA6EC}"
+  Value: "{8BB0C189-3F8F-4F96-B1A5-3883EC11C66B}"
 Languages:
 - Language: da
   Fields:

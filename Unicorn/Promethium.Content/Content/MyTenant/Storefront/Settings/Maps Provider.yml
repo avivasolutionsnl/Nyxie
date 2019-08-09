@@ -1,6 +1,6 @@
 ﻿---
-ID: "f806de08-572f-46d2-9901-dc70f3aab295"
-Parent: "c7d40cfc-677c-4af7-ad9e-7d96cf82d884"
+ID: "f541e2d2-1363-4f4e-a12f-d4c16f288d67"
+Parent: "8bc447db-f97a-41c9-846f-adea64ca21be"
 Template: "70461699-48e4-45fa-b74b-0cce849fca6a"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Maps Provider
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111952Z
+      Value: 20190809T120545Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

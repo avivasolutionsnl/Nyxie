@@ -1,7 +1,7 @@
 ﻿---
-ID: "bdb58b2c-1ea6-488e-a97b-380fca602903"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "f80dd6d3-ec5c-4de0-94e3-3f860971d8b3"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Shopping Cart Page Header
 DB: master
 SharedFields:
@@ -25,4 +25,4 @@ Languages:
         sitecore\admin
     - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
       Hint: Base Partial Design
-      Value: "{39A6FF55-CE8F-40D3-A876-6EF90BB49D40}"
+      Value: "{C85CA62B-E956-479E-AC14-EB561A842050}"

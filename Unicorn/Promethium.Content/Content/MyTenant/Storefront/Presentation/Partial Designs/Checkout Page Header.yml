@@ -1,7 +1,7 @@
 ﻿---
-ID: "39a6ff55-ce8f-40d3-a876-6ef90bb49d40"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "c85ca62b-e956-479e-ac14-eb561a842050"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Checkout Page Header
 DB: master
 SharedFields:
@@ -22,7 +22,7 @@ SharedFields:
         <r
           uid="{B76A9CCF-07C1-4149-B647-9117738A7FB3}"
           p:before="*"
-          s:ds="{B12FB4B0-3951-405A-992F-5CB4CFBDA2E7}"
+          s:ds="{4ECAE843-FD7E-4573-8D1E-D7E4630A18AB}"
           s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{FD09A9D2-113E-49B8-B481-F0B4FFE9B498}&amp;FieldNames&amp;Styles"
           s:ph="/header/row-1-1/container-1" />
@@ -41,7 +41,7 @@ SharedFields:
         <r
           uid="{9CB93CD6-399D-40D8-AAF3-591D0A98866F}"
           p:after="r[@uid='{FD78254E-817A-4236-89F9-7B46DBA7C2A2}']"
-          s:ds="{CB41FCE2-64E5-4DA4-9D67-07D3AAE5081C}"
+          s:ds="{E30EB592-A3E9-4C9E-AECF-0525AD59DDB3}"
           s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
           s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{4C80E2ED-07D6-4652-A90B-3820049E9CE4}|{2FF25A31-B1F1-4B00-8131-71323148B1F1}|{0DA3126E-497A-4DA6-9A15-EC8B151F8D7C}&amp;FieldNames&amp;Styles&amp;RenderingIdentifier"
           s:ph="/header/row-1-1" />

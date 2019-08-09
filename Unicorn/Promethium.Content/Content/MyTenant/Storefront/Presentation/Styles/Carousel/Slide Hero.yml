@@ -1,6 +1,6 @@
 ﻿---
-ID: "aad4e94e-71cf-475c-ab42-3c76bbe115b5"
-Parent: "d26fbf5f-bf3a-4988-ba08-cf2244fbdf61"
+ID: "c7ea8bea-2810-4f09-aa5b-eebeb87afeaa"
+Parent: "68ca7759-a222-4b2c-8319-101008d35d91"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Carousel/Slide Hero
 DB: master
@@ -23,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111919Z
+      Value: 20190809T120507Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

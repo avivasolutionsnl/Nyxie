@@ -1,6 +1,6 @@
 ﻿---
-ID: "3dedfcf4-86b1-4060-8e58-65571be5b1cc"
-Parent: "093344b8-5831-4095-8f50-1af06609932c"
+ID: "3936ea23-e270-45f7-9d64-ee666afec271"
+Parent: "3546eadc-c059-476c-9471-34158d235a5b"
 Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
 Path: /sitecore/media library/Project/MyTenant/Storefront
 DB: master
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111849Z
+      Value: 20190809T120435Z

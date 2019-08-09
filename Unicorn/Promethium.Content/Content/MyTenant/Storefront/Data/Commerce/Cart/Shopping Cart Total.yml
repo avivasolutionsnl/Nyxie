@@ -1,6 +1,6 @@
 ﻿---
-ID: "59f57cc2-886d-40d5-b811-5cd401b15f49"
-Parent: "1095b87b-0b68-482d-946e-a4eb9b384309"
+ID: "b070de3a-030c-437c-ac14-58f486ec0850"
+Parent: "3b301673-28d6-46db-9e5f-9b31765019b4"
 Template: "b86fa817-5304-44b9-9098-2f5d53f033e9"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Cart/Shopping Cart Total
 DB: master
@@ -77,7 +77,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120740Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

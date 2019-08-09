@@ -1,6 +1,6 @@
 ﻿---
-ID: "cc3f21d9-fac1-4f21-8709-ef456de2884b"
-Parent: "104e6198-caa2-48ea-b893-1ddc57cf4a1a"
+ID: "b2d7758e-b81d-4e60-b05d-f67f2a5be446"
+Parent: "794c06e1-2708-4ade-baa8-22a83469222d"
 Template: "bb8a85ab-1f6d-4518-8772-1c9f4f8dac18"
 Path: /sitecore/content/MyTenant/Storefront/Data/Images/Campaign Phone
 DB: master
@@ -15,7 +15,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112250Z
+      Value: 20190809T120854Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -23,14 +23,14 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{6ED0B773-1CB9-4038-8721-217CD0AD72A2}" />
+        <image mediaid="{69488EF9-0D38-4F66-A857-8BE770F4C261}" />
 - Language: "de-DE"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112250Z
+      Value: 20190809T120854Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -38,7 +38,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{6ED0B773-1CB9-4038-8721-217CD0AD72A2}" />
+        <image mediaid="{69488EF9-0D38-4F66-A857-8BE770F4C261}" />
 - Language: en
   Versions:
   - Version: 1
@@ -53,14 +53,14 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{6ED0B773-1CB9-4038-8721-217CD0AD72A2}" />
+        <image mediaid="{69488EF9-0D38-4F66-A857-8BE770F4C261}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112250Z
+      Value: 20190809T120854Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -71,7 +71,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112250Z
+      Value: 20190809T120854Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -79,4 +79,4 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{6ED0B773-1CB9-4038-8721-217CD0AD72A2}" />
+        <image mediaid="{69488EF9-0D38-4F66-A857-8BE770F4C261}" />

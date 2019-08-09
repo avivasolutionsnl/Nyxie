@@ -1,6 +1,6 @@
 ﻿---
-ID: "4208611c-ffc2-4f83-bfc5-8559e2846441"
-Parent: "b7e0ce87-597f-4753-8e26-f1c2a29bbdd8"
+ID: "0bdc3203-32ff-4deb-a1ae-ed2f40075772"
+Parent: "21116b20-5a5c-46f9-bd68-9caa002496cc"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Link Lists/Footer/Site Options/Frequently Asked Questions
 DB: master
@@ -23,7 +23,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Frequently asked questions" querystring="" target="" id="{181D22B9-0F98-4AF5-A0E6-A1B28279E0A1}" />
+        <link linktype="internal" text="Frequently asked questions" querystring="" target="" id="{CCBA68FA-2184-492D-877F-4FC3619307EA}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -42,7 +42,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Häufig gestellte Fragen" querystring="" target="" id="{181D22B9-0F98-4AF5-A0E6-A1B28279E0A1}" />
+        <link linktype="internal" text="Häufig gestellte Fragen" querystring="" target="" id="{CCBA68FA-2184-492D-877F-4FC3619307EA}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -61,14 +61,14 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Frequently asked questions" querystring="" target="" id="{181D22B9-0F98-4AF5-A0E6-A1B28279E0A1}" />
+        <link linktype="internal" text="Frequently asked questions" querystring="" target="" id="{CCBA68FA-2184-492D-877F-4FC3619307EA}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112258Z
+      Value: 20190809T120903Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -91,4 +91,4 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="よく寄せられる質問" querystring="" target="" id="{181D22B9-0F98-4AF5-A0E6-A1B28279E0A1}" />
+        <link linktype="internal" text="よく寄せられる質問" querystring="" target="" id="{CCBA68FA-2184-492D-877F-4FC3619307EA}" />

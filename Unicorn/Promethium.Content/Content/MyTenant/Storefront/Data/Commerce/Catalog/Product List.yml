@@ -1,6 +1,6 @@
 ﻿---
-ID: "2f35cbbf-abf2-4d96-8aff-2c3b8c1bf87a"
-Parent: "10463b2e-a5a7-46b7-8c18-8d3964d45196"
+ID: "1001a926-5a1f-4a1b-be5c-c54ab1e18bc7"
+Parent: "35afbbe3-610c-434d-b7df-5c55245ce041"
 Template: "ce2182b7-6240-4fbb-a91b-7f1597847400"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Catalog/Product List
 DB: master
@@ -74,7 +74,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112142Z
+      Value: 20190809T120741Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

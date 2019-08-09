@@ -1,6 +1,6 @@
 ﻿---
-ID: "6bf18840-d59a-4c50-8721-a9dcae63a4f4"
-Parent: "c7530725-48f2-4afa-ac09-6bac97bf0641"
+ID: "439757d8-23f0-4150-9057-7e8fbc4408ba"
+Parent: "5bb8b930-1f6b-4325-a03a-267316ed4606"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: "/sitecore/content/MyTenant/Storefront/Presentation/Styles/Layout/parallax-background"
 DB: master
@@ -31,7 +31,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111923Z
+      Value: 20190809T120513Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

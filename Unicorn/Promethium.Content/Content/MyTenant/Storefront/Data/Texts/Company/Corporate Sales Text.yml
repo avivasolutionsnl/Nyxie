@@ -1,6 +1,6 @@
 ﻿---
-ID: "87ce468a-c29a-4ba3-9211-17ca630cd219"
-Parent: "fe724f61-4d0d-4af4-8f54-0aaac3df84ae"
+ID: "bee9c1bb-4e40-4784-877d-4b256c8e3068"
+Parent: "034c6869-b40c-410c-b4c2-c248e7b8da10"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: /sitecore/content/MyTenant/Storefront/Data/Texts/Company/Corporate Sales Text
 DB: master
@@ -65,7 +65,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112308Z
+      Value: 20190809T120914Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "989e4d7e-591b-4229-9ece-281f0941919e"
-Parent: "8b531438-9f0f-46e2-a46b-69dec46e9408"
+ID: "df2b9e43-9724-4fe7-9033-f30d57791813"
+Parent: "cb063522-da88-416c-85c2-3be949ae0527"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Feed/Feed Grid
 DB: master
@@ -30,7 +30,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111920Z
+      Value: 20190809T120509Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "d74ef63f-5f4f-4f7b-b5cb-096bcd056a27"
-Parent: "c0b896ae-1138-490b-ba48-17b791a440d1"
+ID: "a15de2d9-bdc8-4dde-8f59-a86b3a9faa57"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Shopping Cart Page
 DB: master
@@ -20,13 +20,13 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{195C1A6F-18F6-47B2-8D25-A216BD245E36}"
+  Value: "{DEFF2260-E741-45F9-99CB-42C2E2D42344}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 0
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{917D0AC7-CBEA-4EC8-98FF-5E62B5E7054A}"
+  Value: "{870892AD-6B8D-4102-A8CF-8894E96697C2}"
 Languages:
 - Language: en
   Versions:

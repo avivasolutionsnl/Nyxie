@@ -1,7 +1,7 @@
 ﻿---
-ID: "983e02ab-86e7-42a9-acc2-767f8774aa8f"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "a72297d3-9a38-4068-b147-496489e40b74"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Empty
 DB: master
 BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
@@ -23,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111848Z
+      Value: 20190809T120434Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

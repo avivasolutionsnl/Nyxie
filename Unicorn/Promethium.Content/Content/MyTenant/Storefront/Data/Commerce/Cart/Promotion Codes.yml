@@ -1,6 +1,6 @@
 ﻿---
-ID: "89b86a12-b3e9-462b-ae35-27a5c0550ee4"
-Parent: "1095b87b-0b68-482d-946e-a4eb9b384309"
+ID: "ba8ba3dc-1fab-46ae-9992-5adbe3e414a7"
+Parent: "3b301673-28d6-46db-9e5f-9b31765019b4"
 Template: "742343fc-a5bd-4b52-b338-50aa8607987d"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Cart/Promotion Codes
 DB: master
@@ -62,7 +62,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120740Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

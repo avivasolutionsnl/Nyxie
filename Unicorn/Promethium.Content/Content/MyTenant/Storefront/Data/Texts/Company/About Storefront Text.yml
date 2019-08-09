@@ -1,6 +1,6 @@
 ﻿---
-ID: "c6910b2e-6237-4d85-a33f-d8dd5d714f35"
-Parent: "fe724f61-4d0d-4af4-8f54-0aaac3df84ae"
+ID: "bab98c7b-89f4-408d-b18c-8de5fa4e0d88"
+Parent: "034c6869-b40c-410c-b4c2-c248e7b8da10"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: /sitecore/content/MyTenant/Storefront/Data/Texts/Company/About Storefront Text
 DB: master
@@ -65,7 +65,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112308Z
+      Value: 20190809T120914Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

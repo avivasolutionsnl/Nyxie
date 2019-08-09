@@ -1,7 +1,7 @@
 ﻿---
-ID: "77b7f38c-ee92-4d16-9134-04cc7f75c1ed"
-Parent: "195c1a6f-18f6-47b2-8d25-a216bd245e36"
-Template: "195c1a6f-18f6-47b2-8d25-a216bd245e36"
+ID: "152b400d-7838-4fec-81ac-b78e5277f6c9"
+Parent: "deff2260-e741-45f9-99cb-42c2e2d42344"
+Template: "deff2260-e741-45f9-99cb-42c2e2d42344"
 Path: /sitecore/templates/Project/MyTenant/Page/__Standard Values
 DB: master
 SharedFields:
@@ -9,12 +9,12 @@ SharedFields:
   Hint: __Masters
   Type: TreelistEx
   Value: |
-    {195C1A6F-18F6-47B2-8D25-A216BD245E36}
+    {DEFF2260-E741-45F9-99CB-42C2E2D42344}
     {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
-    {E05BC76F-2419-4426-9AA4-55CC6445861A}
-    {E8E36399-E01B-43CA-A492-A0B05DEE5F8C}
-    {D74EF63F-5F4F-4F7B-B5CB-096BCD056A27}
-    {0EC9B90A-4E7A-487D-BB3A-1881BA6DD8D0}
+    {9B9E3EFC-8844-4C72-803E-DB4908E28B2E}
+    {98F19AFA-1AE7-42EF-AF06-BC30E6B5DED3}
+    {A15DE2D9-BDC8-4DDE-8F59-A86B3A9FAA57}
+    {30D8EC2F-5E03-41CB-B215-F930BC1698A9}
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -34,11 +34,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095457Z
+      Value: 20190809T120038Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "6ad149d2-faab-4b3b-bc33-dab76681f425"
+    - ID: "bfa6eae1-ffe9-4f87-9ae1-fa3f18dbb323"
       Hint: Title
       Value: $name

@@ -1,6 +1,6 @@
 ﻿---
-ID: "f873d788-7131-41e6-a6aa-461427da47d3"
-Parent: "ba75cdb8-3627-4948-bf4a-f4e29046d27e"
+ID: "2f7bc12c-f593-4f69-bcb7-82adb25cfb95"
+Parent: "6ba2b48c-2c77-481d-b74a-1cfb5d5789dc"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Breadcrumb/Triangle separator
 DB: master
@@ -27,7 +27,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111918Z
+      Value: 20190809T120506Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

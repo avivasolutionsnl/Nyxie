@@ -1,6 +1,6 @@
 ﻿---
-ID: "fa029e9d-cdf7-4c73-8105-96140477ca74"
-Parent: "a665a1bb-b2c9-417b-9a08-615528036775"
+ID: "63f35e77-ce4a-4076-b134-c3e627095ddd"
+Parent: "974e36c4-f369-47ce-ac3e-8cba67b97ab6"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Archive/Default/NavigationTitle/__Display Name
 DB: master
@@ -26,7 +26,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112042Z
+      Value: 20190809T120637Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

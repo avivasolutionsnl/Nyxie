@@ -1,6 +1,6 @@
 ﻿---
-ID: "a8d73e47-f7f1-49be-9342-2ef721461c0d"
-Parent: "b5bd7428-b1ec-4368-bfd1-29d0c2c25226"
+ID: "ddb96b97-51f7-4878-a289-27a1cd952b82"
+Parent: "d7e627a7-37e6-4b3c-9eb5-604504e5d1c8"
 Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Event List/Default/Event List Time
 DB: master
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111944Z
+      Value: 20190809T120535Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,7 +1,7 @@
 ﻿---
-ID: "d02cb9ed-519d-47bb-9e30-a8065a22acdc"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "a8f23e7f-7752-487b-9b87-3190a4bdd31e"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Default Commerce Header
 DB: master
 SharedFields:
@@ -22,7 +22,7 @@ SharedFields:
         <r
           uid="{4DFAE107-537E-449B-9CD7-CB659347E412}"
           p:before="*"
-          s:ds="{A1EDB7AB-57C3-40D0-8E1F-AFFC9455FFC0}"
+          s:ds="{B1540167-1F3D-4C68-8A84-F5580530A703}"
           s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
           s:par="GridParameters={4C80E2ED-07D6-4652-A90B-3820049E9CE4}|{2FF25A31-B1F1-4B00-8131-71323148B1F1}|{0DA3126E-497A-4DA6-9A15-EC8B151F8D7C}&amp;FieldNames&amp;Styles&amp;RenderingIdentifier&amp;Reset Caching Options"
           s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
@@ -30,7 +30,7 @@ SharedFields:
           uid="{BB8FA88C-5DFB-4CF1-9B7A-0A3844FEBBEF}"
           p:after="r[@uid='{4DFAE107-537E-449B-9CD7-CB659347E412}']"
           s:cac="1"
-          s:ds="{B12FB4B0-3951-405A-992F-5CB4CFBDA2E7}"
+          s:ds="{4ECAE843-FD7E-4573-8D1E-D7E4630A18AB}"
           s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
           s:par="GridParameters=%7BFD09A9D2-113E-49B8-B481-F0B4FFE9B498%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FData%2FImages%2FLarge%20Logo"
           s:ph="/header/sxa-base-header-structure/row-1-1/container-1"
@@ -45,7 +45,7 @@ SharedFields:
           uid="{B46F1610-7414-4879-BDF7-97958EC0D9F1}"
           p:after="r[@uid='{F8C5CAA6-8E2C-442F-81CF-C834CE508E4B}']"
           s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
-          s:par="GridParameters&amp;FieldNames&amp;Styles={08BA654D-37DB-415F-9B22-9CA7A180D2BB}|{DE5CAB1D-06F5-4F3C-8F14-D381AD87B20A}|{B40EF1B1-7515-4DB1-88C0-C8435F9AC79F}&amp;BreadcrumbRoot&amp;Separator=&gt;&amp;IsNavigation&amp;Filter"
+          s:par="GridParameters&amp;FieldNames&amp;Styles={5307538B-8DC7-4388-82C0-AFB39967288E}|{7AF91D08-CF6B-4B7B-B1FF-9F07FFFE83B4}|{807092B6-10E4-414A-9C3E-1105F7FA36A4}&amp;BreadcrumbRoot&amp;Separator=&gt;&amp;IsNavigation&amp;Filter"
           s:ph="/header/sxa-base-header-structure/row-3-1/container-2/column-1-1" />
         <r
           uid="{65655D3D-C166-4D3A-885E-AB723ADFACBB}"
@@ -74,7 +74,7 @@ SharedFields:
         <r
           uid="{1D26AA9D-CE98-4E29-9E72-DBA67E82FA4F}"
           p:after="r[@uid='{EA7F2D83-49F6-42E3-8422-A3FCBDE62F81}']"
-          s:ds="{59A43D99-4CF5-4923-8B4F-400C6FB456EE}"
+          s:ds="{391AF785-B3C3-46E8-8331-4FE726A3C108}"
           s:id="{29E9F4F9-F2AC-4AB1-80E5-EBB3CFF7E9F2}"
           s:par="GridParameters&amp;Search Page Link=/sitecore/content/MyTenant/Storefront/Home/search"
           s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
@@ -87,14 +87,14 @@ SharedFields:
         <r
           uid="{0F3E6797-2E5B-4E18-9DFC-507DEAAF24D9}"
           p:after="r[@uid='{88A67B3E-F87C-4F66-96BF-607E1F118A59}']"
-          s:ds="{3D941E8B-6571-434F-8F81-E7EB9725B90B}"
+          s:ds="{4DB8738B-2941-46C5-94F1-999E8DB48853}"
           s:id="{04B9A10C-2092-4E29-BDA3-79571F5F19FC}"
-          s:par="GridParameters&amp;View Cart Link=%7BA23D35F8-44E5-4F60-AA44-5F15781698ED%7D&amp;Checkout Link=%7B52AC54AC-E73B-4AC9-B969-8DA72075EFBE%7D&amp;Hide Checkout Button"
+          s:par="GridParameters&amp;View Cart Link=%7B6A71E69F-93D3-462F-8DC6-651BB7CB120C%7D&amp;Checkout Link=%7B6475753A-52B3-4F0A-9CA6-23F5BBB761F8%7D&amp;Hide Checkout Button"
           s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
         <r
           uid="{2E9C4896-2643-4C50-852F-A805E5D6389A}"
           p:after="*[1=2]"
-          s:ds="{9AD8E6B0-C490-43B8-BACB-B13A3A347038}"
+          s:ds="{D14D933B-DC6C-49DF-86CE-F08C930E0832}"
           s:id="{18F9EE55-D1CB-41E2-9238-78DB8BDB1AE2}"
           s:par="GridParameters&amp;Profile Edit Page Link=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FHome%2Faccountmanagement%2Feditprofile"
           s:ph="/header/sxa-base-header-structure/row-1-1/container-1" />
@@ -130,7 +130,7 @@ Languages:
         sitecore\admin
     - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
       Hint: Base Partial Design
-      Value: "{5A6F1917-4A3E-4A86-9E6E-B32ECEBCA2E0}"
+      Value: "{D642F1EA-248E-4D92-8856-493491D1A448}"
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

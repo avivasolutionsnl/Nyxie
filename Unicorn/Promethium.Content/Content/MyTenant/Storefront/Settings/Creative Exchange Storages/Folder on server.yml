@@ -1,6 +1,6 @@
 ﻿---
-ID: "0f645c74-3c79-491f-a3f6-e661d4c369c5"
-Parent: "41282636-b81d-4a0d-b7b7-f77ddf8dbc36"
+ID: "e54eb6ba-74a7-4436-a300-79f21618a19c"
+Parent: "8f42250e-beb2-4058-820e-6564d839277d"
 Template: "bca27de4-a869-4282-b3fb-4fbd7ba1b87b"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Creative Exchange Storages/Folder on server
 DB: master
@@ -32,7 +32,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111853Z
+      Value: 20190809T120439Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

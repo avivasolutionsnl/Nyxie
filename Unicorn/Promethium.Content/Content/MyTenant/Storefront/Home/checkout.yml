@@ -1,7 +1,7 @@
 ﻿---
-ID: "52ac54ac-e73b-4ac9-b969-8da72075efbe"
-Parent: "dc4e180d-c758-4ae5-af8d-794098724123"
-Template: "1fdfd118-f5f6-4ab2-b97d-f3bd7d4bd727"
+ID: "6475753a-52b3-4f0a-9ca6-23f5bbb761f8"
+Parent: "7f975dd0-8ab9-4023-9ded-aff8e062dab1"
+Template: "e586b4a1-198c-4a0f-97ed-ad226c1ef0be"
 Path: /sitecore/content/MyTenant/Storefront/Home/checkout
 DB: master
 SharedFields:
@@ -9,13 +9,13 @@ SharedFields:
   Hint: __Masters
   Type: TreelistEx
   Value: |
-    {B546621B-6B3D-4314-87F1-94C0396D4A19}
-    {82F39546-F582-45DB-871E-62F4C9C2BF26}
-    {AC6ABDE9-1E6C-45DA-B2BC-2D9DB9A67B9D}
-    {8404EE86-D519-478B-A495-E83C5F390429}
+    {DE787D99-B51C-4950-8C25-1FA325EA2222}
+    {11682ADC-C5FF-4CDC-9318-E8CE9320CB2A}
+    {759C0167-9FEC-40F8-A65D-36722A637746}
+    {C2637BEE-3073-4B31-80D6-D81190848428}
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
-  Value: "{07D3BE07-5747-4456-B1DD-4AE75D2BEC91}"
+  Value: "{D5930782-7DD0-4C44-86C3-7575B480CFC2}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -26,7 +26,7 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{9BDF07F7-B6D6-49F4-B9E7-D58B7E1A9C94}"
-          s:ds="{A96E5E3F-F3CA-465A-AD28-E4737E41E805}"
+          s:ds="{CB1B2778-3BD1-4569-AD1F-4EB386AF9CAD}"
           s:id="{7AE14FB7-E165-49CA-85FB-B45E4B14B955}"
           s:par="Shopping Cart Link=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FHome%2Fshoppingcart&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="main" />

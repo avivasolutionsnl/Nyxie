@@ -1,6 +1,6 @@
 ﻿---
-ID: "37e11fb2-fc52-467e-b36a-205e1a2a3fec"
-Parent: "5761bb27-5608-4ef0-bc76-1ece2d905798"
+ID: "5957854d-83c2-4bb7-9502-64cff08dfc24"
+Parent: "fbb2d69a-710b-438d-a5be-aa8165aa3701"
 Template: "3e53ac1b-65e8-4ae2-8c5b-8baf9c3d655e"
 Path: /sitecore/content/MyTenant/Storefront/Data/Search/Sort Results/Default/Title Asc
 DB: master
@@ -11,7 +11,7 @@ SharedFields:
   Value: "{71617747-9B14-4E49-8C1B-DBF4669B729F}"
 - ID: "c95b7bad-fa93-41f0-82de-c2c2bf0a0e89"
   Hint: Facet
-  Value: "{FDE71C7F-171F-4E11-8628-B6EC05D63BA3}"
+  Value: "{FE0BDC4F-F8F4-4782-B782-E25F57103B11}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{91639E66-920F-4C5F-BDA2-17875B98A32C}"
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112203Z
+      Value: 20190809T120802Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

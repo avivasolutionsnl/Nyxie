@@ -1,6 +1,6 @@
 ﻿---
-ID: "538cd1e0-b446-4a28-b14c-930fb2b7b70c"
-Parent: "ba100431-b17b-42e0-bacb-c28ad2cdd21a"
+ID: "b4fedc32-585c-414c-8e2d-339495d86b9f"
+Parent: "d33df9a3-142c-41b7-91f4-d3a574728878"
 Template: "c58ee915-aa14-49bf-bee4-c821cac26913"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/POI Types/Simple POI
 DB: master
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111954Z
+      Value: 20190809T120546Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "26772db0-ff0c-4010-8364-e4266c6535e0"
-Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+ID: "bffb1400-f35c-4bec-a785-df3676126c34"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Account Management
 DB: master
@@ -11,13 +11,13 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{F801C257-5CC6-45EA-88B9-6A905D14E0DC}"
+  Value: "{9B9E3EFC-8844-4C72-803E-DB4908E28B2E}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 1100
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{F8F09905-7862-40B9-9089-9503A4993B9D}"
+  Value: "{1FCA9871-64BE-490E-9329-C2AD71E65F0B}"
 Languages:
 - Language: da
   Fields:

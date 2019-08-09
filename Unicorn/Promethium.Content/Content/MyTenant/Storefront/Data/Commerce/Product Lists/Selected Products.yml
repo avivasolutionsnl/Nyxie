@@ -1,6 +1,6 @@
 ﻿---
-ID: "4032863c-41fc-4008-b460-1a0ba11574b0"
-Parent: "59eb1152-e094-4d67-870a-68e3cb3ae7e2"
+ID: "b0c89a93-570f-416f-a28e-8820d5eda9d9"
+Parent: "bf5aa5e4-e511-4af9-94d0-bce014cc5383"
 Template: "091b84a9-0a36-46f6-bf5c-09a536ebbf79"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Product Lists/Selected Products
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112146Z
+      Value: 20190809T120745Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112146Z
+      Value: 20190809T120745Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -44,7 +44,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112146Z
+      Value: 20190809T120746Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -55,7 +55,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112146Z
+      Value: 20190809T120746Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

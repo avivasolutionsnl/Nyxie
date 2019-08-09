@@ -1,6 +1,6 @@
 ﻿---
-ID: "6e60ed37-f302-4fe4-a834-08e03670b802"
-Parent: "195c1a6f-18f6-47b2-8d25-a216bd245e36"
+ID: "ab3ac2b0-e67b-40a8-8c1b-18e17e6ae20c"
+Parent: "deff2260-e741-45f9-99cb-42c2e2d42344"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
 Path: /sitecore/templates/Project/MyTenant/Page/Content
 DB: master
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095541Z
+      Value: 20190809T120122Z

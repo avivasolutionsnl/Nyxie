@@ -1,6 +1,6 @@
 ﻿---
-ID: "013eee1e-e6ea-4e79-b30c-604be4a07351"
-Parent: "a796c298-6a46-43ba-aa66-289dc1f9d7c6"
+ID: "0cd98bdd-b487-4cfb-a680-a74e016040c5"
+Parent: "311a3bdc-2cea-4f9e-aaa3-15e70accd1db"
 Template: "f9327a11-4030-42de-b83e-7b4e88490dd8"
 Path: /sitecore/content/MyTenant/Storefront/Data/Links/TopBar/Account
 DB: master
@@ -35,7 +35,7 @@ Languages:
     - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
     - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
       Hint: Tooltip
       Value: Vælg
@@ -60,7 +60,7 @@ Languages:
     - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
       Hint: Link
       Value: |
-        <Link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <Link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
     - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
       Hint: Tooltip
       Value: Account
@@ -85,7 +85,7 @@ Languages:
     - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
     - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
       Hint: Tooltip
       Value: Account
@@ -95,7 +95,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112302Z
+      Value: 20190809T120907Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -121,7 +121,7 @@ Languages:
     - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
     - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
       Hint: Tooltip
       Value: 選択

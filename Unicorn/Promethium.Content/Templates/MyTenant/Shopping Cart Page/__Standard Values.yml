@@ -1,7 +1,7 @@
 ﻿---
-ID: "917d0ac7-cbea-4ec8-98ff-5e62b5e7054a"
-Parent: "d74ef63f-5f4f-4f7b-b5cb-096bcd056a27"
-Template: "d74ef63f-5f4f-4f7b-b5cb-096bcd056a27"
+ID: "870892ad-6b8d-4102-a8cf-8894e96697c2"
+Parent: "a15de2d9-bdc8-4dde-8f59-a86b3a9faa57"
+Template: "a15de2d9-bdc8-4dde-8f59-a86b3a9faa57"
 Path: /sitecore/templates/Project/MyTenant/Shopping Cart Page/__Standard Values
 DB: master
 SharedFields:
@@ -9,12 +9,12 @@ SharedFields:
   Hint: __Masters
   Type: TreelistEx
   Value: |
-    {195C1A6F-18F6-47B2-8D25-A216BD245E36}
+    {DEFF2260-E741-45F9-99CB-42C2E2D42344}
     {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
-    {E05BC76F-2419-4426-9AA4-55CC6445861A}
-    {E8E36399-E01B-43CA-A492-A0B05DEE5F8C}
-    {D74EF63F-5F4F-4F7B-B5CB-096BCD056A27}
-    {0EC9B90A-4E7A-487D-BB3A-1881BA6DD8D0}
+    {9B9E3EFC-8844-4C72-803E-DB4908E28B2E}
+    {98F19AFA-1AE7-42EF-AF06-BC30E6B5DED3}
+    {A15DE2D9-BDC8-4DDE-8F59-A86B3A9FAA57}
+    {30D8EC2F-5E03-41CB-B215-F930BC1698A9}
 Languages:
 - Language: en
   Versions:
