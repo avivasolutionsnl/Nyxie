@@ -1,0 +1,19 @@
+﻿---
+ID: "e6222ac4-eeb0-47df-acb7-2750670c895d"
+Parent: "7f477dbd-d836-4e58-9a67-fb85fdf0b3bf"
+Template: "3d55c326-3353-48cd-bedc-e8ae0cb9ef4d"
+Path: /sitecore/content/MyTenant/Storefront/Settings/Site Grouping/Storefront/CORS
+DB: master
+BranchID: "f0e39dc1-6a4f-41ed-b0fe-b65bf09a1745"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{B6DAB7A0-4F89-4FF1-A1F8-683C1077162A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112000Z

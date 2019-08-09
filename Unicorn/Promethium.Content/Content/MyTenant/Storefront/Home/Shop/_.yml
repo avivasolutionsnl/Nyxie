@@ -1,0 +1,152 @@
+﻿---
+ID: "ed96254f-24b1-42c4-8622-5cfc5f8a1cc1"
+Parent: "2f880f11-9bbe-4b01-8b23-0b85bdcf54bf"
+Template: "b8e77627-feef-44ea-95db-9ef470dbda9c"
+Path: /sitecore/content/MyTenant/Storefront/Home/Shop/*
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/16x16/elements4.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {DA84CD7A-217B-476E-AB19-96840872A080}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {D220392B-8B42-4E8A-86F9-A346E4658321}
+    {F801C257-5CC6-45EA-88B9-6A905D14E0DC}
+    {EF9F6B7B-B421-44FB-941D-3091F8AD37EF}
+    {8D8F2A7C-F43A-4F5F-8C74-A768C4FA0554}
+    {C77CE1E3-80D0-431E-8F25-7921723888E8}
+    {908D3D73-ECAE-4EB6-9CB3-825BC4150F45}
+    {C697DD21-2301-429D-AA3A-A2AE62BF3F8A}
+    {BB85F5A0-8FC1-4371-9F8B-C4A5DCA78F1F}
+    {26772DB0-FF0C-4010-8364-E4266C6535E0}
+    {29DEF1B2-A347-40F2-B364-9C578E91673F}
+    {5233E08D-1D6B-4AC4-98CA-47DA4D156EBE}
+    {F9C9CA34-173C-4F6A-BE3A-4F07168677B9}
+    {39154284-5617-466E-8FF5-6F5ED5C336DD}
+    {6561D594-4859-4ED7-B976-F090FE337149}
+    {B8E77627-FEEF-44EA-95DB-9EF470DBDA9C}
+    {2B1F83B0-4594-479E-831F-90A1808730E7}
+    {CED267AE-B1AE-48E9-939F-50695348CA29}
+    {AC16E290-9F31-4FDD-83B5-F6115CC0EFF0}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{CF8E2C7F-B8C0-45C5-AD7E-106FD72DDF41}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{E82D91D8-1401-4332-86B4-3C8EC115E6A6}"
+          p:before="*"
+          s:ds="{A3CE1A89-E70E-4BD0-9D96-742C2394071B}"
+          s:id="{EA89C258-F47F-4A76-A9E2-DF450985B897}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{968D2D51-1E55-4D75-9679-528029D8A2E8}|{8636EB85-386A-42BA-AA14-D5F592867741}|{689708EA-D282-4A39-9F6F-6F95F428942F}"
+          s:ph="/main/column-2-2" />
+        <r
+          uid="{F4B675C6-FCD2-4A1A-A4AB-B2D316D08651}"
+          p:after="r[@uid='{E82D91D8-1401-4332-86B4-3C8EC115E6A6}']"
+          s:ds="{4DC05CD7-1C1D-4928-9D7C-CE1D3CB3845C}"
+          s:id="{C1DE5434-8570-46CB-BF87-FC33DBDFD89E}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{5D87E990-D33A-4613-BE6D-0D0235197254}|{1864351A-0EDC-4650-95C0-7AB675D646AF}|{2A09D451-70CD-4A11-868C-3C56B6A7749C}"
+          s:ph="/main/column-2-2" />
+        <r
+          uid="{55F6562F-CB97-4370-B0B4-901A06DB0686}"
+          p:after="r[@uid='{F4B675C6-FCD2-4A1A-A4AB-B2D316D08651}']"
+          s:ds="{5150D94B-76A8-4D29-8B62-19C877527D17}"
+          s:id="{9CA5EB05-780A-438F-AABE-18B09C97D5FD}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{4D4B771B-9954-430E-AEE1-E76C54BD50C3}|{2DAC5C5F-3B64-4A60-9A98-262F32C05800}|{BC2E9EFE-9CAA-4B85-9310-D503C36485ED}&amp;Results per Page Values=12|18|24|30"
+          s:ph="/main/column-2-2" />
+        <r
+          uid="{6A1417A8-5C3E-41D1-B7AD-9B46BADE4540}"
+          p:after="r[@uid='{55F6562F-CB97-4370-B0B4-901A06DB0686}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={1864351A-0EDC-4650-95C0-7AB675D646AF}&amp;ColumnWidth2={80A9BB41-C410-400E-B762-771D5F9B78AA}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;DynamicPlaceholderId=2"
+          s:ph="main" />
+        <r
+          uid="{1DD24F95-0CA5-45BB-9EB2-045AFC18E1F9}"
+          p:after="r[@uid='{6A1417A8-5C3E-41D1-B7AD-9B46BADE4540}']"
+          s:id="{318A2CD5-A87B-4583-91AB-F66F572947FB}"
+          s:par=""
+          s:ph="main" />
+        <r
+          uid="{3CB64BB0-AFCD-4C43-AA81-032271DF21BC}"
+          p:after="r[@uid='{1DD24F95-0CA5-45BB-9EB2-045AFC18E1F9}']"
+          s:ds="{2F35CBBF-ABF2-4D96-8AFF-2C3B8C1BF87A}"
+          s:id="{54729A57-6D74-4A3D-A870-174F70FC6288}"
+          s:par="GridParameters&amp;Show No Result Message&amp;Use Lazy Loading&amp;Max Page Size=12"
+          s:ph="/main/column-2-2" />
+        <r
+          uid="{476649C4-A26B-4852-B97A-F6889A7C24C3}"
+          p:after="r[@uid='{3CB64BB0-AFCD-4C43-AA81-032271DF21BC}']"
+          s:ds="{058C78C1-0AB2-4FE1-A970-199135C586E3}"
+          s:id="{2A6D6B26-5912-4AD1-B396-47669C2AEBEE}"
+          s:par="GridParameters&amp;Pages on Each Side of Current Page=5"
+          s:ph="/main/column-2-2" />
+        <r
+          uid="{6C220F82-884C-4B65-AF8D-F1B7FC785F18}"
+          p:after="r[@uid='{476649C4-A26B-4852-B97A-F6889A7C24C3}']"
+          s:id="{E3E0051B-CF20-4014-9373-5F96297DF2A5}"
+          s:par="GridParameters"
+          s:ph="/main/column-1-2" />
+        <r
+          uid="{8C4298C4-0624-47FB-A7FF-0491A0D69D24}"
+          p:after="r[@uid='{6C220F82-884C-4B65-AF8D-F1B7FC785F18}']"
+          s:id="{57DDDA93-8C79-452E-8D7E-6F828B97F8C2}"
+          s:par="GridParameters"
+          s:ph="/main/column-1-2" />
+        <r
+          uid="{95D3E1F4-B1C8-4860-B3F3-A35998456CBC}"
+          p:after="*[1=2]"
+          s:id="{7F30A08E-92A2-4C33-B9CF-0AA6AEB064C3}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="nav-bar" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: *
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: *
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: *
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170201T110134Z
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Products
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: *
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: *
+  Versions:

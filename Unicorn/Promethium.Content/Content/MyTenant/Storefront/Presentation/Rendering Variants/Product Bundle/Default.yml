@@ -1,0 +1,21 @@
+﻿---
+ID: "22c0bea4-cca3-4591-9511-8818d0939b36"
+Parent: "d9ba3922-a4ac-40bb-934a-ee7d7f0d817f"
+Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Product Bundle/Default
+DB: master
+SharedFields:
+- ID: "6e87db8e-58a6-4613-823b-e99e244f07a0"
+  Hint: ItemCssClassField
+  Value: 
+- ID: "e1d5adba-8348-4127-9bb6-455936653839"
+  Hint: CssClass
+  Value: "col-xs-12"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181127T020508Z

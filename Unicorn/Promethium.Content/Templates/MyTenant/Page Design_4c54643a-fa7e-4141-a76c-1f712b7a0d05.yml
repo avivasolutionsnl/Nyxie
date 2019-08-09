@@ -1,0 +1,28 @@
+﻿---
+ID: "4c54643a-fa7e-4141-a76c-1f712b7a0d05"
+Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/MyTenant/Page Design
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/pieces.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {EBCFFAE1-B6B4-4B50-B722-155E869FC430}
+    {11AB06B6-1F36-42D1-8065-77D7CE0FE085}
+    {E105BB00-8920-4B3E-A22C-CEECF36DB614}
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{302FD635-7CDE-484A-9ECC-02F9F1341770}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T111306Z

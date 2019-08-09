@@ -1,0 +1,14 @@
+﻿---
+ID: "4909915f-0e0d-46d3-8ce3-1d63bcebd0b9"
+Parent: "da84cd7a-217b-476e-ab19-96840872a080"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Project/MyTenant/Page/Content
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T111349Z

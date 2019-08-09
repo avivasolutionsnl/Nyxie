@@ -1,0 +1,23 @@
+﻿---
+ID: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
+Parent: "b2817955-a25f-40f7-889d-6253f3ea559f"
+Template: "840b5463-f1d9-4825-aa39-bf3a72ce4f7b"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs
+DB: master
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1DA4DAC3-7948-407B-A30D-D369913CF4F9}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T111848Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,0 +1,138 @@
+﻿---
+ID: "1b48be93-abbc-482d-ae6a-bc463ca23e80"
+Parent: "8cad711c-dff3-4657-b49e-f38405ef2029"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/MyTenant/Storefront/Data/Carousels/Home Carousel/Slide 3
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 350
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}">
+          <p:d />
+        </r>
+        <r
+          uid="{98112178-F04B-42A3-80E5-4F534DE9A034}"
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="GridParameters&amp;FieldNames=%7BEE52F93E-5220-4AFA-907E-D524674523C2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="section-content" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083126Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{56D794D9-EA9E-4B9E-9A69-B4FD7102A4FA}" usethumbnail="" showineditor="" width="" alt="home carousel slide" vspace=""  />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        <h1 style="color:white!important;font-size:70px;">Køb din telefon nu</h1>
+        <p style="color:white!important;font-size:16px;">og få dette prisvindende headset.</p>
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link linktype="javascript" url="javascript:CXAApplication.Goto('/shop/ComputersandTablets=habitat_master%20computers%20and%20tablets/GestureTablet—78GB%2CWifiplusLTE=6042195')" anchor="" />
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084925Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{56D794D9-EA9E-4B9E-9A69-B4FD7102A4FA}" usethumbnail="" showineditor="" width="" alt="home carousel slide" vspace=""  />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        <h1 style="color:white!important;font-size:70px;">Buy your new phone now</h1>
+        <p style="color:white!important;font-size:16px;">And get this prize winning headset.</p>
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link linktype="Javascript" url="javascript:CXAApplication.Goto('/shop/ComputersandTablets=habitat_master%20computers%20and%20tablets/GestureTablet—78GB%2CWifiplusLTE=6042195')" anchor="" />
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171004T081118Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{56D794D9-EA9E-4B9E-9A69-B4FD7102A4FA}" usethumbnail="" showineditor="" width="" alt="home carousel slide" vspace=""  ></image>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        <h1 style="color:white!important;font-size:70px;">Buy your new phone now</h1>
+        <p style="color:white!important;font-size:16px;">And get this prize winning headset.</p>
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link linktype="javascript" url="javascript:CXAApplication.Goto('/shop/ComputersandTablets=habitat_master%20computers%20and%20tablets/GestureTablet—78GB%2CWifiplusLTE=6042195')" anchor="" />
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112246Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085530Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{56D794D9-EA9E-4B9E-9A69-B4FD7102A4FA}" usethumbnail="" showineditor="" width="" alt="home carousel slide" vspace=""  />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        <h1 style="color:white!important;font-size:70px;">すぐに新しい電話を買いましょう。</h1>
+        <p style="color:white!important;font-size:16px;">賞を受賞したヘッドセットがもらえます。</p>
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link linktype="javascript" url="javascript:CXAApplication.Goto('/shop/ComputersandTablets=habitat_master%20computers%20and%20tablets/GestureTablet—78GB%2CWifiplusLTE=6042195')" anchor="" />

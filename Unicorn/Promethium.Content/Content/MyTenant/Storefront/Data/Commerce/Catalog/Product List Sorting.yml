@@ -1,0 +1,89 @@
+﻿---
+ID: "a3ce1a89-e70e-4bd0-9d96-742c2394071b"
+Parent: "10463b2e-a5a7-46b7-8c18-8d3964d45196"
+Template: "247b66f8-62f6-49ba-b397-84f34f2f88ef"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Catalog/Product List Sorting
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083151Z
+    - ID: "338c3d13-6af3-4dd5-ac7c-a188bf07c66b"
+      Hint: Sort by
+      Value: Sortér efter
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "5e2b46ab-d32d-4232-a2e4-1cb846632bdf"
+      Hint: Descending
+      Value: (Faldende)
+    - ID: "6c404797-66f1-4d3d-ae89-866195c9dffd"
+      Hint: Ascending
+      Value: (Stigende)
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084951Z
+    - ID: "338c3d13-6af3-4dd5-ac7c-a188bf07c66b"
+      Hint: Sort by
+      Value: Sortieren nach
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "5e2b46ab-d32d-4232-a2e4-1cb846632bdf"
+      Hint: Descending
+      Value: (Desc)
+    - ID: "6c404797-66f1-4d3d-ae89-866195c9dffd"
+      Hint: Ascending
+      Value: (Asc)
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T153732Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112143Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085610Z
+    - ID: "338c3d13-6af3-4dd5-ac7c-a188bf07c66b"
+      Hint: Sort by
+      Value: 次によりソート
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "5e2b46ab-d32d-4232-a2e4-1cb846632bdf"
+      Hint: Descending
+      Value: (降順)
+    - ID: "6c404797-66f1-4d3d-ae89-866195c9dffd"
+      Hint: Ascending
+      Value: (昇順)

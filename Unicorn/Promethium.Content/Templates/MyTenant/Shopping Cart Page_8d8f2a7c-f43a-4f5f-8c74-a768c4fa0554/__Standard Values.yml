@@ -1,0 +1,29 @@
+﻿---
+ID: "78e09ce8-1293-4e2f-a15b-d00797d9e754"
+Parent: "8d8f2a7c-f43a-4f5f-8c74-a768c4fa0554"
+Template: "8d8f2a7c-f43a-4f5f-8c74-a768c4fa0554"
+Path: /sitecore/templates/Project/MyTenant/Shopping Cart Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {DA84CD7A-217B-476E-AB19-96840872A080}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {F801C257-5CC6-45EA-88B9-6A905D14E0DC}
+    {D220392B-8B42-4E8A-86F9-A346E4658321}
+    {8D8F2A7C-F43A-4F5F-8C74-A768C4FA0554}
+    {EF9F6B7B-B421-44FB-941D-3091F8AD37EF}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170818T061131Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

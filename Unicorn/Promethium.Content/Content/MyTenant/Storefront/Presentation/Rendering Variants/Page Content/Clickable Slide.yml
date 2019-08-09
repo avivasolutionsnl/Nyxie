@@ -1,0 +1,37 @@
+﻿---
+ID: "ee52f93e-5220-4afa-907e-d524674523c2"
+Parent: "6010910e-b7b0-4ae9-8586-90c8519cc117"
+Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Page Content/Clickable Slide
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
+    {FCD285DA-9AB2-4C8D-B185-5A7487A9BA1B}
+    {98B41352-5A4B-4067-B924-18A4B50F0A53}
+    {F4218805-86DD-4A01-A94D-7342FC392BCC}
+    {6354D18E-54E9-45AD-9EC7-510769DB4809}
+    {ACA5C9A3-CDA0-49B6-893F-1D4A7CB595B0}
+    {C645DD63-2462-470C-A48D-8B55757A2DB3}
+    {7C02E9F5-54B5-4EF4-BD10-F4C5D448A48C}
+    {6ECA12E9-F4D5-4F6E-9C3C-6DF716BC593B}
+    {98E1C490-65E2-4F23-A4FD-D2D496CB387B}
+    {73A99860-05A0-4DC1-82F1-10D31267E43F}
+- ID: "696c70e2-eb4e-425d-81e4-802bab6a03cf"
+  Hint: AllowedInTemplates
+  Type: Multilist
+  Value: "{142E5FC1-EC62-4540-BAD9-CD88F337CD2E}"
+- ID: "90294353-706a-431c-b855-cd245824d9fa"
+  Hint: LinkField
+  Value: SlideLink
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171102T065449Z
