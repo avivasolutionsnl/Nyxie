@@ -1,6 +1,6 @@
 ﻿---
-ID: "77513eb6-3f72-45e4-ad05-ee75c466da4d"
-Parent: "104e6198-caa2-48ea-b893-1ddc57cf4a1a"
+ID: "34768ed4-3ef4-42ab-b40c-c8624bffd02a"
+Parent: "794c06e1-2708-4ade-baa8-22a83469222d"
 Template: "bb8a85ab-1f6d-4518-8772-1c9f4f8dac18"
 Path: /sitecore/content/MyTenant/Storefront/Data/Images/Campaign Watch
 DB: master
@@ -26,7 +26,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{476AE7CA-1F38-44BE-9D84-1DF47DBCF295}" />
+        <image mediaid="{92A57233-E4D9-4CEB-AE3A-2DD76457E101}" />
 - Language: "de-DE"
   Versions:
   - Version: 1
@@ -44,7 +44,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{476AE7CA-1F38-44BE-9D84-1DF47DBCF295}" />
+        <image mediaid="{92A57233-E4D9-4CEB-AE3A-2DD76457E101}" />
 - Language: en
   Versions:
   - Version: 1
@@ -65,14 +65,14 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{476AE7CA-1F38-44BE-9D84-1DF47DBCF295}" />
+        <image mediaid="{92A57233-E4D9-4CEB-AE3A-2DD76457E101}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112250Z
+      Value: 20190809T120855Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -94,4 +94,4 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{476AE7CA-1F38-44BE-9D84-1DF47DBCF295}" />
+        <image mediaid="{92A57233-E4D9-4CEB-AE3A-2DD76457E101}" />

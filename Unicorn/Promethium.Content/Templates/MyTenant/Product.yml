@@ -1,6 +1,6 @@
 ﻿---
-ID: "d9d3e2c5-66e9-4092-94cf-25685270eeb5"
-Parent: "c0b896ae-1138-490b-ba48-17b791a440d1"
+ID: "e8786062-8fa9-44ce-a74e-2411a2beffce"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Product
 DB: master
@@ -13,13 +13,13 @@ SharedFields:
   Type: tree list
   Value: |
     {79D8F390-0948-43D8-993E-582491C7F545}
-    {0EC9B90A-4E7A-487D-BB3A-1881BA6DD8D0}
+    {30D8EC2F-5E03-41CB-B215-F930BC1698A9}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 730
+  Value: 2600
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{73D34D70-FBCE-447E-A64E-4808939968DB}"
+  Value: "{18264EA3-C024-45E7-A469-B11B3ADFA59C}"
 Languages:
 - Language: da
   Fields:

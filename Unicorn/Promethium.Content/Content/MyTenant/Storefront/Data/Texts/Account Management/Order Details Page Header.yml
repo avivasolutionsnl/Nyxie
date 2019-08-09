@@ -1,6 +1,6 @@
 ﻿---
-ID: "14e0a0e5-1a3c-4dc0-bd25-dd99a05adb55"
-Parent: "0047e542-9ce1-4e89-95f8-677bfe1f1426"
+ID: "cd2b9feb-971b-4181-9972-198a24ae69bf"
+Parent: "b9c1f04e-1195-4bca-948d-6a6a2ac566a2"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: /sitecore/content/MyTenant/Storefront/Data/Texts/Account Management/Order Details Page Header
 DB: master
@@ -65,7 +65,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112306Z
+      Value: 20190809T120911Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "b12fb4b0-3951-405a-992f-5cb4cfbda2e7"
-Parent: "104e6198-caa2-48ea-b893-1ddc57cf4a1a"
+ID: "4ecae843-fd7e-4573-8d1e-d7e4630a18ab"
+Parent: "794c06e1-2708-4ade-baa8-22a83469222d"
 Template: "bb8a85ab-1f6d-4518-8772-1c9f4f8dac18"
 Path: /sitecore/content/MyTenant/Storefront/Data/Images/Large Logo
 DB: master
@@ -23,7 +23,7 @@ Languages:
     - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
       Hint: TargetUrl
       Value: |
-        <link text="Home Page" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{DC4E180D-C758-4AE5-AF8D-794098724123}" />
+        <link text="Home Page" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{7F975DD0-8AB9-4023-9DED-AFF8E062DAB1}" />
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -31,7 +31,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{954D1E41-25AE-481D-8E66-48948ED4FB46}" ></image>
+        <image mediaid="{92385E7A-034D-4393-B0B1-7E4AEDD6E921}" ></image>
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -46,7 +46,7 @@ Languages:
     - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
       Hint: TargetUrl
       Value: |
-        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{DC4E180D-C758-4AE5-AF8D-794098724123}" />
+        <Link text="Homepage" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{7F975DD0-8AB9-4023-9DED-AFF8E062DAB1}" />
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -54,7 +54,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image MedienId="{954D1E41-25AE-481D-8E66-48948ED4FB46}" mediaid="{954D1E41-25AE-481D-8E66-48948ED4FB46}" ></image>
+        <image MedienId="{92385E7A-034D-4393-B0B1-7E4AEDD6E921}" mediaid="{92385E7A-034D-4393-B0B1-7E4AEDD6E921}" ></image>
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -69,7 +69,7 @@ Languages:
     - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
       Hint: TargetUrl
       Value: |
-        <link text="Home Page" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{DC4E180D-C758-4AE5-AF8D-794098724123}" />
+        <link text="Home Page" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{7F975DD0-8AB9-4023-9DED-AFF8E062DAB1}" />
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -77,14 +77,14 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{954D1E41-25AE-481D-8E66-48948ED4FB46}" ></image>
+        <image mediaid="{92385E7A-034D-4393-B0B1-7E4AEDD6E921}" ></image>
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112252Z
+      Value: 20190809T120856Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -103,7 +103,7 @@ Languages:
     - ID: "54cab1ba-53d3-4ce4-ab7e-f8c17596aa47"
       Hint: TargetUrl
       Value: |
-        <link text="ホーム ページ" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{DC4E180D-C758-4AE5-AF8D-794098724123}" />
+        <link text="ホーム ページ" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{7F975DD0-8AB9-4023-9DED-AFF8E062DAB1}" />
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -111,4 +111,4 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{954D1E41-25AE-481D-8E66-48948ED4FB46}" ></image>
+        <image mediaid="{92385E7A-034D-4393-B0B1-7E4AEDD6E921}" ></image>

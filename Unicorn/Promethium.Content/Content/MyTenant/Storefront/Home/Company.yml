@@ -1,6 +1,6 @@
 ﻿---
-ID: "795a268a-406f-4a34-91b3-0d3cec16aa7c"
-Parent: "dc4e180d-c758-4ae5-af8d-794098724123"
+ID: "9b9ca043-bcb9-42fb-a3f0-ba4eae8074dd"
+Parent: "7f975dd0-8ab9-4023-9ded-aff8e062dab1"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/MyTenant/Storefront/Home/Company
 DB: master
@@ -13,7 +13,7 @@ SharedFields:
   Type: TreelistEx
   Value: |
     {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
-    {DA84CD7A-217B-476E-AB19-96840872A080}
+    {DEFF2260-E741-45F9-99CB-42C2E2D42344}
 Languages:
 - Language: da
   Fields:

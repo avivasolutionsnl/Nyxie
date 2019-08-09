@@ -1,6 +1,6 @@
 ﻿---
-ID: "a1edb7ab-57c3-40d0-8e1f-affc9455ffc0"
-Parent: "104e6198-caa2-48ea-b893-1ddc57cf4a1a"
+ID: "b1540167-1f3d-4c68-8a84-f5580530a703"
+Parent: "794c06e1-2708-4ade-baa8-22a83469222d"
 Template: "bb8a85ab-1f6d-4518-8772-1c9f4f8dac18"
 Path: /sitecore/content/MyTenant/Storefront/Data/Images/Placeholder 72x72
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112253Z
+      Value: 20190809T120858Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -27,7 +27,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{E220FC83-E614-489B-B5CA-03E6DE5CD761}" />
+        <image mediaid="{193424BF-1592-4942-BC17-0C6A4D35ADAC}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -38,7 +38,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112253Z
+      Value: 20190809T120858Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -46,7 +46,7 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{E220FC83-E614-489B-B5CA-03E6DE5CD761}" />
+        <image mediaid="{193424BF-1592-4942-BC17-0C6A4D35ADAC}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -65,14 +65,14 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{E220FC83-E614-489B-B5CA-03E6DE5CD761}" />
+        <image mediaid="{193424BF-1592-4942-BC17-0C6A4D35ADAC}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112254Z
+      Value: 20190809T120858Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -87,7 +87,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112254Z
+      Value: 20190809T120858Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -95,4 +95,4 @@ Languages:
     - ID: "ebe4fdef-16d5-4d19-833c-24a241628a3a"
       Hint: Image
       Value: |
-        <image mediaid="{E220FC83-E614-489B-B5CA-03E6DE5CD761}" />
+        <image mediaid="{193424BF-1592-4942-BC17-0C6A4D35ADAC}" />

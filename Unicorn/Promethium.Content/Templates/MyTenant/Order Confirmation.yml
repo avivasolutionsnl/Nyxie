@@ -1,6 +1,6 @@
 ﻿---
-ID: "ac6abde9-1e6c-45da-b2bc-2d9db9a67b9d"
-Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+ID: "759c0167-9fec-40f8-a65d-36722a637746"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Order Confirmation
 DB: master
@@ -11,13 +11,13 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{C77CE1E3-80D0-431E-8F25-7921723888E8}"
+  Value: "{EF645DD4-A87F-4C03-A6C8-AFE5C0D0E4D5}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 3100
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{001315FC-68B9-430F-BB6C-E61EE6D22787}"
+  Value: "{5A411A6F-658E-44AF-BB32-B779601FCFB3}"
 Languages:
 - Language: da
   Fields:

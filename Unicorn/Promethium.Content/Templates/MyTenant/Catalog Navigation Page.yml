@@ -1,6 +1,6 @@
 ﻿---
-ID: "0ec9b90a-4e7a-487d-bb3a-1881ba6dd8d0"
-Parent: "c0b896ae-1138-490b-ba48-17b791a440d1"
+ID: "30d8ec2f-5e03-41cb-b215-f930bc1698a9"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Catalog Navigation Page
 DB: master
@@ -11,13 +11,13 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{195C1A6F-18F6-47B2-8D25-A216BD245E36}"
+  Value: "{DEFF2260-E741-45F9-99CB-42C2E2D42344}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{01F4D3C9-54F4-417B-8B4F-4F8CA08F706D}"
+  Value: "{F079445B-02BD-43A9-957D-225C833576B8}"
 Languages:
 - Language: en
   Versions:

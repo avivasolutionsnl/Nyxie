@@ -1,6 +1,6 @@
 ﻿---
-ID: "65adc7b4-70a6-4e74-a006-8fa48978eba6"
-Parent: "7be8cf78-b782-45a2-9de7-6592c3ee31d2"
+ID: "d95f8637-3d24-45dc-a187-138493fac757"
+Parent: "92945edb-48ea-4306-b865-cd8acb694da4"
 Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Promo/Default/Promo Text/Promo Body
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112058Z
+      Value: 20190809T120654Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "9a1430f2-c161-45f6-b79e-11a0127f9b95"
-Parent: "b2817955-a25f-40f7-889d-6253f3ea559f"
+ID: "41e4ed54-aba6-4573-9daf-1c025a8b8913"
+Parent: "f102fce3-bd46-4cd7-bc5b-c01d36d578cd"
 Template: "fa0b4154-bb8a-4670-b378-e27ebc41445b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Layout Service
 DB: master
@@ -16,4 +16,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112008Z
+      Value: 20190809T120602Z

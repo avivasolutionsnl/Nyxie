@@ -1,6 +1,6 @@
 ﻿---
-ID: "7a17d1e6-9802-4513-8233-58822d74480e"
-Parent: "86a17c36-8829-401d-8f40-25b18741bb9d"
+ID: "e6da58fb-dc87-45c8-8817-bc4ae2c66106"
+Parent: "2da9d28a-f121-487a-a050-5b9bbad2e6ac"
 Template: "524a3c7b-95a7-4083-b03a-31b8761a8c0e"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Relationships/Training Product
 DB: master
@@ -57,7 +57,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112146Z
+      Value: 20190809T120746Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

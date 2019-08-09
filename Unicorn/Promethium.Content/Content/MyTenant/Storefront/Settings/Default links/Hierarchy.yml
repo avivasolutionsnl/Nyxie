@@ -1,6 +1,6 @@
 ﻿---
-ID: "5e009069-5737-4e91-a7e5-b2c3beb6db80"
-Parent: "02e01fc8-414d-4743-b37d-f5e1b280ce10"
+ID: "0c92ce0e-a8db-4d25-b82f-90ec836bd2ec"
+Parent: "506ca981-e065-4480-918e-c3555ac8af7c"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Default links/Hierarchy
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112037Z
+      Value: 20190809T120633Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

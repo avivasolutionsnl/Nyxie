@@ -1,6 +1,6 @@
 ﻿---
-ID: "ec8416f0-ddae-4b2c-b74e-d79c19e126f6"
-Parent: "c0b896ae-1138-490b-ba48-17b791a440d1"
+ID: "5216fb06-5ae3-45af-a697-19d4a26c6803"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Partial Design Folder
 DB: master
@@ -14,7 +14,7 @@ SharedFields:
   Value: "{6A4620BB-19F5-4995-837A-7BAA61231C52}"
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{508A5A56-BB21-4F73-A4B7-9857696ABF73}"
+  Value: "{D4B0F0A9-BFC7-458D-BAEC-555C97F142C4}"
 Languages:
 - Language: en
   Versions:
@@ -22,4 +22,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095458Z
+      Value: 20190809T120039Z

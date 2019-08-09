@@ -1,6 +1,6 @@
 ﻿---
-ID: "0d822946-9e79-4e7e-8110-e824053b197d"
-Parent: "b9ac481f-781d-466c-aa74-a34febc3a907"
+ID: "faebd0b0-61e1-44ad-9d0c-8b4c7bb0e468"
+Parent: "1db5c3a3-3e78-489b-988e-c19f9a0ac312"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Link Lists/Footer/Company/About
 DB: master
@@ -27,7 +27,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="About" querystring="" target="" id="{A3FCAF4C-FA00-45FF-AFBA-2CF1AE5E1BD2}" />
+        <link linktype="internal" text="About" querystring="" target="" id="{BF966F8A-CDFD-4934-A225-7BF280797B6C}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -46,7 +46,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Über" querystring="" target="" id="{A3FCAF4C-FA00-45FF-AFBA-2CF1AE5E1BD2}" />
+        <link linktype="internal" text="Über" querystring="" target="" id="{BF966F8A-CDFD-4934-A225-7BF280797B6C}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -65,14 +65,14 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="About" querystring="" target="" id="{A3FCAF4C-FA00-45FF-AFBA-2CF1AE5E1BD2}" />
+        <link linktype="internal" text="About" querystring="" target="" id="{BF966F8A-CDFD-4934-A225-7BF280797B6C}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112257Z
+      Value: 20190809T120902Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -95,4 +95,4 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="storefrontについて" querystring="" target="" id="{A3FCAF4C-FA00-45FF-AFBA-2CF1AE5E1BD2}" />
+        <link linktype="internal" text="storefrontについて" querystring="" target="" id="{BF966F8A-CDFD-4934-A225-7BF280797B6C}" />

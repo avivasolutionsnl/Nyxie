@@ -1,6 +1,6 @@
 ﻿---
-ID: "13abcea9-ecbc-4f95-9997-783c39378225"
-Parent: "70f7cce8-bf05-404c-840e-922671cdd37e"
+ID: "2e48c4bf-0396-4852-a044-a19fe0981893"
+Parent: "dc18950d-fd32-4613-b0f4-f97d2f673c61"
 Template: "be8d531a-ca6b-43b7-a087-ef14523a72ea"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Checkout/Order Confirmation
 DB: master
@@ -59,7 +59,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112145Z
+      Value: 20190809T120744Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

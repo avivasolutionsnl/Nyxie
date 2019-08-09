@@ -1,6 +1,6 @@
 ﻿---
-ID: "6c01164e-1fb7-4bc9-8efb-d7bf5ae9b886"
-Parent: "c0b896ae-1138-490b-ba48-17b791a440d1"
+ID: "32354b64-fa63-44ea-94ea-083dc09dbfed"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Settings
 DB: master
@@ -26,7 +26,7 @@ SharedFields:
     {C6E5A68F-8493-42F3-A8B4-C7FA8A5FB31D}
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{5D38E0D6-EE79-4E7C-B12E-6B21D2B13B48}"
+  Value: "{A57AA2DF-9594-4346-9D48-12E0F201A985}"
 Languages:
 - Language: en
   Versions:
@@ -34,4 +34,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095458Z
+      Value: 20190809T120039Z

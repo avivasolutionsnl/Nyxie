@@ -1,6 +1,6 @@
 ﻿---
-ID: "43946927-c255-4079-a916-7a06881da042"
-Parent: "c7d40cfc-677c-4af7-ad9e-7d96cf82d884"
+ID: "9863650e-9660-41fd-930d-e5ba5980d235"
+Parent: "8bc447db-f97a-41c9-846f-adea64ca21be"
 Template: "e1cf805e-7f49-4ec9-a25a-182dc798cb5f"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Redirects
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111857Z
+      Value: 20190809T120443Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

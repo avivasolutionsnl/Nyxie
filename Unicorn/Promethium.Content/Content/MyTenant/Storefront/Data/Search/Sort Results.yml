@@ -1,6 +1,6 @@
 ﻿---
-ID: "22e89a3a-617a-48f8-8f98-d48ca86852f1"
-Parent: "410bdffc-ebca-46d0-aa83-6971d29b10f8"
+ID: "2e9fb327-97d6-49c0-b6e0-4763addafe22"
+Parent: "42374a2a-951b-4194-9da5-e57c34374abd"
 Template: "c24428ab-3af5-44cd-ab5f-5f7e33f9d1ac"
 Path: /sitecore/content/MyTenant/Storefront/Data/Search/Sort Results
 DB: master
@@ -16,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112202Z
+      Value: 20190809T120802Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

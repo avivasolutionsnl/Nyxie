@@ -1,6 +1,6 @@
 ﻿---
-ID: "3bf201cf-6ce3-449a-ae64-8476e65f2cab"
-Parent: "83ae7afb-1489-44c9-9aae-3a5801d52008"
+ID: "e463f7cc-aaa4-4685-8e1f-a0213f60150a"
+Parent: "c9b93f64-f0f9-4638-bf9f-5ca1880cd530"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Common/No Borders
 DB: master
@@ -35,7 +35,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111917Z
+      Value: 20190809T120504Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

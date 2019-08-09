@@ -1,6 +1,6 @@
 ﻿---
-ID: "712e5845-c5d9-4885-8a4a-f2eba2bf8e2c"
-Parent: "1ddeed1a-d62c-4c1a-961e-f82d5cf02cd4"
+ID: "8f27a593-a2e8-4981-aca5-a23dc3b3d875"
+Parent: "cbb54d75-785c-4f93-b88f-c1ef64e096c3"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Link Lists/Footer/Account Info/Account
 DB: master
@@ -23,7 +23,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Dashboard" querystring="" target="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link linktype="internal" text="Dashboard" querystring="" target="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -42,7 +42,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" Text="Dashboard" querystring="" target="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link linktype="internal" Text="Dashboard" querystring="" target="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -61,14 +61,14 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Dashboard" querystring="" target="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link linktype="internal" text="Dashboard" querystring="" target="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112257Z
+      Value: 20190809T120902Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -91,4 +91,4 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="ダッシュボード" querystring="" target="" id="{11212C1F-33C6-4B90-9045-DEAB1BB711B0}" />
+        <link linktype="internal" text="ダッシュボード" querystring="" target="" id="{CC4F0EAC-7238-4264-8F20-76E3824B6E89}" />

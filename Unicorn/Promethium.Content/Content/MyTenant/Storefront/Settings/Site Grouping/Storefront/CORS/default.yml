@@ -1,6 +1,6 @@
 ﻿---
-ID: "5f89d441-c5d7-4a49-b02a-b6cd69d6ac60"
-Parent: "e6222ac4-eeb0-47df-acb7-2750670c895d"
+ID: "ee5ea368-88af-41c3-9e5d-360a76437465"
+Parent: "aac65595-9d59-4c72-ad53-b2af15a59fde"
 Template: "5203732f-9512-4ade-8e02-0cb085c10454"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Site Grouping/Storefront/CORS/default
 DB: master
@@ -16,4 +16,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112001Z
+      Value: 20190809T120553Z

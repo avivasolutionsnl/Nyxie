@@ -1,6 +1,6 @@
 ﻿---
-ID: "fbc1f9e3-3792-4ded-b9a4-6b6b25782190"
-Parent: "1095b87b-0b68-482d-946e-a4eb9b384309"
+ID: "48766a88-ddb4-4b88-ab6d-25959b630ba5"
+Parent: "3b301673-28d6-46db-9e5f-9b31765019b4"
 Template: "b5028e2e-0f2c-440c-8488-7ac1dc2e1bcb"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Cart/Add To Cart
 DB: master
@@ -25,7 +25,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120739Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -47,7 +47,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120740Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

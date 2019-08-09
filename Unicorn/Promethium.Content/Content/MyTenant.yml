@@ -1,7 +1,7 @@
 ﻿---
-ID: "ea808f45-6c86-4938-b8f0-d2112eba65b2"
+ID: "606a29a6-3d38-4099-93e2-2ccfde4fd9e2"
 Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
-Template: "330ef638-dd4e-4426-a7ab-e7d98717ff54"
+Template: "2fd99c58-ddc4-416f-8ecc-46a40ddd6375"
 Path: /sitecore/content/MyTenant
 DB: master
 BranchID: "9a4aad67-383b-4504-93b9-d3502be2b59d"
@@ -32,19 +32,19 @@ SharedFields:
     {FE1854C1-4382-4FC1-9109-5B522E7EA95F}
 - ID: "800dc4ed-0846-45ba-b112-19902af240f6"
   Hint: SharedMediaLibrary
-  Value: "{D1351042-F722-431A-9982-C29CF673D208}"
+  Value: "{700A32E4-E20C-4636-892C-AB65CBADCC34}"
 - ID: "9c596379-f8d4-45d1-a064-cdf1ede2e7c7"
   Hint: Templates
-  Value: "{5950B034-45F1-4556-84EC-BEFD10A24D92}"
+  Value: "{77C789A7-2A86-47BE-9A71-83353ED525F6}"
 - ID: "abfb8c52-73a8-4f60-a32a-f27dd8e1b83a"
   Hint: Themes
-  Value: "{EA19F860-DDB3-43E7-A6B0-236E50E6875A}"
+  Value: "{D05B8673-30BE-47A3-9972-4B8D1415C23A}"
 - ID: "bd094adf-1e7f-4f1b-8300-8d8248ed4600"
   Hint: FormsFolderLocation
-  Value: "{58609E6A-F913-475F-B447-0EF03D6FBBC1}"
+  Value: "{4A81212B-BBDD-4C67-A530-6FF73052F84D}"
 - ID: "e90a4413-c111-4951-9b6a-00c4ce7fb289"
   Hint: MediaLibrary
-  Value: "{093344B8-5831-4095-8F50-1AF06609932C}"
+  Value: "{3546EADC-C059-476C-9471-34158D235A5B}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{0E06F4B3-CB34-49FB-8C92-3CC8EEA14119}"
@@ -55,7 +55,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111307Z
+      Value: 20190809T120040Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

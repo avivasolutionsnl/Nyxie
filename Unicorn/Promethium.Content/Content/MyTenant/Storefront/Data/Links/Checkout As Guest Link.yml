@@ -1,6 +1,6 @@
 ﻿---
-ID: "f7487a43-d658-4d27-92fc-b8abef1aff64"
-Parent: "7f3b9bb5-1f5e-414c-95d1-8e6c1adff1d6"
+ID: "0c4fadb4-5ae8-4c1a-b83d-3a89102416d4"
+Parent: "b6aecb87-1337-44be-9c35-5cee9e4751c2"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Links/Checkout As Guest Link
 DB: master
@@ -23,7 +23,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Checkout as guest" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{52AC54AC-E73B-4AC9-B969-8DA72075EFBE}" />
+        <link linktype="internal" text="Checkout as guest" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{6475753A-52B3-4F0A-9CA6-23F5BBB761F8}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -42,7 +42,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Als Gast zur Kasse gehen" title="Kasse als Gast" class="secondary-button-line large-height" querystring="" target="" id="{52AC54AC-E73B-4AC9-B969-8DA72075EFBE}" />
+        <link linktype="internal" text="Als Gast zur Kasse gehen" title="Kasse als Gast" class="secondary-button-line large-height" querystring="" target="" id="{6475753A-52B3-4F0A-9CA6-23F5BBB761F8}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -61,14 +61,14 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Checkout as guest" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{52AC54AC-E73B-4AC9-B969-8DA72075EFBE}" />
+        <link linktype="internal" text="Checkout as guest" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{6475753A-52B3-4F0A-9CA6-23F5BBB761F8}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112300Z
+      Value: 20190809T120905Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -91,4 +91,4 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="ゲストとしてレジに進む" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{52AC54AC-E73B-4AC9-B969-8DA72075EFBE}" />
+        <link linktype="internal" text="ゲストとしてレジに進む" title="Checkout as guest" class="secondary-button-line large-height" querystring="" target="" id="{6475753A-52B3-4F0A-9CA6-23F5BBB761F8}" />

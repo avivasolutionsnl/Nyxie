@@ -1,6 +1,6 @@
 ﻿---
-ID: "f7a9a292-0749-49f1-b15d-c15792ad11dc"
-Parent: "43ef8731-a3e6-4a3a-ac57-d6a389a9058e"
+ID: "c3fcc478-26a4-4518-9e62-7c8d7fac3055"
+Parent: "315f27cc-0ac1-4a9e-bcfd-63f9eebfb48d"
 Template: "efafbbf5-01a0-46d3-9f7b-e71763e7f221"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Social Media Groups/Default
 DB: master
@@ -16,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112121Z
+      Value: 20190809T120718Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

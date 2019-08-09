@@ -1,6 +1,6 @@
 ﻿---
-ID: "ac16e290-9f31-4fdd-83b5-f6115cc0eff0"
-Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+ID: "a08bb88f-9b94-4346-ad4a-86964222dbc7"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Buy Gift Card
 DB: master
@@ -12,14 +12,14 @@ SharedFields:
   Hint: __Base template
   Type: tree list
   Value: |
-    {F801C257-5CC6-45EA-88B9-6A905D14E0DC}
+    {9B9E3EFC-8844-4C72-803E-DB4908E28B2E}
     {79D8F390-0948-43D8-993E-582491C7F545}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 3300
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{06DFA360-8A70-4700-9D1D-65EE0698C9F7}"
+  Value: "{F02D34CC-5253-4B9F-8775-1FA523CA91FD}"
 Languages:
 - Language: da
   Fields:

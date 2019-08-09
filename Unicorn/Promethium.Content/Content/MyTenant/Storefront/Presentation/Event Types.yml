@@ -1,6 +1,6 @@
 ﻿---
-ID: "00dbcf08-0d60-480b-97b4-0df73d8b3898"
-Parent: "b2817955-a25f-40f7-889d-6253f3ea559f"
+ID: "00aea7cf-8517-423c-9c15-e8e19484e80b"
+Parent: "f102fce3-bd46-4cd7-bc5b-c01d36d578cd"
 Template: "fd612519-1c44-48b7-a44a-d582e22c38dd"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Event Types
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111951Z
+      Value: 20190809T120544Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "c9968622-bcbf-417f-8865-a3a948cc6a3a"
-Parent: "1ddeed1a-d62c-4c1a-961e-f82d5cf02cd4"
+ID: "1a619256-ce07-49aa-b6aa-3c9f9c4e8f8c"
+Parent: "cbb54d75-785c-4f93-b88f-c1ef64e096c3"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Link Lists/Footer/Account Info/Order Status
 DB: master
@@ -68,7 +68,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112257Z
+      Value: 20190809T120902Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,7 +1,7 @@
 ﻿---
-ID: "508a5a56-bb21-4f73-a4b7-9857696abf73"
-Parent: "ec8416f0-ddae-4b2c-b74e-d79c19e126f6"
-Template: "ec8416f0-ddae-4b2c-b74e-d79c19e126f6"
+ID: "d4b0f0a9-bfc7-458d-baec-555c97f142c4"
+Parent: "5216fb06-5ae3-45af-a697-19d4a26c6803"
+Template: "5216fb06-5ae3-45af-a697-19d4a26c6803"
 Path: /sitecore/templates/Project/MyTenant/Partial Design Folder/__Standard Values
 DB: master
 SharedFields:
@@ -9,8 +9,8 @@ SharedFields:
   Hint: __Masters
   Type: TreelistEx
   Value: |
-    {EC8416F0-DDAE-4B2C-B74E-D79C19E126F6}
-    {76CBDE0D-6455-456D-AC89-46582618DF92}
+    {5216FB06-5AE3-45AF-A697-19D4A26C6803}
+    {E207B94E-441E-487B-971A-610D97C285F3}
     {C2A8E276-1757-4957-9DD5-8669B79FD80D}
 Languages:
 - Language: en
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095458Z
+      Value: 20190809T120039Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

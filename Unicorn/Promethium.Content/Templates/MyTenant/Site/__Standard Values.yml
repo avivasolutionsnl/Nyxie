@@ -1,7 +1,7 @@
 ﻿---
-ID: "96654128-cd47-4c3d-9d80-a10bd97fe4f5"
-Parent: "85683349-afaa-41e3-861c-9830fe33afc4"
-Template: "85683349-afaa-41e3-861c-9830fe33afc4"
+ID: "a0385156-e894-4f5d-abf6-abeca76e5a2a"
+Parent: "dd9f2698-0382-4607-bca4-8745eff9f206"
+Template: "dd9f2698-0382-4607-bca4-8745eff9f206"
 Path: /sitecore/templates/Project/MyTenant/Site/__Standard Values
 DB: master
 SharedFields:
@@ -10,7 +10,7 @@ SharedFields:
   Type: TreelistEx
   Value: |
     {E8E8C94F-4248-43C3-A79F-99FBB49D78E6}
-    {6C01164E-1FB7-4BC9-8EFB-D7BF5AE9B886}
+    {32354B64-FA63-44EA-94EA-083DC09DBFED}
     {5ECD34F4-B36F-4533-9643-DF41CD8B5036}
 Languages:
 - Language: en
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095458Z
+      Value: 20190809T120038Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
