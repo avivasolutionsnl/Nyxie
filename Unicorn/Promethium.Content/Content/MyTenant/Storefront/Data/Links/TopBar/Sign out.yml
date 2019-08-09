@@ -1,0 +1,127 @@
+﻿---
+ID: "8bf2ae66-443d-41a4-950e-272992cf122a"
+Parent: "a796c298-6a46-43ba-aa66-289dc1f9d7c6"
+Template: "f9327a11-4030-42de-b83e-7b4e88490dd8"
+Path: /sitecore/content/MyTenant/Storefront/Data/Links/TopBar/Sign out
+DB: master
+SharedFields:
+- ID: "8ecd2641-8088-46e4-a37f-11a358de9475"
+  Hint: Show When Authenticated
+  Type: Checkbox
+  Value: 1
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Log ud
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24629943-2d2a-442a-8d18-8a8634850715"
+      Hint: Text
+      Value: Log ud
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083256Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
+      Hint: Link
+      Value: |
+        <link text="" linktype="external" url="/api/cxa/account/logoff" anchor="" title="" class="" querystring="" target="" id="" />
+    - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
+      Hint: Tooltip
+      Value: Log ud
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Abmelden
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24629943-2d2a-442a-8d18-8a8634850715"
+      Hint: Text
+      Value: Abmelden
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085058Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
+      Hint: Link
+      Value: |
+        <link text="" linktype="external" url="/api/cxa/account/logoff" anchor="" title="" class="" querystring="" target="" id="" />
+    - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
+      Hint: Tooltip
+      Value: Abmelden
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Sign out
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24629943-2d2a-442a-8d18-8a8634850715"
+      Hint: Text
+      Value: Sign out
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171119T215041Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
+      Hint: Link
+      Value: |
+        <link text="" linktype="external" url="/api/cxa/account/logoff" anchor="" title="" class="" querystring="" target="" id="" />
+    - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
+      Hint: Tooltip
+      Value: Sign out
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112303Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: サインアウト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24629943-2d2a-442a-8d18-8a8634850715"
+      Hint: Text
+      Value: サインアウト
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085744Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "60d17bd9-92a5-45e1-9b60-6b0671893ed8"
+      Hint: Link
+      Value: |
+        <link text="" linktype="external" url="/api/cxa/account/logoff" anchor="" title="" class="" querystring="" target="" id="" />
+    - ID: "9f587c98-bbaf-496f-b652-7f7139a1a608"
+      Hint: Tooltip
+      Value: サインアウト

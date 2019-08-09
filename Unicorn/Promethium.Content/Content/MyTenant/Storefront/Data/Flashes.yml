@@ -1,0 +1,18 @@
+﻿---
+ID: "49ae62da-974b-4ef6-9ac8-3d7217ff1cb1"
+Parent: "e06ae2d0-5dd8-4782-bbbd-a4d560a8dffc"
+Template: "df608f99-aaa5-428d-a4ef-ca92e5f291d3"
+Path: /sitecore/content/MyTenant/Storefront/Data/Flashes
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112012Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

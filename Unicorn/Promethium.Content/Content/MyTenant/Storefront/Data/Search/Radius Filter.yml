@@ -1,0 +1,23 @@
+﻿---
+ID: "e5d95c65-4c54-40da-b6d9-989afe28eff4"
+Parent: "410bdffc-ebca-46d0-aa83-6971d29b10f8"
+Template: "ed133836-964c-4cae-acdc-87eadc8849ef"
+Path: /sitecore/content/MyTenant/Storefront/Data/Search/Radius Filter
+DB: master
+BranchID: "957565a0-bf0d-4f8b-bf2c-4a8f40ec9080"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1BC55BF2-011C-45E0-AA55-1F454136963E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112200Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

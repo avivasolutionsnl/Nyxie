@@ -1,0 +1,14 @@
+﻿---
+ID: "df7d4c28-9b0f-4488-b2af-9b19ec240595"
+Parent: "e06ae2d0-5dd8-4782-bbbd-a4d560a8dffc"
+Template: "3d2bc93d-7975-413b-b6ee-2cf6fc4ea128"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T152509Z

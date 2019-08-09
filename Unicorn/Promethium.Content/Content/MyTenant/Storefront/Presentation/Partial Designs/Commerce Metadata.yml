@@ -1,0 +1,78 @@
+﻿---
+ID: "499c9e32-4470-4157-b255-358382ab40db"
+Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
+Template: "c2a8e276-1757-4957-9dd5-8669b79fd80d"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Commerce Metadata
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "commerce-partial-design"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 700
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{4B235A1D-E9DB-40EE-B4F3-4EAFA424D688}"
+          p:before="*"
+          s:id="{D2EB2C0D-5453-4430-B4C4-B98F26F21447}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="head" />
+        <r
+          uid="{C89D0A86-C87C-4445-AD09-B81D30910A22}"
+          p:after="r[@uid='{4B235A1D-E9DB-40EE-B4F3-4EAFA424D688}']"
+          s:id="{432E53A1-E676-4A07-92BC-A3EF517A5811}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="body-top" />
+        <r
+          uid="{C42E728E-1195-444A-9EA8-E51EF0E6D45A}"
+          p:after="*[1=2]"
+          s:id="{B761C521-23CC-4F51-8340-15F5483BE921}"
+          s:par=""
+          s:ph="body-top" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Handel metadata
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Commerce Metadaten
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Commerce Metadata
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171122T055240Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
+      Hint: Base Partial Design
+      Value: "{9FCE16A9-BA96-4BB5-9E1C-B148AD9B79E8}"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Commerce メタデータ
+  Versions:

@@ -1,0 +1,127 @@
+﻿---
+ID: "bb9d6bde-11c3-4e7a-a57b-aedfe1516422"
+Parent: "dc4e180d-c758-4ae5-af8d-794098724123"
+Template: "bb85f5a0-8fc1-4371-9f8b-c4a5dca78f1f"
+Path: /sitecore/content/MyTenant/Storefront/Home/registration
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {DA84CD7A-217B-476E-AB19-96840872A080}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {D220392B-8B42-4E8A-86F9-A346E4658321}
+    {F801C257-5CC6-45EA-88B9-6A905D14E0DC}
+    {EF9F6B7B-B421-44FB-941D-3091F8AD37EF}
+    {8D8F2A7C-F43A-4F5F-8C74-A768C4FA0554}
+    {C77CE1E3-80D0-431E-8F25-7921723888E8}
+    {908D3D73-ECAE-4EB6-9CB3-825BC4150F45}
+    {C697DD21-2301-429D-AA3A-A2AE62BF3F8A}
+    {BB85F5A0-8FC1-4371-9F8B-C4A5DCA78F1F}
+    {26772DB0-FF0C-4010-8364-E4266C6535E0}
+    {29DEF1B2-A347-40F2-B364-9C578E91673F}
+    {5233E08D-1D6B-4AC4-98CA-47DA4D156EBE}
+    {F9C9CA34-173C-4F6A-BE3A-4F07168677B9}
+    {39154284-5617-466E-8FF5-6F5ED5C336DD}
+    {6561D594-4859-4ED7-B976-F090FE337149}
+    {B8E77627-FEEF-44EA-95DB-9EF470DBDA9C}
+    {2B1F83B0-4594-479E-831F-90A1808730E7}
+    {CED267AE-B1AE-48E9-939F-50695348CA29}
+    {AC16E290-9F31-4FDD-83B5-F6115CC0EFF0}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{9B2E20F3-C54A-4EDC-A0F0-AD1C1856D062}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D2D9A8E9-66DA-45B8-994A-F189CC55B9A9}"
+          p:before="*"
+          s:ds="{0903D9FE-B7FA-4962-8C55-292DF4A69630}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="Styles={A838576C-D768-42B9-807C-B17C39EE5BFF}&amp;GridParameters"
+          s:ph="/main/container-1/column-1-1" />
+        <r
+          uid="{62377615-E49E-42D0-A83F-6E74F23F19C2}"
+          p:after="r[@uid='{D2D9A8E9-66DA-45B8-994A-F189CC55B9A9}']"
+          s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+          s:par=""
+          s:ph="/main/container-1/column-1-1" />
+        <r
+          uid="{2B7DA379-1B56-40F6-81BA-307AC7AB9348}"
+          p:after="r[@uid='{62377615-E49E-42D0-A83F-6E74F23F19C2}']"
+          s:ds="{F020743D-8765-47E3-987F-8DD6E66FA2F8}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles=%7BB40EF1B1-7515-4DB1-88C0-C8435F9AC79F%7D%7C%7B0ACF9713-16AF-44C9-B2D2-86AB1C2DDAEA%7D&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/container-1/column-2-1" />
+        <r
+          uid="{2F04D57A-F5B8-43C0-AE77-86F3BD6E5B3E}"
+          p:after="r[@uid='{2B7DA379-1B56-40F6-81BA-307AC7AB9348}']"
+          s:ds="{CA04C9E1-D2B6-4725-A6A6-C7D8772E123E}"
+          s:id="{8088A650-0910-4CE0-802A-3D5E757F1254}"
+          s:par=""
+          s:ph="/main/container-1/column-1-1" />
+        <r
+          uid="{9629EE3C-B590-40B4-A7AA-AF37CD37CBE6}"
+          p:after="r[@uid='{2F04D57A-F5B8-43C0-AE77-86F3BD6E5B3E}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=1&amp;Caching=0|0|0|0|0|0|0|0&amp;SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;ColumnWidth2={30AB3BE4-973A-4029-A69B-9523220444C1}|{3BD71913-44BE-4DDD-9A6B-6D68CD361848}&amp;Styles2&amp;ColumnWidth1={8636EB85-386A-42BA-AA14-D5F592867741}|{689708EA-D282-4A39-9F6F-6F95F428942F}&amp;Styles1"
+          s:ph="/main/container-1" />
+        <r
+          uid="{103A0076-69E1-4EF0-985B-7BC9225B9AE4}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles&amp;DynamicPlaceholderId=1&amp;GridParameters"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Registrering
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Registrierung
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Registration
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170125T112001Z
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Registration
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Create an Account
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 登録
+  Versions:

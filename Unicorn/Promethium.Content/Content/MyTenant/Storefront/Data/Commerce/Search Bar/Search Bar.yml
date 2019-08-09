@@ -1,0 +1,80 @@
+﻿---
+ID: "59a43d99-4cf5-4923-8b4f-400c6fb456ee"
+Parent: "3e6400d8-0b14-4e7c-9e7c-a87cbaeadd96"
+Template: "adbf000c-955a-45c3-8c57-b8d8535bc711"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Search Bar/Search Bar
+DB: master
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083116Z
+    - ID: "35f73747-48bb-4112-a53b-8af20eeabfed"
+      Hint: Search Button Tooltip
+      Value: Klik på udfør søgning
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "f8259316-3307-4ec1-a4e3-604069e93967"
+      Hint: Search Hint Text
+      Value: Søg
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084914Z
+    - ID: "35f73747-48bb-4112-a53b-8af20eeabfed"
+      Hint: Search Button Tooltip
+      Value: Anklicken, um Suche durchzuführen
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "f8259316-3307-4ec1-a4e3-604069e93967"
+      Hint: Search Hint Text
+      Value: Suche
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T154050Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112147Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085513Z
+    - ID: "35f73747-48bb-4112-a53b-8af20eeabfed"
+      Hint: Search Button Tooltip
+      Value: クリックして検索を実行
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "f8259316-3307-4ec1-a4e3-604069e93967"
+      Hint: Search Hint Text
+      Value: 検索

@@ -1,0 +1,18 @@
+﻿---
+ID: "2d76a4f5-e3da-4ce3-97a0-ac2c639107cf"
+Parent: "e06ae2d0-5dd8-4782-bbbd-a4d560a8dffc"
+Template: "9c2d0fdf-4daf-4494-bde7-f857f1924825"
+Path: /sitecore/content/MyTenant/Storefront/Data/Navigation Filters
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112040Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

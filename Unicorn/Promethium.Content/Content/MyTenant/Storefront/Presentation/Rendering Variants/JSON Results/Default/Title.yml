@@ -1,0 +1,25 @@
+﻿---
+ID: "3023360b-ee0f-4c8c-bd0d-b2a137005d25"
+Parent: "1de4e529-cbc1-4449-b668-dcf26a759ffd"
+Template: "f69d787d-0ecf-43d3-b9cb-35b303d5233a"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/JSON Results/Default/Title
+DB: master
+BranchID: "692e3473-3749-464c-845d-8d515419a63d"
+SharedFields:
+- ID: "3183d84b-d0b9-4e0c-8813-a82465ccbdc8"
+  Hint: Field Name
+  Value: Title
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{01EE3C1E-9BD6-437E-927D-6848049598A8}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112006Z

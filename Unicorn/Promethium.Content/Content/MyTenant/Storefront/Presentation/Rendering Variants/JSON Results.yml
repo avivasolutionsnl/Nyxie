@@ -1,0 +1,22 @@
+﻿---
+ID: "15d05b97-34f9-487f-bca6-d67256698a71"
+Parent: "ad704a28-8b84-429b-af23-37e2984dced1"
+Template: "4c1dc3cf-36d2-4484-ba4e-40af34d01e95"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/JSON Results
+DB: master
+BranchID: "692e3473-3749-464c-845d-8d515419a63d"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/selection_view.png
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7893CA6E-E1AB-492F-BCA2-8A0B662CFF84}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112005Z

@@ -1,0 +1,18 @@
+﻿---
+ID: "28fe8000-b837-47da-a614-450c78da46e5"
+Parent: "e06ae2d0-5dd8-4782-bbbd-a4d560a8dffc"
+Template: "33077d51-ebad-4d1c-b4a8-3b79f51dba13"
+Path: /sitecore/content/MyTenant/Storefront/Data/Security
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112110Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
