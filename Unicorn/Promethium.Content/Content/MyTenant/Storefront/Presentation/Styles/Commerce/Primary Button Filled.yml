@@ -1,0 +1,18 @@
+﻿---
+ID: "fd2b8c0e-4d11-4595-8f12-f8bf42063bc9"
+Parent: "84689462-f58d-4dcf-b16e-f18d491c9401"
+Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Commerce/Primary Button Filled
+DB: master
+SharedFields:
+- ID: "09147fb2-ebfb-4949-8c8e-26a424409d5e"
+  Hint: Value
+  Value: "primary-button-filled"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171109T140841Z

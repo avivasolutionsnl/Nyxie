@@ -1,0 +1,89 @@
+﻿---
+ID: "39a6ff55-ce8f-40d3-a876-6ef90bb49d40"
+Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
+Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Checkout Page Header
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "checkout-page-header"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 288
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B76A9CCF-07C1-4149-B647-9117738A7FB3}"
+          p:before="*"
+          s:ds="{B12FB4B0-3951-405A-992F-5CB4CFBDA2E7}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{FD09A9D2-113E-49B8-B481-F0B4FFE9B498}&amp;FieldNames&amp;Styles"
+          s:ph="/header/row-1-1/container-1" />
+        <r
+          uid="{8979D525-BD8A-4FC1-900B-BC9DB0AE85DE}"
+          p:after="r[@uid='{B76A9CCF-07C1-4149-B647-9117738A7FB3}']"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{FD09A9D2-113E-49B8-B481-F0B4FFE9B498}&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/header/row-1-1" />
+        <r
+          uid="{FD78254E-817A-4236-89F9-7B46DBA7C2A2}"
+          p:after="r[@uid='{8979D525-BD8A-4FC1-900B-BC9DB0AE85DE}']"
+          s:id="{A6AEE2E8-BFB1-4D86-BA02-5E73C723B38E}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/header/row-2-1" />
+        <r
+          uid="{9CB93CD6-399D-40D8-AAF3-591D0A98866F}"
+          p:after="r[@uid='{FD78254E-817A-4236-89F9-7B46DBA7C2A2}']"
+          s:ds="{CB41FCE2-64E5-4DA4-9D67-07D3AAE5081C}"
+          s:id="{69D0A00E-FF06-4B17-BE59-BED330577680}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{4C80E2ED-07D6-4652-A90B-3820049E9CE4}|{2FF25A31-B1F1-4B00-8131-71323148B1F1}|{0DA3126E-497A-4DA6-9A15-EC8B151F8D7C}&amp;FieldNames&amp;Styles&amp;RenderingIdentifier"
+          s:ph="/header/row-1-1" />
+        <r
+          uid="{CEAC2D16-9B0B-4FD5-8904-91E1F33B9077}"
+          p:after="*[1=2]"
+          s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="header" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Header på kasseside
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kasse Seite Header
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Checkout Page Header
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171203T135903Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: レジに進む ページ ヘッダー
+  Versions:

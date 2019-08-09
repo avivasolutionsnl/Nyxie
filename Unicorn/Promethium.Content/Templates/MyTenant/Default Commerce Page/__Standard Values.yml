@@ -1,0 +1,52 @@
+﻿---
+ID: "8061917f-0368-45a9-9005-194f9a24e241"
+Parent: "e05bc76f-2419-4426-9aa4-55cc6445861a"
+Template: "e05bc76f-2419-4426-9aa4-55cc6445861a"
+Path: /sitecore/templates/Project/MyTenant/Default Commerce Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {195C1A6F-18F6-47B2-8D25-A216BD245E36}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {E05BC76F-2419-4426-9AA4-55CC6445861A}
+    {E8E36399-E01B-43CA-A492-A0B05DEE5F8C}
+    {D74EF63F-5F4F-4F7B-B5CB-096BCD056A27}
+    {0EC9B90A-4E7A-487D-BB3A-1881BA6DD8D0}
+    {F5F9835E-6D7C-4735-BE55-3915C8C3E0C8}
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170818T060222Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: $name
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Search

@@ -1,0 +1,22 @@
+﻿---
+ID: "72bef8cd-bfe3-452a-942f-b42a17e9c578"
+Parent: "84689462-f58d-4dcf-b16e-f18d491c9401"
+Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Commerce/Large Height Control
+DB: master
+SharedFields:
+- ID: "09147fb2-ebfb-4949-8c8e-26a424409d5e"
+  Hint: Value
+  Value: "large-height"
+- ID: "69bb49f3-da64-4b0e-abd6-184b832ff6ab"
+  Hint: Allowed Renderings
+  Type: TreelistEx
+  Value: "{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171109T140841Z

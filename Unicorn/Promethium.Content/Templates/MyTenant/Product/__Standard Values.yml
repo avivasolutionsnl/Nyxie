@@ -1,0 +1,18 @@
+﻿---
+ID: "73d34d70-fbce-447e-a64e-4808939968db"
+Parent: "d9d3e2c5-66e9-4092-94cf-25685270eeb5"
+Template: "d9d3e2c5-66e9-4092-94cf-25685270eeb5"
+Path: /sitecore/templates/Project/MyTenant/Product/__Standard Values
+DB: master
+SharedFields:
+- ID: "d4952280-2d7d-4bf4-a99a-ea36dad0f0a7"
+  Hint: Body Css Class
+  Value: "product-details-page"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171214T024945Z

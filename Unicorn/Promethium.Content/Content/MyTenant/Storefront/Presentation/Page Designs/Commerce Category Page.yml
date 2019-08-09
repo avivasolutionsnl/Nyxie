@@ -1,0 +1,21 @@
+﻿---
+ID: "0cfc982a-91b0-4e12-85e9-1bcc4e335b4d"
+Parent: "7f3e69d2-db2b-4da7-a385-f8f45d31eaed"
+Template: "4c54643a-fa7e-4141-a76c-1f712b7a0d05"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Page Designs/Commerce Category Page
+DB: master
+SharedFields:
+- ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
+  Hint: PartialDesigns
+  Value: "{D02CB9ED-519D-47BB-9E30-A8065A22ACDC}|{1CF1834E-35EB-4786-9EF1-C007F1696247}|{F3244D56-04A6-4B12-BBD7-D4DA04B3246E}|{499C9E32-4470-4157-B255-358382AB40DB}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181217T143522Z

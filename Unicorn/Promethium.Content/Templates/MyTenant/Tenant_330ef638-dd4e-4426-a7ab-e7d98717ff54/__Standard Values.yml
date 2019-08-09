@@ -1,0 +1,18 @@
+﻿---
+ID: "2f871967-26c1-4b63-b16a-8e3f2847e63d"
+Parent: "330ef638-dd4e-4426-a7ab-e7d98717ff54"
+Template: "330ef638-dd4e-4426-a7ab-e7d98717ff54"
+Path: /sitecore/templates/Project/MyTenant/Tenant/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T111303Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

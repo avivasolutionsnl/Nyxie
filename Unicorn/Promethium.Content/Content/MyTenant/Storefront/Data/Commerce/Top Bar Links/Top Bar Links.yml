@@ -1,0 +1,126 @@
+﻿---
+ID: "9ad8e6b0-c490-43b8-bacb-b13a3a347038"
+Parent: "2a6359ef-ee6e-4e6b-99c6-a68a44bc9060"
+Template: "1340f5ec-0efe-4f68-9972-4d6229f89ad0"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Top Bar Links/Top Bar Links
+DB: master
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Topbjælkelinks
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112248Z
+    - ID: "48b894a4-5875-4f70-9cf2-20560e6d8df9"
+      Hint: Profile Edit Page Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC56A4A5-AA32-4C5E-92AC-E9FA689C2657}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "fc12d76e-2c83-412c-b647-66e750196f82"
+      Hint: Quick Links
+      Type: TreelistEx
+      Value: |
+        {A2A0B300-9CB5-458E-ABFA-3E193381F1CB}
+        {8BF2AE66-443D-41A4-950E-272992CF122A}
+        {013EEE1E-E6EA-4E79-B30C-604BE4A07351}
+        {AF506222-EA0E-410A-960F-9F8945B11C57}
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Top Bar Links
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112248Z
+    - ID: "48b894a4-5875-4f70-9cf2-20560e6d8df9"
+      Hint: Profile Edit Page Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC56A4A5-AA32-4C5E-92AC-E9FA689C2657}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "fc12d76e-2c83-412c-b647-66e750196f82"
+      Hint: Quick Links
+      Type: TreelistEx
+      Value: |
+        {A2A0B300-9CB5-458E-ABFA-3E193381F1CB}
+        {8BF2AE66-443D-41A4-950E-272992CF122A}
+        {013EEE1E-E6EA-4E79-B30C-604BE4A07351}
+        {AF506222-EA0E-410A-960F-9F8945B11C57}
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Top Bar Links
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171023T154059Z
+    - ID: "48b894a4-5875-4f70-9cf2-20560e6d8df9"
+      Hint: Profile Edit Page Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC56A4A5-AA32-4C5E-92AC-E9FA689C2657}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "fc12d76e-2c83-412c-b647-66e750196f82"
+      Hint: Quick Links
+      Type: TreelistEx
+      Value: |
+        {A2A0B300-9CB5-458E-ABFA-3E193381F1CB}
+        {8BF2AE66-443D-41A4-950E-272992CF122A}
+        {013EEE1E-E6EA-4E79-B30C-604BE4A07351}
+        {AF506222-EA0E-410A-960F-9F8945B11C57}
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112249Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: トップ バー リンク
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190809T112249Z
+    - ID: "48b894a4-5875-4f70-9cf2-20560e6d8df9"
+      Hint: Profile Edit Page Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CC56A4A5-AA32-4C5E-92AC-E9FA689C2657}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "fc12d76e-2c83-412c-b647-66e750196f82"
+      Hint: Quick Links
+      Type: TreelistEx
+      Value: |
+        {A2A0B300-9CB5-458E-ABFA-3E193381F1CB}
+        {8BF2AE66-443D-41A4-950E-272992CF122A}
+        {013EEE1E-E6EA-4E79-B30C-604BE4A07351}
+        {AF506222-EA0E-410A-960F-9F8945B11C57}
