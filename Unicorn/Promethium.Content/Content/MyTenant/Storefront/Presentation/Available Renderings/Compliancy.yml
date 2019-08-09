@@ -1,6 +1,6 @@
 ﻿---
-ID: "02e8fec1-f752-44d6-9ba9-c7f42635f976"
-Parent: "9c13d435-b8cf-4a95-976d-17713c23e7ed"
+ID: "2507bc52-c3ca-45c8-8278-5ff0bd59c3c9"
+Parent: "be711daa-8f11-4a60-a7ae-cdb284ca22f8"
 Template: "bf70a40b-6d0e-4639-9862-24bb8946094b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Available Renderings/Compliancy
 DB: master
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111931Z
+      Value: 20190809T120522Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

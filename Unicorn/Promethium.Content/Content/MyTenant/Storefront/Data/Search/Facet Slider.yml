@@ -1,6 +1,6 @@
 ﻿---
-ID: "0be2a10d-3e7f-4978-94bd-bdf6d6b461d3"
-Parent: "410bdffc-ebca-46d0-aa83-6971d29b10f8"
+ID: "9dd8b046-60c1-4585-bbf4-5b9ac70e8dcf"
+Parent: "42374a2a-951b-4194-9da5-e57c34374abd"
 Template: "ebb0b13d-ccf4-4bdf-8d3c-e2fdb4bb0240"
 Path: /sitecore/content/MyTenant/Storefront/Data/Search/Facet Slider
 DB: master
@@ -16,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112159Z
+      Value: 20190809T120759Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

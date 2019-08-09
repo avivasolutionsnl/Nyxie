@@ -1,6 +1,6 @@
 ﻿---
-ID: "ca04c9e1-d2b6-4725-a6a6-c7d8772e123e"
-Parent: "97143e2e-cbdf-48d8-821b-3dbb5d9f7f5f"
+ID: "0ac539b3-d4cf-4368-9db8-a27a193cea1c"
+Parent: "d12288ed-7707-4dc0-8347-8c3af49ca9bd"
 Template: "476011d6-59de-47a6-8256-d453f6016fc8"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Account/Registration
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120739Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120739Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -44,7 +44,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112140Z
+      Value: 20190809T120739Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

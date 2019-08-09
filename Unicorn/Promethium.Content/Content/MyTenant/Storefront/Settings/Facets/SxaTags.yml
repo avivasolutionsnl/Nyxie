@@ -1,6 +1,6 @@
 ﻿---
-ID: "7fa28ad2-a5e8-4b76-91b1-5060c998985f"
-Parent: "ed1f1617-6b5c-4591-82fb-0718505d1f5f"
+ID: "a4d2a66c-673e-476e-85c1-6e10c03f6eb4"
+Parent: "3a745f3d-f3ec-4bb5-9bff-1d7515d25445"
 Template: "6042e216-f650-447c-86d1-00fea97454e7"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Facets/SxaTags
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112213Z
+      Value: 20190809T120818Z
     - ID: "31ca077f-ef38-4980-8a24-05408031b2bc"
       Hint: Name
       Value: SxaTags

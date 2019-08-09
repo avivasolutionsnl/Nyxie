@@ -1,7 +1,7 @@
 ﻿---
-ID: "cf8e2c7f-b8c0-45c5-ad7e-106fd72ddf41"
-Parent: "7f3e69d2-db2b-4da7-a385-f8f45d31eaed"
-Template: "4c54643a-fa7e-4141-a76c-1f712b7a0d05"
+ID: "89db0033-3638-4890-8376-194531b854b4"
+Parent: "849b8daa-b38b-4ddf-b3f0-1710fc41c2ba"
+Template: "8f34422d-5126-454f-ad64-f1a927d85641"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Page Designs/Catalog Navigation Page
 DB: master
 SharedFields:
@@ -10,7 +10,7 @@ SharedFields:
   Value: Office/32x32/pieces.png
 - ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
   Hint: PartialDesigns
-  Value: "{512C8FA6-95BE-45CD-8F97-47E06D834CCD}|{D02CB9ED-519D-47BB-9E30-A8065A22ACDC}|{CBD64C33-3635-4A4A-BB85-DB955CE8BC40}|{F3244D56-04A6-4B12-BBD7-D4DA04B3246E}"
+  Value: "{8D46555D-55DD-4323-B3B7-74FC973FC27A}|{A8F23E7F-7752-487B-9B87-3190A4BDD31E}|{A4544D97-674C-4C9B-8771-5723F024B245}|{6A06322B-192E-4B66-9698-2289B1215466}"
 Languages:
 - Language: en
   Versions:

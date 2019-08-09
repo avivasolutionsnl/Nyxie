@@ -1,7 +1,7 @@
 ﻿---
-ID: "5a6f1917-4a3e-4a86-9e6e-b32ecebca2e0"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
-Template: "8cab4746-e551-4bcd-8707-375b3a992eef"
+ID: "d642f1ea-248e-4d92-8856-493491d1a448"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
+Template: "e207b94e-441e-487b-971a-610d97c285f3"
 Path: "/sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Multi-Rows Base Header Structure"
 DB: master
 SharedFields:

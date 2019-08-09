@@ -1,7 +1,7 @@
 ﻿---
-ID: "75574441-2b29-4fd1-a89b-ca156f7cd0c6"
-Parent: "f5f9835e-6d7c-4735-be55-3915c8c3e0c8"
-Template: "f5f9835e-6d7c-4735-be55-3915c8c3e0c8"
+ID: "ff5e9092-df80-4ae6-84d6-2257f82ae682"
+Parent: "ef645dd4-a87f-4c03-a6c8-afe5c0d0e4d5"
+Template: "ef645dd4-a87f-4c03-a6c8-afe5c0d0e4d5"
 Path: /sitecore/templates/Project/MyTenant/Checkout Page/__Standard Values
 DB: master
 SharedFields:
@@ -9,12 +9,12 @@ SharedFields:
   Hint: __Masters
   Type: TreelistEx
   Value: |
-    {195C1A6F-18F6-47B2-8D25-A216BD245E36}
+    {DEFF2260-E741-45F9-99CB-42C2E2D42344}
     {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
-    {E05BC76F-2419-4426-9AA4-55CC6445861A}
-    {E8E36399-E01B-43CA-A492-A0B05DEE5F8C}
-    {D74EF63F-5F4F-4F7B-B5CB-096BCD056A27}
-    {0EC9B90A-4E7A-487D-BB3A-1881BA6DD8D0}
+    {9B9E3EFC-8844-4C72-803E-DB4908E28B2E}
+    {98F19AFA-1AE7-42EF-AF06-BC30E6B5DED3}
+    {A15DE2D9-BDC8-4DDE-8F59-A86B3A9FAA57}
+    {30D8EC2F-5E03-41CB-B215-F930BC1698A9}
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout

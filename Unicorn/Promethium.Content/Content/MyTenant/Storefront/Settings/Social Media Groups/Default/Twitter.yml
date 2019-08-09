@@ -1,6 +1,6 @@
 ﻿---
-ID: "91860968-25bb-45cb-a29c-6d9374651a5c"
-Parent: "f7a9a292-0749-49f1-b15d-c15792ad11dc"
+ID: "92b25239-5005-4858-820a-3259c7e5cfd8"
+Parent: "c3fcc478-26a4-4518-9e62-7c8d7fac3055"
 Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Social Media Groups/Default/Twitter
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112121Z
+      Value: 20190809T120719Z
     - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
       Hint: ButtonCode
       Value: |

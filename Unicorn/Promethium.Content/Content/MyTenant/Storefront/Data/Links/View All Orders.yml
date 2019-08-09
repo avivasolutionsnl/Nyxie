@@ -1,6 +1,6 @@
 ﻿---
-ID: "195e43d4-6746-4093-ac88-fe422c68eb98"
-Parent: "7f3b9bb5-1f5e-414c-95d1-8e6c1adff1d6"
+ID: "19a52022-bb09-45a3-bfba-8ca1cfff5f02"
+Parent: "b6aecb87-1337-44be-9c35-5cee9e4751c2"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
 Path: /sitecore/content/MyTenant/Storefront/Data/Links/View All Orders
 DB: master
@@ -23,7 +23,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="View all orders" title="View all orders" querystring="" target="" id="{96F4A03C-FEE9-478E-915F-7C8FD1331319}" />
+        <link linktype="internal" text="View all orders" title="View all orders" querystring="" target="" id="{7C45D65D-5C02-4A49-AF37-22BC8C579DCC}" />
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -42,7 +42,7 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="Alle Bestellungen ansehen" title="Alle Bestellungen ansehen" querystring="" target="" id="{96F4A03C-FEE9-478E-915F-7C8FD1331319}" />
+        <link linktype="internal" text="Alle Bestellungen ansehen" title="Alle Bestellungen ansehen" querystring="" target="" id="{7C45D65D-5C02-4A49-AF37-22BC8C579DCC}" />
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -61,14 +61,14 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="View all orders" title="View all orders" querystring="" target="" id="{96F4A03C-FEE9-478E-915F-7C8FD1331319}" />
+        <link linktype="internal" text="View all orders" title="View all orders" querystring="" target="" id="{7C45D65D-5C02-4A49-AF37-22BC8C579DCC}" />
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112302Z
+      Value: 20190809T120907Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -91,4 +91,4 @@ Languages:
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link linktype="internal" text="全ての注文を表示" title="View all orders" querystring="" target="" id="{96F4A03C-FEE9-478E-915F-7C8FD1331319}" />
+        <link linktype="internal" text="全ての注文を表示" title="View all orders" querystring="" target="" id="{7C45D65D-5C02-4A49-AF37-22BC8C579DCC}" />

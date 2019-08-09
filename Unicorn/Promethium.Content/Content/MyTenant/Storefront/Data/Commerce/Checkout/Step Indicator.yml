@@ -1,6 +1,6 @@
 ﻿---
-ID: "b0ebcc4d-ad25-4fc2-a808-f6a897131bee"
-Parent: "70f7cce8-bf05-404c-840e-922671cdd37e"
+ID: "f0acb781-2311-43af-aaf3-4e5447a51f8c"
+Parent: "dc18950d-fd32-4613-b0f4-f97d2f673c61"
 Template: "c4c5b2ed-8336-4d9c-bce7-4000efc50347"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Checkout/Step Indicator
 DB: master
@@ -56,7 +56,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112145Z
+      Value: 20190809T120745Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

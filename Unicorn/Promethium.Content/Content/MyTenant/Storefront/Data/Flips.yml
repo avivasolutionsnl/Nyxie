@@ -1,6 +1,6 @@
 ﻿---
-ID: "cf141913-bfb9-4575-97b4-6cc12ae89ce7"
-Parent: "e06ae2d0-5dd8-4782-bbbd-a4d560a8dffc"
+ID: "df5be8e8-35bb-4b4a-94e2-e17769edc2a5"
+Parent: "8f2c9440-7fe1-46eb-8b74-3ee6f4628294"
 Template: "8d84f263-a22a-4967-9cce-cc12407e05fc"
 Path: /sitecore/content/MyTenant/Storefront/Data/Flips
 DB: master
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111937Z
+      Value: 20190809T120526Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

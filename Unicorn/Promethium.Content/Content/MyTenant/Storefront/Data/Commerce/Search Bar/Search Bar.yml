@@ -1,6 +1,6 @@
 ﻿---
-ID: "59a43d99-4cf5-4923-8b4f-400c6fb456ee"
-Parent: "3e6400d8-0b14-4e7c-9e7c-a87cbaeadd96"
+ID: "391af785-b3c3-46e8-8331-4fe726a3c108"
+Parent: "a88256da-92ef-4678-9aa7-ad667bbd6d21"
 Template: "adbf000c-955a-45c3-8c57-b8d8535bc711"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Search Bar/Search Bar
 DB: master
@@ -56,7 +56,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112147Z
+      Value: 20190809T120746Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "c3680bfd-5185-42a1-8afd-2e1a94075e0d"
-Parent: "2d44bc04-c5c4-4c5b-b691-197e86dc1555"
+ID: "32d869ae-3cf6-42e7-a3e5-1f014a2463bc"
+Parent: "6fc639da-da2a-4492-8f63-aec60dbe6455"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Promo/Default/Promo Icon
 DB: master
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112057Z
+      Value: 20190809T120653Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

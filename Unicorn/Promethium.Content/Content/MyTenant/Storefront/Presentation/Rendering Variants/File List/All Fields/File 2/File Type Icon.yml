@@ -1,6 +1,6 @@
 ﻿---
-ID: "345af9ae-7e7b-4224-9348-a9531a0cb5f6"
-Parent: "0b7cefa9-9dce-4234-83b5-84373881922c"
+ID: "5279c25f-4159-4567-ae0f-3958de2c35ed"
+Parent: "a0cdd2b3-b8b5-41ec-b08f-f5ee6b9e7d16"
 Template: "6eca12e9-f4d5-4f6e-9c3c-6df716bc593b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/File List/All Fields/File 2/File Type Icon
 DB: master
@@ -25,7 +25,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112021Z
+      Value: 20190809T120616Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

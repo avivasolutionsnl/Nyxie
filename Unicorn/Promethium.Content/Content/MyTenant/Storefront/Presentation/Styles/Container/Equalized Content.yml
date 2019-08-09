@@ -1,6 +1,6 @@
 ﻿---
-ID: "250ee488-d081-4a57-9dda-ed97a69f2e2e"
-Parent: "5471be0d-08d3-44f4-a8b5-46eb0960260e"
+ID: "bcded883-06a7-4a4a-91e4-1fbc0d006aa4"
+Parent: "ac42097f-eac9-4275-bb00-fb5020cc2845"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Styles/Container/Equalized Content
 DB: master
@@ -30,7 +30,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111919Z
+      Value: 20190809T120507Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

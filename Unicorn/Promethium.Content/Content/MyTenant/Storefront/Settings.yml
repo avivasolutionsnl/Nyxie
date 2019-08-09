@@ -1,7 +1,7 @@
 ﻿---
-ID: "c7d40cfc-677c-4af7-ad9e-7d96cf82d884"
-Parent: "99f36dee-054e-4720-abc0-8323e11f3a7d"
-Template: "563ce4eb-7669-4318-9859-bfd92a26992e"
+ID: "8bc447db-f97a-41c9-846f-adea64ca21be"
+Parent: "5b6f7341-74e7-403b-9700-352134f794ee"
+Template: "32354b64-fa63-44ea-94ea-083dc09dbfed"
 Path: /sitecore/content/MyTenant/Storefront/Settings
 DB: master
 BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
@@ -24,17 +24,17 @@ SharedFields:
     {5A6BF1D1-836B-425A-A6E6-32CEAA8FF3A5}
 - ID: "af332c24-fe17-41e7-8caf-8e64c588fe72"
   Hint: EditingTheme
-  Value: "{BB02A126-AD3D-43AF-B6A1-2606132171FE}"
+  Value: "{B58009CC-0D9F-42CA-A1A7-E3DA7E1415DC}"
 - ID: "beeede03-ab13-4558-96f9-c3e8957b46f8"
   Hint: Themes
   Type: Treelist
   Value: "{48FFBFC8-E705-44E1-8ACD-6A714FFD09E3}"
 - ID: "e81e1f9e-8b87-495b-9cb7-84a2a23133be"
   Hint: MediaLibrary
-  Value: "{3DEDFCF4-86B1-4060-8E58-65571BE5B1CC}"
+  Value: "{3936EA23-E270-45F7-9D64-EE666AFEC271}"
 - ID: "e8881464-38af-4655-be4a-ee10586578a2"
   Hint: Templates
-  Value: "{5950B034-45F1-4556-84EC-BEFD10A24D92}"
+  Value: "{77C789A7-2A86-47BE-9A71-83353ED525F6}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{3E739E69-859C-4694-8D14-2BA6CA779CC6}"
@@ -49,7 +49,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111848Z
+      Value: 20190809T120434Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

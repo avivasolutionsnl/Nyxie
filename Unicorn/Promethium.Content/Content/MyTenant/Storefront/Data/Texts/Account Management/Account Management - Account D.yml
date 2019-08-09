@@ -1,6 +1,6 @@
 ﻿---
-ID: "04244e73-a344-49b2-88a5-97640988f549"
-Parent: "0047e542-9ce1-4e89-95f8-677bfe1f1426"
+ID: "d481dff8-3381-4d11-a742-ab08680c2cce"
+Parent: "b9c1f04e-1195-4bca-948d-6a6a2ac566a2"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: "/sitecore/content/MyTenant/Storefront/Data/Texts/Account Management/Account Management - Account Details Subtitle"
 DB: master
@@ -53,7 +53,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112305Z
+      Value: 20190809T120910Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

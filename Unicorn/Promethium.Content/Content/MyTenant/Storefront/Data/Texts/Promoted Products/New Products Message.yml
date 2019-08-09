@@ -1,6 +1,6 @@
 ﻿---
-ID: "682f2212-7764-4275-9660-2b833b1e61dd"
-Parent: "00c355b4-8eb1-4c48-bbea-e8030c81f633"
+ID: "c5f245d5-875b-418e-80f9-d0b6d0055ca8"
+Parent: "fd8e1934-116a-457f-8ebc-b77c55a4bb9a"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: /sitecore/content/MyTenant/Storefront/Data/Texts/Promoted Products/New Products Message
 DB: master
@@ -56,7 +56,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112310Z
+      Value: 20190809T120915Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

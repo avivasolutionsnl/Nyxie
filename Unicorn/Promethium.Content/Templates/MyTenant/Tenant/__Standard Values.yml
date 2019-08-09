@@ -1,7 +1,7 @@
 ﻿---
-ID: "b4707ebc-3f0e-439b-ae43-3f456c7934a8"
-Parent: "179bf2bf-0e1d-4874-b0f6-cfcc2868fe37"
-Template: "179bf2bf-0e1d-4874-b0f6-cfcc2868fe37"
+ID: "477bd99a-ec5c-4098-9628-c2ebae3b1cdf"
+Parent: "2fd99c58-ddc4-416f-8ecc-46a40ddd6375"
+Template: "2fd99c58-ddc4-416f-8ecc-46a40ddd6375"
 Path: /sitecore/templates/Project/MyTenant/Tenant/__Standard Values
 DB: master
 Languages:
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T095457Z
+      Value: 20190809T120037Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "96e04b97-1fb9-4dd8-bfd1-4c493dc2fc34"
-Parent: "59eb1152-e094-4d67-870a-68e3cb3ae7e2"
+ID: "71196609-cd0f-4401-8f87-5804a60f8480"
+Parent: "bf5aa5e4-e511-4af9-94d0-bce014cc5383"
 Template: "5878f58e-eacf-40a7-913e-019840a1c502"
 Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Product Lists/On Sale Televisions
 DB: master
@@ -64,7 +64,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112248Z
+      Value: 20190809T120852Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

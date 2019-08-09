@@ -1,6 +1,6 @@
 ﻿---
-ID: "62b47296-1d77-401b-98bd-6ad75ccb711c"
-Parent: "41282636-b81d-4a0d-b7b7-f77ddf8dbc36"
+ID: "c13c1cde-2643-4c5d-8675-62ec29d7ad17"
+Parent: "8f42250e-beb2-4058-820e-6564d839277d"
 Template: "c7109945-bd76-4b3d-b09b-db80cbf515c0"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Creative Exchange Storages/Zip file
 DB: master
@@ -32,7 +32,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111853Z
+      Value: 20190809T120439Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

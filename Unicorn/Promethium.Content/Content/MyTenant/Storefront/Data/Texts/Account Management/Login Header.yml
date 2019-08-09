@@ -1,6 +1,6 @@
 ﻿---
-ID: "56b5e995-018b-4e59-80b9-3495322eee94"
-Parent: "0047e542-9ce1-4e89-95f8-677bfe1f1426"
+ID: "8159407b-4a30-4a92-9360-e05a6b48182a"
+Parent: "b9c1f04e-1195-4bca-948d-6a6a2ac566a2"
 Template: "b8f5894c-b493-4016-bf78-4090b0a2fd16"
 Path: /sitecore/content/MyTenant/Storefront/Data/Texts/Account Management/Login Header
 DB: master
@@ -65,7 +65,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T112306Z
+      Value: 20190809T120911Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

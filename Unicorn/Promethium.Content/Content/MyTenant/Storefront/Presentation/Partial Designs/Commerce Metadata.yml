@@ -1,6 +1,6 @@
 ﻿---
-ID: "499c9e32-4470-4157-b255-358382ab40db"
-Parent: "0f5969ed-1ea4-438b-99e9-b80f35b587ef"
+ID: "c0ae3312-9d94-4ae2-9bab-47cfc04e8fd6"
+Parent: "38e867b0-4c76-4ca0-bf0d-a72ec71d6aa5"
 Template: "c2a8e276-1757-4957-9dd5-8669b79fd80d"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Commerce Metadata
 DB: master
@@ -69,7 +69,7 @@ Languages:
         sitecore\admin
     - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
       Hint: Base Partial Design
-      Value: "{9FCE16A9-BA96-4BB5-9E1C-B148AD9B79E8}"
+      Value: "{6E4140BA-6402-4648-ADDA-5DBCB548EAC6}"
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

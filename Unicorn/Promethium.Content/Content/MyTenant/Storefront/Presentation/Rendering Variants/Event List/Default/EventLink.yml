@@ -1,6 +1,6 @@
 ﻿---
-ID: "5385d082-199a-4913-82ee-835dbe7c8d61"
-Parent: "b5bd7428-b1ec-4368-bfd1-29d0c2c25226"
+ID: "db8df1e1-e30e-49e2-85d4-2e507b1895ac"
+Parent: "d7e627a7-37e6-4b3c-9eb5-604504e5d1c8"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Event List/Default/EventLink
 DB: master
@@ -29,7 +29,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T111945Z
+      Value: 20190809T120537Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

@@ -1,6 +1,6 @@
 ﻿---
-ID: "ee1fe24c-b439-4ab8-b8e7-2f6af0485810"
-Parent: "5950b034-45f1-4556-84ec-befd10a24d92"
+ID: "2170b5e5-4404-4aca-901f-24a439831d22"
+Parent: "77c789a7-2a86-47be-9a71-83353ed525f6"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MyTenant/Commerce Category
 DB: master
@@ -9,7 +9,7 @@ SharedFields:
   Hint: __Base template
   Type: tree list
   Value: |
-    {EF9F6B7B-B421-44FB-941D-3091F8AD37EF}
+    {30D8EC2F-5E03-41CB-B215-F930BC1698A9}
     {DDA02EB6-5CB5-4AB8-B609-0F11835F4579}
     {4C4FD207-A9F7-443D-B32A-50AA33523661}
     {2B249AA3-A7BE-4A0D-A34A-8947B0DDE6F8}
