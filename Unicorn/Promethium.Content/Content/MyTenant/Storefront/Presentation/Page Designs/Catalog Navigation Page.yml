@@ -1,0 +1,21 @@
+﻿---
+ID: "b6c0035e-418b-41bd-bff1-c6849b032303"
+Parent: "cfd2c9f0-58fb-458d-a2ff-7d3f430a677e"
+Template: "7a934ef5-f3a6-48f8-84ae-40637d9ab0ea"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Page Designs/Catalog Navigation Page
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/pieces.png
+- ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
+  Hint: PartialDesigns
+  Value: "{6086FF4E-80B9-41D2-A0ED-88E9EA793C3E}|{B245E887-75AB-4E36-846F-B91F2BBBF10A}|{E7C8F85E-8169-48DE-B49E-0023A6235F2C}|{F232D1B5-B779-4CB8-8FAC-9D65647ED717}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171122T055436Z

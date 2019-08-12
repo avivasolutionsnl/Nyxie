@@ -1,0 +1,18 @@
+﻿---
+ID: "4874ce38-3b01-42fb-aa36-a07ff8b125ff"
+Parent: "33c75ab6-ed49-435a-97dc-69b2fcba176f"
+Template: "dc66d5da-3216-48e6-ae78-bac8445b6a46"
+Path: /sitecore/content/MyTenant/Storefront/Settings/Privacy Warning
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102755Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,0 +1,41 @@
+﻿---
+ID: "30e28fb3-ea81-46ef-ad5f-4aa44b738627"
+Parent: "74365934-ed1b-492e-ab86-07c3e5567a11"
+Template: "74365934-ed1b-492e-ab86-07c3e5567a11"
+Path: /sitecore/templates/Project/MyTenant/Checkout Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {1EA7CA23-E8D5-48B0-8A44-D0A744DBF2C0}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {68A98A16-9CA6-4FDE-A3AB-0EC216C45E20}
+    {4C430D12-6F3D-4DC7-B817-D19B108830DD}
+    {7EC4A09A-A036-4059-A537-486111B220AA}
+    {E37550F8-055B-4758-8BB2-610BF4D0009F}
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170818T060956Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

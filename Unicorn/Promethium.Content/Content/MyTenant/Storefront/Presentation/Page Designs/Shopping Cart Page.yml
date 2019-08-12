@@ -1,0 +1,21 @@
+﻿---
+ID: "972dfcba-e94a-4209-adcc-2b9c913d714c"
+Parent: "cfd2c9f0-58fb-458d-a2ff-7d3f430a677e"
+Template: "7a934ef5-f3a6-48f8-84ae-40637d9ab0ea"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Page Designs/Shopping Cart Page
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/pieces.png
+- ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
+  Hint: PartialDesigns
+  Value: "{69E4BC2A-2E26-4135-9C63-EF46313F01D7}|{8553C3F8-6C0C-440D-A908-CD694248249A}|{E7C8F85E-8169-48DE-B49E-0023A6235F2C}|{F232D1B5-B779-4CB8-8FAC-9D65647ED717}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171122T055521Z

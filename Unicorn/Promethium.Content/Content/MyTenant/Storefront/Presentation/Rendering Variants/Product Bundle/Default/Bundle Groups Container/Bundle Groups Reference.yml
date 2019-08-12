@@ -1,0 +1,25 @@
+﻿---
+ID: "d8653d85-8dc4-4a23-9b15-fccfa52fa801"
+Parent: "5a072ad9-4c0a-461f-bcc5-7e73a9d9be3c"
+Template: "5cb59bb6-2424-4b11-90a7-69aae8ef88c1"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Product Bundle/Default/Bundle Groups Container/Bundle Groups Reference
+DB: master
+SharedFields:
+- ID: "a7a885b0-c308-4b1c-b5dc-f998889acdf9"
+  Hint: Pass Through Field
+  Value: LineItems
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181127T022639Z

@@ -1,0 +1,89 @@
+﻿---
+ID: "871a5ee3-ec29-4c75-b0e6-3a6638ea28e2"
+Parent: "6de71ec0-8b9a-477d-bddd-77eeb2f75aa4"
+Template: "091b84a9-0a36-46f6-bf5c-09a536ebbf79"
+Path: /sitecore/content/MyTenant/Storefront/Data/Commerce/Product Lists/Promoted Products List
+DB: master
+SharedFields:
+- ID: "84ae61a2-ad10-42e5-9954-220fed6ee9a5"
+  Hint: Products List
+  Type: tree list
+  Value: |
+    {7E76956B-D676-E497-BD4B-46F6A45AA2FD}
+    {BB7C992B-90B7-8A57-C4C6-D3864BD9F8D9}
+    {C16A549C-7515-4A61-57AB-610412E710AD}
+    {39CED455-F74F-4C8D-18ED-146876C69C4D}
+    {A7932324-BE99-90E7-B361-BB6B24361019}
+    {A72E4408-2A14-A2FE-7BC7-874B01AC18D4}
+    {3D9297EA-D528-F260-0B14-E62C6064C641}
+    {FC549E48-C1CA-52A8-213C-898C663C9F34}
+    {D19C7297-1D9C-5592-F06C-4C5B6F99B8FE}
+    {332EA0C2-499E-D55F-021F-E7AFB8F9C7F5}
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T083046Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "89c0a60e-6b17-4921-afec-6482a13c7f9e"
+      Hint: Title
+      Value: Produkter på tilbud
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T084846Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "89c0a60e-6b17-4921-afec-6482a13c7f9e"
+      Hint: Title
+      Value: Beworbene Produkte
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170805T165017Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "89c0a60e-6b17-4921-afec-6482a13c7f9e"
+      Hint: Title
+      Value: Promoted Products
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T103303Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180511T085430Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "89c0a60e-6b17-4921-afec-6482a13c7f9e"
+      Hint: Title
+      Value: プロモーション商品

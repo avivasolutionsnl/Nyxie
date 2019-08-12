@@ -1,0 +1,18 @@
+﻿---
+ID: "29c1a4ff-9877-4fbc-b871-3c443fe49212"
+Parent: "757ed3ca-a35e-41c0-a47b-dfd2340d3284"
+Template: "89895ed9-f3bb-4296-a9b7-c87b7770cdd3"
+Path: /sitecore/content/MyTenant/Storefront/Data/Pagination
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102916Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

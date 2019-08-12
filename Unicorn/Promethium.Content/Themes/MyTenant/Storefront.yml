@@ -1,0 +1,14 @@
+﻿---
+ID: "6e122760-69ed-44b7-99d7-c2c75d123d2b"
+Parent: "929c17c3-d54d-4107-976a-a99e016e2456"
+Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
+Path: /sitecore/media library/Themes/MyTenant/Storefront
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102714Z

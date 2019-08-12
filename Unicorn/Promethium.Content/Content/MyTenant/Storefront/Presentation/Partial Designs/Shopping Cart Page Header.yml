@@ -1,0 +1,28 @@
+﻿---
+ID: "8553c3f8-6c0c-440d-a908-cd694248249a"
+Parent: "b73b209d-7208-4207-8110-41862823aacb"
+Template: "c9f7b808-0821-44ee-91e8-bea5e0353bd6"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Partial Designs/Shopping Cart Page Header
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "shopping-cart-page-header"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171122T055201Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
+      Hint: Base Partial Design
+      Value: "{E0C45FFD-34FE-4ADA-BBEE-6C359722EAFF}"

@@ -1,0 +1,18 @@
+﻿---
+ID: "2f3b1caa-c842-45ae-9503-15bf7edf771d"
+Parent: "33c75ab6-ed49-435a-97dc-69b2fcba176f"
+Template: "e1cf805e-7f49-4ec9-a25a-182dc798cb5f"
+Path: /sitecore/content/MyTenant/Storefront/Settings/Redirects
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102721Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
