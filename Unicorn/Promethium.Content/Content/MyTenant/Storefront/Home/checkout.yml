@@ -1,0 +1,71 @@
+﻿---
+ID: "1518a1da-d7f6-48da-bd4c-9d8fff7cf590"
+Parent: "0ceb1a2d-80b8-41d1-97a0-6c3f3000e288"
+Template: "f7f76806-6a22-4749-89c8-4876709de174"
+Path: /sitecore/content/MyTenant/Storefront/Home/checkout
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {2B3BA252-5BE0-4671-B246-0E159D3BBFB0}
+    {4D4B2BBD-B102-4FBA-80BF-4561B6AD750F}
+    {E33AFAF0-2860-40C6-8834-D940971EABEC}
+    {76BEAE68-B900-4356-B503-0049E54B5F68}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{51897382-1483-407A-99CD-0D384F3D2A13}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{9BDF07F7-B6D6-49F4-B9E7-D58B7E1A9C94}"
+          s:ds="{3930E11E-6CE5-4F26-9A8A-C2C5716F65F3}"
+          s:id="{7AE14FB7-E165-49CA-85FB-B45E4B14B955}"
+          s:par="Shopping Cart Link=%2Fsitecore%2Fcontent%2FMyTenant%2FStorefront%2FHome%2Fshoppingcart&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kasse
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kasse
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Checkout
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170307T095600Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Checkout
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: レジに進む
+  Versions:

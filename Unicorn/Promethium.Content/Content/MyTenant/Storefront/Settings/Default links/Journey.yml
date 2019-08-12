@@ -1,0 +1,26 @@
+﻿---
+ID: "32dcfcde-4c94-4b1c-9a4f-e7206f0bbdc3"
+Parent: "4f8dca38-fa81-4b11-9e69-962087dadcf3"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/MyTenant/Storefront/Settings/Default links/Journey
+DB: master
+BranchID: "26ae263a-97d7-4156-97e2-4b515a45b2ea"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/graph_connection_directed.png
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{9F50B421-BB6D-40E3-97D0-ECDF0DCEB9AB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102903Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

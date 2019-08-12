@@ -1,0 +1,66 @@
+﻿---
+ID: "7d29dce0-fd85-47b7-abec-c843f9fa6af9"
+Parent: "eda7d6e4-4638-44f5-99d7-01a257b3b1fc"
+Template: "7c02e9f5-54b5-4ef4-bd10-f4c5d448a48c"
+Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Product Bundle/Default/Bundle Groups Container/Bundle Groups Reference/Bundle Group/Bundle Group Header Container/Selected Variant Preview/Selected Variant Group/Separator
+DB: master
+SharedFields:
+- ID: "1aa68c0b-eb67-4575-9ca8-1689c2aff091"
+  Hint: Tag
+  Value: "{E8E2C26D-2F96-4A9C-9C17-D095E6CE46CC}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: ":"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T063900Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: ":"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064043Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: ": "
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181206T092335Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: ":"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064205Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,0 +1,18 @@
+﻿---
+ID: "5cefaf58-b0fd-4b2b-b8cc-f31c177a87f3"
+Parent: "33c75ab6-ed49-435a-97dc-69b2fcba176f"
+Template: "35abcb7f-dd86-483d-abe1-41c93c3aa7d9"
+Path: /sitecore/content/MyTenant/Storefront/Settings/HTML Snippets
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102814Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,0 +1,46 @@
+﻿---
+ID: "6881f154-1763-4435-a7bd-73d6a950373e"
+Parent: "88a1b84f-34aa-4d95-8b82-05313dbec6e5"
+Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
+Path: /sitecore/media library/Project/MyTenant/Storefront/Placeholder Images/230x65
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: "-/media/39DD76FE3B6E4D8C9FF54226DBE02C6C.ashx?h=16&thn=1&w=16"
+- ID: "22eac599-f13b-4607-a89d-c091763a467d"
+  Hint: Width
+  Value: 230
+- ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
+  Hint: Blob
+  BlobID: "0721df8b-df91-4830-b47b-c8d8c03dabd4"
+  Value: iVBORw0KGgoAAAANSUhEUgAAAOYAAABBBAMAAAA3XcXeAAAAG1BMVEXMzMyWlpbFxcWqqqqcnJyjo6OxsbG3t7e+vr6pf3+GAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeElEQVRYhe2Vz06DQBCHf13+lKNbtsXjNto7GL2zlqpHqG3PkPQBSmLitRh9b2dRbB/APWjmC2FgOHyZ3Z0BYBiGYRiGYRjm3yJuVxof6gbwivT8w36q0Ul56cDpq2oSyY3UyIr4LB+qKkdbFE8OnE0dxsEETSqmqPQpP8rDBHsHQoI8apRiXpKirU/59iB2uHPjLABzdSQnFTsvgXEMegIyTbdnN85XQFnFwb+g9YQtvKttWCw1ltmDG2sYQ5gZ/NxeQJcWNltUMoeUsnTibCYQUmkqkkqllokTm5XrxUwofT1zofTUkbq0qoc6xVdpUtNBfkM0daAUZm3DvBz2E1Vt7/Zs2WgcOAMaBO8a/nBuEcl7m99Yre7dv05LA687YPTTn/5jv4UNrW1IO+1ibe3soX3M6mEOtXUfutRLIurVxIHTbLfbsdpQj37P24J0FAJlSmQr46JXqAUlXhRpPGldtMRB/y/JlvRidg6UDMMwDMMwDPMX+ASZVjJwJZpyPQAAAABJRU5ErkJggg==
+- ID: "6954b7c7-2487-423f-8600-436cb3b6dc0e"
+  Hint: Size
+  Value: 493
+- ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
+  Hint: Mime Type
+  Value: image/png
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: png
+- ID: "cb09946f-3218-4823-87d2-d5007c199a96"
+  Hint: Dimensions
+  Value: 230 x 65
+- ID: "de2ca9e4-c117-4c8a-a139-1ff4b199d15a"
+  Hint: Height
+  Value: 65
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170718T034412Z
+    - ID: "65885c44-8fcd-4a7f-94f1-ee63703fe193"
+      Hint: Alt
+      Value: Placeholder image  230x65

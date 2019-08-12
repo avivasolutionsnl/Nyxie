@@ -1,0 +1,27 @@
+﻿---
+ID: "f1a1ab8a-c07c-4ba8-b97a-318cefdf8372"
+Parent: "f4b04dce-da76-41b9-a78a-fe9cd4e13eb5"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/MyTenant/Commerce Category
+DB: master
+SharedFields:
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {E37550F8-055B-4758-8BB2-610BF4D0009F}
+    {DDA02EB6-5CB5-4AB8-B609-0F11835F4579}
+    {4C4FD207-A9F7-443D-B32A-50AA33523661}
+    {2B249AA3-A7BE-4A0D-A34A-8947B0DDE6F8}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181217T142845Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

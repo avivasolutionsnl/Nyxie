@@ -1,0 +1,18 @@
+﻿---
+ID: "cd37ed4b-cea3-4f21-9918-e491eb81e283"
+Parent: "757ed3ca-a35e-41c0-a47b-dfd2340d3284"
+Template: "c959e8ef-cd42-4967-83f6-bee092c0beae"
+Path: /sitecore/content/MyTenant/Storefront/Data/File Lists
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102835Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,0 +1,37 @@
+﻿---
+ID: "de373541-ab89-4d50-858c-a58623802a6a"
+Parent: "ced44246-bfa8-4683-a428-8ef25a042c59"
+Template: "e8e8c94f-4248-43c3-a79f-99fbb49d78e6"
+Path: /sitecore/content/MyTenant/Storefront/Media
+DB: master
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "de8257d9-43aa-4eff-a2f4-2e9fbbd20e79"
+  Hint: AdditionalChildren
+  Type: Treelist
+  Value: |
+    {A5C164A6-DA4C-4C0D-BF98-9A5A5C3837DF}
+    {DB5BEF05-FB9E-41CA-BA66-FA5E413874B4}
+    {533585BB-DEEF-4B60-AE9C-A9E5D5B5CA98}
+    {533585BB-DEEF-4B60-AE9C-A9E5D5B5CA98}
+    {533585BB-DEEF-4B60-AE9C-A9E5D5B5CA98}
+    {533585BB-DEEF-4B60-AE9C-A9E5D5B5CA98}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E2FF4516-4407-4173-8ADD-704761C15B74}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Media
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102712Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
