@@ -1,0 +1,86 @@
+﻿---
+ID: "8f0148ea-f388-45cd-92fc-b0aa7efa2e75"
+Parent: "99674876-257a-42da-b3af-5e6786a73c92"
+Template: "4c430d12-6f3d-4dc7-b817-d19b108830dd"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Company/jobs-at-storefront"
+DB: master
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{37011E61-F824-44FC-950A-9CD808CF1D7F}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{E6B71D5E-D393-4E32-B037-B99EF231CC96}"
+          p:before="*"
+          s:ds="{B3709D1D-68AB-4422-B5E4-FE0D38688367}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={EB12B757-9878-450B-B49D-BA339A7C0C60}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{5A569D29-C898-4E8D-995D-78279E755504}"
+          p:after="r[@uid='{E6B71D5E-D393-4E32-B037-B99EF231CC96}']"
+          s:ds="{671A64AA-70E3-4054-A1DC-EF292A07883E}"
+          s:id="{87182F78-4399-4896-8D59-9D6A45282F8A}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="/main/container-1" />
+        <r
+          uid="{10C1367D-3A74-470C-9B5E-F3124B882313}"
+          p:after="r[@uid='{5A569D29-C898-4E8D-995D-78279E755504}']"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+        <r
+          uid="{6F2B0D46-017D-441C-BFC7-4AA7403B0E02}"
+          p:after="*[1=2]"
+          s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jobs hos Storefront
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jobs bei Storefront
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jobs at Storefront
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170414T051342Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Jobs at Storefront
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Jobs at Storefront
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 採用情報
+  Versions:

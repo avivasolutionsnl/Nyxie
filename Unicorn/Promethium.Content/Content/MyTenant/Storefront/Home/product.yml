@@ -1,0 +1,64 @@
+﻿---
+ID: "290017b6-f8e2-4963-8f03-201c7509710d"
+Parent: "0ceb1a2d-80b8-41d1-97a0-6c3f3000e288"
+Template: "1ea7ca23-e8d5-48b0-8a44-d0a744dbf2c0"
+Path: /sitecore/content/MyTenant/Storefront/Home/product
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/16x16/element.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {1EA7CA23-E8D5-48B0-8A44-D0A744DBF2C0}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {68A98A16-9CA6-4FDE-A3AB-0EC216C45E20}
+    {4C430D12-6F3D-4DC7-B817-D19B108830DD}
+    {7EC4A09A-A036-4059-A537-486111B220AA}
+    {E37550F8-055B-4758-8BB2-610BF4D0009F}
+    {74365934-ED1B-492E-AB86-07C3E5567A11}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{B6C0035E-418B-41BD-BFF1-C6849B032303}"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Produkt
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Produkt
+  Versions:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Product
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170529T101702Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Product
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
+      Hint: Title
+      Value: Product
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 商品
+  Versions:

@@ -1,0 +1,18 @@
+﻿---
+ID: "0491a721-5f75-4717-883f-45eea8e9bd1c"
+Parent: "757ed3ca-a35e-41c0-a47b-dfd2340d3284"
+Template: "ed1b1ba7-4267-466f-a57a-8d96d2cb979d"
+Path: /sitecore/content/MyTenant/Storefront/Data/IFrames
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190812T102927Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
