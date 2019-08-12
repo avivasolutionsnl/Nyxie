@@ -10,6 +10,8 @@
 
 - Build the project in Visual Studio and publish the projects to the \build folder
 
+- Copy your Sitecore license file (license.xml) to the .\license folder
+
 - Login in to the Docker repository using your Aviva credentials:
 ```
 PS> az acr login --name avivasolutionsnl
