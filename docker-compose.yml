@@ -28,6 +28,7 @@ services:
     - promethium
   volumes:
     - .\logs\identity:C:\inetpub\wwwroot\identity\app_data\logs
+    - .\license:C:\inetpub\wwwroot\identity\sitecoreruntime
   depends_on:
     - mssql
 
