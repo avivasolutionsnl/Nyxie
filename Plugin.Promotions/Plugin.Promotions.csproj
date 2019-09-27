@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Sitecore Commerce Sample Plugin Template</Description>
     <VersionPrefix>1.0.0</VersionPrefix>
@@ -9,6 +9,8 @@
     <PackageProjectUrl>http://www.sitecore.net/</PackageProjectUrl>
     <PackageLicenseUrl>http://www.sitecore.net/platform/pricing.aspx</PackageLicenseUrl>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <AssemblyName>Promethium.Plugin.Promotions</AssemblyName>
+    <RootNamespace>Promethium.Plugin.Promotions</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Pipelines\Blocks\GetPromotionQualificationDetailsViewBlock.cs" />
@@ -23,19 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ConfigureServiceApiBlock.cs" />
     <Content Include="ConfigureSitecore.cs" />
-    <Content Include="Commands\SampleCommand.cs" />
     <Content Include="Components\CategoryComponent.cs" />
-    <Content Include="Controllers\CommandsController.cs" />
-    <Content Include="Controllers\SampleController.cs" />
-    <Content Include="Entities\SampleEntity.cs" />
-    <Content Include="Models\SampleModel.cs" />
-    <Content Include="Pipelines\Arguments\SampleArgument.cs" />
-    <Content Include="Pipelines\Blocks\SampleBlock.cs" />
-    <Content Include="Pipelines\ISamplePipeline.cs" />
-    <Content Include="Pipelines\SamplePipeline.cs" />
-    <Content Include="Policies\SamplePolicy.cs" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -49,5 +40,20 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
     <Reference Include="System.Transactions" />
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Sitecore.Commerce.Plugin.Customers">
+      <HintPath>..\packages\sitecore.commerce.plugin.customers\3.0.11\lib\net471\Sitecore.Commerce.Plugin.Customers.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Plugin.Fulfillment">
+      <HintPath>..\packages\sitecore.commerce.plugin.fulfillment\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Fulfillment.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Plugin.Orders">
+      <HintPath>..\packages\sitecore.commerce.plugin.orders\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Orders.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Plugin.Payments">
+      <HintPath>..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

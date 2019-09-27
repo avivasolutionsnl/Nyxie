@@ -1,21 +1,12 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConfigureSitecore.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using Microsoft.Extensions.DependencyInjection;
+using Sitecore.Commerce.Core;
+using Sitecore.Framework.Configuration;
+using Sitecore.Framework.Pipelines.Definitions.Extensions;
+using Sitecore.Framework.Rules;
+using System.Reflection;
 
-namespace Sitecore.Commerce.Plugin.Sample
+namespace Promethium.Plugin.Promotions
 {
-    using System.Reflection;
-    using Microsoft.Extensions.DependencyInjection;
-    using Sitecore.Commerce.Core;
-    using Sitecore.Framework.Configuration;
-    using Sitecore.Framework.Pipelines.Definitions.Extensions;
-    using Sitecore.Commerce.Plugin.Carts;
-    using global::Plugin.Promotions.Pipelines.Blocks;
-    using Sitecore.Framework.Rules;
-    using Sitecore.Commerce.EntityViews;
-
     /// <summary>
     /// The configure sitecore class.
     /// </summary>
@@ -31,16 +22,24 @@ namespace Sitecore.Commerce.Plugin.Sample
         {
             var assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
-
-            services.Sitecore().Pipelines(config => config             
-               .ConfigurePipeline<IAddCartLinePipeline>(configure => configure.Add<AddCategoryBlock>().Before<PersistCartBlock>())
-               .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Add<CategoryConditionDetailsViewBlock>().After<Promotions.GetPromotionQualificationDetailsViewBlock>())
-               
-               );
+            services.RegisterAllCommands(assembly);
 
             services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterThisAssembly()));
 
-            services.RegisterAllCommands(assembly);
+            services.Sitecore().Pipelines(config => config
+                .ConfigurePipeline<Sitecore.Commerce.Plugin.Carts.IAddCartLinePipeline>(configure => configure
+                    .Add<Pipelines.Blocks.AddCategoryBlock>()
+                    .Before<Sitecore.Commerce.Plugin.Carts.PersistCartBlock>())
+                
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.CategoryConditionDetailsViewBlock>()
+                    .After<Sitecore.Commerce.Plugin.Promotions.GetPromotionQualificationDetailsViewBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.Plugin.Rules.IBuildRuleSetPipeline>(configure => configure
+                    .Remove<Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock>()
+                    .Add<Pipelines.Blocks.BuildRuleSetBlock>())
+
+               );
         }
     }
 }

@@ -4,7 +4,6 @@ Parent: "0315c091-3abd-4f6c-b679-b681e19ee2d5"
 Template: "5da3844c-1111-422d-a5ad-faef2b22ef2e"
 Path: /sitecore/content/MyTenant/Storefront/Data/Search/Radius Filter/Radius Scheme
 DB: master
-BranchID: "957565a0-bf0d-4f8b-bf2c-4a8f40ec9080"
 SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator

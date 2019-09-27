@@ -4,7 +4,6 @@ Parent: "a6ecd611-7b66-410d-86b3-ac76ef5c2490"
 Template: "bca27de4-a869-4282-b3fb-4fbd7ba1b87b"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Creative Exchange Storages/Folder on server
 DB: master
-BranchID: "aab15f53-cc56-44e0-bfc6-1ed18ff81ffb"
 SharedFields:
 - ID: "15d142e5-e484-458d-8a66-317baafee28f"
   Hint: ImportType

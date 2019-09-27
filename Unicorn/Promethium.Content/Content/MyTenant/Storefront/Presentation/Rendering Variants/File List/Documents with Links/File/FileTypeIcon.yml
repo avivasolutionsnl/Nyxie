@@ -4,7 +4,6 @@ Parent: "3b965c2e-b32d-479a-96ce-cc488d2225a4"
 Template: "6eca12e9-f4d5-4f6e-9c3c-6df716bc593b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/File List/Documents with Links/File/FileTypeIcon
 DB: master
-BranchID: "83becf6f-0518-4128-a395-8906981b7cb1"
 SharedFields:
 - ID: "3a4dd4df-8d32-405f-831a-39f87a550085"
   Hint: Token

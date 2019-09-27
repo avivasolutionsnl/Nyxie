@@ -48,3 +48,9 @@ docker push avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20190528
 docker push avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20190528
 docker push avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20190528
 ```
+
+## Resources
+
+https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
+Out of the box, sitecore doesn't allow boolean values in Conditions.
+To change this behavior we made our own version of the BuildRuleSetBlock in which we called our own SitecoreExtensions.ConvertToConditionExtended and SitecoreExtensions.ConvertToActionExtended.

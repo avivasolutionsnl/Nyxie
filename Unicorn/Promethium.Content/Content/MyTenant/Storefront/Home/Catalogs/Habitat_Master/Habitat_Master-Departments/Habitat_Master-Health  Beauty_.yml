@@ -1,0 +1,121 @@
+﻿---
+ID: "0bde885c-c3aa-7bf3-9cab-d93a2af168ac"
+Parent: "b893c063-6238-ed57-700d-72862c56038d"
+Template: "4c4fd207-a9f7-443d-b32a-50aa33523661"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Health  Beauty and Fitness"
+DB: master
+SharedFields:
+- ID: "355d27e4-f53a-356e-3472-20d0f3bd3af9"
+  Hint: ChildrenSellableItemList
+  Value: "037ca84d-6910-6afb-aa79-b469134915db|6e61792d-974d-605a-7d0c-78550ffda08c|aa6bc9de-9a18-db24-1532-4ae06f9b977d|7df442fe-502c-dd50-5cbc-17edd2283af6|e65f2f42-951c-f300-02ee-0b56092043bc|ab0f1b4c-d86a-d667-97cf-a704680bdf9e|26cfc0cb-8e68-c687-fed4-b92944b4d736|0df9ba7a-d8bb-5e87-1737-5ef498482d90|08d5aa86-ac2b-1eda-37ae-c956e5292e87|04cc00fe-c636-cdf9-fe15-d7f46bf9cf5d|fd980b3c-bab4-6534-a0e2-497304cc1660|bee5eb15-1e12-59af-c20a-c350f8573480|d6520a25-4dd1-ba36-b1c2-182875cec8e4|0c81da7b-6021-644b-efb1-3057e25e3418|4de26180-9993-aa33-cb90-5e457bc28619|ac96f333-1f49-efce-af7e-96c491f3cafb|68bc4efc-3737-ef08-c814-de74735d9ea7|83f73499-ecd7-3fa9-6dce-e00dd34f2a53|1086e6fd-6134-d13d-13d3-a470975d1a82|8362ae89-2ebb-4371-d715-e46332b9967e|271a7c75-eda1-273d-ea74-baa0dc8c9607|81f0c693-4bd7-8472-9c6c-938a10129879|4e5c68f7-0192-dee1-e58e-e736af7c284b|d7e7c471-da9c-9d42-653d-ef2ff31bb9f2|55a0ff9d-5acd-0b91-abea-b5281e58ffc9|a807ce1e-634b-96d1-5a92-17a581d2a9a8|84598fa5-d546-49d0-9bac-ba298db566c6|80c46a94-c816-a888-5d20-98c44c94816e|522979fe-aeb2-5be9-ea6f-3ee2e377ee20"
+- ID: "380bfbfd-20c3-2b97-c9b0-cfe8db35d65f"
+  Hint: ChildrenCategoryList
+  Value: "e2976897-b231-4f6e-9c8c-7ad1e22fb72b|9f7b4376-1be2-bd1e-a25d-e16643463fe4|56e3457d-b331-5cbb-d9ec-fd203acf1c67|91a2e033-4012-84a6-9ddd-2a152dec3a93|9008b511-7815-fda8-5a83-927bbf70cabf|a63cb0d6-7a96-0b2f-9661-a2e553426fe3|b52c9c73-fd59-42ae-ccee-9cbeb8de56fe"
+- ID: "46e1891c-387f-49e1-f543-a9e7e837eed0"
+  Hint: ParentCategoryList
+  Value: "b893c063-6238-ed57-700d-72862c56038d"
+- ID: "66ccfa57-93e4-8211-b7ce-c2666f167e88"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "ac4289d3-915b-f062-7d77-379b4a46ba66"
+  Hint: Name
+  Value: Health  Beauty and Fitness
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "d0f601a9-f362-6417-e836-e7190268211c"
+  Hint: SitecoreId
+  Value: "0bde885c-c3aa-7bf3-9cab-d93a2af168ac"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Health, Beauty and Fitness
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Health, Beauty and Fitness
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Health, Beauty and Fitness
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Health, Beauty and Fitness
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Health, Beauty and Fitness
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Health, Beauty and Fitness
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Health, Beauty and Fitness
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Health, Beauty and Fitness
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Health, Beauty and Fitness
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 

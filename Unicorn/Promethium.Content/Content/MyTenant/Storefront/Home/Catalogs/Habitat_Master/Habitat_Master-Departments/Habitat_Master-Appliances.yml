@@ -1,0 +1,121 @@
+﻿---
+ID: "06f5147b-9e24-fa33-20fb-d4b7d8d21392"
+Parent: "b893c063-6238-ed57-700d-72862c56038d"
+Template: "4c4fd207-a9f7-443d-b32a-50aa33523661"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Appliances"
+DB: master
+SharedFields:
+- ID: "355d27e4-f53a-356e-3472-20d0f3bd3af9"
+  Hint: ChildrenSellableItemList
+  Value: "86876bee-5f77-9b37-86a3-36995fa39556|347fc9ba-0eb8-48fa-a4a7-57b7dddcf5a0|5d59ecc5-e136-a491-b9b8-b0ad29b5529c|3ad4a808-48ec-2a0a-cfeb-9dd6d82bb4bc|269eb4bb-98b1-02cd-6ca3-5df31a38f71d|42101cac-84cf-2a5b-8f27-484863add116|882445de-8345-775e-81e9-f4776869cf3b|41735602-a582-1793-0d43-341556c2c73a|e3eb7d52-cba7-57ee-7771-b888525bab2a|d0dfb859-4930-cf6e-0241-5d5e03c2a328|ae8eb068-8a0a-8212-fa30-801d7a543024|d285ff73-c846-2e31-4bbf-64a0aaf504e1|cb631cdf-9f39-76c2-41ac-cb57ac54eee4|4d6b53ce-5e00-cc46-837a-447b4eab26d5|d2bdb8ee-a85c-1266-0b05-4ca2ff3cf039|865a9579-cef7-4f5a-941f-ed144f94972f|84b794b1-ed09-927c-a69a-2cf5d144ef67|306b1141-e42f-ec8d-f1ba-ae2688f47d1f|4f3456ca-4810-aac5-9241-5e8ea77a1b99|40e91df9-153c-a935-0581-7771e8b6bf64|26969b27-3352-58bd-d56b-038f2213fbaa|cc921138-5491-3322-cd34-5554cf0c03d2|d1b9655c-eacd-f61e-2a6e-9399b37511ed|99a4bf47-8c3e-6560-1987-9851f12120c5|8498ea06-bcbf-8a8c-11ee-fa2e6cfd2479|e9e30491-02a6-564c-3866-934587910f72|9a6b3777-415e-8144-75d8-8f6c0c943c4c|4bbf7517-9ec5-4e52-6d0f-369c2e3b9541|56913fcc-d5c1-d782-97f0-226f16bda824|a057de98-12e2-7eed-3829-cd5b912f777f|6b3db0d2-d88e-912f-b948-843784dd4211|524ecb9b-9d87-c239-2852-72851cde8ae9|46b72c97-b160-c2c8-d25c-a0fac50b1da0|e1e4cdd3-01c1-0854-7ebc-6f64c1a01f1f|a9509aa4-9850-5dc7-91aa-6fd8845ee96e|94206b17-b866-d45a-42c0-72ec63b474ce|c71d5e50-069b-5d0e-b459-4ca18f0adbed|30d3a79a-5970-a327-c395-e8709f2fbd58|6c9615cb-53f3-c422-582a-0b8c648d043d|f9d36bf2-f3d8-9b85-4e5e-b3cfbbf4edba|184b79c7-9766-107e-40c8-cecbfd9ea174|9d10952e-b4f4-eb32-bb59-d87d3d7f45c5|a33a3834-ce64-0849-7bd8-950bf0729388|ea6446ea-db1b-e16d-5e37-cb33da473183|143674e1-1eef-1531-2e1a-4e2d6ef002da|ac12d039-3387-69e4-e6d8-13509def94ce|0e06e905-746e-eb93-3715-bafc9efcd093|8fdfaea8-85fa-bdf6-d4b8-6331ba0bd481|c0464e1d-06f3-4645-9df5-f353c9688f5e|e4aae7f4-9f3f-7233-84e1-49534b5718b2|de6aec6b-2999-7952-d5a9-4a917d08c7e6|05e29ef3-9605-a748-de56-d8de009f1b51|0a2b875d-1365-875a-520a-8ce2fb0998dc|0f1fc865-efe3-f6af-bd4f-b85a6688b6af|d80409cb-82ef-6710-595e-62ae009d234c|87cae20d-f652-5a5c-bfe4-e601a14d6d93|dc81eb35-113a-d657-a096-5c0a0c1131d3|878f4a35-65a4-fdd2-0360-3a6e83ee2ca9|e22229da-7a30-dbc4-55b3-e9f3f3281fca|af646c16-63c6-9ed5-0193-5b1ca4f6e701|cd09a828-d890-1d61-7cc5-98aba0e90958|dcdc754b-fdd4-f595-603d-848fae87a539|66af3ea8-22e7-7234-4f11-37fb9eb849a6|6e7feac5-db52-fa4f-87d7-b09b895ea460|8b4879f7-e248-7cd9-5005-a0854a382285|70db5f3e-1904-eb65-3d17-0eddcdd02bd5|d3d4cb6f-3d01-7e85-e9ea-db9af84cb304|fc695441-837f-848e-427c-fc17aa2bb31d|12a698ad-9392-b681-6801-7c59da9238f0|11248a38-1ea4-eb9e-56af-58c3c4b9859b|95d8297b-729d-5374-858a-583245468704|f9e36246-5438-b3ac-983c-046a124e0f2a|77fdfb65-7556-519e-bca7-0b064e2238c3|a3a00ff7-ed79-e0cb-4368-de52ea6ccc85|b42aa01a-0382-f9e7-bb8e-e0b524b17a4c|6893c0de-21c4-9dd0-35c3-a08efe6428ba|6e54f272-87cc-c3f1-be53-a37c571d72f5|4f6cc0d2-b498-f076-41cf-c64e155d0187|28ed483d-2e2e-1c55-9ef7-e4fc4e974f9a|85795009-b0c3-0657-5922-c5fc577a70fc|a790c6b5-095d-db7d-b344-2cae9064a3b2|c48a7e33-3585-8d8a-517b-1f5444295635|403bc19d-2e91-4bac-4354-ec01caf13778"
+- ID: "380bfbfd-20c3-2b97-c9b0-cfe8db35d65f"
+  Hint: ChildrenCategoryList
+  Value: "440c1cd5-20c1-e0d1-3319-9766112ed9ca|ae2351db-a247-e039-dbbf-5c6e7d2b032f|a7e7736a-b442-8ed5-f5d2-f4a0d588e65a|1304d651-cf23-6c72-fa89-8941a3c9fff4|4891a307-9383-1576-0fab-5d5fbabc2c5d|a736352a-f944-ee4d-37c7-1c18d995bb4f"
+- ID: "46e1891c-387f-49e1-f543-a9e7e837eed0"
+  Hint: ParentCategoryList
+  Value: "b893c063-6238-ed57-700d-72862c56038d"
+- ID: "66ccfa57-93e4-8211-b7ce-c2666f167e88"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "ac4289d3-915b-f062-7d77-379b4a46ba66"
+  Hint: Name
+  Value: Appliances
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "d0f601a9-f362-6417-e836-e7190268211c"
+  Hint: SitecoreId
+  Value: "06f5147b-9e24-fa33-20fb-d4b7d8d21392"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Appliances
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Appliances
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Appliances
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133619Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Appliances
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Appliances
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133619Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Appliances
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Appliances
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133619Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Appliances
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Appliances
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133619Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
