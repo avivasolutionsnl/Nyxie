@@ -4,7 +4,6 @@ Parent: "6b3d3ff4-5123-47af-9e2b-c8b23100ba17"
 Template: "81afaa32-f1b0-47de-a8e6-3e443a06510e"
 Path: /sitecore/Commerce/Commerce Control Panel/Storefront Settings/Storefronts/Storefront/Currency Configuration
 DB: master
-BranchID: "cab95775-02c2-4b53-9cd4-983a8cc5ca4a"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

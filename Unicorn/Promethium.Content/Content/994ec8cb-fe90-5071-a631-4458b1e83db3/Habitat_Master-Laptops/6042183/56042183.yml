@@ -1,0 +1,130 @@
+﻿---
+ID: "c14d88aa-3055-8f72-53ae-3cc13e140394"
+Parent: "5303cc7a-3289-de44-ff12-91c892d22110"
+Template: "c92e6cd7-7f14-46e7-bbf5-29ce31262ef4"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Computers and Tablets/Habitat_Master-Laptops/6042183/56042183"
+DB: master
+SharedFields:
+- ID: "0185d335-4545-edd6-76a8-460db418966a"
+  Hint: VariationProperties
+  Value: Color|Size
+- ID: "01d789fd-74e0-117e-2eb4-6612a1642643"
+  Hint: Name
+  Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+- ID: "62375d22-10ba-4f23-b742-c3fefab6686c"
+  Hint: Images
+  Type: Treelist
+  Value: |
+    {EC4329A2-138D-487A-81F5-B8C9326CB66A}
+    {549A50CD-F7B4-4EB2-89F3-94D6034C8112}
+- ID: "65ef80be-8e5e-a767-5097-2e2000fd8054"
+  Hint: Manufacturer
+  Value: 
+- ID: "74960d25-406b-e2fe-b935-839f847f2160"
+  Hint: TypeOfGood
+  Value: 
+- ID: "8d4aaea6-6658-7905-192d-c8c1b65ef353"
+  Hint: Tags
+  Value: 4gb|laptop|1tbhd|173”|mira
+- ID: "a7c26e68-f587-b3a5-a48d-6c9b08752472"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "b9ad0613-0584-6c55-d180-1c7d0215d9e7"
+  Hint: ProductId
+  Value: 6042183
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+- ID: "f41b1b99-0107-dd43-f234-adae63d913f3"
+  Hint: SitecoreId
+  Value: "92a7d2cc-91ad-5223-26ba-cb88c8612c71"
+- ID: "f4b64d68-f727-7a2d-f1e2-628e5704aa18"
+  Hint: ParentCategoryList
+  Value: "871c3b62-ce96-ad61-dabe-10db020f02c5|e5e9207c-58cd-0735-2a79-b5d2b199ea7a|994ec8cb-fe90-5071-a631-4458b1e83db3|d7f45dfb-f7c0-ddca-a689-b402eacdddcd"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Mira Laptops
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Mira Laptops
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Mira Laptops
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Mira 17.3” Laptop—4GB Memory, 1TB Hard drive
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Mira Laptops

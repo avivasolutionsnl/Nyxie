@@ -1,0 +1,182 @@
+﻿---
+ID: "19529b1f-4aa8-3206-91e5-f9b3c557f68c"
+Parent: "d3b75bfd-df0f-723a-d9ea-1fd1209cbc41"
+Template: "225f8638-2611-4841-9b89-19a5440a1da1"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Computers and Tablets/Habitat_Master-2 in 1/6042192"
+DB: master
+SharedFields:
+- ID: "0185d335-4545-edd6-76a8-460db418966a"
+  Hint: VariationProperties
+  Value: Color|Size
+- ID: "01d789fd-74e0-117e-2eb4-6612a1642643"
+  Hint: Name
+  Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+- ID: "028e6de2-c2b2-49a2-a2f8-4d58f3ff695f"
+  Hint: TrainingSellableItemToSellableItem
+  Type: TreelistEx
+  Value: 
+- ID: "62375d22-10ba-4f23-b742-c3fefab6686c"
+  Hint: Images
+  Type: Treelist
+  Value: |
+    {C225CDEB-2D6D-4E3A-ACEA-7E06EA92B3A6}
+    {A93EC7CC-4A4B-4C4B-92ED-7AF8AB5E7F08}
+- ID: "65ef80be-8e5e-a767-5097-2e2000fd8054"
+  Hint: Manufacturer
+  Value: 
+- ID: "74960d25-406b-e2fe-b935-839f847f2160"
+  Hint: TypeOfGood
+  Value: 
+- ID: "8d4aaea6-6658-7905-192d-c8c1b65ef353"
+  Hint: Tags
+  Value: "8gb|2-in-1|1tbharddrive|156”touchscreen|fusion"
+- ID: "a39c3a8b-e06c-ad06-4b25-42760c00654e"
+  Hint: ItemDefinitions
+  Value: Product
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "a7c26e68-f587-b3a5-a48d-6c9b08752472"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "b942a9e7-3de1-4a60-9d3e-adf60f6ebd04"
+  Hint: RelatedSellableItemToSellableItem
+  Type: TreelistEx
+  Value: |
+    {72CA4439-59CF-AFF5-AC27-186CB1A14779}
+    {2DE7FDBA-1DC6-E210-1E42-637BE255AC5F}
+    {5648DBDB-6CA7-EE57-4E92-08A552F2A5EB}
+    {19BE40F3-072C-C9D2-D231-19B73574C3DD}
+    {729AEAA9-6027-4E2A-97C7-5B46207F228E}
+    {784FB37D-F9AD-900A-8514-020573947309}
+    {8CFCFECB-B02D-79CC-347B-11F17A6D531E}
+    {59D45990-BA67-4384-6EA3-4E01898A8322}
+    {15931F4A-5F14-EBA1-0C1B-188AEC55988F}
+    {4469A91C-9E3C-D621-5B62-01332D5386A8}
+    {BFF10B5F-2DB6-C914-535C-0FE7E93A8FBF}
+- ID: "b9ad0613-0584-6c55-d180-1c7d0215d9e7"
+  Hint: ProductId
+  Value: 6042192
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+- ID: "f41b1b99-0107-dd43-f234-adae63d913f3"
+  Hint: SitecoreId
+  Value: "f141cb94-d0b4-df81-9e1b-97c6f8a5fa36"
+- ID: "f4b64d68-f727-7a2d-f1e2-628e5704aa18"
+  Hint: ParentCategoryList
+  Value: "994ec8cb-fe90-5071-a631-4458b1e83db3|d3b75bfd-df0f-723a-d9ea-1fd1209cbc41"
+- ID: "f84e2a2f-e3e0-43e3-a5a6-15bd27777036"
+  Hint: InstallationSellableItemToSellableItem
+  Type: TreelistEx
+  Value: 
+- ID: "fbbfb173-25db-4be0-9820-1424355ed8cf"
+  Hint: WarrantySellableItemToSellableItem
+  Type: TreelistEx
+  Value: 
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: |
+        With Helix’s Fusion family, you’ll get a computer that's as versatile as you are. You can use the 15.6" multitouch screen to navigate features with all 10 fingers in tablet mode, or connect the backlit keyboard for use as a laptop. Plus, control functions simply by speaking with voice recognition.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: "Fusion 2-in1s"
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: |
+        With Helix’s Fusion family, you’ll get a computer that's as versatile as you are. You can use the 15.6" multitouch screen to navigate features with all 10 fingers in tablet mode, or connect the backlit keyboard for use as a laptop. Plus, control functions simply by speaking with voice recognition.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: "Fusion 2-in1s"
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: |
+        With Helix’s Fusion family, you’ll get a computer that's as versatile as you are. You can use the 15.6" multitouch screen to navigate features with all 10 fingers in tablet mode, or connect the backlit keyboard for use as a laptop. Plus, control functions simply by speaking with voice recognition.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: "Fusion 2-in1s"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: |
+        With Helix’s Fusion family, you’ll get a computer that's as versatile as you are. You can use the 15.6" multitouch screen to navigate features with all 10 fingers in tablet mode, or connect the backlit keyboard for use as a laptop. Plus, control functions simply by speaking with voice recognition.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: "Fusion 15.6” 2-in-1—8GB Memory, 1TB Hard Drive"
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: "Fusion 2-in1s"

@@ -141,9 +141,6 @@ Languages:
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Products
-    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
-      Hint: Title
-      Value: *
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

@@ -1,0 +1,121 @@
+﻿---
+ID: "e9f2e3a7-0575-0632-b67e-5e65092230c3"
+Parent: "b893c063-6238-ed57-700d-72862c56038d"
+Template: "4c4fd207-a9f7-443d-b32a-50aa33523661"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Cameras"
+DB: master
+SharedFields:
+- ID: "355d27e4-f53a-356e-3472-20d0f3bd3af9"
+  Hint: ChildrenSellableItemList
+  Value: "1bee4f5c-6127-e7d5-5dc5-07bbea5c8d80|2b13a270-5201-0af5-d88a-735ceee24393|99b081cc-a681-b38a-5a77-1e5444b87562|eec9f84d-406f-4ed4-d0d5-ceb4d3adc13b|48ef9a09-8843-4a55-9507-4b9d40895f4a|d3cf3472-d06c-5d5c-2c13-e663388c85d3|0359f6bc-90e5-07a5-60ec-44d4099ea4d6|d9310009-c3ff-9055-6bb6-238f7aa6d188|3e02ded4-097d-a3bd-a2d5-2f7659c252dc|4bf26bb4-952c-ccf6-c03a-ee59ee234c7f|93c50448-6b81-271a-a3ac-a428bcb7639d|8268c206-b475-eee8-253b-118068e61b43|dc0677a1-4c45-a6ce-3235-5bc6696ee917|93d8a558-208b-b469-e8f5-1e1a1cae6e4b|2aa10ac1-2e03-3cf8-e935-3345a692da62|e96151f7-c637-aaf4-3772-348eb4e98453|0297ef0a-37c1-4c03-17b2-267a0e07f9b7|a2ef4b57-ebda-9b08-1f26-d5bfec681c6c|9987dac6-a804-e3a6-02db-c2c5e05d4457|d6c70c71-6281-0449-c3b8-79e230932c60|0ad7faa5-ee65-5b49-b3bd-9eb643991643|65717c2d-0522-2352-2fdf-8f04bc6e9ddb|e987856e-8406-5657-7599-bf3771ce34c2|81c38db4-f2c0-14e4-5fa0-c59f5ab73aa0|d5b9eb48-e5a4-d424-189c-a5a8edcdc71e|7c8342b6-8d39-c992-ad6e-9628be87aa44|ea512d71-0a6c-1376-87cb-a5707e990eec|163b9bd8-3707-f79b-943b-2344cae078a3|3825a42e-a05d-9ee3-fdc0-361a3310ac09|03247e23-105a-7907-ab89-bccb84d29552|febe295b-297d-ec6e-fc86-a884bb2f51d2|14470caf-656b-d0ee-76ad-9a83ce6a1aa3|a86a2c31-e5fd-7d50-3dc0-ceb1d8423170|9f02ea85-de7b-ed4b-0ac4-93fc1da5b18b|f98f5ac8-f189-468a-94fd-f0eed3e67732|2855700b-b75c-b313-2676-5bcdc4cf1661|019a0e21-d71a-3ae8-95a7-a582da11541b|4c31acfd-e1c5-9079-5903-4a787873993c|a0a29501-f9e4-6882-6854-265b527b6a2e|9d1bd9b7-ae21-5ce5-083d-b7cb103ccf66|24232e64-e46a-b822-6dd7-4de0bc6def19|b64eb25a-5b9a-3646-8fbc-c873871e0e13|5461e058-61ab-4e9a-f8da-b7f1cd2f5cba|f49d7725-9798-9590-05e2-df3019999e72|b470c091-c499-3539-b43e-ade5d84efc3c|e7a8ed2f-88c8-e2c6-fcd2-cccbdc516da9|77567c34-2f00-1142-7e7b-aa8105c9fa10|0c4e01dc-292a-1d28-fa73-0d662a788788|56db2797-023e-bf57-45dc-fdcfaa3b30ae|db43e5a4-f763-1b3b-e5b7-345e77719601|642fcbcb-c2a0-91b7-65b8-7404c8614d81|b439fd7d-62bd-3f01-18d6-868ab1f1206a|d00735b3-6fd2-b898-d27a-763f5634751d|8203de0a-c698-97a7-1a93-a586ed86019b|3846ffad-6161-507a-e050-31be25afe980|fa637c60-1ddb-76be-21b6-b1f7bc3d3f30|bef6dee0-5d37-0580-fee4-151b9edb3b66|c11ef4fd-c6a4-05d3-c64c-ebe0478721b6|7b1f7a8d-ced9-2911-6825-81fcdffce717|986957fb-1577-06b0-fbf1-63ee2c7fdbcb|4f0c804d-333d-dc74-7285-015a038b2254|d169f1d9-3bae-06e4-b7fe-1c8d571dbf99|2095f06e-4aed-0146-398f-859e2d79c461|5e3cf42c-9de0-b663-b3f9-ea228de84915|3d89975c-33cc-e826-8abf-b712bd397f65|260daad4-d05f-66e7-3cd5-58a6e7b31a1c|993fc562-c6b4-69e8-11e4-6011afa85bee|fbf4e059-d86e-c909-1307-d663ff9f4c2f|6ef32154-ad3c-8f14-eb6a-2cd8970b122e|ed6bd112-99a7-ee02-4758-8dbf856a619b|eac7f8ae-a747-c32f-8415-bf8adf9c96d1|96001e75-684e-6ad9-54c0-d5bcce0f4fa3|9d4cfc24-2eb1-d563-0aea-9009e93b5f9f|50c08c5a-6e18-0ca5-3faf-13d928606932|4eec2437-d0ce-7518-3ac1-adeca9a8f001|6c0e2791-d1b7-37c6-fff0-6cedae542c24|22a0e4b4-e1af-4d20-f9f9-29c9ca153d23|a7219008-7df8-00be-637e-16db66303de2|9acb8280-51ae-19dd-97e0-69c236f0d514|0a661f63-d9ec-d60a-aac0-744a8cd28515|03442956-cda8-a086-da7f-35a790cd2193|5e464d06-b901-1b84-1aa7-d7138b481276|885f0d85-cbaa-f52c-d072-156540cef487|263aa76c-2985-4999-4cd2-f9b36420ef13|141c8e57-adb1-1a00-c1fb-84d47aaa5b44|c00f40a4-2f54-c892-3f49-3d917a72485f|b8255015-f3d3-15c4-75fb-cc970639a0c4|7f5c5af8-1e91-5674-aa28-68c1a93802f3|389e1edb-2ea8-ac4d-d226-2b41f585c214|dd7da94f-b95e-8ae1-1f0d-c6d5eb59dbd3|29a104cc-7c15-402f-4ce6-cd1a13e9f4d1"
+- ID: "380bfbfd-20c3-2b97-c9b0-cfe8db35d65f"
+  Hint: ChildrenCategoryList
+  Value: "8deb6d8d-48b0-63b3-56c6-8115c39862ef|61f78e95-8d5f-24e9-4bdb-257144202d81|dd4484cb-6b5f-b647-a41b-f246ec72fdcf|9296eda1-89f4-5662-3679-b74ce5bbdd51|2257fa3a-4385-e528-3027-4494ef335348|a46cfe91-d7b9-0246-ccb6-827c71d1e80e|7a8bdb1c-2976-02d7-0541-bf45307ea54a|dc456a04-4709-48a5-fdbb-ead9bd1e957b|9bf95fed-d29e-e85d-5eee-94c7f378fa34|90deffb1-c749-6b99-342e-42c37c63375d"
+- ID: "46e1891c-387f-49e1-f543-a9e7e837eed0"
+  Hint: ParentCategoryList
+  Value: "b893c063-6238-ed57-700d-72862c56038d"
+- ID: "66ccfa57-93e4-8211-b7ce-c2666f167e88"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "ac4289d3-915b-f062-7d77-379b4a46ba66"
+  Hint: Name
+  Value: Cameras
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "d0f601a9-f362-6417-e836-e7190268211c"
+  Hint: SitecoreId
+  Value: "e9f2e3a7-0575-0632-b67e-5e65092230c3"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Cameras
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Cameras
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Cameras
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Cameras
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Cameras
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Cameras
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Cameras
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Cameras
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Cameras
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 

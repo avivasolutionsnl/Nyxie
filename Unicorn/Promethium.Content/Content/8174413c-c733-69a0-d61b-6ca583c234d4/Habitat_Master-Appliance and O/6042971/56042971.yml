@@ -1,0 +1,128 @@
+﻿---
+ID: "652a8da7-b8d3-b998-ae06-3679adbd6308"
+Parent: "d296a684-0a91-9fbc-d63e-1e0fc1d56992"
+Template: "c92e6cd7-7f14-46e7-bbf5-29ce31262ef4"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Connected home/Habitat_Master-Appliance and Outlet Control/6042971/56042971"
+DB: master
+SharedFields:
+- ID: "0185d335-4545-edd6-76a8-460db418966a"
+  Hint: VariationProperties
+  Value: Color|Size
+- ID: "01d789fd-74e0-117e-2eb4-6612a1642643"
+  Hint: Name
+  Value: Habitat Sentinel Wifi Smart Plug
+- ID: "62375d22-10ba-4f23-b742-c3fefab6686c"
+  Hint: Images
+  Type: Treelist
+  Value: "{E19789A6-6DB2-4780-A82A-A9CD95B8938C}"
+- ID: "65ef80be-8e5e-a767-5097-2e2000fd8054"
+  Hint: Manufacturer
+  Value: 
+- ID: "74960d25-406b-e2fe-b935-839f847f2160"
+  Hint: TypeOfGood
+  Value: 
+- ID: "8d4aaea6-6658-7905-192d-c8c1b65ef353"
+  Hint: Tags
+  Value: sentinel|smartplug|outlet|wifi|iot
+- ID: "a7c26e68-f587-b3a5-a48d-6c9b08752472"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "b9ad0613-0584-6c55-d180-1c7d0215d9e7"
+  Hint: ProductId
+  Value: 6042971
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+- ID: "f41b1b99-0107-dd43-f234-adae63d913f3"
+  Hint: SitecoreId
+  Value: "2a09a7eb-9d58-71e8-37fe-fcc5a36d1bcd"
+- ID: "f4b64d68-f727-7a2d-f1e2-628e5704aa18"
+  Hint: ParentCategoryList
+  Value: "8174413c-c733-69a0-d61b-6ca583c234d4|3c7b1bd6-d364-e069-9f9b-1cc01d1d7b6c"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Sentinel Wifi Smart Plug
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Sentinel Wifi Smart Plug
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Sentinel Wifi Smart Plug
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Sentinel Appliances
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Sentinel Wifi Smart Plug
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Sentinel Wifi Smart Plug
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Sentinel Appliances
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Sentinel Wifi Smart Plug
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Sentinel Wifi Smart Plug
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Sentinel Appliances
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Sentinel Wifi Smart Plug
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Sentinel Wifi Smart Plug
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Sentinel Appliances

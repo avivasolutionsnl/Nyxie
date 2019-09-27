@@ -1,0 +1,121 @@
+﻿---
+ID: "9bf95fed-d29e-e85d-5eee-94c7f378fa34"
+Parent: "e9f2e3a7-0575-0632-b67e-5e65092230c3"
+Template: "4c4fd207-a9f7-443d-b32a-50aa33523661"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Cameras/Habitat_Master-Camera Accessories"
+DB: master
+SharedFields:
+- ID: "355d27e4-f53a-356e-3472-20d0f3bd3af9"
+  Hint: ChildrenSellableItemList
+  Value: "2d79618d-8f1a-45dd-3b91-ca22956c5ca1|d1adb809-e3d1-e9e9-56ef-7c134d0714c2|43f02b72-8058-2746-3a2a-7cc00bf323c7|aeb7ac01-9d24-8f4d-3264-ccdfe2a01972|8428727e-8093-834a-45b0-5cd5fa703937|e558c2c6-2433-ec73-399e-c6362da2928d|e316b78e-10b7-1382-6abd-b691d21ff334|c4574ed5-90fd-2ab5-af51-3cf9e5501638|3fec214f-99ab-2ebf-7267-2926eaaa32e1|7de2891d-c48d-0910-d8b8-aaba3b6034d6|c98371d5-4ae1-c58d-3b9c-8c5ca35e552f|7c69bd7c-ba7c-9911-6ee5-3726727f4cc2|cad43201-8ba6-c548-d59e-f918a3154d8d|55a8132e-56ce-306c-5e4b-aacf82a8789e|b89ec3d4-f979-39c2-5371-46e883f7fc12|ffb5905f-4812-2a10-fb08-f6735d1da9f3|62122230-4fc7-1c14-fe36-f8fff0020639|200acd92-bd7a-5163-c6b6-ae0c1c9b054b|8b9a9bd1-d191-d4e3-277f-0887c28d908a|9753eb65-9f94-9152-5eeb-6779f4580013|e684e314-e7c0-fae6-2ef3-15a09e7f015f|728da45d-f09b-c2b1-43df-c07252611fe1|958650f8-5120-33a8-4a3d-c2699a4c37f4|2251bfd6-a22b-1da2-74bf-76df64444e96|edb8bf04-68c5-d552-44ac-b614c27e2f04|bb80d1fa-c57e-7a28-2b18-a6b1229cb10d|41243301-5add-9a12-32c0-1f3e822f6900|eccf127f-828f-4312-93ad-86c79d00b2cd|49606e61-014a-14f0-d04a-4ee47f6093e5|8b3abc0f-e57e-1f57-4d86-478b8c895f79|7d9a9f3e-950b-4266-752c-2275c302484e"
+- ID: "380bfbfd-20c3-2b97-c9b0-cfe8db35d65f"
+  Hint: ChildrenCategoryList
+  Value: 
+- ID: "46e1891c-387f-49e1-f543-a9e7e837eed0"
+  Hint: ParentCategoryList
+  Value: "e9f2e3a7-0575-0632-b67e-5e65092230c3"
+- ID: "66ccfa57-93e4-8211-b7ce-c2666f167e88"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "ac4289d3-915b-f062-7d77-379b4a46ba66"
+  Hint: Name
+  Value: Camera Accessories
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "d0f601a9-f362-6417-e836-e7190268211c"
+  Hint: SitecoreId
+  Value: "9bf95fed-d29e-e85d-5eee-94c7f378fa34"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Camera Accessories
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Camera Accessories
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Camera Accessories
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Camera Accessories
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Camera Accessories
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Camera Accessories
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Camera Accessories
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Camera Accessories
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: Camera Accessories
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 

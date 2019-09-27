@@ -4,7 +4,6 @@ Parent: "fd09d1b7-aefe-4604-917c-fcdddb4df76e"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Event List/Default/EventPlace
 DB: master
-BranchID: "34c38ec6-d380-4bb0-93ab-52f08aecfbfa"
 SharedFields:
 - ID: "4753764c-c05a-4623-841b-97f85135241c"
   Hint: FieldName

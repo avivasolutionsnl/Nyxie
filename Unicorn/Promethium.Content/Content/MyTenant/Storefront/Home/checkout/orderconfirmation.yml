@@ -120,9 +120,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "db258a10-db4e-4f13-b178-4adb06a92076"
-      Hint: Title
-      Value: OrderConfirmation
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

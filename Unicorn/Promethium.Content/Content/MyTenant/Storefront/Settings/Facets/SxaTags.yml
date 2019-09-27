@@ -4,7 +4,6 @@ Parent: "8970951d-7e55-4347-81db-5bce9fcd6093"
 Template: "6042e216-f650-447c-86d1-00fea97454e7"
 Path: /sitecore/content/MyTenant/Storefront/Settings/Facets/SxaTags
 DB: master
-BranchID: "bd75aff8-0e85-4013-af3b-7187e8b952f0"
 SharedFields:
 - ID: "0e23bb51-c071-41b5-9d83-ac410b89b85a"
   Hint: Parameters

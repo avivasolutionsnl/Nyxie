@@ -1,0 +1,121 @@
+﻿---
+ID: "f84e5567-a37a-36b3-d2df-edb8730eb259"
+Parent: "c1114488-2d5f-39c7-5e16-42f64d5f2d4a"
+Template: "4c4fd207-a9f7-443d-b32a-50aa33523661"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Assortments/Habitat_Master-NextCube_InGame"
+DB: master
+SharedFields:
+- ID: "355d27e4-f53a-356e-3472-20d0f3bd3af9"
+  Hint: ChildrenSellableItemList
+  Value: "a44742d5-1a3f-dd4a-e69e-9ea550112449|f275201d-5839-1ac2-e379-14bb792b9d94|e421b3f0-4852-a685-0a4c-52c400c9cf6f|d14c0948-fcb5-23f8-2d6b-53ccbc086eaa|4ffe85dc-1822-fe63-9396-93e81bf0f0f3|ab294725-fdf5-5687-2818-b6b28fa0e224|6c21b972-ba78-5a11-de8c-cfd4bf81b0da|c39267a6-ecbd-b14f-6c16-790836b006b7|d036d902-bfba-c245-91f7-e9a6ad308051|2b95b4c2-3657-9699-48b6-08798df11557|a2dcb933-6b9b-69d0-0134-a75fac5d8237|b1deb16d-4418-97f9-e651-da43d95236a8|a4c15dbf-b5d1-bd78-1c6b-af50bfe72161|03718e34-a202-5ed7-c994-27812d25d91b|a516f126-bf1e-5e06-ccc3-aef1eef89f19|ab18fc3a-7d57-8eb4-a0cc-0042c4cd3cad|02e4074f-fa26-0e21-3fca-d880d0b50f7f|ae27f6b4-e59f-7d60-f2b1-85f7567fcba0|3706555b-e89b-d74e-66a3-2cb41c156fc0|8193edeb-3724-7cdd-e5aa-c683c07d31d1|b089775c-a4a8-6138-fb6b-5d09cbc005fd|47188628-bb15-598a-653c-eb5c1f92483d|35e86b77-9b0a-2018-d735-657c0689137d|3fedb9d6-c6ef-8964-a6fb-671227934250|5106e491-c154-21e2-01c6-ba0f52f48a76|79f4d2c4-f330-32e4-813f-58534f7f8710|02cc94dc-9e2e-e164-bc93-2c2e799c9a56|fc6ebead-b64b-bb4e-544e-6293ac84a73f|44f3cfc8-e896-9198-54e1-770d4b102d5a|2f6dcecc-1378-197e-9715-cca9aca6e0a3|058017f4-8263-dbd8-2230-005668afb5f1|3e1c517a-496f-16b5-ca7d-0138c17763bd|02fd30ab-6209-276b-f650-5ec666a40cf6|13db3a3b-f4b8-6025-a71b-3351a4e1faa4|db9a0f8e-9a8f-5cc0-f794-315c021c7767|04f11835-2b72-f8ab-ac9c-1e558c88f411|fa460502-8ea0-e710-0fde-fb69d1e983ce|5e717c49-39c4-572f-324e-37573cf8820e|ff923a5c-0a8e-e4fd-3048-f106a13b144f|7e2d7219-2481-61d7-d4a5-f15029b94f65|63a28406-07ab-0cf7-8cb1-f925f5b26c14|d1451490-68b5-88d6-73ea-c602722dfccc|c5d5d9fa-c3f4-6126-8027-aa77ff82c5bf|da97cb52-ec8b-3a75-9c6f-79bff27bf715|ca15cd53-8ec7-4637-4534-a1fb2641b1ee|1dfeb68a-0b7b-f6e8-22c4-6f233cfdac7f|adf6f13b-3c81-d196-944a-b86c3c566c4f|865b91ae-c819-a4f7-8cf1-f0a544c3fc50|dcaaab29-db5a-fe88-8aab-ee69594c826f|afba89e6-8d7b-0848-b651-28875ede8b98|b91fbd9a-9e1d-df95-a305-d36be891a0d5|a2d390ba-5bdb-d5fb-fbd1-8aaf891ae849|a1f7af9d-7943-7d42-241d-41484463acdc|3116ba12-6929-3fca-e4b8-6d2734afd8c9|df11b72a-f9be-d580-5032-628e43304564|938b87e1-b69d-2a7b-dd5f-ebf6e7815e5e|375e681f-4001-65d0-9c4f-f43b023cd848|1bf60a42-5006-e34c-ca32-5f168c5b5791|02e18b8e-dd2f-f05e-44f2-69df2e9c697a|e0b37f21-b369-060d-c270-581a361d4894|56fc2b9a-ce03-960f-821c-c9f5830cc682|0e649b7d-92cf-f800-b1a6-9a64d04756c4|e7dc1810-4baa-2aea-4142-fa5cd0a06ac0|ea4db581-b9b2-88f5-3fc5-c8c88052aadc|59523df5-98b0-637f-172c-3018f8c86690|71857eba-4c8f-619a-ec4c-62de5751c9ad|c46ef6ea-c00a-3be4-b00b-fbf47aca1f50|fc4dc5f0-b3e5-aff3-099d-c62809bf696f|56cef4a3-9c55-affb-3764-bfa041208f7c|698952f8-0fe6-a38c-7428-50e0af55f53f|3845ef7c-4734-dd89-6c3b-e6ec2cca69a5|65fd5a34-564e-be0d-c786-d6eb8718de26|fab103e7-927b-1f7d-614b-3566a5a02094|4396f2d4-1b43-83cc-84fa-eb1b23032c41|654d86ff-540e-7f23-56fb-d49ceb18e308|055b4f94-08fc-89a2-397c-fc09b357ebea|245298b2-e1d4-b67e-10f3-481f9ff9d47e|71619b85-cbb6-710a-03f5-6a975625767d|83ea4324-1244-f1c0-dc81-6ccaf9ad9bc2|188ff306-1af6-9327-76af-029b6ec99cee|91fd4b11-5cc4-a434-e6ae-03776cc5573f|8caa6cdb-7a0e-2198-3e17-8ede78f5d54e|c0747c31-1870-5913-fe07-ea2e533b24a4|d483eb49-b95a-e94c-70fa-2b53751f261a|8fe90358-8787-41fe-3982-a8eb088abfa4|c7dd8df7-d260-cf10-088c-bfab4d237355|01e5bb02-e0ea-8473-b1b0-959d0c5f7c0e|b57dbe0d-8c86-377c-efcf-ff337e0a8bd3|a59efd45-f2c2-b086-c4f3-0d7d53bec560|f99202c3-aac3-138e-38a3-a4223d5778c3|a069d618-2747-1eb1-ae5a-77b950660b12|ae664bd5-4244-259d-154e-7505d56ef7dd|ee82a50c-bab9-f6e5-e60b-9c2e2cbae0f4|23a231df-0f1d-3434-1478-dbcca694bf78|ca81f2d4-2513-c104-eaf5-ebcf5df96895|20e11c73-115e-0266-22d5-593f26318fbb|cad818df-ed49-7b0f-47df-52e7a13ea1d7|c67ecc36-9b91-efa7-8ef5-52bda83ff889|ab961b41-8fbf-cade-c8dc-3f8e41ae4abb|36d2d581-2e24-442c-9ed8-beb0d1cfb424|9f743787-864a-f0b0-3a73-3fdff4b60b02|17b54f6e-06e3-4cb8-ea3e-04c88aa7b98a|23a19e45-5ef2-17c2-69fa-cf387457e108|9595eaf4-877e-06e7-d5f7-e7e8c1b001e7|e026665a-ed23-c7a5-a4ac-33ca2bd0c0f3"
+- ID: "380bfbfd-20c3-2b97-c9b0-cfe8db35d65f"
+  Hint: ChildrenCategoryList
+  Value: 
+- ID: "46e1891c-387f-49e1-f543-a9e7e837eed0"
+  Hint: ParentCategoryList
+  Value: "c1114488-2d5f-39c7-5e16-42f64d5f2d4a"
+- ID: "66ccfa57-93e4-8211-b7ce-c2666f167e88"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "ac4289d3-915b-f062-7d77-379b4a46ba66"
+  Hint: Name
+  Value: NextCube_InGame
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{f1fb8a76-9c0e-fcbb-3f7f-a57c84e92e39}"
+- ID: "d0f601a9-f362-6417-e836-e7190268211c"
+  Hint: SitecoreId
+  Value: "f84e5567-a37a-36b3-d2df-edb8730eb259"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: NextCube_InGame
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: NextCube_InGame
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: NextCube_InGame
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: NextCube_InGame
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: NextCube_InGame
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: NextCube_InGame
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: NextCube_InGame
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: NextCube_InGame
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "139045ba-30cf-4487-fa47-0d5aea7426bc"
+      Hint: DisplayName
+      Value: NextCube_InGame
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T133621Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{dc2fb05e-ae00-2010-0f27-e432ac8d62f1}"
+    - ID: "a121d29c-aad3-8dbd-43ba-714e9bd10421"
+      Hint: Description
+      Value: 

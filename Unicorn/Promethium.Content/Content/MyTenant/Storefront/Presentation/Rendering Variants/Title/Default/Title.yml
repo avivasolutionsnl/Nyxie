@@ -4,7 +4,6 @@ Parent: "be8a1430-34b8-4835-a723-e2e7dbf052da"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
 Path: /sitecore/content/MyTenant/Storefront/Presentation/Rendering Variants/Title/Default/Title
 DB: master
-BranchID: "9ce20276-ee4d-4810-932a-f8e8ba759377"
 SharedFields:
 - ID: "4753764c-c05a-4623-841b-97f85135241c"
   Hint: FieldName

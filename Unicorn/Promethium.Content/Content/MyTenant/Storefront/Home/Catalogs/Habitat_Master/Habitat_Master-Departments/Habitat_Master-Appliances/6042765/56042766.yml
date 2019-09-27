@@ -1,0 +1,184 @@
+﻿---
+ID: "49606a53-814e-3cdd-d11a-b0d90a5a3bcb"
+Parent: "143674e1-1eef-1531-2e1a-4e2d6ef002da"
+Template: "c92e6cd7-7f14-46e7-bbf5-29ce31262ef4"
+Path: "/sitecore/content/MyTenant/Storefront/Home/Catalogs/Habitat_Master/Habitat_Master-Departments/Habitat_Master-Appliances/6042765/56042766"
+DB: master
+SharedFields:
+- ID: "0185d335-4545-edd6-76a8-460db418966a"
+  Hint: VariationProperties
+  Value: Color|Size
+- ID: "01d789fd-74e0-117e-2eb4-6612a1642643"
+  Hint: Name
+  Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+- ID: "615782bd-2206-34a4-f4f4-c03d855a1c23"
+  Hint: DisplayInProductList
+  Type: Checkbox
+  Value: 0
+- ID: "62375d22-10ba-4f23-b742-c3fefab6686c"
+  Hint: Images
+  Type: Treelist
+  Value: "{41C6CA7B-4CFE-4D0E-9477-3552F13D52FD}"
+- ID: "65ef80be-8e5e-a767-5097-2e2000fd8054"
+  Hint: Manufacturer
+  Value: 
+- ID: "74960d25-406b-e2fe-b935-839f847f2160"
+  Hint: TypeOfGood
+  Value: 
+- ID: "804487cc-37cb-1426-0ed8-1aac29392ff9"
+  Hint: DisplayOnSite
+  Type: Checkbox
+  Value: 0
+- ID: "8d4aaea6-6658-7905-192d-c8c1b65ef353"
+  Hint: Tags
+  Value: microwaves|21cubicfeet|progrill|platinum|centerpiece
+- ID: "a7c26e68-f587-b3a5-a48d-6c9b08752472"
+  Hint: ParentCatalogList
+  Value: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+- ID: "b9ad0613-0584-6c55-d180-1c7d0215d9e7"
+  Hint: ProductId
+  Value: 6042765
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: "ar|Everyone|pe|+item:read|pd|+item:read|"
+- ID: "f41b1b99-0107-dd43-f234-adae63d913f3"
+  Hint: SitecoreId
+  Value: "818a1745-8df7-699f-a0e6-459aa7127eb3"
+- ID: "f4b64d68-f727-7a2d-f1e2-628e5704aa18"
+  Hint: ParentCategoryList
+  Value: "06f5147b-9e24-fa33-20fb-d4b7d8d21392|1304d651-cf23-6c72-fa89-8941a3c9fff4"
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+  Versions:
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "0bd653f8-06d7-b42e-5c4c-dede6fb46e87"
+      Hint: Size
+      Value: 
+    - ID: "0ce2f07d-7057-f418-3857-1c05f2be205b"
+      Hint: DisambiguatingDescription
+      Value: 
+    - ID: "18c2687c-6421-5b7e-7009-12b058695a0f"
+      Hint: Color
+      Value: Platinum
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "32d0f413-d17d-1aa2-a325-e7761de7a293"
+      Hint: Style
+      Value: 
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Centerpiece Microwaves
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "0bd653f8-06d7-b42e-5c4c-dede6fb46e87"
+      Hint: Size
+      Value: 
+    - ID: "0ce2f07d-7057-f418-3857-1c05f2be205b"
+      Hint: DisambiguatingDescription
+      Value: 
+    - ID: "18c2687c-6421-5b7e-7009-12b058695a0f"
+      Hint: Color
+      Value: Platinum
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "32d0f413-d17d-1aa2-a325-e7761de7a293"
+      Hint: Style
+      Value: 
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Centerpiece Microwaves
+- Language: "fr-FR"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "0bd653f8-06d7-b42e-5c4c-dede6fb46e87"
+      Hint: Size
+      Value: 
+    - ID: "0ce2f07d-7057-f418-3857-1c05f2be205b"
+      Hint: DisambiguatingDescription
+      Value: 
+    - ID: "18c2687c-6421-5b7e-7009-12b058695a0f"
+      Hint: Color
+      Value: Platinum
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "32d0f413-d17d-1aa2-a325-e7761de7a293"
+      Hint: Style
+      Value: 
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Centerpiece Microwaves
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0758db64-0746-2bbb-241b-2abd830a33c6"
+      Hint: Description
+      Value: 
+    - ID: "0bd653f8-06d7-b42e-5c4c-dede6fb46e87"
+      Hint: Size
+      Value: 
+    - ID: "0ce2f07d-7057-f418-3857-1c05f2be205b"
+      Hint: DisambiguatingDescription
+      Value: 
+    - ID: "18c2687c-6421-5b7e-7009-12b058695a0f"
+      Hint: Color
+      Value: Platinum
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180612T153620
+    - ID: "32d0f413-d17d-1aa2-a325-e7761de7a293"
+      Hint: Style
+      Value: 
+    - ID: "4faf0196-c1bb-8764-f658-ee6ec2e91a51"
+      Hint: DisplayName
+      Value: Habitat Centerpiece 2.1 Cu. Ft. Countertop Microwave with Grill (Platinum)
+    - ID: "91c94ffd-986d-fd65-72fe-27c348874999"
+      Hint: Brand
+      Value: Centerpiece Microwaves
