@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Plugin.Promotions.Pipelines.Blocks
+namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class CategoryConditionDetailsViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
