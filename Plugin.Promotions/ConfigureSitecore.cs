@@ -35,6 +35,10 @@ namespace Promethium.Plugin.Promotions
                     .Add<Pipelines.Blocks.CategoryConditionDetailsViewBlock>()
                     .After<Sitecore.Commerce.Plugin.Promotions.GetPromotionQualificationDetailsViewBlock>())
 
+                .ConfigurePipeline<Sitecore.Commerce.Plugin.Rules.IBuildRuleSetPipeline>(configure => configure
+                    .Remove<Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock>()
+                    .Add<Pipelines.Blocks.BuildRuleSetBlock>())
+
             );
         }
     }

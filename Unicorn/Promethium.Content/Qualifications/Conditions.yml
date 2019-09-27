@@ -1,0 +1,22 @@
+﻿---
+ID: "cba44a1c-9802-48ab-a008-0d08b72deedf"
+Parent: "21c9524d-d505-4b3e-9c98-5c11fe69f02b"
+Template: "aa15bad2-8e72-4999-86ef-2b3f0cd1a425"
+Path: /sitecore/Commerce/Commerce Control Panel/Commerce Engine Settings/Commerce Terms/BusinessTools/Conditions
+DB: master
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Qualifications Names
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161212T190138Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
