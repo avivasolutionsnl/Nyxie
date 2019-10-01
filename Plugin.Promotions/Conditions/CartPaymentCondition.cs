@@ -41,7 +41,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             payment = null;
 
             var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
-            if (cart == null && !cart.Lines.Any<CartLineComponent>() || !cart.HasComponent<PaymentComponent>())
+            if (cart == null || !cart.Lines.Any() || !cart.HasComponent<PaymentComponent>())
             {
                 return false;
             }

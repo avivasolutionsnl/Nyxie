@@ -32,8 +32,16 @@ namespace Promethium.Plugin.Promotions
                     .Before<Sitecore.Commerce.Plugin.Carts.PersistCartBlock>())
                 
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.CategoryConditionDetailsViewBlock>()
+                    .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
                     .After<Sitecore.Commerce.Plugin.Promotions.GetPromotionQualificationDetailsViewBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
 
                 .ConfigurePipeline<Sitecore.Commerce.Plugin.Rules.IBuildRuleSetPipeline>(configure => configure
                     .Remove<Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock>()
