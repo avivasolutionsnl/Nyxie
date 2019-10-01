@@ -1,19 +1,19 @@
 ﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Payments;
 using Sitecore.Commerce.Plugin.Promotions;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sitecore.Commerce.Plugin.Payments;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_PaymentBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private GetPaymentMethodsCommand _getCommand;
+        private readonly GetPaymentMethodsCommand _getCommand;
+
         public ConditionDetailsView_PaymentBlock(GetPaymentMethodsCommand getCommand)
         {
             _getCommand = getCommand;
@@ -40,7 +40,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
 
             var condition = arg.Properties.FirstOrDefault(p => p.Name.Equals("Condition", StringComparison.OrdinalIgnoreCase));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Promethium_") || !condition.RawValue.ToString().EndsWith("PaymentCondition"))
+            if (condition == null || !condition.Value.StartsWith("Promethium_") || !condition.Value.EndsWith("PaymentCondition"))
             {
                 return Task.FromResult(arg);
             }
@@ -49,12 +49,9 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             if (categorySelection != null)
             {
                 var paymentMethods = _getCommand.Process(context.CommerceContext).Result;
+                var options = paymentMethods.Select(x => new Selection {DisplayName = x.DisplayName, Name = x.Name});
 
-                var policy = new AvailableSelectionsPolicy
-                {
-                    AllowMultiSelect = false,
-                    List = paymentMethods.Select(x => new Selection {DisplayName = x.DisplayName, Name = x.Name}).ToList()
-                };
+                var policy = new AvailableSelectionsPolicy(options);
 
                 categorySelection.Policies.Add(policy);
             }
@@ -63,7 +60,3 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         }
     }
 }
-
-// /sitecore/Commerce/Commerce Control Panel/Shared Settings/Payment Options
-// /sitecore/templates/CommerceConnect/Sitecore Commerce/Commerce Control Panel/Shared Settings/Payment/Payment Option
-// {B4FB6139-9750-4DAC-AD16-1E4663E22DCE}

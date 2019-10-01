@@ -1,19 +1,18 @@
 ﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Commerce.Plugin.Promotions;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sitecore.Commerce.Plugin.Fulfillment;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_FulfillmentBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private GetFulfillmentMethodsCommand _getCommand;
+        private readonly GetFulfillmentMethodsCommand _getCommand;
 
         public ConditionDetailsView_FulfillmentBlock(GetFulfillmentMethodsCommand getCommand)
         {
@@ -41,7 +40,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
 
             var condition = arg.Properties.FirstOrDefault(p => p.Name.Equals("Condition", StringComparison.OrdinalIgnoreCase));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Promethium_") || !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
+            if (condition == null || !condition.Value.StartsWith("Promethium_") || !condition.Value.EndsWith("FulfillmentCondition"))
             {
                 return Task.FromResult(arg);
             }
@@ -50,13 +49,9 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             if (categorySelection != null)
             {
                 var fulfillmentMethods = _getCommand.Process(context.CommerceContext).Result;
+                var options = fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
-                var policy = new AvailableSelectionsPolicy
-                {
-                    AllowMultiSelect = false,
-                    List = fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name }).ToList()
-                };
-
+                var policy = new AvailableSelectionsPolicy(options);
                 categorySelection.Policies.Add(policy);
             }
 
@@ -64,7 +59,3 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         }
     }
 }
-
-// /sitecore/Commerce/Commerce Control Panel/Shared Settings/Fulfillment Options
-// /sitecore/templates/CommerceConnect/Sitecore Commerce/Commerce Control Panel/Shared Settings/Fulfillment/Fulfillment Option
-// {7CC3185B-6DEF-4D8E-BF12-D981DFD2B614}
