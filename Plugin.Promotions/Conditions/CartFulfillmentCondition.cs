@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Extensions;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Rules;
+using System.Linq;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -20,13 +15,13 @@ namespace Promethium.Plugin.Promotions.Conditions
     {
         public IBinaryOperator<string, string> Operator { get; set; }
 
-        public IRuleValue<string> SpecificFullfillment { get; set; }
+        public IRuleValue<string> SpecificFulfillment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificFullfillment = SpecificFullfillment.Yield(context);
-            if (string.IsNullOrEmpty(specificFullfillment) || Operator == null)
+            var specificFulfillment = SpecificFulfillment.Yield(context);
+            if (string.IsNullOrEmpty(specificFulfillment) || Operator == null)
             {
                 return false;
             }
@@ -38,15 +33,15 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Validate data against configuration
-            return Operator.Evaluate(fulfillment.FulfillmentMethod.Name, specificFullfillment);
+            return Operator.Evaluate(fulfillment.FulfillmentMethod.Name, specificFulfillment);
         }
 
-        private bool GetFulfillment(IRuleExecutionContext context, out FulfillmentComponent fulfillment)
+        private static bool GetFulfillment(IRuleExecutionContext context, out FulfillmentComponent fulfillment)
         {
             fulfillment = null;
 
             var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
-            if (cart == null && !cart.Lines.Any<CartLineComponent>() || !cart.HasComponent<FulfillmentComponent>())
+            if (cart == null || !cart.Lines.Any() || !cart.HasComponent<FulfillmentComponent>())
             {
                 return false;
             }

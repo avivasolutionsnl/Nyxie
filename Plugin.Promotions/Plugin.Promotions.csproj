@@ -11,6 +11,7 @@
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <AssemblyName>Promethium.Plugin.Promotions</AssemblyName>
     <RootNamespace>Promethium.Plugin.Promotions</RootNamespace>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Pipelines\Blocks\GetPromotionQualificationDetailsViewBlock.cs" />
