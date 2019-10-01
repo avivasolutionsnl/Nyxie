@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
  commerce:
-  image: avivasolutionsnl.azurecr.io/sitecore-xc-commerce:9.1.0-20190528
+  image: avivasolutionsnl.azurecr.io/promethium-commerce:9.1.0-20190528
   mem_limit: 4096m
   cpu_count: 6
   command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
