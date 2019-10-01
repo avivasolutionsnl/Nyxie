@@ -1,14 +1,10 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Components;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Sample;
 using Sitecore.Framework.Rules;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Plugin.Promotions.Conditions
+namespace Promethium.Plugin.Promotions.Conditions
 {
     [EntityIdentifier("IsProductFromCategory")]
     public class IsProductFromCategory : ICondition

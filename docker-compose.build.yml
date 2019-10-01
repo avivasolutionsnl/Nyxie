@@ -7,6 +7,12 @@ services:
     args:
       BASE_IMAGE: avivasolutionsnl.azurecr.io/sitecore-xc-solr-sxa:9.1.0-20190528
 
+ commerce:
+  build: 
+    context: ./Docker/commerce
+    args:
+      BASE_IMAGE: avivasolutionsnl.azurecr.io/sitecore-xc-commerce:9.1.0-20190528
+
  mssql:
   image: avivasolutionsnl.azurecr.io/sitecore-xc-mssql-sxa:9.1.0-20190528
 
