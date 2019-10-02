@@ -13,15 +13,15 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Promethium_" + nameof(CartPaymentCondition))]
     public class CartPaymentCondition : ICondition
     {
-        public IBinaryOperator<string, string> Operator { get; set; }
+        public IBinaryOperator<string, string> Promethium_Operator { get; set; }
 
-        public IRuleValue<string> SpecificPayment { get; set; }
+        public IRuleValue<string> Promethium_SpecificPayment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificPayment = SpecificPayment.Yield(context);
-            if (string.IsNullOrEmpty(specificPayment) || Operator == null)
+            var specificPayment = Promethium_SpecificPayment.Yield(context);
+            if (string.IsNullOrEmpty(specificPayment) || Promethium_Operator == null)
             {
                 return false;
             }
@@ -33,10 +33,11 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Validate data against configuration
-            return Operator.Evaluate(payment.PaymentMethod.Name, specificPayment);
+            var selectedPayment = payment.PaymentMethod.Name;
+            return Promethium_Operator.Evaluate(selectedPayment, specificPayment);
         }
 
-        private bool GetPayment(IRuleExecutionContext context, out PaymentComponent payment)
+        private static bool GetPayment(IRuleExecutionContext context, out PaymentComponent payment)
         {
             payment = null;
 

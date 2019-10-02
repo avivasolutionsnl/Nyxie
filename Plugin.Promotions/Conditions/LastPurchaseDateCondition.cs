@@ -12,7 +12,7 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// "Current Customer last purchase is [operator] [date]"
     /// </summary>
     [EntityIdentifier("Promethium_" + nameof(LastPurchaseDateCondition))]
-    public class LastPurchaseDateCondition : ICondition, ICustomerCondition
+    public class LastPurchaseDateCondition : ICustomerCondition
     {
         private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
 
@@ -22,14 +22,14 @@ namespace Promethium.Plugin.Promotions.Conditions
         }
 
         //SiteCore only adds Datetime operators out-of-the-box
-        public IBinaryOperator<DateTime, DateTime> Operator { get; set; }
+        public IBinaryOperator<DateTime, DateTime> Promethium_Operator { get; set; }
 
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
-        public IRuleValue<DateTimeOffset> Date { get; set; }
+        public IRuleValue<DateTimeOffset> Promethium_Date { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
-            var date = Date.Yield(context).DateTime;
+            var date = Promethium_Date.Yield(context).DateTime;
 
             if (!context.GetOrderHistory(_findEntitiesInListCommand, out var orders))
             {
@@ -37,7 +37,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             var lastPurchaseDate = orders.Max(x => x.OrderPlacedDate).DateTime;
-            return Operator.Evaluate(lastPurchaseDate, date);
+            return Promethium_Operator.Evaluate(lastPurchaseDate, date);
         }
     }
 }

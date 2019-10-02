@@ -1,13 +1,12 @@
 ﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
-using Sitecore.Commerce.Plugin.Promotions;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sitecore.Commerce.Plugin.Catalog;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -26,30 +25,13 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var entityViewArgument = context.CommerceContext.GetObject<EntityViewArgument>();
-            if (string.IsNullOrEmpty(entityViewArgument?.ViewName) || !entityViewArgument.ViewName.Equals(
-                    context.GetPolicy<KnownPromotionsViewsPolicy>().QualificationDetails,
-                    StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.FromResult(arg);
-            }
-
-
-            var knownPolicies = context.GetPolicy<KnownPromotionsActionsPolicy>();
-            var editQualification = entityViewArgument.ForAction.Equals(knownPolicies.EditQualification, StringComparison.OrdinalIgnoreCase) ||
-                                    entityViewArgument.ForAction.Equals(knownPolicies.AddQualification, StringComparison.OrdinalIgnoreCase);
-            if (!(entityViewArgument.Entity is Promotion) || !editQualification)
-            {
-                return Task.FromResult(arg);
-            }
-
             var condition = arg.Properties.FirstOrDefault(p => p.Name.Equals("Condition", StringComparison.OrdinalIgnoreCase));
-            if (condition == null || !condition.Value.StartsWith("Promethium_") || !condition.Value.EndsWith("CategoryCondition"))
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Promethium_") || !condition.RawValue.ToString().EndsWith("CategoryCondition"))
             {
                 return Task.FromResult(arg);
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.Equals("SpecificCategory", StringComparison.OrdinalIgnoreCase));
+            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.Equals("Promethium_SpecificCategory", StringComparison.OrdinalIgnoreCase));
             if (categorySelection != null)
             {
                 var catalogs = _getCatalogsCommand.Process(context.CommerceContext).Result;
@@ -57,12 +39,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 var catalog = catalogs.First();
                 var categories = _getCategoriesCommand.Process(context.CommerceContext, catalog.Name).Result;
 
-                var allCategories = categories.Where(x => x.ParentCategoryList != null)
-                    .Select(x => new Category {
-                        Name = x.Name,
-                        ParentCategoryList = x.ParentCategoryList,
-                        SiteCoreId = x.SitecoreId,
-                    }).ToList();
+                var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
 
                 var selectOptions = new List<Selection>();
 
@@ -89,18 +66,11 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 foreach (var category in categories)
                 {
                     var optionDisplayName = $"{displayName}/{category.Name}";
-                    selectOptions.Add(new Selection { DisplayName = optionDisplayName, Name = category.Name });
+                    selectOptions.Add(new Selection { DisplayName = optionDisplayName, Name = category.SitecoreId });
 
-                    GetCategories(category.SiteCoreId, allCategories, optionDisplayName, ref selectOptions);
+                    GetCategories(category.SitecoreId, allCategories, optionDisplayName, ref selectOptions);
                 }
             }
         }
-    }
-
-    internal struct Category
-    {
-        public string Name { get; set; }
-        public string ParentCategoryList { get; set; }
-        public string SiteCoreId { get; set; }
     }
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using Promethium.Plugin.Promotions.Components;
+﻿using Promethium.Plugin.Promotions.Components;
 using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Orders;
 using Sitecore.Framework.Rules;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Sitecore.Commerce.Core.Commands;
-using Sitecore.Commerce.Plugin.Orders;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
@@ -27,8 +26,7 @@ namespace Promethium.Plugin.Promotions.Extensions
                 return false;
             }
 
-            //TODO Make use of the [IncludeSubCategories]
-            foundLines = cart.Lines.Where(line => line.GetComponent<CategoryComponent>().ParentCategoryList.Contains(specificCategory));
+            foundLines = cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories));
             return true;
         }
 
@@ -53,15 +51,15 @@ namespace Promethium.Plugin.Promotions.Extensions
             FindEntitiesInListCommand findEntitiesInListCommand,
             string specificCategory,
             bool includeSubCategories,
-            out IEnumerable<Order> foundOrders)
+            out IEnumerable<CartLineComponent> foundOrderLines)
         {
-            var valid = context.GetOrderHistory(findEntitiesInListCommand, out foundOrders);
+            foundOrderLines = null;
+
+            var valid = context.GetOrderHistory(findEntitiesInListCommand, out var foundOrders);
             if (!valid)
                 return false;
 
-            //TODO Make use of the [IncludeSubCategories]
-            foundOrders = foundOrders.Where(line =>
-                line.GetComponent<CategoryComponent>().ParentCategoryList.Contains(specificCategory));
+            foundOrderLines = foundOrders.SelectMany(x => x.Lines).Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories));
 
             return true;
         }

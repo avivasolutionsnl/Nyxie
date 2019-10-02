@@ -12,21 +12,21 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Promethium_" + nameof(CartProductTotalInCategoryCondition))]
     public class CartProductTotalInCategoryCondition : ICondition, ICartsCondition
     {
-        public IRuleValue<string> SpecificCategory { get; set; }
+        public IRuleValue<string> Promethium_SpecificCategory { get; set; }
 
-        public IBinaryOperator<decimal, decimal> Compares { get; set; }
+        public IBinaryOperator<decimal, decimal> Promethium_Compares { get; set; }
 
-        public IRuleValue<decimal> SpecificValue { get; set; }
+        public IRuleValue<decimal> Promethium_SpecificValue { get; set; }
 
-        public IRuleValue<bool> IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Promethium_IncludeSubCategories { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificCategory = SpecificCategory.Yield(context);
-            var specificValue = SpecificValue.Yield(context);
-            var includeSubCategories = IncludeSubCategories.Yield(context);
-            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Compares == null)
+            var specificCategory = Promethium_SpecificCategory.Yield(context);
+            var specificValue = Promethium_SpecificValue.Yield(context);
+            var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
+            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Promethium_Compares == null)
             {
                 return false;
             }
@@ -39,7 +39,7 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             var categoryTotal = categoryLines.Sum(line => line.Totals.GrandTotal.Amount);
-            return Compares.Evaluate(categoryTotal, specificValue);
+            return Promethium_Compares.Evaluate(categoryTotal, specificValue);
         }
     }
 }

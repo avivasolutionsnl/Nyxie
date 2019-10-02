@@ -30,7 +30,7 @@ namespace Promethium.Plugin.Promotions
                 .ConfigurePipeline<Sitecore.Commerce.Plugin.Carts.IAddCartLinePipeline>(configure => configure
                     .Add<Pipelines.Blocks.AddCategoryBlock>()
                     .Before<Sitecore.Commerce.Plugin.Carts.PersistCartBlock>())
-                
+
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
                     .After<Sitecore.Commerce.Plugin.Promotions.GetPromotionQualificationDetailsViewBlock>())
@@ -40,6 +40,18 @@ namespace Promethium.Plugin.Promotions
                     .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
 
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
+                    .After<Sitecore.Commerce.Plugin.Promotions.DoActionSelectQualificationBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
                     .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
 

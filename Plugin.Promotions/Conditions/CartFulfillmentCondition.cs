@@ -11,17 +11,17 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// "Cart has [operator] [specific fulfillment]"
     /// </summary>
     [EntityIdentifier("Promethium_" + nameof(CartFulfillmentCondition))]
-    public class CartFulfillmentCondition : ICondition, IFulfillmentCondition
+    public class CartFulfillmentCondition : IFulfillmentCondition
     {
-        public IBinaryOperator<string, string> Operator { get; set; }
+        public IBinaryOperator<string, string> Promethium_Operator { get; set; }
 
-        public IRuleValue<string> SpecificFulfillment { get; set; }
+        public IRuleValue<string> Promethium_SpecificFulfillment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificFulfillment = SpecificFulfillment.Yield(context);
-            if (string.IsNullOrEmpty(specificFulfillment) || Operator == null)
+            var specificFulfillment = Promethium_SpecificFulfillment.Yield(context);
+            if (string.IsNullOrEmpty(specificFulfillment) || Promethium_Operator == null)
             {
                 return false;
             }
@@ -33,7 +33,8 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Validate data against configuration
-            return Operator.Evaluate(fulfillment.FulfillmentMethod.Name, specificFulfillment);
+            var selectedFulfillment = fulfillment.FulfillmentMethod.Name;
+            return Promethium_Operator.Evaluate(selectedFulfillment, specificFulfillment);
         }
 
         private static bool GetFulfillment(IRuleExecutionContext context, out FulfillmentComponent fulfillment)
