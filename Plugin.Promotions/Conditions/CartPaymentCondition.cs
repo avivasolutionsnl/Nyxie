@@ -3,6 +3,7 @@ using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Payments;
 using Sitecore.Framework.Rules;
 using System.Linq;
+using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -13,7 +14,7 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Promethium_" + nameof(CartPaymentCondition))]
     public class CartPaymentCondition : ICondition
     {
-        public IBinaryOperator<string, string> Promethium_Operator { get; set; }
+        public IRuleValue<string> Promethium_BasicStringCompare { get; set; }
 
         public IRuleValue<string> Promethium_SpecificPayment { get; set; }
 
@@ -21,7 +22,8 @@ namespace Promethium.Plugin.Promotions.Conditions
         {
             //Get configuration
             var specificPayment = Promethium_SpecificPayment.Yield(context);
-            if (string.IsNullOrEmpty(specificPayment) || Promethium_Operator == null)
+            var basicStringCompare = Promethium_BasicStringCompare.Yield(context);
+            if (string.IsNullOrEmpty(specificPayment) || string.IsNullOrEmpty(basicStringCompare))
             {
                 return false;
             }
@@ -34,7 +36,7 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             var selectedPayment = payment.PaymentMethod.Name;
-            return Promethium_Operator.Evaluate(selectedPayment, specificPayment);
+            return BasicStringComparer.Evaluate(basicStringCompare, selectedPayment, specificPayment);
         }
 
         private static bool GetPayment(IRuleExecutionContext context, out PaymentComponent payment)

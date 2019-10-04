@@ -3,6 +3,7 @@ using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Rules;
 using System.Linq;
+using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -13,7 +14,7 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Promethium_" + nameof(CartFulfillmentCondition))]
     public class CartFulfillmentCondition : IFulfillmentCondition
     {
-        public IBinaryOperator<string, string> Promethium_Operator { get; set; }
+        public IRuleValue<string> Promethium_BasicStringCompare { get; set; }
 
         public IRuleValue<string> Promethium_SpecificFulfillment { get; set; }
 
@@ -21,7 +22,8 @@ namespace Promethium.Plugin.Promotions.Conditions
         {
             //Get configuration
             var specificFulfillment = Promethium_SpecificFulfillment.Yield(context);
-            if (string.IsNullOrEmpty(specificFulfillment) || Promethium_Operator == null)
+            var basicStringCompare = Promethium_BasicStringCompare.Yield(context);
+            if (string.IsNullOrEmpty(specificFulfillment) || string.IsNullOrEmpty(basicStringCompare))
             {
                 return false;
             }
@@ -34,7 +36,7 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             var selectedFulfillment = fulfillment.FulfillmentMethod.Name;
-            return Promethium_Operator.Evaluate(selectedFulfillment, specificFulfillment);
+            return BasicStringComparer.Evaluate(basicStringCompare, selectedFulfillment, specificFulfillment);
         }
 
         private static bool GetFulfillment(IRuleExecutionContext context, out FulfillmentComponent fulfillment)

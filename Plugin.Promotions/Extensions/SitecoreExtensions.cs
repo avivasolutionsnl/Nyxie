@@ -68,7 +68,7 @@ namespace Promethium.Plugin.Promotions.Extensions
                 .GetOperators()
                 .FirstOrDefault(m => 
                     m.Type.FullName != null && 
-                    m.Type.FullName.Equals(operatorModelProperty.Value, StringComparison.OrdinalIgnoreCase));
+                    m.Type.FullName.EqualsOrdinalIgnoreCase(operatorModelProperty.Value));
             var instance2 = ActivatorUtilities.CreateInstance(services, entityMetadata?.Type);
 
             var propertyInfo = properties.FirstOrDefault(p => IsBinaryOperator(p.PropertyType));

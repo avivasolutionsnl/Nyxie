@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -25,18 +26,18 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var condition = arg.Properties.FirstOrDefault(p => p.Name.Equals("Condition", StringComparison.OrdinalIgnoreCase));
+            var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
             if (condition == null || !condition.RawValue.ToString().StartsWith("Promethium_") || !condition.RawValue.ToString().EndsWith("CategoryCondition"))
             {
                 return Task.FromResult(arg);
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.Equals("Promethium_SpecificCategory", StringComparison.OrdinalIgnoreCase));
+            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Promethium_SpecificCategory"));
             if (categorySelection != null)
             {
                 var catalogs = _getCatalogsCommand.Process(context.CommerceContext).Result;
 
-                var catalog = catalogs.First();
+                var catalog = catalogs.First(); //Make the assumption that there is only 1 catalog
                 var categories = _getCategoriesCommand.Process(context.CommerceContext, catalog.Name).Result;
 
                 var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();

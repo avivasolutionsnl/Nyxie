@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -25,7 +26,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             var sellableItem = context.CommerceContext.GetEntity<SellableItem>();
 
             var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
-            var addedLine = arg.Lines.FirstOrDefault(line => line.Id.Equals(cartLine.Line.Id, StringComparison.OrdinalIgnoreCase));
+            var addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
             if (addedLine == null) { return Task.FromResult(arg); }
 
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();

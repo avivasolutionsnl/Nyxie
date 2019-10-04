@@ -6,6 +6,7 @@ using Sitecore.Framework.Pipelines;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -22,13 +23,13 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var condition = arg.Properties.FirstOrDefault(p => p.Name.Equals("Condition", StringComparison.OrdinalIgnoreCase));
+            var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
             if (condition == null || !condition.RawValue.ToString().StartsWith("Promethium_") || !condition.RawValue.ToString().EndsWith("PaymentCondition"))
             {
                 return Task.FromResult(arg);
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.Equals("Promethium_SpecificPayment", StringComparison.OrdinalIgnoreCase));
+            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Promethium_SpecificPayment"));
             if (categorySelection != null)
             {
                 var paymentMethods = _getCommand.Process(context.CommerceContext).Result;
