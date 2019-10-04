@@ -7,6 +7,7 @@ using Sitecore.Framework.Pipelines;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {

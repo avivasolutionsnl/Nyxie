@@ -4,6 +4,7 @@ using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Rules;
 using System.Linq;
+using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {

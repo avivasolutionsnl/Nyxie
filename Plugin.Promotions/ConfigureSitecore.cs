@@ -91,6 +91,12 @@ namespace Promethium.Plugin.Promotions
                     .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
                     .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
 
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
                     .After<Sitecore.Commerce.Plugin.Promotions.DoActionSelectQualificationBlock>())
@@ -102,6 +108,12 @@ namespace Promethium.Plugin.Promotions
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
                     .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
+
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
+                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 .ConfigurePipeline<Sitecore.Commerce.Plugin.Rules.IBuildRuleSetPipeline>(configure => configure
                     .Remove<Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock>()
