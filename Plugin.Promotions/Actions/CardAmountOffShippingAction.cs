@@ -8,7 +8,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A SiteCore Commerce condition for the qualification
+    /// A SiteCore Commerce action for the benefit
     /// "Get [specific amount] off the shipping cost"
     /// </summary>
     [EntityIdentifier("Promethium_" + nameof(CardAmountOffShippingAction))]
