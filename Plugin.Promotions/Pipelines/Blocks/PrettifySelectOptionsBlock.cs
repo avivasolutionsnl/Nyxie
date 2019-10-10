@@ -3,7 +3,6 @@ using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,11 +22,17 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 
             foreach (var property in arg.Properties)
             {
-                if (property.Policies == null || !property.Policies.Any()) continue;
+                if (property.Policies == null || !property.Policies.Any())
+                {
+                    continue;
+                }
 
                 foreach (var policy in property.Policies)
                 {
-                    if (!(policy is AvailableSelectionsPolicy selectionsPolicy)) continue;
+                    if (!(policy is AvailableSelectionsPolicy selectionsPolicy))
+                    {
+                        continue;
+                    }
 
                     foreach (var selection in selectionsPolicy.List)
                     {

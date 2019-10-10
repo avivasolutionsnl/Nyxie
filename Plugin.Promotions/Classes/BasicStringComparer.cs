@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Sitecore.Commerce.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sitecore.Commerce.Core;
 
 namespace Promethium.Plugin.Promotions.Classes
 {
@@ -14,6 +10,7 @@ namespace Promethium.Plugin.Promotions.Classes
 
         static BasicStringComparer()
         {
+            //Don't get the display names from resources. This is the same text as SiteCore uses and is processed in "PrettifySelectOptionsBlock"
             Options = new List<Selection>
             {
                 new Selection { DisplayName = "Sitecore.Core.Operators.StringEqualityOperator", Name = EqualName },

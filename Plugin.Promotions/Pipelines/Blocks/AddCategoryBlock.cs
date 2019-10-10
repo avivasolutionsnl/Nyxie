@@ -1,13 +1,12 @@
 ﻿using Promethium.Plugin.Promotions.Components;
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Pipelines;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -27,7 +26,10 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 
             var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
             var addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
-            if (addedLine == null) { return Task.FromResult(arg); }
+            if (addedLine == null)
+            {
+                return Task.FromResult(arg);
+            }
 
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())

@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
-    public static class RuleExecutionExtension
+    internal static class RuleExecutionExtension
     {
         internal static bool GetCardLines(this IRuleExecutionContext context,
             string specificCategory,
             bool includeSubCategories,
-            out IEnumerable<CartLineComponent> foundLines)
+            out List<CartLineComponent> foundLines)
         {
             foundLines = null;
 
@@ -26,19 +26,20 @@ namespace Promethium.Plugin.Promotions.Extensions
                 return false;
             }
 
-            foundLines = cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories));
+            foundLines = cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
             return true;
         }
 
-        internal static bool GetOrderHistory(this IRuleExecutionContext context, FindEntitiesInListCommand findEntitiesInListCommand, out IEnumerable<Order> foundOrders)
+        internal static bool GetOrderHistory(this IRuleExecutionContext context, FindEntitiesInListCommand findEntitiesInListCommand, out List<Order> foundOrders)
         {
             foundOrders = null;
 
             var commerceContext = context.Fact<CommerceContext>();
-            if (commerceContext == null || !commerceContext.CurrentUserIsRegistered()) { return false;}
-                
-            var listName = string.Format(CultureInfo.InvariantCulture, 
-                commerceContext.GetPolicy<KnownOrderListsPolicy>().CustomerOrders, 
+            if (commerceContext == null || !commerceContext.CurrentUserIsRegistered())
+            { return false; }
+
+            var listName = string.Format(CultureInfo.InvariantCulture,
+                commerceContext.GetPolicy<KnownOrderListsPolicy>().CustomerOrders,
                 commerceContext.CurrentCustomerId());
             var task = Task.Run(() => findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue));
 
@@ -51,7 +52,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             FindEntitiesInListCommand findEntitiesInListCommand,
             string specificCategory,
             bool includeSubCategories,
-            out IEnumerable<CartLineComponent> foundOrderLines)
+            out List<CartLineComponent> foundOrderLines)
         {
             foundOrderLines = null;
 
@@ -59,7 +60,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             if (!valid)
                 return false;
 
-            foundOrderLines = foundOrders.SelectMany(x => x.Lines).Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories));
+            foundOrderLines = foundOrders.SelectMany(x => x.Lines).Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
 
             return true;
         }

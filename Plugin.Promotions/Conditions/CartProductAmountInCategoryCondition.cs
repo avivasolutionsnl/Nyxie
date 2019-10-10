@@ -30,7 +30,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             {
                 return false;
             }
-            
+
             //Get Data
             if (!context.GetCardLines(specificCategory, includeSubCategories, out var categoryLines))
             {

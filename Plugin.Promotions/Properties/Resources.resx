@@ -118,39 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ContainsOperator" xml:space="preserve">
-    <value>Does contains</value>
+    <value>Contains</value>
   </data>
   <data name="EndsWithOperator" xml:space="preserve">
-    <value>Does ends with</value>
+    <value>Ends with</value>
   </data>
   <data name="EqualityCaseInsensitiveOperator" xml:space="preserve">
-    <value>Is equal (case-incensitive)</value>
+    <value>Equal to (case-incensitive)</value>
   </data>
   <data name="EqualityOperator" xml:space="preserve">
-    <value>Is equal</value>
+    <value>Equal to</value>
   </data>
   <data name="GreaterThanEqualToOperator" xml:space="preserve">
-    <value>Is greater than or equal to</value>
+    <value>Greater than or equal to</value>
   </data>
   <data name="GreaterThanOperator" xml:space="preserve">
-    <value>Is greater than</value>
+    <value>Greater than</value>
+  </data>
+  <data name="IncludingSubCategories" xml:space="preserve">
+    <value>(incl. sub-categories)</value>
   </data>
   <data name="LessThanEqualToOperator" xml:space="preserve">
-    <value>Is less than or equal to</value>
+    <value>Less than or equal to</value>
   </data>
   <data name="LessThanOperator" xml:space="preserve">
-    <value>Is less than</value>
+    <value>Less than</value>
   </data>
   <data name="NotEqualityCaseInsensitiveOperator" xml:space="preserve">
-    <value>Is not equal (case-incensitive)</value>
+    <value>Not equal to (case-incensitive)</value>
   </data>
   <data name="NotEqualityOperator" xml:space="preserve">
-    <value>Is not equal</value>
+    <value>Not equal to</value>
+  </data>
+  <data name="PriceAscending_DisplayName" xml:space="preserve">
+    <value>Least Expensive Products First</value>
+  </data>
+  <data name="PriceDescending_DisplayName" xml:space="preserve">
+    <value>Most Expensive Products First</value>
   </data>
   <data name="RegexOperator" xml:space="preserve">
-    <value>Does match regular expression</value>
+    <value>Matches regular expression</value>
   </data>
   <data name="StartsWithOperator" xml:space="preserve">
-    <value>Does starts with</value>
+    <value>Starts with</value>
   </data>
 </root>

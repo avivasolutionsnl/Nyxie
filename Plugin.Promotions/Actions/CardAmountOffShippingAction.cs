@@ -18,6 +18,7 @@ namespace Promethium.Plugin.Promotions.Actions
 
         public void Execute(IRuleExecutionContext context)
         {
+            //Get configuration
             var commerceContext = context.Fact<CommerceContext>();
             var cart = commerceContext?.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any() || !cart.HasComponent<FulfillmentComponent>())
@@ -25,20 +26,25 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
+            var amountOff = Promethium_SpecificAmount.Yield(context);
+            if (amountOff == 0)
+            {
+                return;
+            }
+
+            //Get data
             var fulfillmentFee = GetFulfillmentFee(cart);
             if (fulfillmentFee == 0)
             {
                 return;
             }
 
-            var amountOff = Promethium_SpecificAmount.Yield(context);
-
-            //If the amount off is higher then the total fulfillment fee then lower the amount off
             if (amountOff > fulfillmentFee)
             {
                 amountOff = fulfillmentFee;
             }
 
+            //Apply action
             amountOff = amountOff.ShouldRoundPriceCalc(commerceContext);
 
             cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, amountOff * -1, nameof(CardAmountOffShippingAction));

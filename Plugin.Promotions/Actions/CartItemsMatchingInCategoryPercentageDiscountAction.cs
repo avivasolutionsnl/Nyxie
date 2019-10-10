@@ -25,7 +25,7 @@ namespace Promethium.Plugin.Promotions.Actions
 
         public IRuleValue<string> Promethium_ApplyActionTo { get; set; }
 
-        public IRuleValue<decimal> Promethium_AwardLimit { get; set; }
+        public IRuleValue<int> Promethium_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
@@ -37,13 +37,13 @@ namespace Promethium.Plugin.Promotions.Actions
             var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
             var percentageOff = Promethium_PercentageOff.Yield(context);
             var applyActionTo = Promethium_ApplyActionTo.Yield(context);
-            var awardLimit = Promethium_AwardLimit.Yield(context);
+            var actionLimit = Promethium_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 specificValue == 0 ||
                 percentageOff == 0 ||
                 string.IsNullOrEmpty(applyActionTo) ||
-                awardLimit == 0 ||
+                actionLimit == 0 ||
                 Promethium_Operator == null)
             {
                 return;
@@ -55,10 +55,11 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
+            //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (Promethium_Operator.Evaluate(productAmount, specificValue))
             {
-                categoryLines.ApplyAction(commerceContext, percentageOff, applyActionTo, awardLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), ActionExtensions.CalculatePercentageDiscount);
+                categoryLines.ApplyAction(commerceContext, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), ActionExtensions.CalculatePercentageDiscount);
             }
         }
     }

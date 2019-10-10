@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Framework.Rules;
+using System;
+using System.Linq;
 
 namespace Promethium.Plugin.Promotions.Actions
 {
@@ -17,9 +14,9 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Promethium_" + nameof(CartEveryXItemsInCategoryPercentageDiscountAction))]
     public class CartEveryXItemsInCategoryPercentageDiscountAction : ICartLineAction
     {
-        public IRuleValue<decimal> Promethium_ItemsToAward { get; set; }
+        public IRuleValue<int> Promethium_ItemsToAward { get; set; }
 
-        public IRuleValue<decimal> Promethium_ItemsToPurchase { get; set; }
+        public IRuleValue<int> Promethium_ItemsToPurchase { get; set; }
 
         public IRuleValue<string> Promethium_SpecificCategory { get; set; }
 
@@ -29,7 +26,7 @@ namespace Promethium.Plugin.Promotions.Actions
 
         public IRuleValue<string> Promethium_ApplyActionTo { get; set; }
 
-        public IRuleValue<decimal> Promethium_AwardLimit { get; set; }
+        public IRuleValue<int> Promethium_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
@@ -42,14 +39,14 @@ namespace Promethium.Plugin.Promotions.Actions
             var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
             var percentageOff = Promethium_PercentageOff.Yield(context);
             var applyActionTo = Promethium_ApplyActionTo.Yield(context);
-            var awardLimit = Promethium_AwardLimit.Yield(context);
+            var actionLimit = Promethium_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 itemsToAward == 0 ||
                 itemsToPurchase == 0 ||
                 percentageOff == 0 ||
                 string.IsNullOrEmpty(applyActionTo) ||
-                awardLimit == 0)
+                actionLimit == 0)
             {
                 return;
             }
@@ -60,9 +57,10 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            var productAmount = categoryLines.Sum(x => x.Quantity);
+            //Validate and apply action
+            var productAmount = Convert.ToInt32(categoryLines.Sum(x => x.Quantity));
             var productsToAward = (productAmount / itemsToPurchase) * itemsToAward;
-            productsToAward = productsToAward > awardLimit ? awardLimit : productsToAward;
+            productsToAward = productsToAward > actionLimit ? actionLimit : productsToAward;
             if (productsToAward > 0)
             {
                 categoryLines.ApplyAction(commerceContext, percentageOff, applyActionTo, productsToAward, nameof(CartEveryXItemsInCategoryPercentageDiscountAction), ActionExtensions.CalculatePercentageDiscount);

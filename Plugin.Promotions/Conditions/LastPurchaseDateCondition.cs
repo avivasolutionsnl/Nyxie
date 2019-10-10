@@ -1,9 +1,9 @@
-﻿using Sitecore.Framework.Rules;
-using System;
-using System.Linq;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Customers;
+using Sitecore.Framework.Rules;
+using System;
+using System.Linq;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {

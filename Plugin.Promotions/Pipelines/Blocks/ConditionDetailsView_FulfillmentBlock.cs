@@ -1,12 +1,11 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Extensions;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {

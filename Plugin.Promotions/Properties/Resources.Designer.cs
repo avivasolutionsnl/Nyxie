@@ -61,7 +61,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Does contains.
+        ///   Looks up a localized string similar to Contains.
         /// </summary>
         internal static string ContainsOperator {
             get {
@@ -70,7 +70,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Does ends with.
+        ///   Looks up a localized string similar to Ends with.
         /// </summary>
         internal static string EndsWithOperator {
             get {
@@ -79,7 +79,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is equal (case-incensitive).
+        ///   Looks up a localized string similar to Equal to (case-incensitive).
         /// </summary>
         internal static string EqualityCaseInsensitiveOperator {
             get {
@@ -88,7 +88,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is equal.
+        ///   Looks up a localized string similar to Equal to.
         /// </summary>
         internal static string EqualityOperator {
             get {
@@ -97,7 +97,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is greater than or equal to.
+        ///   Looks up a localized string similar to Greater than or equal to.
         /// </summary>
         internal static string GreaterThanEqualToOperator {
             get {
@@ -106,7 +106,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is greater than.
+        ///   Looks up a localized string similar to Greater than.
         /// </summary>
         internal static string GreaterThanOperator {
             get {
@@ -115,7 +115,16 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is less than or equal to.
+        ///   Looks up a localized string similar to (incl. sub-categories).
+        /// </summary>
+        internal static string IncludingSubCategories {
+            get {
+                return ResourceManager.GetString("IncludingSubCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Less than or equal to.
         /// </summary>
         internal static string LessThanEqualToOperator {
             get {
@@ -124,7 +133,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is less than.
+        ///   Looks up a localized string similar to Less than.
         /// </summary>
         internal static string LessThanOperator {
             get {
@@ -133,7 +142,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is not equal (case-incensitive).
+        ///   Looks up a localized string similar to Not equal to (case-incensitive).
         /// </summary>
         internal static string NotEqualityCaseInsensitiveOperator {
             get {
@@ -142,7 +151,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is not equal.
+        ///   Looks up a localized string similar to Not equal to.
         /// </summary>
         internal static string NotEqualityOperator {
             get {
@@ -151,7 +160,25 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Does match regular expression.
+        ///   Looks up a localized string similar to Least Expensive Products First.
+        /// </summary>
+        internal static string PriceAscending_DisplayName {
+            get {
+                return ResourceManager.GetString("PriceAscending_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Expensive Products First.
+        /// </summary>
+        internal static string PriceDescending_DisplayName {
+            get {
+                return ResourceManager.GetString("PriceDescending_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matches regular expression.
         /// </summary>
         internal static string RegexOperator {
             get {
@@ -160,7 +187,7 @@ namespace Promethium.Plugin.Promotions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Does starts with.
+        ///   Looks up a localized string similar to Starts with.
         /// </summary>
         internal static string StartsWithOperator {
             get {

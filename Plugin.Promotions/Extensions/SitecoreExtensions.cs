@@ -9,12 +9,12 @@ using System.Reflection;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
-    public static class SitecoreExtensions
+    internal static class SitecoreExtensions
     {
         /// <summary>
         /// Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToCondition to allow boolean values
         /// </summary>
-        public static ICondition ConvertToConditionExtended(
+        internal static ICondition ConvertToConditionExtended(
           this ConditionModel model,
           IEntityMetadata metaData,
           IEntityRegistry registry,
@@ -26,7 +26,7 @@ namespace Promethium.Plugin.Promotions.Extensions
         /// <summary>
         /// Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToAction to allow boolean values
         /// </summary>
-        public static IAction ConvertToActionExtended(
+        internal static IAction ConvertToActionExtended(
           this ActionModel model,
           IEntityMetadata metaData,
           IEntityRegistry registry,
@@ -62,12 +62,15 @@ namespace Promethium.Plugin.Promotions.Extensions
         private static void ProcessBinaryOperation(IEnumerable<PropertyModel> modelProperties, IEntityRegistry registry, IServiceProvider services, PropertyInfo[] properties, IMappableRuleEntity instance)
         {
             var operatorModelProperty = modelProperties.FirstOrDefault(x => x.IsOperator);
-            if (operatorModelProperty == null) return;
+            if (operatorModelProperty == null)
+            {
+                return;
+            }
 
             var entityMetadata = registry
                 .GetOperators()
-                .FirstOrDefault(m => 
-                    m.Type.FullName != null && 
+                .FirstOrDefault(m =>
+                    m.Type.FullName != null &&
                     m.Type.FullName.EqualsOrdinalIgnoreCase(operatorModelProperty.Value));
             var instance2 = ActivatorUtilities.CreateInstance(services, entityMetadata?.Type);
 
@@ -78,7 +81,9 @@ namespace Promethium.Plugin.Promotions.Extensions
         private static void ConvertToLiteralRuleValue(PropertyModel property1, IMappableRuleEntity instance)
         {
             if (property1.IsOperator)
-            { return; }
+            {
+                return;
+            }
 
             var property2 = instance
                 .GetType()
@@ -91,7 +96,9 @@ namespace Promethium.Plugin.Promotions.Extensions
                 property2.PropertyType.GetGenericArguments().FirstOrDefault() :
                 property2.PropertyType;
             if (type == null)
-            { return; }
+            {
+                return;
+            }
 
             object literalRuleValue = null;
             switch (type.FullName)

@@ -10,26 +10,26 @@ namespace Promethium.Plugin.Promotions.Extensions
     internal static class ActionExtensions
     {
         internal static void ApplyAction(this IEnumerable<CartLineComponent> categoryLines,
-            CommerceContext commerceContext, decimal initialDiscount, string applyAwardTo, decimal awardLimit,
-            string awardingBlock, Func<decimal, decimal, decimal> discountFunc)
+            CommerceContext commerceContext, decimal discountValue, string applyActionTo, int actionLimit,
+            string awardingBlock, Func<decimal, decimal, decimal> calculateDiscount)
         {
-            categoryLines = ActionProductOrdener.Order(categoryLines, applyAwardTo);
+            categoryLines = ActionProductOrdener.Order(categoryLines, applyActionTo);
 
             var counter = 0;
             foreach (var line in categoryLines)
             {
-                var discount = discountFunc(line.UnitListPrice.Amount, initialDiscount);
+                var discount = calculateDiscount(line.UnitListPrice.Amount, discountValue);
                 discount = discount.ShouldRoundPriceCalc(commerceContext);
 
-                for (var i = 0; i < line.Quantity; i++)
+                for (var i = 0;i < line.Quantity;i++)
                 {
-                    if (counter == awardLimit)
+                    if (counter == actionLimit)
                     {
-                        break;
+                        return;
                     }
 
                     line.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, awardingBlock, line.ItemId);
-                    line.Totals.SubTotal.Amount = line.Totals.SubTotal.Amount - discount;
+                    line.Totals.SubTotal.Amount -= discount;
 
                     line.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, awardingBlock);
 
@@ -38,7 +38,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             }
         }
 
-        internal static decimal CalculateAmountDiscount(decimal productPrice, decimal amountOff)
+        internal static decimal CalculatePriceDiscount(decimal productPrice, decimal amountOff)
         {
             return amountOff > productPrice ? productPrice : amountOff;
         }
@@ -67,8 +67,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             var propertiesModel = context.GetObject<PropertiesModel>();
             var discount = context.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
 
-            var adjustment = new CartLevelAwardedAdjustment
-            {
+            var adjustment = new CartLevelAwardedAdjustment {
                 Name = propertiesModel?.GetPropertyValue("PromotionText") as string ?? discount,
                 DisplayName = propertiesModel?.GetPropertyValue("PromotionCartText") as string ?? discount,
                 Adjustment = new Money(context.CurrentCurrency(), amountOff),
@@ -85,8 +84,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             var propertiesModel = context.GetObject<PropertiesModel>();
             var discount = context.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
 
-            var adjustment = new CartLineLevelAwardedAdjustment()
-            {
+            var adjustment = new CartLineLevelAwardedAdjustment() {
                 Name = (propertiesModel?.GetPropertyValue("PromotionText") as string ?? discount),
                 DisplayName = (propertiesModel?.GetPropertyValue("PromotionCartText") as string ?? discount),
                 Adjustment = new Money(context.CurrentCurrency(), amountOff),

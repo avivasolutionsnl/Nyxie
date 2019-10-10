@@ -1,11 +1,11 @@
-﻿using System;
-using Promethium.Plugin.Promotions.Properties;
+﻿using Promethium.Plugin.Promotions.Properties;
+using System;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
-    public static class CommonExtensions
+    internal static class CommonExtensions
     {
-        public static string PrettifyOperatorName(this string displayName)
+        internal static string PrettifyOperatorName(this string displayName)
         {
             if (displayName.StartsWith("Sitecore."))
             {
@@ -28,7 +28,7 @@ namespace Promethium.Plugin.Promotions.Extensions
             return displayName;
         }
 
-        public static bool EqualsOrdinalIgnoreCase(this string value1, string value2)
+        internal static bool EqualsOrdinalIgnoreCase(this string value1, string value2)
         {
             return value1.Equals(value2, StringComparison.OrdinalIgnoreCase);
         }

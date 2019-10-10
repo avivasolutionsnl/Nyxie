@@ -15,10 +15,12 @@ namespace Promethium.Plugin.Promotions.Actions
     public class CardFreeGiftAction : ICartAction
     {
         private GetSellableItemCommand _getCommand;
+        private AddCartLineCommand _addCommand;
 
-        public CardFreeGiftAction(GetSellableItemCommand getCommand)
+        public CardFreeGiftAction(GetSellableItemCommand getCommand, AddCartLineCommand addCommand)
         {
             _getCommand = getCommand;
+            _addCommand = addCommand;
         }
 
         public IRuleValue<decimal> Promethium_Quantity { get; set; }
@@ -42,20 +44,18 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            //TODO Correct method to get the product?
-            var sellableItem = _getCommand.Process(commerceContext, targetItemId, true).Result;
+            var sellableItem = _getCommand.Process(commerceContext, targetItemId, false).Result;
             if (sellableItem != null)
             {
-                //TODO Check if this is correct implementation
-                var freeGift = new CartLineComponent
-                {
-                    Id = sellableItem.Id,
-                    Name = sellableItem.Name,
-                    Quantity = quantity,
+                var freeGift = new CartLineComponent {
                     ItemId = sellableItem.ProductId,
-                    UnitListPrice = sellableItem.ListPrice,
+                    Quantity = quantity,
+                    //Id = sellableItem.Id,
+                    //Name = sellableItem.Name,
+                    //UnitListPrice = sellableItem.ListPrice,
                 };
-                cart.Lines.Add(freeGift);
+
+                _addCommand.Process(commerceContext, cart, freeGift).ConfigureAwait(false);
 
                 if (sellableItem.ListPrice.Amount > 0)
                 {

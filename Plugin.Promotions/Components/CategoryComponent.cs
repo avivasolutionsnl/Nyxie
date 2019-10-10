@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Sitecore.Commerce.Core;
+using System.Collections.Generic;
 using System.Linq;
-using Sitecore.Commerce.Core;
 
 namespace Promethium.Plugin.Promotions.Components
 {

@@ -1,13 +1,12 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Extensions;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Extensions;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -33,24 +32,30 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
 
             var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Promethium_SpecificCategory"));
-            if (categorySelection == null) return Task.FromResult(arg);
-            
-            var catalogs = _getCatalogsCommand.Process(context.CommerceContext).Result;
-
-            var catalog = catalogs.First(); //Make the assumption that there is only 1 catalog
-            var categories = _getCategoriesCommand.Process(context.CommerceContext, catalog.Name).Result;
-
-            var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
-
-            var selectOptions = new List<Selection>();
-
-            var topCategories = catalog.ChildrenCategoryList.Split('|');
-            foreach (var topCategory in topCategories)
+            if (categorySelection == null)
             {
-                GetCategories(topCategory, allCategories, "", ref selectOptions);
+                return Task.FromResult(arg);
             }
 
-            categorySelection.Policies.Add(new AvailableSelectionsPolicy(selectOptions));
+            var catalogs = _getCatalogsCommand.Process(context.CommerceContext).Result;
+
+            var catalog = catalogs.FirstOrDefault(); //Make the assumption that there is only 1 catalog
+            if (catalog != null)
+            {
+                var categories = _getCategoriesCommand.Process(context.CommerceContext, catalog.Name).Result;
+
+                var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
+
+                var selectOptions = new List<Selection>();
+
+                var topCategories = catalog.ChildrenCategoryList.Split('|');
+                foreach (var topCategory in topCategories)
+                {
+                    GetCategories(topCategory, allCategories, "", ref selectOptions);
+                }
+
+                categorySelection.Policies.Add(new AvailableSelectionsPolicy(selectOptions));
+            }
 
             return Task.FromResult(arg);
         }
