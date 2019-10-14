@@ -11,8 +11,8 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "Get [specific amount] off the shipping cost"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CardAmountOffShippingAction))]
-    public class CardAmountOffShippingAction : ICartAction
+    [EntityIdentifier("Promethium_" + nameof(CartAmountOffShippingAction))]
+    public class CartAmountOffShippingAction : ICartAction
     {
         public IRuleValue<decimal> Promethium_SpecificAmount { get; set; }
 
@@ -47,9 +47,9 @@ namespace Promethium.Plugin.Promotions.Actions
             //Apply action
             amountOff = amountOff.ShouldRoundPriceCalc(commerceContext);
 
-            cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, amountOff * -1, nameof(CardAmountOffShippingAction));
+            cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, amountOff * -1, nameof(CartAmountOffShippingAction));
 
-            cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CardAmountOffShippingAction));
+            cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartAmountOffShippingAction));
         }
 
         private static decimal GetFulfillmentFee(Cart cart)

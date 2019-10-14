@@ -11,13 +11,13 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "Get [quantity] free [gift]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CardFreeGiftAction))]
-    public class CardFreeGiftAction : ICartAction
+    [EntityIdentifier("Promethium_" + nameof(CartFreeGiftAction))]
+    public class CartFreeGiftAction : ICartAction
     {
-        private GetSellableItemCommand _getCommand;
-        private AddCartLineCommand _addCommand;
+        private readonly GetSellableItemCommand _getCommand;
+        private readonly AddCartLineCommand _addCommand;
 
-        public CardFreeGiftAction(GetSellableItemCommand getCommand, AddCartLineCommand addCommand)
+        public CartFreeGiftAction(GetSellableItemCommand getCommand, AddCartLineCommand addCommand)
         {
             _getCommand = getCommand;
             _addCommand = addCommand;
@@ -62,12 +62,12 @@ namespace Promethium.Plugin.Promotions.Actions
                 if (sellableItem.ListPrice.Amount > 0)
                 {
                     var discount = sellableItem.ListPrice.Amount.ShouldRoundPriceCalc(commerceContext);
-                    freeGift.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CardFreeGiftAction), freeGift.Id);
+                    freeGift.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CartFreeGiftAction), freeGift.Id);
                 }
 
                 cart = _addCommand.Process(commerceContext, cart, freeGift).Result;
 
-                cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CardFreeGiftAction));
+                cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartFreeGiftAction));
             }
         }
     }

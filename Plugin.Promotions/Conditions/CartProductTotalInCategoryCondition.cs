@@ -10,7 +10,7 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// "Cart contains products in the [specific category] for a total [compares] [specific value]"
     /// </summary>
     [EntityIdentifier("Promethium_" + nameof(CartProductTotalInCategoryCondition))]
-    public class CartProductTotalInCategoryCondition : ICondition, ICartsCondition
+    public class CartProductTotalInCategoryCondition : ICartsCondition
     {
         public IRuleValue<string> Promethium_SpecificCategory { get; set; }
 

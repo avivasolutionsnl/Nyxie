@@ -76,7 +76,8 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     .First(x => x.Name.EqualsOrdinalIgnoreCase(childPartName));
                 var childrenToProcess = childPart.ChildViews
                     .Select(x => (EntityView) x)
-                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Promethium_")));
+                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Promethium_")))
+                    .ToList();
 
                 if (childrenToProcess.Any())
                 {
