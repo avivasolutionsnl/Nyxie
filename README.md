@@ -8,7 +8,9 @@
 ## Getting started 
 - Open a console en navigate to the repository root folder.
 
-- Build the project in Visual Studio and publish the projects to the \build folder
+- Build the project in Visual Studio and publish the projects to the following folders
+Promethium.Serialization --> \build\website
+Sitecore.Commerce.Engine --> \build\commerce
 
 - Copy your Sitecore license file (license.xml) to the .\license folder
 
@@ -35,7 +37,7 @@ Fix indexes by:
 - Update Data Templates
 - Goto control panel and rebuild the `sitecore_master_index` & `sitecore_sxa_master_index`
 
-> If you get an error saying: 'field _indexname' not found: remove files in host cores folder. Restart containers and populate schema.
+> If you get an error saying: 'field _indexname' not found: remove files in host \cores folder. Restart containers and populate schema.
 
 ## Build Promethium docker images
 - Run the docker script `.\Build-docker-images.ps1 ` 
