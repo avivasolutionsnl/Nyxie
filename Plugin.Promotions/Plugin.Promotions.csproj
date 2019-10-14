@@ -11,10 +11,8 @@
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <AssemblyName>Promethium.Plugin.Promotions</AssemblyName>
     <RootNamespace>Promethium.Plugin.Promotions</RootNamespace>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Pipelines\Blocks\GetPromotionQualificationDetailsViewBlock.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Sitecore.Commerce.Core">
@@ -55,5 +53,20 @@
     <Reference Include="Sitecore.Commerce.Plugin.Payments">
       <HintPath>..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
