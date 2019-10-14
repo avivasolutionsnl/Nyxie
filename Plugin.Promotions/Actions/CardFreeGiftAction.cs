@@ -44,24 +44,28 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
+            if (cart.Lines.Any(x => x.ItemId == targetItemId && x.Quantity == quantity))
+            {
+                //After the product is added
+                //You only get the product for free once :)
+                return;
+            }
+
             var sellableItem = _getCommand.Process(commerceContext, targetItemId, false).Result;
             if (sellableItem != null)
             {
                 var freeGift = new CartLineComponent {
-                    ItemId = sellableItem.ProductId,
+                    ItemId = targetItemId,
                     Quantity = quantity,
-                    //Id = sellableItem.Id,
-                    //Name = sellableItem.Name,
-                    //UnitListPrice = sellableItem.ListPrice,
                 };
-
-                _addCommand.Process(commerceContext, cart, freeGift).ConfigureAwait(false);
 
                 if (sellableItem.ListPrice.Amount > 0)
                 {
                     var discount = sellableItem.ListPrice.Amount.ShouldRoundPriceCalc(commerceContext);
-                    cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CardFreeGiftAction));
+                    freeGift.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CardFreeGiftAction), freeGift.Id);
                 }
+
+                cart = _addCommand.Process(commerceContext, cart, freeGift).Result;
 
                 cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CardFreeGiftAction));
             }

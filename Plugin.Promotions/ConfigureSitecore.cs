@@ -55,6 +55,12 @@ namespace Promethium.Plugin.Promotions
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.PrettifyPromotionChildrenDetailsBlock>()
+                    .After<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>())
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
                     .After<Sitecore.Commerce.Plugin.Catalog.DoActionSelectQualificationBlock>())
@@ -87,12 +93,8 @@ namespace Promethium.Plugin.Promotions
                     .Add<Pipelines.Blocks.PrettifySelectOptionsBlock>()
                     .After<Sitecore.Commerce.EntityViews.HighlightLocalizableViewPropertiesBlock>())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.PrettifyPromotionChildrenDetailsBlock>()
-                    .After<Pipelines.Blocks.PrettifySelectOptionsBlock>())
 
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
 
             );
         }
