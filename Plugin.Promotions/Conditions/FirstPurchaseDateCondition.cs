@@ -11,7 +11,7 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// A SiteCore Commerce condition for the qualification
     /// "Current Customer first purchase is [operator] [date]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(FirstPurchaseDateCondition))]
+    [EntityIdentifier("Pm_" + nameof(FirstPurchaseDateCondition))]
     public class FirstPurchaseDateCondition : ICustomerCondition
     {
         private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
@@ -22,14 +22,14 @@ namespace Promethium.Plugin.Promotions.Conditions
         }
 
         //SiteCore only adds Datetime operators out-of-the-box
-        public IBinaryOperator<DateTime, DateTime> Promethium_Operator { get; set; }
+        public IBinaryOperator<DateTime, DateTime> Pm_Operator { get; set; }
 
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
-        public IRuleValue<DateTimeOffset> Promethium_Date { get; set; }
+        public IRuleValue<DateTimeOffset> Pm_Date { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
-            var date = Promethium_Date.Yield(context).DateTime;
+            var date = Pm_Date.Yield(context).DateTime;
 
             if (!context.GetOrderHistory(_findEntitiesInListCommand, out var orders))
             {
@@ -37,7 +37,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             var firstPurchaseDate = orders.Min(x => x.OrderPlacedDate).DateTime;
-            return Promethium_Operator.Evaluate(firstPurchaseDate, date);
+            return Pm_Operator.Evaluate(firstPurchaseDate, date);
         }
     }
 }

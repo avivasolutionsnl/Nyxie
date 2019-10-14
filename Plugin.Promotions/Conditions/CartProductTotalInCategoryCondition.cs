@@ -9,24 +9,24 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// A SiteCore Commerce condition for the qualification
     /// "Cart contains products in the [specific category] for a total [compares] [specific value]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartProductTotalInCategoryCondition))]
+    [EntityIdentifier("Pm_" + nameof(CartProductTotalInCategoryCondition))]
     public class CartProductTotalInCategoryCondition : ICartsCondition
     {
-        public IRuleValue<string> Promethium_SpecificCategory { get; set; }
+        public IRuleValue<string> Pm_SpecificCategory { get; set; }
 
-        public IBinaryOperator<decimal, decimal> Promethium_Compares { get; set; }
+        public IBinaryOperator<decimal, decimal> Pm_Compares { get; set; }
 
-        public IRuleValue<decimal> Promethium_SpecificValue { get; set; }
+        public IRuleValue<decimal> Pm_SpecificValue { get; set; }
 
-        public IRuleValue<bool> Promethium_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Pm_IncludeSubCategories { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificCategory = Promethium_SpecificCategory.Yield(context);
-            var specificValue = Promethium_SpecificValue.Yield(context);
-            var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
-            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Promethium_Compares == null)
+            var specificCategory = Pm_SpecificCategory.Yield(context);
+            var specificValue = Pm_SpecificValue.Yield(context);
+            var includeSubCategories = Pm_IncludeSubCategories.Yield(context);
+            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Pm_Compares == null)
             {
                 return false;
             }
@@ -39,7 +39,7 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             var categoryTotal = categoryLines.Sum(line => line.Totals.GrandTotal.Amount);
-            return Promethium_Compares.Evaluate(categoryTotal, specificValue);
+            return Pm_Compares.Evaluate(categoryTotal, specificValue);
         }
     }
 }

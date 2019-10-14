@@ -11,7 +11,7 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "Get [quantity] free [gift]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartFreeGiftAction))]
+    [EntityIdentifier("Pm_" + nameof(CartFreeGiftAction))]
     public class CartFreeGiftAction : ICartAction
     {
         private readonly GetSellableItemCommand _getCommand;
@@ -23,7 +23,7 @@ namespace Promethium.Plugin.Promotions.Actions
             _addCommand = addCommand;
         }
 
-        public IRuleValue<decimal> Promethium_Quantity { get; set; }
+        public IRuleValue<decimal> Pm_Quantity { get; set; }
 
         public IRuleValue<string> TargetItemId { get; set; }
 
@@ -36,7 +36,7 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            var quantity = Promethium_Quantity.Yield(context);
+            var quantity = Pm_Quantity.Yield(context);
             var targetItemId = TargetItemId.Yield(context);
 
             if (quantity == 0 || string.IsNullOrEmpty(targetItemId))

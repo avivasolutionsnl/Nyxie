@@ -11,10 +11,10 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "Get [specific amount] off the shipping cost"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartAmountOffShippingAction))]
+    [EntityIdentifier("Pm_" + nameof(CartAmountOffShippingAction))]
     public class CartAmountOffShippingAction : ICartAction
     {
-        public IRuleValue<decimal> Promethium_SpecificAmount { get; set; }
+        public IRuleValue<decimal> Pm_SpecificAmount { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
@@ -26,7 +26,7 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            var amountOff = Promethium_SpecificAmount.Yield(context);
+            var amountOff = Pm_SpecificAmount.Yield(context);
             if (amountOff == 0)
             {
                 return;

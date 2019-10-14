@@ -76,7 +76,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     .First(x => x.Name.EqualsOrdinalIgnoreCase(childPartName));
                 var childrenToProcess = childPart.ChildViews
                     .Select(x => (EntityView) x)
-                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Promethium_")))
+                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Pm_")))
                     .ToList();
 
                 if (childrenToProcess.Any())
@@ -151,15 +151,15 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         {
             switch (variable.Name)
             {
-                case "Promethium_BasicStringCompare":
-                case "Promethium_Compares":
-                case "Promethium_Operator":
+                case "Pm_BasicStringCompare":
+                case "Pm_Compares":
+                case "Pm_Operator":
                     return variable.Value.PrettifyOperatorName();
 
-                case "Promethium_SpecificCategory":
+                case "Pm_SpecificCategory":
                     return PrettifyCategory(variable.Value, properties);
 
-                case "Promethium_Date":
+                case "Pm_Date":
                     if (DateTimeOffset.TryParse(variable.Value, out DateTimeOffset date))
                     {
                         return date.LocalDateTime.ToString("d MMM yyyy HH:mm");
@@ -167,7 +167,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 
                     return variable.Value;
 
-                case "Promethium_ApplyActionTo":
+                case "Pm_ApplyActionTo":
                     return ActionProductOrdener.Options.First(x => x.Name == variable.Value).DisplayName;
 
                 case "TargetItemId":
@@ -194,7 +194,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 category = Categories.FirstOrDefault(x => x.SitecoreId == category.ParentCategoryList);
             }
 
-            var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Promethium_IncludeSubCategories"));
+            var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_IncludeSubCategories"));
             if (includeSubCategories != null)
             {
                 includeSubCategories.IsHidden = true;
