@@ -11,18 +11,18 @@ namespace Promethium.Plugin.Promotions.Conditions
     /// A SiteCore Commerce condition for the qualification
     /// "Cart has [operator] [specific payment]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartPaymentCondition))]
+    [EntityIdentifier("Pm_" + nameof(CartPaymentCondition))]
     public class CartPaymentCondition : ICondition
     {
-        public IRuleValue<string> Promethium_BasicStringCompare { get; set; }
+        public IRuleValue<string> Pm_BasicStringCompare { get; set; }
 
-        public IRuleValue<string> Promethium_SpecificPayment { get; set; }
+        public IRuleValue<string> Pm_SpecificPayment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificPayment = Promethium_SpecificPayment.Yield(context);
-            var basicStringCompare = Promethium_BasicStringCompare.Yield(context);
+            var specificPayment = Pm_SpecificPayment.Yield(context);
+            var basicStringCompare = Pm_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificPayment) || string.IsNullOrEmpty(basicStringCompare))
             {
                 return false;

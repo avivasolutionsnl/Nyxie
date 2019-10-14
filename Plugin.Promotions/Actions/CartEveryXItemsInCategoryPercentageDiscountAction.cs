@@ -11,35 +11,35 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "For every [Items to award] of [Items to purchase] products in [Category] you get [Percentage Off] on the [Apply Award To] with a limit of [Award Limit]"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartEveryXItemsInCategoryPercentageDiscountAction))]
+    [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPercentageDiscountAction))]
     public class CartEveryXItemsInCategoryPercentageDiscountAction : ICartLineAction
     {
-        public IRuleValue<int> Promethium_ItemsToAward { get; set; }
+        public IRuleValue<int> Pm_ItemsToAward { get; set; }
 
-        public IRuleValue<int> Promethium_ItemsToPurchase { get; set; }
+        public IRuleValue<int> Pm_ItemsToPurchase { get; set; }
 
-        public IRuleValue<string> Promethium_SpecificCategory { get; set; }
+        public IRuleValue<string> Pm_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Promethium_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Pm_IncludeSubCategories { get; set; }
 
-        public IRuleValue<decimal> Promethium_PercentageOff { get; set; }
+        public IRuleValue<decimal> Pm_PercentageOff { get; set; }
 
-        public IRuleValue<string> Promethium_ApplyActionTo { get; set; }
+        public IRuleValue<string> Pm_ApplyActionTo { get; set; }
 
-        public IRuleValue<int> Promethium_ActionLimit { get; set; }
+        public IRuleValue<int> Pm_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Promethium_SpecificCategory.Yield(context);
-            var itemsToAward = Promethium_ItemsToAward.Yield(context);
-            var itemsToPurchase = Promethium_ItemsToPurchase.Yield(context);
-            var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
-            var percentageOff = Promethium_PercentageOff.Yield(context);
-            var applyActionTo = Promethium_ApplyActionTo.Yield(context);
-            var actionLimit = Promethium_ActionLimit.Yield(context);
+            var specificCategory = Pm_SpecificCategory.Yield(context);
+            var itemsToAward = Pm_ItemsToAward.Yield(context);
+            var itemsToPurchase = Pm_ItemsToPurchase.Yield(context);
+            var includeSubCategories = Pm_IncludeSubCategories.Yield(context);
+            var percentageOff = Pm_PercentageOff.Yield(context);
+            var applyActionTo = Pm_ApplyActionTo.Yield(context);
+            var actionLimit = Pm_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 itemsToAward == 0 ||

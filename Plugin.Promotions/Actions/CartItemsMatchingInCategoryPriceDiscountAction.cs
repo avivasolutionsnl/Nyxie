@@ -10,41 +10,41 @@ namespace Promethium.Plugin.Promotions.Actions
     /// A SiteCore Commerce action for the benefit
     /// "When you buy [Operator] [Product count] products in [Category] you get [Amount off] per product (ordered by [apply award to]) with a maximum of [award limit] products"
     /// </summary>
-    [EntityIdentifier("Promethium_" + nameof(CartItemsMatchingInCategoryPriceDiscountAction))]
+    [EntityIdentifier("Pm_" + nameof(CartItemsMatchingInCategoryPriceDiscountAction))]
     public class CartItemsMatchingInCategoryPriceDiscountAction : ICartLineAction
     {
-        public IBinaryOperator<decimal, decimal> Promethium_Operator { get; set; }
+        public IBinaryOperator<decimal, decimal> Pm_Operator { get; set; }
 
-        public IRuleValue<decimal> Promethium_SpecificValue { get; set; }
+        public IRuleValue<decimal> Pm_SpecificValue { get; set; }
 
-        public IRuleValue<string> Promethium_SpecificCategory { get; set; }
+        public IRuleValue<string> Pm_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Promethium_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Pm_IncludeSubCategories { get; set; }
 
-        public IRuleValue<decimal> Promethium_AmountOff { get; set; }
+        public IRuleValue<decimal> Pm_AmountOff { get; set; }
 
-        public IRuleValue<string> Promethium_ApplyActionTo { get; set; }
+        public IRuleValue<string> Pm_ApplyActionTo { get; set; }
 
-        public IRuleValue<int> Promethium_ActionLimit { get; set; }
+        public IRuleValue<int> Pm_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Promethium_SpecificCategory.Yield(context);
-            var specificValue = Promethium_SpecificValue.Yield(context);
-            var includeSubCategories = Promethium_IncludeSubCategories.Yield(context);
-            var amountOff = Promethium_AmountOff.Yield(context);
-            var applyActionTo = Promethium_ApplyActionTo.Yield(context);
-            var actionLimit = Promethium_ActionLimit.Yield(context);
+            var specificCategory = Pm_SpecificCategory.Yield(context);
+            var specificValue = Pm_SpecificValue.Yield(context);
+            var includeSubCategories = Pm_IncludeSubCategories.Yield(context);
+            var amountOff = Pm_AmountOff.Yield(context);
+            var applyActionTo = Pm_ApplyActionTo.Yield(context);
+            var actionLimit = Pm_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 specificValue == 0 ||
                 amountOff == 0 ||
                 string.IsNullOrEmpty(applyActionTo) ||
                 actionLimit == 0 ||
-                Promethium_Operator == null)
+                Pm_Operator == null)
             {
                 return;
             }
@@ -57,7 +57,7 @@ namespace Promethium.Plugin.Promotions.Actions
 
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
-            if (Promethium_Operator.Evaluate(productAmount, specificValue))
+            if (Pm_Operator.Evaluate(productAmount, specificValue))
             {
                 categoryLines.ApplyAction(commerceContext, amountOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPriceDiscountAction), ActionExtensions.CalculatePriceDiscount);
             }
