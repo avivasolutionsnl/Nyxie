@@ -6,7 +6,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Conditions
 {
     /// <summary>
-    /// A SiteCore Commerce condition for the qualification
+    /// A Sitecore Commerce condition for the qualification
     /// "Cart contains [compares] [specific value] products in the [specific category]"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(CartProductAmountInCategoryCondition))]
@@ -32,7 +32,8 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            if (!context.GetCardLines(specificCategory, includeSubCategories, out var categoryLines))
+            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            if (categoryLines == null)
             {
                 return false;
             }

@@ -7,7 +7,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A SiteCore Commerce action for the benefit
+    /// A Sitecore Commerce action for the benefit
     /// "When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product (ordered by [apply award to]) with a maximum of [award limit] products"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(CartItemsMatchingInCategoryPercentageDiscountAction))]
@@ -50,7 +50,8 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            if (!context.GetCardLines(specificCategory, includeSubCategories, out var categoryLines))
+            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            if (categoryLines == null)
             {
                 return;
             }
@@ -59,7 +60,7 @@ namespace Promethium.Plugin.Promotions.Actions
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                categoryLines.ApplyAction(commerceContext, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), ActionExtensions.CalculatePercentageDiscount);
+                commerceContext.ApplyAction(categoryLines, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), CommerceContextExtensions.CalculatePercentageDiscount);
             }
         }
     }

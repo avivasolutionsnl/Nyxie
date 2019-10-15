@@ -8,7 +8,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Conditions
 {
     /// <summary>
-    /// A SiteCore Commerce condition for the qualification
+    /// A Sitecore Commerce condition for the qualification
     /// "Cart has [operator] [specific payment]"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(CartPaymentCondition))]
@@ -29,7 +29,14 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            if (!GetPayment(context, out var payment))
+            var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
+            if (cart == null || !cart.Lines.Any() || !cart.HasComponent<PaymentComponent>())
+            {
+                return false;
+            }
+
+            var payment = cart.GetComponent<PaymentComponent>();
+            if (payment == null)
             {
                 return false;
             }
@@ -37,20 +44,6 @@ namespace Promethium.Plugin.Promotions.Conditions
             //Validate data against configuration
             var selectedPayment = payment.PaymentMethod.Name;
             return BasicStringComparer.Evaluate(basicStringCompare, selectedPayment, specificPayment);
-        }
-
-        private static bool GetPayment(IRuleExecutionContext context, out PaymentComponent payment)
-        {
-            payment = null;
-
-            var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
-            if (cart == null || !cart.Lines.Any() || !cart.HasComponent<PaymentComponent>())
-            {
-                return false;
-            }
-
-            payment = cart.GetComponent<PaymentComponent>();
-            return true;
         }
     }
 }

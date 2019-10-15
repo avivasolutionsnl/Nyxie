@@ -13,56 +13,45 @@ namespace Promethium.Plugin.Promotions.Extensions
 {
     internal static class RuleExecutionExtension
     {
-        internal static bool GetCardLines(this IRuleExecutionContext context,
+        internal static List<CartLineComponent> GetCardLines(this IRuleExecutionContext context,
             string specificCategory,
-            bool includeSubCategories,
-            out List<CartLineComponent> foundLines)
+            bool includeSubCategories)
         {
-            foundLines = null;
-
             var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any())
             {
-                return false;
+                return null;
             }
 
-            foundLines = cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
-            return true;
+            return cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
         }
 
-        internal static bool GetOrderHistory(this IRuleExecutionContext context, FindEntitiesInListCommand findEntitiesInListCommand, out List<Order> foundOrders)
+        internal static async Task<List<Order>> GetOrderHistory(this IRuleExecutionContext context, FindEntitiesInListCommand findEntitiesInListCommand)
         {
-            foundOrders = null;
-
             var commerceContext = context.Fact<CommerceContext>();
             if (commerceContext == null || !commerceContext.CurrentUserIsRegistered())
-            { return false; }
+            {
+                return null;
+            }
 
             var listName = string.Format(CultureInfo.InvariantCulture,
                 commerceContext.GetPolicy<KnownOrderListsPolicy>().CustomerOrders,
                 commerceContext.CurrentCustomerId());
-            var task = Task.Run(() => findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue));
-
-            foundOrders = task.Result?.Items.ToList();
-
-            return true;
+            var result = await findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue);
+            return result?.Items;
         }
 
-        internal static bool GetOrderHistory(this IRuleExecutionContext context,
+        internal static async Task<List<CartLineComponent>> GetOrderHistory(this IRuleExecutionContext context,
             FindEntitiesInListCommand findEntitiesInListCommand,
             string specificCategory,
-            bool includeSubCategories,
-            out List<CartLineComponent> foundOrderLines)
+            bool includeSubCategories)
         {
-            foundOrderLines = null;
+            var foundOrders = await context.GetOrderHistory(findEntitiesInListCommand);
 
-            var valid = context.GetOrderHistory(findEntitiesInListCommand, out var foundOrders);
-            if (!valid)
-                return false;
-
-            foundOrderLines = foundOrders.SelectMany(x => x.Lines).Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
-
-            return true;
+            return foundOrders?
+                .SelectMany(x => x.Lines)
+                .Where(line => line.HasComponent<CategoryComponent>() && line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories))
+                .ToList();
         }
     }
 }

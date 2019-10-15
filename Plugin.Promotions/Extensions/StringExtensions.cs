@@ -3,7 +3,7 @@ using System;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
-    internal static class CommonExtensions
+    internal static class StringExtensions
     {
         internal static string PrettifyOperatorName(this string displayName)
         {

@@ -21,28 +21,28 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             _getCategoriesCommand = getCategoriesCommand;
         }
 
-        public override Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
+        public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var entity = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition") || p.Name.EqualsOrdinalIgnoreCase("Action"));
             if (entity == null || !entity.RawValue.ToString().StartsWith("Pm_") || !entity.RawValue.ToString().Contains("InCategory"))
             {
-                return Task.FromResult(arg);
+                return arg;
             }
 
             var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificCategory"));
             if (categorySelection == null)
             {
-                return Task.FromResult(arg);
+                return arg;
             }
 
-            var catalogs = _getCatalogsCommand.Process(context.CommerceContext).Result;
+            var catalogs = await _getCatalogsCommand.Process(context.CommerceContext);
 
             var catalog = catalogs.FirstOrDefault(); //Make the assumption that there is only 1 catalog
             if (catalog != null)
             {
-                var categories = _getCategoriesCommand.Process(context.CommerceContext, catalog.Name).Result;
+                var categories = await _getCategoriesCommand.Process(context.CommerceContext, catalog.Name);
 
                 var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
 
@@ -57,7 +57,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 categorySelection.Policies.Add(new AvailableSelectionsPolicy(selectOptions));
             }
 
-            return Task.FromResult(arg);
+            return arg;
         }
 
         private void GetCategories(string parentCategoryId, List<Category> allCategories, string displayName, ref List<Selection> selectOptions)

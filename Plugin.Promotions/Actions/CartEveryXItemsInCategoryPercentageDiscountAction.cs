@@ -8,15 +8,15 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A SiteCore Commerce action for the benefit
+    /// A Sitecore Commerce action for the benefit
     /// "For every [Items to award] of [Items to purchase] products in [Category] you get [Percentage Off] on the [Apply Award To] with a limit of [Award Limit]"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPercentageDiscountAction))]
     public class CartEveryXItemsInCategoryPercentageDiscountAction : ICartLineAction
     {
-        public IRuleValue<int> Pm_ItemsToAward { get; set; }
+        public IRuleValue<decimal> Pm_ItemsToAward { get; set; }
 
-        public IRuleValue<int> Pm_ItemsToPurchase { get; set; }
+        public IRuleValue<decimal> Pm_ItemsToPurchase { get; set; }
 
         public IRuleValue<string> Pm_SpecificCategory { get; set; }
 
@@ -52,18 +52,21 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            if (!context.GetCardLines(specificCategory, includeSubCategories, out var categoryLines))
+            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            if (categoryLines == null)
             {
                 return;
             }
 
             //Validate and apply action
-            var productAmount = Convert.ToInt32(categoryLines.Sum(x => x.Quantity));
-            var productsToAward = (productAmount / itemsToPurchase) * itemsToAward;
-            productsToAward = productsToAward > actionLimit ? actionLimit : productsToAward;
+            var cartQuantity = Convert.ToInt32(categoryLines.Sum(x => x.Quantity));
+            var cartProductsToAward = (cartQuantity / itemsToPurchase) * itemsToAward;
+
+            var productsToAward = cartProductsToAward > actionLimit ? actionLimit : cartProductsToAward;
+            
             if (productsToAward > 0)
             {
-                categoryLines.ApplyAction(commerceContext, percentageOff, applyActionTo, productsToAward, nameof(CartEveryXItemsInCategoryPercentageDiscountAction), ActionExtensions.CalculatePercentageDiscount);
+                commerceContext.ApplyAction(categoryLines, percentageOff, applyActionTo, Convert.ToInt32(productsToAward), nameof(CartEveryXItemsInCategoryPercentageDiscountAction), CommerceContextExtensions.CalculatePercentageDiscount);
             }
         }
     }

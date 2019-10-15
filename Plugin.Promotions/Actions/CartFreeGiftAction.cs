@@ -8,7 +8,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A SiteCore Commerce action for the benefit
+    /// A Sitecore Commerce action for the benefit
     /// "Get [quantity] free [gift]"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(CartFreeGiftAction))]
@@ -61,13 +61,13 @@ namespace Promethium.Plugin.Promotions.Actions
 
                 if (sellableItem.ListPrice.Amount > 0)
                 {
-                    var discount = sellableItem.ListPrice.Amount.ShouldRoundPriceCalc(commerceContext);
+                    var discount = commerceContext.ShouldRoundPriceCalc(sellableItem.ListPrice.Amount);
                     freeGift.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CartFreeGiftAction), freeGift.Id);
                 }
 
                 cart = _addCommand.Process(commerceContext, cart, freeGift).Result;
 
-                cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartFreeGiftAction));
+                commerceContext.AddPromotionApplied(cart.GetComponent<MessagesComponent>(), nameof(CartFreeGiftAction));
             }
         }
     }

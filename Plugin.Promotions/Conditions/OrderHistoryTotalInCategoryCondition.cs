@@ -7,7 +7,7 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Conditions
 {
     /// <summary>
-    /// A SiteCore Commerce condition for the qualification
+    /// A Sitecore Commerce condition for the qualification
     /// "Order history contains products in the [specific category] for a total [compares] [specific value]"
     /// </summary>
     [EntityIdentifier("Pm_" + nameof(OrderHistoryTotalInCategoryCondition))]
@@ -40,7 +40,9 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get data
-            if (!context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories, out var categoryLines))
+            var categoryLines = context
+                .GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories).Result;
+            if (categoryLines == null)
             {
                 return false;
             }
