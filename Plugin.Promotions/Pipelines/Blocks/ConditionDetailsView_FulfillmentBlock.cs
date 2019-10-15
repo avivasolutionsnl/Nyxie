@@ -18,27 +18,27 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             _getCommand = getCommand;
         }
 
-        public override Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
+        public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
             if (condition == null || !condition.RawValue.ToString().StartsWith("Pm_") || !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
             {
-                return Task.FromResult(arg);
+                return arg;
             }
 
             var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificFulfillment"));
             if (categorySelection != null)
             {
-                var fulfillmentMethods = _getCommand.Process(context.CommerceContext).Result;
+                var fulfillmentMethods = await _getCommand.Process(context.CommerceContext);
                 var options = fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
                 var policy = new AvailableSelectionsPolicy(options);
                 categorySelection.Policies.Add(policy);
             }
 
-            return Task.FromResult(arg);
+            return arg;
         }
     }
 }

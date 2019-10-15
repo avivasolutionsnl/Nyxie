@@ -8,11 +8,11 @@ using System.Linq;
 namespace Promethium.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A SiteCore Commerce action for the benefit
+    /// A Sitecore Commerce action for the benefit
     /// "Get [specific amount] off the shipping cost"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartAmountOffShippingAction))]
-    public class CartAmountOffShippingAction : ICartAction
+    [EntityIdentifier("Pm_" + nameof(CartAmountOffFulfillmentAction))]
+    public class CartAmountOffFulfillmentAction : ICartAction
     {
         public IRuleValue<decimal> Pm_SpecificAmount { get; set; }
 
@@ -45,11 +45,11 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Apply action
-            amountOff = amountOff.ShouldRoundPriceCalc(commerceContext);
+            amountOff = commerceContext.ShouldRoundPriceCalc(amountOff);
 
-            cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, amountOff * -1, nameof(CartAmountOffShippingAction));
+            cart.Adjustments.AddCartLevelAwardedAdjustment(commerceContext, amountOff * -1, nameof(CartAmountOffFulfillmentAction));
 
-            cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartAmountOffShippingAction));
+            commerceContext.AddPromotionApplied(cart.GetComponent<MessagesComponent>(), nameof(CartAmountOffFulfillmentAction));
         }
 
         private static decimal GetFulfillmentFee(Cart cart)

@@ -10,7 +10,7 @@ namespace Promethium.Plugin.Promotions.Classes
 
         static BasicStringComparer()
         {
-            //Don't get the display names from resources. This is the same text as SiteCore uses and is processed in "PrettifySelectOptionsBlock"
+            //Don't get the display names from resources. This is the same text as Sitecore uses and is processed in "PrettifySelectOptionsBlock"
             Options = new List<Selection>
             {
                 new Selection { DisplayName = "Sitecore.Core.Operators.StringEqualityOperator", Name = EqualName },

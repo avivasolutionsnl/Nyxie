@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace Promethium.Plugin.Promotions.Extensions
 {
-    internal static class SitecoreExtensions
+    internal static class ModelExtensions
     {
         /// <summary>
         /// Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToCondition to allow boolean values
@@ -42,9 +42,14 @@ namespace Promethium.Plugin.Promotions.Extensions
             IServiceProvider services) where T : IMappableRuleEntity
         {
             if (metaData.Type.GetCustomAttributes(typeof(ObsoleteAttribute), false).Any())
+            {
                 return default;
+            }
+
             if (!(ActivatorUtilities.CreateInstance(services, metaData.Type) is T instance1))
+            {
                 return default;
+            }
             var properties = instance1
                 .GetType()
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public);

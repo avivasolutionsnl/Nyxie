@@ -20,7 +20,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             _getCommand = getCommand;
         }
 
-        public override Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
+        public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
         {
             var sellableItem = context.CommerceContext.GetEntity<SellableItem>();
 
@@ -28,14 +28,15 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             var addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
             if (addedLine == null)
             {
-                return Task.FromResult(arg);
+                return arg;
             }
 
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())
             {
                 var catalog = context.CommerceContext.GetEntity<Catalog>();
-                _categories = _getCommand.Process(context.CommerceContext, catalog.Name).Result.ToList();
+                var result = await _getCommand.Process(context.CommerceContext, catalog.Name);
+                _categories = result.ToList();
 
                 foreach (var categoryId in sellableItem.ParentCategoryList.Split('|'))
                 {
@@ -43,13 +44,13 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 }
             }
 
-            return Task.FromResult(arg);
+            return arg;
         }
 
-        private string GetCategoryPath(string categoryId, string output)
+        private string GetCategoryPath(string categoryId, string input)
         {
             //Place parent path before the current children output
-            output = $"/{categoryId}{output}";
+            var output = $"/{categoryId}{input}";
 
             var category = _categories.FirstOrDefault(x => x.SitecoreId.Equals(categoryId));
 

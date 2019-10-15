@@ -2,7 +2,7 @@
 ID: "cee04173-10a2-4f00-bf40-88fa6367b0dd"
 Parent: "60f23e56-1815-44b3-8224-12f0cf4602dd"
 Template: "5dd201a0-5b3d-4e82-8cca-608d5905c3a1"
-Path: /sitecore/Commerce/Commerce Control Panel/Commerce Engine Settings/Commerce Terms/BusinessTools/Actions/Pm_CartAmountOffShippingAction
+Path: /sitecore/Commerce/Commerce Control Panel/Commerce Engine Settings/Commerce Terms/BusinessTools/Actions/Pm_CartAmountOffFulfillmentAction
 DB: master
 Languages:
 - Language: en
@@ -10,12 +10,7 @@ Languages:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20191008T092624Z
+      Value: "20191015T122223:637067389435523063Z"
     - ID: "290defd0-7b9a-4541-a326-87c44bee5309"
       Hint: Value
       Value: "Get $ [amount] off the shipping cost"
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\Admin
