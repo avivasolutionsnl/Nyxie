@@ -4,6 +4,7 @@ using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
+using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -30,7 +31,7 @@ namespace Promethium.Plugin.Promotions.Conditions
         public bool Evaluate(IRuleExecutionContext context)
         {
             var date = Pm_Date.Yield(context).DateTime;
-            var orders = context.GetOrderHistory(_findEntitiesInListCommand).Result;
+            var orders = AsyncHelper.RunSync(() => context.GetOrderHistory(_findEntitiesInListCommand));
 
             if (orders == null)
             {

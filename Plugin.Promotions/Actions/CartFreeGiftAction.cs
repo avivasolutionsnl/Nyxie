@@ -1,4 +1,5 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
@@ -51,7 +52,7 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            var sellableItem = _getCommand.Process(commerceContext, targetItemId, false).Result;
+            var sellableItem = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
             if (sellableItem != null)
             {
                 var freeGift = new CartLineComponent {
@@ -65,9 +66,9 @@ namespace Promethium.Plugin.Promotions.Actions
                     freeGift.Adjustments.AddLineLevelAwardedAdjustment(commerceContext, discount * -1, nameof(CartFreeGiftAction), freeGift.Id);
                 }
 
-                cart = _addCommand.Process(commerceContext, cart, freeGift).Result;
+                var newCart = AsyncHelper.RunSync(() => _addCommand.Process(commerceContext, cart, freeGift));
 
-                commerceContext.AddPromotionApplied(cart.GetComponent<MessagesComponent>(), nameof(CartFreeGiftAction));
+                commerceContext.AddPromotionApplied(newCart.GetComponent<MessagesComponent>(), nameof(CartFreeGiftAction));
             }
         }
     }
