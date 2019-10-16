@@ -3,6 +3,7 @@ using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System.Linq;
+using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -40,8 +41,8 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            var categoryLines =
-                context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories).Result;
+            var categoryLines = AsyncHelper.RunSync(() =>
+                context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories));
             if (categoryLines == null)
             {
                 return false;
