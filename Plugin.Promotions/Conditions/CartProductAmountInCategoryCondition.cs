@@ -1,5 +1,7 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System.Linq;
 
@@ -12,6 +14,13 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(CartProductAmountInCategoryCondition))]
     public class CartProductAmountInCategoryCondition : ICartsCondition
     {
+        private readonly GetCategoryCommand _getCategoryCommand;
+
+        public CartProductAmountInCategoryCondition(GetCategoryCommand getCategoryCommand)
+        {
+            _getCategoryCommand = getCategoryCommand;
+        }
+
         public IBinaryOperator<decimal, decimal> Pm_Compares { get; set; }
 
         public IRuleValue<decimal> Pm_SpecificValue { get; set; }
@@ -32,7 +41,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            var categoryLines = AsyncHelper.RunSync(() => context.GetCardLines(specificCategory, includeSubCategories, _getCategoryCommand));
             if (categoryLines == null)
             {
                 return false;

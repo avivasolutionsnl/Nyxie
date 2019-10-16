@@ -2,8 +2,11 @@
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Management;
+using Sitecore.Commerce.Plugin.Search;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,13 +15,11 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_CategoryBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private readonly GetCatalogsCommand _getCatalogsCommand;
-        private readonly GetCategoriesCommand _getCategoriesCommand;
+        private readonly GetCategoryCommand _getCategoryCommand;
 
-        public ConditionDetailsView_CategoryBlock(GetCatalogsCommand getCatalogsCommand, GetCategoriesCommand getCategoriesCommand)
+        public ConditionDetailsView_CategoryBlock(GetCategoryCommand getCategoryCommand)
         {
-            _getCatalogsCommand = getCatalogsCommand;
-            _getCategoriesCommand = getCategoriesCommand;
+            _getCategoryCommand = getCategoryCommand;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
@@ -37,43 +38,66 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return arg;
             }
 
-            var catalogs = await _getCatalogsCommand.Process(context.CommerceContext);
-
-            var catalog = catalogs.FirstOrDefault(); //Make the assumption that there is only 1 catalog
-            if (catalog != null)
+            var policyByType = SearchScopePolicy.GetPolicyByType(context.CommerceContext, context.CommerceContext.Environment, typeof(Category));
+            if (policyByType != null)
             {
-                var categories = await _getCategoriesCommand.Process(context.CommerceContext, catalog.Name);
-
-                var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
-
-                var selectOptions = new List<Selection>();
-
-                var topCategories = catalog.ChildrenCategoryList.Split('|');
-                foreach (var topCategory in topCategories)
+                var policy = new Policy()
                 {
-                    GetCategories(topCategory, allCategories, "", ref selectOptions);
-                }
+                    PolicyId = "EntityType",
+                    Models = new List<Model> { new Model { Name = "Category" } }
+                };
+                categorySelection.UiType = "Autocomplete";
+                categorySelection.Policies.Add(policy);
+                categorySelection.Policies.Add(policyByType);
 
-                categorySelection.Policies.Add(new AvailableSelectionsPolicy(selectOptions));
+                if (categorySelection.RawValue != null &&
+                    !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
+                    categorySelection.RawValue.ToString().IndexOf("-Category-", StringComparison.OrdinalIgnoreCase) > 0)
+                {
+                    var readOnlyProp = new ViewProperty
+                    {
+                        DisplayName = $"Full category path of '{categorySelection.RawValue}'",
+                        IsHidden = false,
+                        IsReadOnly = true,
+                        Name = "FullCategoryPath",
+                        IsRequired = false,
+                        OriginalType = "System.String",
+                        Value = await PrettifyCategory(context.CommerceContext, categorySelection.RawValue.ToString(), _getCategoryCommand),
+                    };
+
+                    arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);
+                }
             }
 
             return arg;
         }
 
-        private void GetCategories(string parentCategoryId, List<Category> allCategories, string displayName, ref List<Selection> selectOptions)
+        private static async Task<string> PrettifyCategory(CommerceContext commerceContext, string input, GetCategoryCommand getCategoryCommand)
         {
-            var categories = allCategories.Where(x => x.ParentCategoryList.Equals(parentCategoryId)).ToList();
-            if (categories.Any())
+            var category = await getCategoryCommand.Process(commerceContext, input);
+            if (category == null)
             {
-                categories = categories.OrderBy(x => x.Name).ToList();
-                foreach (var category in categories)
-                {
-                    var optionDisplayName = $"{displayName}/{category.Name}";
-                    selectOptions.Add(new Selection { DisplayName = optionDisplayName, Name = category.SitecoreId });
-
-                    GetCategories(category.SitecoreId, allCategories, optionDisplayName, ref selectOptions);
-                }
+                return input;
             }
+
+            var output = $"/{category.DisplayName}";
+
+            var manager = new SitecoreConnectionManager();
+            var parent = await manager.GetItemByIdAsync(commerceContext, category.ParentCategoryList);
+            while (parent != null)
+            {
+                if (parent["ParentCategoryList"] == null ||
+                    string.IsNullOrWhiteSpace(parent["ParentCategoryList"].ToString()))
+                {
+                    break;
+                }
+
+                output = $"/{parent["DisplayName"]}{output}";
+
+                parent = await manager.GetItemByIdAsync(commerceContext, parent["ParentCategoryList"].ToString());
+            }
+
+            return output;
         }
     }
 }

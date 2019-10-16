@@ -1,6 +1,8 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
@@ -14,6 +16,13 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPercentageDiscountAction))]
     public class CartEveryXItemsInCategoryPercentageDiscountAction : ICartLineAction
     {
+        private readonly GetCategoryCommand _getCategoryCommand;
+
+        public CartEveryXItemsInCategoryPercentageDiscountAction(GetCategoryCommand getCategoryCommand)
+        {
+            _getCategoryCommand = getCategoryCommand;
+        }
+
         public IRuleValue<decimal> Pm_ItemsToAward { get; set; }
 
         public IRuleValue<decimal> Pm_ItemsToPurchase { get; set; }
@@ -52,7 +61,7 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            var categoryLines = AsyncHelper.RunSync(() => context.GetCardLines(specificCategory, includeSubCategories, _getCategoryCommand));
             if (categoryLines == null)
             {
                 return;

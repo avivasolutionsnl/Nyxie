@@ -1,9 +1,10 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core.Commands;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System.Linq;
-using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -15,10 +16,12 @@ namespace Promethium.Plugin.Promotions.Conditions
     public class OrderHistoryTotalInCategoryCondition : ICustomerCondition
     {
         private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
+        private readonly GetCategoryCommand _getCategoryCommand;
 
-        public OrderHistoryTotalInCategoryCondition(FindEntitiesInListCommand findEntitiesInListCommand)
+        public OrderHistoryTotalInCategoryCondition(FindEntitiesInListCommand findEntitiesInListCommand, GetCategoryCommand getCategoryCommand)
         {
             _findEntitiesInListCommand = findEntitiesInListCommand;
+            _getCategoryCommand = getCategoryCommand;
         }
 
         public IRuleValue<string> Pm_SpecificCategory { get; set; }
@@ -42,7 +45,7 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Get data
             var categoryLines = AsyncHelper.RunSync(() => 
-                context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories));
+                context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories, _getCategoryCommand));
             if (categoryLines == null)
             {
                 return false;

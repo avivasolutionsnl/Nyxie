@@ -2,6 +2,7 @@
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Orders;
 using Sitecore.Framework.Rules;
 using System.Collections.Generic;
@@ -13,17 +14,21 @@ namespace Promethium.Plugin.Promotions.Extensions
 {
     internal static class RuleExecutionExtension
     {
-        internal static List<CartLineComponent> GetCardLines(this IRuleExecutionContext context,
+        internal static async Task<List<CartLineComponent>> GetCardLines(this IRuleExecutionContext context,
             string specificCategory,
-            bool includeSubCategories)
+            bool includeSubCategories,
+            GetCategoryCommand getCommand)
         {
-            var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
+            var commerceContext = context.Fact<CommerceContext>();
+            var cart = commerceContext.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any())
             {
                 return null;
             }
 
-            return cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories)).ToList();
+            var category = await getCommand.Process(commerceContext, specificCategory);
+
+            return cart.Lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(category.SitecoreId, includeSubCategories)).ToList();
         }
 
         internal static async Task<List<Order>> GetOrderHistory(this IRuleExecutionContext context, FindEntitiesInListCommand findEntitiesInListCommand)
@@ -44,13 +49,17 @@ namespace Promethium.Plugin.Promotions.Extensions
         internal static async Task<List<CartLineComponent>> GetOrderHistory(this IRuleExecutionContext context,
             FindEntitiesInListCommand findEntitiesInListCommand,
             string specificCategory,
-            bool includeSubCategories)
+            bool includeSubCategories,
+            GetCategoryCommand getCommand)
         {
+            var commerceContext = context.Fact<CommerceContext>();
             var foundOrders = await context.GetOrderHistory(findEntitiesInListCommand);
+
+            var category = await getCommand.Process(commerceContext, specificCategory);
 
             return foundOrders?
                 .SelectMany(x => x.Lines)
-                .Where(line => line.HasComponent<CategoryComponent>() && line.GetComponent<CategoryComponent>().IsMatch(specificCategory, includeSubCategories))
+                .Where(line => line.HasComponent<CategoryComponent>() && line.GetComponent<CategoryComponent>().IsMatch(category.SitecoreId, includeSubCategories))
                 .ToList();
         }
     }
