@@ -1,5 +1,5 @@
 ﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
@@ -59,7 +59,11 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryLines = AsyncHelper.RunSync(() => context.GetCardLines(specificCategory, includeSubCategories, _getCategoryCommand));
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var cartLineFactory = new CartLineFactory(commerceContext);
+            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
@@ -69,7 +73,8 @@ namespace Promethium.Plugin.Promotions.Actions
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                commerceContext.ApplyAction(categoryLines, amountOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPriceDiscountAction), CommerceContextExtensions.CalculatePriceDiscount);
+                var actionFactory = new ActionFactory(commerceContext);
+                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
             }
         }
     }

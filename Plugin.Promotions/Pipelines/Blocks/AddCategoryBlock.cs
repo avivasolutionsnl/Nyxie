@@ -12,7 +12,13 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class AddCategoryBlock : PipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
     {
+        private readonly SitecoreConnectionManager _manager;
         private CommerceContext _commerceContext;
+
+        public AddCategoryBlock(SitecoreConnectionManager manager)
+        {
+            _manager = manager;
+        }
 
         public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
         {
@@ -30,27 +36,24 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())
             {
-                var manager = new SitecoreConnectionManager();
-
                 foreach (var categoryId in sellableItem.ParentCategoryList.Split('|'))
                 {
-                    categoryComponent.ParentCategoryList.Add(await GetCategoryPath(categoryId, "", manager));
+                    categoryComponent.ParentCategoryList.Add(await GetCategoryIdPath(categoryId, ""));
                 }
             }
 
             return arg;
         }
 
-        private async Task<string> GetCategoryPath(string categoryId, string input, SitecoreConnectionManager manager)
+        private async Task<string> GetCategoryIdPath(string categoryId, string input)
         {
             //Place parent path before the current children output
             var output = $"/{categoryId}{input}";
 
-            var item = await manager.GetItemByIdAsync(_commerceContext, input);
-            //var category = _categories.FirstOrDefault(x => x.SitecoreId.Equals(categoryId));
+            var item = await _manager.GetItemByIdAsync(_commerceContext, input);
 
             return item["ParentCategoryList"] != null ?
-                await GetCategoryPath(item["ParentCategoryList"].ToString(), output, manager) :
+                await GetCategoryIdPath(item["ParentCategoryList"].ToString(), output) :
                 output;
         }
     }

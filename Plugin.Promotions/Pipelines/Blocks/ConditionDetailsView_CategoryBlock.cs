@@ -10,16 +10,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_CategoryBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly SitecoreConnectionManager _manager;
 
-        public ConditionDetailsView_CategoryBlock(GetCategoryCommand getCategoryCommand)
+        public ConditionDetailsView_CategoryBlock(GetCategoryCommand getCategoryCommand, SitecoreConnectionManager manager)
         {
             _getCategoryCommand = getCategoryCommand;
+            _manager = manager;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
@@ -39,65 +42,45 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
 
             var policyByType = SearchScopePolicy.GetPolicyByType(context.CommerceContext, context.CommerceContext.Environment, typeof(Category));
-            if (policyByType != null)
+            if (policyByType == null)
             {
-                var policy = new Policy()
-                {
-                    PolicyId = "EntityType",
-                    Models = new List<Model> { new Model { Name = "Category" } }
-                };
-                categorySelection.UiType = "Autocomplete";
-                categorySelection.Policies.Add(policy);
-                categorySelection.Policies.Add(policyByType);
-
-                if (categorySelection.RawValue != null &&
-                    !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
-                    categorySelection.RawValue.ToString().IndexOf("-Category-", StringComparison.OrdinalIgnoreCase) > 0)
-                {
-                    var readOnlyProp = new ViewProperty
-                    {
-                        DisplayName = $"Full category path of '{categorySelection.RawValue}'",
-                        IsHidden = false,
-                        IsReadOnly = true,
-                        Name = "FullCategoryPath",
-                        IsRequired = false,
-                        OriginalType = "System.String",
-                        Value = await PrettifyCategory(context.CommerceContext, categorySelection.RawValue.ToString(), _getCategoryCommand),
-                    };
-
-                    arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);
-                }
+                return arg;
             }
+
+            var policy = new Policy()
+            {
+                PolicyId = "EntityType",
+                Models = new List<Model> { new Model { Name = nameof(Category) } }
+            };
+            categorySelection.UiType = "Autocomplete";
+            categorySelection.Policies.Add(policy);
+            categorySelection.Policies.Add(policyByType);
+
+            await AddReadOnlyFullPath(arg, context, categorySelection);
 
             return arg;
         }
 
-        private static async Task<string> PrettifyCategory(CommerceContext commerceContext, string input, GetCategoryCommand getCategoryCommand)
+        private async Task AddReadOnlyFullPath(EntityView arg, CommercePipelineExecutionContext context, ViewProperty categorySelection)
         {
-            var category = await getCategoryCommand.Process(commerceContext, input);
-            if (category == null)
+            if (categorySelection.RawValue != null &&
+                !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
+                categorySelection.RawValue.ToString().IndexOf("-Category-", StringComparison.OrdinalIgnoreCase) > 0)
             {
-                return input;
-            }
-
-            var output = $"/{category.DisplayName}";
-
-            var manager = new SitecoreConnectionManager();
-            var parent = await manager.GetItemByIdAsync(commerceContext, category.ParentCategoryList);
-            while (parent != null)
-            {
-                if (parent["ParentCategoryList"] == null ||
-                    string.IsNullOrWhiteSpace(parent["ParentCategoryList"].ToString()))
+                var categoryFactory = new CategoryFactory(context.CommerceContext, _manager, _getCategoryCommand);
+                var readOnlyProp = new ViewProperty
                 {
-                    break;
-                }
+                    DisplayName = $"Full category path of '{categorySelection.RawValue}'",
+                    IsHidden = false,
+                    IsReadOnly = true,
+                    Name = "FullCategoryPath",
+                    IsRequired = false,
+                    OriginalType = "System.String",
+                    Value = await categoryFactory.GetCategoryPath(categorySelection.RawValue.ToString()),
+                };
 
-                output = $"/{parent["DisplayName"]}{output}";
-
-                parent = await manager.GetItemByIdAsync(commerceContext, parent["ParentCategoryList"].ToString());
+                arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);
             }
-
-            return output;
         }
     }
 }

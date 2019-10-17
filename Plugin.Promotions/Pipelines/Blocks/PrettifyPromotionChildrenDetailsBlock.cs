@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -19,17 +20,21 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
     {
         private readonly GetCategoryCommand _getCategoryCommand;
         private readonly GetSellableItemCommand _getItemCommand;
+        private readonly SitecoreConnectionManager _manager;
         private CommerceContext _commerceContext;
+        private CategoryFactory _categoryFactory;
 
-        public PrettifyPromotionChildrenDetailsBlock(GetCategoryCommand getCategoryCommand, GetSellableItemCommand getItemCommand)
+        public PrettifyPromotionChildrenDetailsBlock(GetCategoryCommand getCategoryCommand, GetSellableItemCommand getItemCommand, SitecoreConnectionManager manager)
         {
             _getCategoryCommand = getCategoryCommand;
             _getItemCommand = getItemCommand;
+            _manager = manager;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             _commerceContext = context.CommerceContext;
+            _categoryFactory = new CategoryFactory(_commerceContext, _manager, _getCategoryCommand);
 
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
@@ -156,31 +161,9 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
         }
 
-        private async Task<string> PrettifyCategory(string input, List<ViewProperty> properties)
+        private async Task<string> PrettifyCategory(string categoryCommerceId, List<ViewProperty> properties)
         {
-            var category = await _getCategoryCommand.Process(_commerceContext, input);
-            if (category == null)
-            {
-                return string.Empty;
-            }
-
-            var output = $"/{category.DisplayName}";
-
-            var manager = new SitecoreConnectionManager();
-            var parentId = category.ParentCategoryList;
-            while (true)
-            {
-                var parent = await manager.GetItemByIdAsync(_commerceContext, parentId);
-                if (parent == null || parent["ParentCategoryList"] == null ||
-                    string.IsNullOrWhiteSpace(parent["ParentCategoryList"].ToString()))
-                {
-                    break;
-                }
-
-                output = $"/{parent["DisplayName"]}{output}";
-
-                parentId = parent["ParentCategoryList"].ToString();
-            }
+            var output = await _categoryFactory.GetCategoryPath(categoryCommerceId);
 
             var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_IncludeSubCategories"));
             if (includeSubCategories != null)
@@ -199,12 +182,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         private async Task<string> PrettifyProduct(string input)
         {
             var sellableItem = await _getItemCommand.Process(_commerceContext, input, false);
-            if (sellableItem != null)
-            {
-                return sellableItem.DisplayName;
-            }
-
-            return input;
+            return sellableItem != null ? sellableItem.DisplayName : input;
         }
     }
 }

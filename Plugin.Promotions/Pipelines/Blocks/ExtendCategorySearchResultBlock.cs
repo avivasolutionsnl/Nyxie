@@ -1,4 +1,5 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
@@ -14,54 +15,43 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
     public class ExtendCategorySearchResultBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly GetCategoryCommand _getCommand;
+        private readonly SitecoreConnectionManager _manager;
         private CommerceContext _commerceContext;
 
-        public ExtendCategorySearchResultBlock(GetCategoryCommand getCommand)
+        public ExtendCategorySearchResultBlock(GetCategoryCommand getCommand, SitecoreConnectionManager manager)
         {
             _getCommand = getCommand;
+            _manager = manager;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             _commerceContext = context.CommerceContext;
-            var manager = new SitecoreConnectionManager();
-
+            
+            var factory = new CategoryFactory(context.CommerceContext, _manager, null);
             var results = arg.ChildViews.OfType<EntityView>().Where(x => x.ItemId.IndexOf("-Category", StringComparison.OrdinalIgnoreCase) > 0);
             foreach (var result in results)
             {
-                var categoryIdentifier = result.ItemId;
-                var category = await _getCommand.Process(_commerceContext, categoryIdentifier);
-
-                if (category != null)
+                var displayProperty = result.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("DisplayName"));
+                if (displayProperty == null)
                 {
-                    var categoryPath = "";
-                    var parentId = category.ParentCategoryList;
+                    continue;
+                }
+                
+                var category = await _getCommand.Process(_commerceContext, result.ItemId);
+                if (category == null)
+                {
+                    continue;
+                }
 
-                    while (true)
-                    {
-                        var parent = await manager.GetItemByIdAsync(_commerceContext, parentId);
-                        if (parent == null || parent["ParentCategoryList"] == null ||
-                            string.IsNullOrWhiteSpace(parent["ParentCategoryList"].ToString()))
-                        {
-                            break;
-                        }
-
-                        categoryPath = $"/{parent["DisplayName"]}{categoryPath}";
-
-                        parentId = parent["ParentCategoryList"].ToString();
-                    }
-
-                    var displayName = category.DisplayName;
-                    if(categoryPath.Length > 0)
-                    {
-                        displayName += $" in {categoryPath}";
-                    }
-
-                    var displayProperty = result.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("DisplayName"));
-                    if (displayProperty != null)
-                    {
-                        displayProperty.Value = displayName;
-                    }
+                var parentPath = await factory.GetParentPath(category.ParentCategoryList, string.Empty);
+                if(parentPath.Length > 0)
+                {
+                    displayProperty.Value = $"{category.DisplayName} in {parentPath}";
+                }
+                else
+                {
+                    displayProperty.Value = category.DisplayName;
                 }
             }
 

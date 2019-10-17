@@ -1,5 +1,6 @@
 ﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Factory;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Customers;
@@ -44,8 +45,12 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get data
-            var categoryLines = AsyncHelper.RunSync(() => 
-                context.GetOrderHistory(_findEntitiesInListCommand, specificCategory, includeSubCategories, _getCategoryCommand));
+            var commerceContext = context.Fact<CommerceContext>();
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var orderHistoryFactory = new OrderHistoryFactory(commerceContext, _findEntitiesInListCommand);
+            var categoryLines = AsyncHelper.RunSync(() => orderHistoryFactory.GetOrderHistory(categorySitecoreId, includeSubCategories));
             if (categoryLines == null)
             {
                 return false;

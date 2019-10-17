@@ -1,5 +1,6 @@
 ﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Factory;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
@@ -31,6 +32,8 @@ namespace Promethium.Plugin.Promotions.Conditions
 
         public bool Evaluate(IRuleExecutionContext context)
         {
+            var commerceContext = context.Fact<CommerceContext>();
+
             //Get configuration
             var specificCategory = Pm_SpecificCategory.Yield(context);
             var specificValue = Pm_SpecificValue.Yield(context);
@@ -41,7 +44,11 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            var categoryLines = AsyncHelper.RunSync(() => context.GetCardLines(specificCategory, includeSubCategories, _getCategoryCommand));
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var cartLineFactory = new CartLineFactory(commerceContext);
+            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
             if (categoryLines == null)
             {
                 return false;

@@ -28,14 +28,14 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return arg;
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificFulfillment"));
-            if (categorySelection != null)
+            var fulfillmentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificFulfillment"));
+            if (fulfillmentSelection != null)
             {
                 var fulfillmentMethods = await _getCommand.Process(context.CommerceContext);
                 var options = fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
                 var policy = new AvailableSelectionsPolicy(options);
-                categorySelection.Policies.Add(policy);
+                fulfillmentSelection.Policies.Add(policy);
             }
 
             return arg;
