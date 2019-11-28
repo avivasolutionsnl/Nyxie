@@ -42,22 +42,22 @@
 
   <ItemGroup>
     <Reference Include="Sitecore.Commerce.Plugin.Customers">
-      <HintPath>..\packages\sitecore.commerce.plugin.customers\3.0.11\lib\net471\Sitecore.Commerce.Plugin.Customers.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.customers\3.0.11\lib\net471\Sitecore.Commerce.Plugin.Customers.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Fulfillment">
-      <HintPath>..\packages\sitecore.commerce.plugin.fulfillment\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Fulfillment.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.fulfillment\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Fulfillment.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Management">
-      <HintPath>..\packages\sitecore.commerce.plugin.management\3.0.14\lib\net471\Sitecore.Commerce.Plugin.Management.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.management\3.0.14\lib\net471\Sitecore.Commerce.Plugin.Management.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Orders">
-      <HintPath>..\packages\sitecore.commerce.plugin.orders\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Orders.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.orders\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Orders.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Payments">
-      <HintPath>..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Services.Core">
-      <HintPath>..\packages\sitecore.services.core\9.1.1\lib\net471\Sitecore.Services.Core.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.services.core\9.1.1\lib\net471\Sitecore.Services.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 

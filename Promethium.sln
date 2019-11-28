@@ -22,9 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CopyToRoot", "CopyToRoot", 
 		src\WebDeployUpdates\CECloud_SCCPL\CopyToRoot\CreateUser.Shared.sql = src\WebDeployUpdates\CECloud_SCCPL\CopyToRoot\CreateUser.Shared.sql
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Promotions", "Plugin.Promotions\Plugin.Promotions.csproj", "{F11AC76F-E8CB-428C-BCC5-6A36AF04B014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Promotions", "src\Plugin.Promotions\Plugin.Promotions.csproj", "{F11AC76F-E8CB-428C-BCC5-6A36AF04B014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promethium.Serialization", "Promethium.Serialization\Promethium.Serialization.csproj", "{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promethium.Serialization", "src\Promethium.Serialization\Promethium.Serialization.csproj", "{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
