@@ -1,5 +1,8 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Factory;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System.Linq;
 
@@ -12,6 +15,13 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(CartProductAmountInCategoryCondition))]
     public class CartProductAmountInCategoryCondition : ICartsCondition
     {
+        private readonly GetCategoryCommand _getCategoryCommand;
+
+        public CartProductAmountInCategoryCondition(GetCategoryCommand getCategoryCommand)
+        {
+            _getCategoryCommand = getCategoryCommand;
+        }
+
         public IBinaryOperator<decimal, decimal> Pm_Compares { get; set; }
 
         public IRuleValue<decimal> Pm_SpecificValue { get; set; }
@@ -22,6 +32,8 @@ namespace Promethium.Plugin.Promotions.Conditions
 
         public bool Evaluate(IRuleExecutionContext context)
         {
+            var commerceContext = context.Fact<CommerceContext>();
+
             //Get configuration
             var specificCategory = Pm_SpecificCategory.Yield(context);
             var specificValue = Pm_SpecificValue.Yield(context);
@@ -32,7 +44,11 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get Data
-            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var cartLineFactory = new CartLineFactory(commerceContext);
+            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
             if (categoryLines == null)
             {
                 return false;

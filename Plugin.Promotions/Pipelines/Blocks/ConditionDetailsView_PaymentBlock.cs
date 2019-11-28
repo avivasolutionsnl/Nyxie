@@ -28,15 +28,15 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return arg;
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificPayment"));
-            if (categorySelection != null)
+            var paymentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificPayment"));
+            if (paymentSelection != null)
             {
                 var paymentMethods = await _getCommand.Process(context.CommerceContext);
                 var options = paymentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
                 var policy = new AvailableSelectionsPolicy(options);
 
-                categorySelection.Policies.Add(policy);
+                paymentSelection.Policies.Add(policy);
             }
 
             return arg;

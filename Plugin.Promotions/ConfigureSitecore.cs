@@ -61,6 +61,12 @@ namespace Promethium.Plugin.Promotions
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                .ConfigurePipeline<Sitecore.Commerce.Plugin.Search.ISearchPipeline>(configure => configure
+                    .Add<Pipelines.Blocks.ExtendCategorySearchResultBlock>()
+                    .After<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>())
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
                     .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
                     .After<Sitecore.Commerce.Plugin.Catalog.DoActionSelectQualificationBlock>())

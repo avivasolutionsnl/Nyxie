@@ -3,8 +3,8 @@ using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Pipelines;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,16 +12,18 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class AddCategoryBlock : PipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
     {
-        private readonly GetCategoriesCommand _getCommand;
-        private List<Category> _categories;
+        private readonly SitecoreConnectionManager _manager;
+        private CommerceContext _commerceContext;
 
-        public AddCategoryBlock(GetCategoriesCommand getCommand)
+        public AddCategoryBlock(SitecoreConnectionManager manager)
         {
-            _getCommand = getCommand;
+            _manager = manager;
         }
 
         public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
         {
+            _commerceContext = context.CommerceContext;
+
             var sellableItem = context.CommerceContext.GetEntity<SellableItem>();
 
             var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
@@ -34,28 +36,24 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())
             {
-                var catalog = context.CommerceContext.GetEntity<Catalog>();
-                var result = await _getCommand.Process(context.CommerceContext, catalog.Name);
-                _categories = result.ToList();
-
                 foreach (var categoryId in sellableItem.ParentCategoryList.Split('|'))
                 {
-                    categoryComponent.ParentCategoryList.Add(GetCategoryPath(categoryId, ""));
+                    categoryComponent.ParentCategoryList.Add(await GetCategoryIdPath(categoryId, ""));
                 }
             }
 
             return arg;
         }
 
-        private string GetCategoryPath(string categoryId, string input)
+        private async Task<string> GetCategoryIdPath(string categoryId, string input)
         {
             //Place parent path before the current children output
             var output = $"/{categoryId}{input}";
 
-            var category = _categories.FirstOrDefault(x => x.SitecoreId.Equals(categoryId));
+            var item = await _manager.GetItemByIdAsync(_commerceContext, input);
 
-            return category?.ParentCategoryList != null ?
-                GetCategoryPath(category.ParentCategoryList, output) :
+            return item["ParentCategoryList"] != null ?
+                await GetCategoryIdPath(item["ParentCategoryList"].ToString(), output) :
                 output;
         }
     }

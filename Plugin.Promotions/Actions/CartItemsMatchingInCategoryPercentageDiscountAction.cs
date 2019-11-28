@@ -1,6 +1,8 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System.Linq;
 
@@ -13,6 +15,13 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartItemsMatchingInCategoryPercentageDiscountAction))]
     public class CartItemsMatchingInCategoryPercentageDiscountAction : ICartLineAction
     {
+        private readonly GetCategoryCommand _getCategoryCommand;
+
+        public CartItemsMatchingInCategoryPercentageDiscountAction(GetCategoryCommand getCategoryCommand)
+        {
+            _getCategoryCommand = getCategoryCommand;
+        }
+
         public IBinaryOperator<decimal, decimal> Pm_Operator { get; set; }
 
         public IRuleValue<decimal> Pm_SpecificValue { get; set; }
@@ -50,7 +59,11 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var cartLineFactory = new CartLineFactory(commerceContext);
+            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
@@ -60,7 +73,8 @@ namespace Promethium.Plugin.Promotions.Actions
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                commerceContext.ApplyAction(categoryLines, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), CommerceContextExtensions.CalculatePercentageDiscount);
+                var actionFactory = new ActionFactory(commerceContext);
+                actionFactory.ApplyAction(categoryLines, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), ActionFactory.CalculatePercentageDiscount);
             }
         }
     }

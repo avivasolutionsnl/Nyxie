@@ -2,23 +2,27 @@
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Management;
+using Sitecore.Commerce.Plugin.Search;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_CategoryBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private readonly GetCatalogsCommand _getCatalogsCommand;
-        private readonly GetCategoriesCommand _getCategoriesCommand;
+        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly SitecoreConnectionManager _manager;
 
-        public ConditionDetailsView_CategoryBlock(GetCatalogsCommand getCatalogsCommand, GetCategoriesCommand getCategoriesCommand)
+        public ConditionDetailsView_CategoryBlock(GetCategoryCommand getCategoryCommand, SitecoreConnectionManager manager)
         {
-            _getCatalogsCommand = getCatalogsCommand;
-            _getCategoriesCommand = getCategoriesCommand;
+            _getCategoryCommand = getCategoryCommand;
+            _manager = manager;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
@@ -37,42 +41,45 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return arg;
             }
 
-            var catalogs = await _getCatalogsCommand.Process(context.CommerceContext);
-
-            var catalog = catalogs.FirstOrDefault(); //Make the assumption that there is only 1 catalog
-            if (catalog != null)
+            var policyByType = SearchScopePolicy.GetPolicyByType(context.CommerceContext, context.CommerceContext.Environment, typeof(Category));
+            if (policyByType == null)
             {
-                var categories = await _getCategoriesCommand.Process(context.CommerceContext, catalog.Name);
-
-                var allCategories = categories.Where(x => x.ParentCategoryList != null).ToList();
-
-                var selectOptions = new List<Selection>();
-
-                var topCategories = catalog.ChildrenCategoryList.Split('|');
-                foreach (var topCategory in topCategories)
-                {
-                    GetCategories(topCategory, allCategories, "", ref selectOptions);
-                }
-
-                categorySelection.Policies.Add(new AvailableSelectionsPolicy(selectOptions));
+                return arg;
             }
+
+            var policy = new Policy()
+            {
+                PolicyId = "EntityType",
+                Models = new List<Model> { new Model { Name = nameof(Category) } }
+            };
+            categorySelection.UiType = "Autocomplete";
+            categorySelection.Policies.Add(policy);
+            categorySelection.Policies.Add(policyByType);
+
+            await AddReadOnlyFullPath(arg, context, categorySelection);
 
             return arg;
         }
 
-        private void GetCategories(string parentCategoryId, List<Category> allCategories, string displayName, ref List<Selection> selectOptions)
+        private async Task AddReadOnlyFullPath(EntityView arg, CommercePipelineExecutionContext context, ViewProperty categorySelection)
         {
-            var categories = allCategories.Where(x => x.ParentCategoryList.Equals(parentCategoryId)).ToList();
-            if (categories.Any())
+            if (categorySelection.RawValue != null &&
+                !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
+                categorySelection.RawValue.ToString().IndexOf("-Category-", StringComparison.OrdinalIgnoreCase) > 0)
             {
-                categories = categories.OrderBy(x => x.Name).ToList();
-                foreach (var category in categories)
+                var categoryFactory = new CategoryFactory(context.CommerceContext, _manager, _getCategoryCommand);
+                var readOnlyProp = new ViewProperty
                 {
-                    var optionDisplayName = $"{displayName}/{category.Name}";
-                    selectOptions.Add(new Selection { DisplayName = optionDisplayName, Name = category.SitecoreId });
+                    DisplayName = $"Full category path of '{categorySelection.RawValue}'",
+                    IsHidden = false,
+                    IsReadOnly = true,
+                    Name = "FullCategoryPath",
+                    IsRequired = false,
+                    OriginalType = "System.String",
+                    Value = await categoryFactory.GetCategoryPath(categorySelection.RawValue.ToString()),
+                };
 
-                    GetCategories(category.SitecoreId, allCategories, optionDisplayName, ref selectOptions);
-                }
+                arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);
             }
         }
     }

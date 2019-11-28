@@ -1,8 +1,10 @@
 ﻿using Promethium.Plugin.Promotions.Classes;
 using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Properties;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using System;
@@ -10,46 +12,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Properties;
+using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class PrettifyPromotionChildrenDetailsBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private readonly GetCatalogsCommand _getCatalogsCommand;
-        private readonly GetCategoriesCommand _getCategoriesCommand;
+        private readonly GetCategoryCommand _getCategoryCommand;
         private readonly GetSellableItemCommand _getItemCommand;
+        private readonly SitecoreConnectionManager _manager;
         private CommerceContext _commerceContext;
+        private CategoryFactory _categoryFactory;
 
-        private Catalog _catalog;
-        private List<Category> _categories;
-        private async Task<List<Category>> Categories()
+        public PrettifyPromotionChildrenDetailsBlock(GetCategoryCommand getCategoryCommand, GetSellableItemCommand getItemCommand, SitecoreConnectionManager manager)
         {
-            if (_categories == null)
-            {
-                var catalogs = await _getCatalogsCommand.Process(_commerceContext);
-
-                _catalog = catalogs.FirstOrDefault(); //Make the assumption that there is only 1 catalog
-                if (_catalog != null)
-                {
-                    var result = await _getCategoriesCommand.Process(_commerceContext, _catalog.Name);
-                    _categories = result.ToList();
-                }
-            }
-
-            return _categories;
-        }
-
-        public PrettifyPromotionChildrenDetailsBlock(GetCatalogsCommand getCatalogsCommand, GetCategoriesCommand getCategoriesCommand, GetSellableItemCommand getItemCommand)
-        {
-            _getCatalogsCommand = getCatalogsCommand;
-            _getCategoriesCommand = getCategoriesCommand;
+            _getCategoryCommand = getCategoryCommand;
             _getItemCommand = getItemCommand;
+            _manager = manager;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             _commerceContext = context.CommerceContext;
+            _categoryFactory = new CategoryFactory(_commerceContext, _manager, _getCategoryCommand);
 
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
@@ -70,10 +55,10 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             if (arg.ChildViews.Any(x => x.Name.EqualsOrdinalIgnoreCase(childPartName)))
             {
                 var childPart = arg.ChildViews
-                    .Select(x => (EntityView) x)
+                    .OfType<EntityView>()
                     .First(x => x.Name.EqualsOrdinalIgnoreCase(childPartName));
                 var childrenToProcess = childPart.ChildViews
-                    .Select(x => (EntityView) x)
+                    .OfType<EntityView>()
                     .Where(x => x.Properties.Any(y => y.Name.StartsWith("Pm_")))
                     .ToList();
 
@@ -101,7 +86,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 Name = $"Full{originalEntity.Name}",
                 OriginalType = "Html",
                 Policies = originalEntity.Policies,
-                RawValue =  originalEntity.RawValue,
+                RawValue = originalEntity.RawValue,
                 Value = originalEntity.Value
             };
 
@@ -122,7 +107,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             {
                 var variableName = match.Groups[1].ToString();
                 var variable = entity.Properties.FirstOrDefault(x => x.DisplayName.EqualsOrdinalIgnoreCase(variableName));
-                
+
                 if (variable == null && variableName.EqualsOrdinalIgnoreCase("Gift"))
                 {
                     variable = entity.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("TargetItemId"));
@@ -176,23 +161,9 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
         }
 
-        private async Task<string> PrettifyCategory(string input, List<ViewProperty> properties)
+        private async Task<string> PrettifyCategory(string categoryCommerceId, List<ViewProperty> properties)
         {
-            var output = "";
-
-            var categories = await Categories();
-            var category = categories.FirstOrDefault(x => x.SitecoreId == input);
-            while (category != null)
-            {
-                if (category.ParentCategoryList == null)
-                {
-                    break;
-                }
-
-                output = $"/{category.DisplayName}{output}";
-
-                category = categories.FirstOrDefault(x => x.SitecoreId == category.ParentCategoryList);
-            }
+            var output = await _categoryFactory.GetCategoryPath(categoryCommerceId);
 
             var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_IncludeSubCategories"));
             if (includeSubCategories != null)
@@ -211,12 +182,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         private async Task<string> PrettifyProduct(string input)
         {
             var sellableItem = await _getItemCommand.Process(_commerceContext, input, false);
-            if (sellableItem != null)
-            {
-                return sellableItem.DisplayName;
-            }
-
-            return input;
+            return sellableItem != null ? sellableItem.DisplayName : input;
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Classes;
+using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
@@ -14,6 +16,13 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
     public class CartEveryXItemsInCategoryPriceDiscountAction : ICartLineAction
     {
+        private readonly GetCategoryCommand _getCategoryCommand;
+
+        public CartEveryXItemsInCategoryPriceDiscountAction(GetCategoryCommand getCategoryCommand)
+        {
+            _getCategoryCommand = getCategoryCommand;
+        }
+
         public IRuleValue<decimal> Pm_ItemsToAward { get; set; }
 
         public IRuleValue<decimal> Pm_ItemsToPurchase { get; set; }
@@ -52,7 +61,11 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryLines = context.GetCardLines(specificCategory, includeSubCategories);
+            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
+            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
+
+            var cartLineFactory = new CartLineFactory(commerceContext);
+            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
@@ -66,7 +79,8 @@ namespace Promethium.Plugin.Promotions.Actions
 
             if (productsToAward > 0)
             {
-                commerceContext.ApplyAction(categoryLines, amountOff, applyActionTo, Convert.ToInt32(productsToAward), nameof(CartEveryXItemsInCategoryPriceDiscountAction), CommerceContextExtensions.CalculatePriceDiscount);
+                var actionFactory = new ActionFactory(commerceContext);
+                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, Convert.ToInt32(productsToAward), nameof(CartEveryXItemsInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
             }
         }
     }
