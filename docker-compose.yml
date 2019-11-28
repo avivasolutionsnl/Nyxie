@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
  commerce:
-  image: avivasolutionsnl.azurecr.io/promethium-commerce:9.1.0-20190528
+  image: avivasolutionsnl.azurecr.io/promethium-commerce:9.1.0-20191128
   mem_limit: 4096m
   cpu_count: 6
   command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
@@ -33,7 +33,7 @@ services:
     - mssql
 
  mssql:
-  image: avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20190528
+  image: avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20191128
   mem_limit: 4096m
   cpu_count: 4
   networks:
@@ -42,7 +42,7 @@ services:
     - .\databases\wip:C:\Data
 
  sitecore:
-  image: avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20190528
+  image: avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20191128
   mem_limit: 8192m
   cpu_count: 6
   command: -commerceHostname commerce -identityHostname identity
@@ -60,7 +60,7 @@ services:
     - identity
 
  solr:
-  image: avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20190528
+  image: avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20191128
   mem_limit: 4096m
   cpu_count: 4
   networks:
