@@ -42,16 +42,16 @@
 
   <ItemGroup>
     <Reference Include="Sitecore.Commerce.Plugin.Customers">
-      <HintPath>..\packages\sitecore.commerce.plugin.customers\3.0.11\lib\net471\Sitecore.Commerce.Plugin.Customers.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.customers\3.0.11\lib\net471\Sitecore.Commerce.Plugin.Customers.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Fulfillment">
-      <HintPath>..\packages\sitecore.commerce.plugin.fulfillment\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Fulfillment.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.fulfillment\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Fulfillment.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Orders">
-      <HintPath>..\packages\sitecore.commerce.plugin.orders\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Orders.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.orders\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Orders.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Commerce.Plugin.Payments">
-      <HintPath>..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
+      <HintPath>..\..\packages\sitecore.commerce.plugin.payments\3.0.10\lib\net471\Sitecore.Commerce.Plugin.Payments.dll</HintPath>
     </Reference>
   </ItemGroup>
 
