@@ -1,4 +1,5 @@
-﻿using Promethium.Plugin.Promotions.Properties;
+﻿using System;
+using Promethium.Plugin.Promotions.Properties;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using System.Collections.Generic;
@@ -6,33 +7,37 @@ using System.Linq;
 
 namespace Promethium.Plugin.Promotions.Classes
 {
-    internal sealed class ActionProductOrdener
+    public class ApplicationOrder
     {
-        private const string PriceAscendingName = "Price.Ascending";
-        private const string PriceDescendingName = "Price.Descending";
-
-        static ActionProductOrdener()
+        private readonly Func<IEnumerable<CartLineComponent>, IEnumerable<CartLineComponent>> order;
+        
+        public string Name { get; }
+        
+        public string DisplayName { get; }
+        
+        private ApplicationOrder(string name, string displayName, Func<IEnumerable<CartLineComponent>, IEnumerable<CartLineComponent>> order)
         {
-            Options = new List<Selection>
-            {
-                new Selection { DisplayName = Resources.PriceAscending_DisplayName, Name = PriceAscendingName },
-                new Selection { DisplayName = Resources.PriceDescending_DisplayName, Name = PriceDescendingName },
-            };
+            this.order = order;
+            Name = name;
+            DisplayName = displayName;
         }
 
-        internal static List<Selection> Options { get; set; }
-
-        internal static IEnumerable<CartLineComponent> Order(IEnumerable<CartLineComponent> lines, string ordener)
+        public IEnumerable<CartLineComponent> Order(IEnumerable<CartLineComponent> lines)
         {
-            switch (ordener)
-            {
-                case PriceAscendingName:
-                    return lines.OrderBy(x => x.UnitListPrice.Amount);
-                case PriceDescendingName:
-                    return lines.OrderByDescending(x => x.UnitListPrice.Amount);
-                default:
-                    return lines;
-            }
+            return order(lines);
+        }
+
+        public static ApplicationOrder Ascending => 
+            new ApplicationOrder("Price.Ascending", Resources.PriceAscending_DisplayName, lines => lines.OrderBy(x => x.UnitListPrice.Amount));
+
+        public static ApplicationOrder Descending => 
+            new ApplicationOrder("Price.Descending", Resources.PriceDescending_DisplayName, lines => lines.OrderByDescending(x => x.UnitListPrice.Amount));
+
+        public static IEnumerable<ApplicationOrder> All => new[] {Ascending, Descending};
+
+        public static ApplicationOrder Parse(string name)
+        {
+            return All.Single(x => x.Name == name);
         }
     }
 }

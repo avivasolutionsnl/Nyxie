@@ -71,11 +71,18 @@ namespace Promethium.Plugin.Promotions.Actions
 
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
-            if (Pm_Operator.Evaluate(productAmount, specificValue))
+            if (!Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                var actionFactory = new ActionFactory(commerceContext);
-                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
+                return;
             }
+
+            var discountApplicator = new DiscountApplicator(commerceContext);
+            discountApplicator.ApplyPriceDiscount(categoryLines, amountOff, new DiscountOptions
+            {
+                ActionLimit = actionLimit,
+                ApplicationOrder = ApplicationOrder.Parse(applyActionTo),
+                AwardingBlock = nameof(CartItemsMatchingInCategoryPriceDiscountAction)
+            });
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Promethium.Plugin.Promotions.Classes;
 using Promethium.Plugin.Promotions.Factory;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
+
 using System;
 using System.Linq;
 
@@ -77,11 +79,18 @@ namespace Promethium.Plugin.Promotions.Actions
 
             var productsToAward = cartProductsToAward > actionLimit ? actionLimit : cartProductsToAward;
 
-            if (productsToAward > 0)
+            if (productsToAward <= 0)
             {
-                var actionFactory = new ActionFactory(commerceContext);
-                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, Convert.ToInt32(productsToAward), nameof(CartEveryXItemsInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
+                return;
             }
+
+            var discountApplicator = new DiscountApplicator(commerceContext);
+            discountApplicator.ApplyPriceDiscount(categoryLines, amountOff, new DiscountOptions
+            {
+                ActionLimit = Convert.ToInt32(productsToAward),
+                ApplicationOrder = ApplicationOrder.Parse(applyActionTo),
+                AwardingBlock = nameof(CartEveryXItemsInCategoryPriceDiscountAction)
+            });
         }
     }
 }

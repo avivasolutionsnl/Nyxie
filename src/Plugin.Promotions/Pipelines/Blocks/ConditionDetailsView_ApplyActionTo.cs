@@ -22,7 +22,12 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             }
 
             var applyActionTo = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_ApplyActionTo"));
-            applyActionTo?.Policies.Add(new AvailableSelectionsPolicy(ActionProductOrdener.Options));
+            applyActionTo?.Policies.Add(new AvailableSelectionsPolicy(
+                ApplicationOrder.All.Select(x => new Selection
+                {
+                    Name = x.Name, 
+                    DisplayName = x.DisplayName
+                })));
 
             return Task.FromResult(arg);
         }

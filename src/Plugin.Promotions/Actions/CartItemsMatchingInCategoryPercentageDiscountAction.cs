@@ -1,4 +1,5 @@
-﻿using Promethium.Plugin.Promotions.Classes;
+﻿using System;
+using Promethium.Plugin.Promotions.Classes;
 using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
@@ -71,11 +72,18 @@ namespace Promethium.Plugin.Promotions.Actions
 
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
-            if (Pm_Operator.Evaluate(productAmount, specificValue))
+            if (!Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                var actionFactory = new ActionFactory(commerceContext);
-                actionFactory.ApplyAction(categoryLines, percentageOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPercentageDiscountAction), ActionFactory.CalculatePercentageDiscount);
+                return;
             }
+
+            var discountApplicator = new DiscountApplicator(commerceContext);
+            discountApplicator.ApplyPercentageDiscount(categoryLines, percentageOff, new DiscountOptions
+            {
+                ActionLimit = actionLimit,
+                ApplicationOrder = ApplicationOrder.Parse(applyActionTo),
+                AwardingBlock = nameof(CartItemsMatchingInCategoryPercentageDiscountAction)
+            });
         }
     }
 }

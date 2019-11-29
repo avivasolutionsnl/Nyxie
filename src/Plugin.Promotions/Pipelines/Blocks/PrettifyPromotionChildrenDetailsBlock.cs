@@ -151,7 +151,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     return variable.Value;
 
                 case "Pm_ApplyActionTo":
-                    return ActionProductOrdener.Options.First(x => x.Name == variable.Value).DisplayName;
+                    return ApplicationOrder.Parse(variable.Value).DisplayName;
 
                 case "TargetItemId":
                     return await PrettifyProduct(variable.Value);
