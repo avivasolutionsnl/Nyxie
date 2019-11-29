@@ -1,6 +1,4 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;

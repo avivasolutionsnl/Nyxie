@@ -2,7 +2,7 @@
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Pricing;
 
-namespace Promethium.Plugin.Promotions.Classes
+namespace Promethium.Plugin.Promotions
 {
     public class MoneyEx
     {

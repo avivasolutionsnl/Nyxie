@@ -1,4 +1,4 @@
-﻿namespace Promethium.Plugin.Promotions.Classes
+﻿namespace Promethium.Plugin.Promotions
 {
     public class DiscountOptions
     {

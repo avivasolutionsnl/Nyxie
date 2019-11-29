@@ -1,11 +1,9 @@
-﻿using System;
-using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
+
 using System.Linq;
+using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Actions
 {
@@ -16,11 +14,11 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartItemsMatchingInCategoryPercentageDiscountAction))]
     public class CartItemsMatchingInCategoryPercentageDiscountAction : ICartLineAction
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryCartLinesResolver categoryCartLinesResolver;
 
-        public CartItemsMatchingInCategoryPercentageDiscountAction(GetCategoryCommand getCategoryCommand)
+        public CartItemsMatchingInCategoryPercentageDiscountAction(CategoryCartLinesResolver categoryCartLinesResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
         public IBinaryOperator<decimal, decimal> Pm_Operator { get; set; }
@@ -60,16 +58,12 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var cartLineFactory = new CartLineFactory(commerceContext);
-            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
+            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
             }
-
+            
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (!Pm_Operator.Evaluate(productAmount, specificValue))

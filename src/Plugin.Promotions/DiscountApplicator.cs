@@ -1,13 +1,10 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Factory;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-
+using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 
-namespace Promethium.Plugin.Promotions.Classes
+namespace Promethium.Plugin.Promotions
 {
     public class DiscountApplicator
     {

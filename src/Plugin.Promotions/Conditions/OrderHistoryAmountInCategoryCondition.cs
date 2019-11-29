@@ -1,11 +1,9 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
-using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
-using Sitecore.Commerce.Plugin.Catalog;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
+
 using System.Linq;
+using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -16,13 +14,11 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(OrderHistoryAmountInCategoryCondition))]
     public class OrderHistoryAmountInCategoryCondition : ICustomerCondition
     {
-        private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryOrderLinesResolver categoryOrderLinesResolver;
 
-        public OrderHistoryAmountInCategoryCondition(FindEntitiesInListCommand findEntitiesInListCommand, GetCategoryCommand getCategoryCommand)
+        public OrderHistoryAmountInCategoryCondition(CategoryOrderLinesResolver categoryOrderLinesResolver)
         {
-            _findEntitiesInListCommand = findEntitiesInListCommand;
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryOrderLinesResolver = categoryOrderLinesResolver;
         }
 
         public IBinaryOperator<decimal, decimal> Pm_Compares { get; set; }
@@ -46,11 +42,8 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Get Data
             var commerceContext = context.Fact<CommerceContext>();
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var orderHistoryFactory = new OrderHistoryFactory(commerceContext, _findEntitiesInListCommand);
-            var categoryLines = AsyncHelper.RunSync(() => orderHistoryFactory.GetOrderHistory(categorySitecoreId, includeSubCategories));
+            var categoryLines = AsyncHelper.RunSync(() =>
+                categoryOrderLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories));
             if (categoryLines == null)
             {
                 return false;

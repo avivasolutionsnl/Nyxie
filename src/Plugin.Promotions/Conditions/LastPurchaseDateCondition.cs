@@ -1,11 +1,10 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
+using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -16,11 +15,11 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(LastPurchaseDateCondition))]
     public class LastPurchaseDateCondition : ICustomerCondition
     {
-        private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
+        private readonly OrderResolver orderResolver;
 
-        public LastPurchaseDateCondition(FindEntitiesInListCommand findEntitiesInListCommand)
+        public LastPurchaseDateCondition(OrderResolver orderResolver)
         {
-            _findEntitiesInListCommand = findEntitiesInListCommand;
+            this.orderResolver = orderResolver;
         }
 
         //Sitecore only adds Datetime operators out-of-the-box
@@ -29,12 +28,11 @@ namespace Promethium.Plugin.Promotions.Conditions
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
         public IRuleValue<DateTimeOffset> Pm_Date { get; set; }
 
-        public bool Evaluate(IRuleExecutionContext context)
+        public  bool Evaluate(IRuleExecutionContext context)
         {
             var date = Pm_Date.Yield(context).DateTime;
 
-            var orderHistoryFactory = new OrderHistoryFactory(context.Fact<CommerceContext>(), _findEntitiesInListCommand);
-            var orders = AsyncHelper.RunSync(() => orderHistoryFactory.GetAllOrders());
+            var orders = AsyncHelper.RunSync(() => orderResolver.Resolve(context.Fact<CommerceContext>()));
 
             if (orders == null)
             {

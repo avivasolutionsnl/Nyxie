@@ -1,11 +1,9 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Rules;
 using System.Linq;
-using Promethium.Plugin.Promotions.Classes;
 
 namespace Promethium.Plugin.Promotions.Actions
 {

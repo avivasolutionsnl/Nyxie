@@ -1,10 +1,9 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
+
 using System.Linq;
+using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -15,11 +14,11 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(CartProductTotalInCategoryCondition))]
     public class CartProductTotalInCategoryCondition : ICartsCondition
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryCartLinesResolver categoryCartLinesResolver;
 
-        public CartProductTotalInCategoryCondition(GetCategoryCommand getCategoryCommand)
+        public CartProductTotalInCategoryCondition(CategoryCartLinesResolver categoryCartLinesResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
         public IRuleValue<string> Pm_SpecificCategory { get; set; }
@@ -44,16 +43,12 @@ namespace Promethium.Plugin.Promotions.Conditions
             }
 
             //Get data
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var cartLineFactory = new CartLineFactory(commerceContext);
-            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
+            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
             {
                 return false;
             }
-
+            
             //Validate data against configuration
             var categoryTotal = categoryLines.Sum(line => line.Totals.GrandTotal.Amount);
             return Pm_Compares.Evaluate(categoryTotal, specificValue);

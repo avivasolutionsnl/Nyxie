@@ -1,5 +1,4 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Framework.Conditions;
