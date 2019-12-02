@@ -305,18 +305,6 @@ namespace Sitecore.Commerce.Engine
             var opsModel = contextOpsResult.GetEdmModel();
             app.UseRouter(new ODataRoute("CommerceOps", opsModel));
 
-            var appInsightsSettings = applicationInsightsSettings.Value;
-            if (!(appInsightsSettings.TelemetryEnabled &&
-                  !string.IsNullOrWhiteSpace(appInsightsSettings.InstrumentationKey)))
-            {
-                TelemetryConfiguration.Active.DisableTelemetry = true;
-            }
-
-            if (loggingSettings.Value != null && loggingSettings.Value.ApplicationInsightsLoggingEnabled)
-            {
-                loggerFactory.AddApplicationInsights(appInsightsSettings);
-            }
-
             this._nodeContext.PipelineTraceLoggingEnabled = loggingSettings.Value.PipelineTraceLoggingEnabled;
         }
 
