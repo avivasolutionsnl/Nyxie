@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Threading.Tasks;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Orders;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Promethium.Plugin.Promotions.Resolvers
 {
@@ -11,7 +11,7 @@ namespace Promethium.Plugin.Promotions.Resolvers
     {
         private readonly FindEntitiesInListCommand findEntitiesInListCommand;
 
-        public OrderResolver( FindEntitiesInListCommand findEntitiesInListCommand)
+        public OrderResolver(FindEntitiesInListCommand findEntitiesInListCommand)
         {
             this.findEntitiesInListCommand = findEntitiesInListCommand;
         }
@@ -28,7 +28,7 @@ namespace Promethium.Plugin.Promotions.Resolvers
                 commerceContext.CurrentCustomerId());
 
             var result = await findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue);
-            
+
             return result?.Items;
         }
     }

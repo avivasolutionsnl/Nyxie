@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Promethium.Plugin.Promotions.Pipelines.Blocks;
+using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Framework.Configuration;
 using Sitecore.Framework.Pipelines.Definitions.Extensions;
 using Sitecore.Framework.Rules;
 using System.Reflection;
-using Promethium.Plugin.Promotions.Pipelines.Blocks;
-using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions
 {
@@ -141,7 +141,7 @@ namespace Promethium.Plugin.Promotions
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                .ConfigurePipeline< IRunningPluginsPipeline>(c => c.Add<RegisteredPluginBlock>())
+                .ConfigurePipeline<IRunningPluginsPipeline>(c => c.Add<RegisteredPluginBlock>())
             );
         }
     }

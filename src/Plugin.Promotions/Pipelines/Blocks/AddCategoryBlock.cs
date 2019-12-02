@@ -61,7 +61,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 
             var parentCategoryId = parentCategoryList.ToString();
 
-            if(string.IsNullOrEmpty(parentCategoryId))
+            if (string.IsNullOrEmpty(parentCategoryId))
             {
                 return output;
             }

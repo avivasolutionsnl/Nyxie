@@ -24,7 +24,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             applyActionTo?.Policies.Add(new AvailableSelectionsPolicy(
                 ApplicationOrder.All.Select(x => new Selection
                 {
-                    Name = x.Name, 
+                    Name = x.Name,
                     DisplayName = x.DisplayName
                 })));
 

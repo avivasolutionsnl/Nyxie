@@ -1,10 +1,9 @@
-﻿using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
+﻿using Promethium.Plugin.Promotions.Resolvers;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
-using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -28,7 +27,7 @@ namespace Promethium.Plugin.Promotions.Conditions
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
         public IRuleValue<DateTimeOffset> Pm_Date { get; set; }
 
-        public  bool Evaluate(IRuleExecutionContext context)
+        public bool Evaluate(IRuleExecutionContext context)
         {
             var date = Pm_Date.Yield(context).DateTime;
 

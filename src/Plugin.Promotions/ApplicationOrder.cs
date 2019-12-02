@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Promethium.Plugin.Promotions.Properties;
+using Sitecore.Commerce.Plugin.Carts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Promethium.Plugin.Promotions.Properties;
-using Sitecore.Commerce.Plugin.Carts;
 
 namespace Promethium.Plugin.Promotions
 {
     public class ApplicationOrder
     {
         private readonly Func<IEnumerable<CartLineComponent>, IEnumerable<CartLineComponent>> order;
-        
+
         public string Name { get; }
-        
+
         public string DisplayName { get; }
-        
+
         private ApplicationOrder(string name, string displayName, Func<IEnumerable<CartLineComponent>, IEnumerable<CartLineComponent>> order)
         {
             this.order = order;
@@ -26,13 +26,13 @@ namespace Promethium.Plugin.Promotions
             return order(lines);
         }
 
-        public static ApplicationOrder Ascending => 
+        public static ApplicationOrder Ascending =>
             new ApplicationOrder("Price.Ascending", Resources.PriceAscending_DisplayName, lines => lines.OrderBy(x => x.UnitListPrice.Amount));
 
-        public static ApplicationOrder Descending => 
+        public static ApplicationOrder Descending =>
             new ApplicationOrder("Price.Descending", Resources.PriceDescending_DisplayName, lines => lines.OrderByDescending(x => x.UnitListPrice.Amount));
 
-        public static IEnumerable<ApplicationOrder> All => new[] {Ascending, Descending};
+        public static IEnumerable<ApplicationOrder> All => new[] { Ascending, Descending };
 
         public static ApplicationOrder Parse(string name)
         {

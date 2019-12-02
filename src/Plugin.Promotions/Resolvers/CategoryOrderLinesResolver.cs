@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Components;
+﻿using Promethium.Plugin.Promotions.Components;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Promethium.Plugin.Promotions.Resolvers
 {

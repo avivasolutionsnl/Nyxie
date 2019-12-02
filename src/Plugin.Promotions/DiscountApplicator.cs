@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using System;
+using System.Collections.Generic;
 
 namespace Promethium.Plugin.Promotions
 {

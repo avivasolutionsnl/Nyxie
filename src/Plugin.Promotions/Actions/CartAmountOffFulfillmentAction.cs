@@ -43,7 +43,7 @@ namespace Promethium.Plugin.Promotions.Actions
             {
                 amountOff = fulfillmentFee;
             }
-            
+
             //Apply action
             amountOff = new MoneyEx(commerceContext, amountOff).Round().Value.Amount;
 

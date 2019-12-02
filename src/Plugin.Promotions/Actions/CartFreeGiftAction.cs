@@ -55,7 +55,8 @@ namespace Promethium.Plugin.Promotions.Actions
             var sellableItem = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
             if (sellableItem != null)
             {
-                var freeGift = new CartLineComponent {
+                var freeGift = new CartLineComponent
+                {
                     ItemId = targetItemId,
                     Quantity = quantity,
                 };

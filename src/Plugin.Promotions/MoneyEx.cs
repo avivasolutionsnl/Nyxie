@@ -1,6 +1,6 @@
-﻿using System;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Pricing;
+using System;
 
 namespace Promethium.Plugin.Promotions
 {
@@ -16,7 +16,7 @@ namespace Promethium.Plugin.Promotions
             Value = value;
         }
 
-        public MoneyEx(CommerceContext commerceContext, Money value) : 
+        public MoneyEx(CommerceContext commerceContext, Money value) :
             this(commerceContext.GetPolicy<GlobalPricingPolicy>(), value)
         {
         }

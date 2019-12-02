@@ -6,10 +6,6 @@
 
 namespace Sitecore.Commerce.Engine
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading.Tasks;
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,6 +31,10 @@ namespace Sitecore.Commerce.Engine
     using Sitecore.Commerce.Provider.FileSystem;
     using Sitecore.Framework.Diagnostics;
     using Sitecore.Framework.Rules;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Defines the commerce engine startup.
@@ -63,7 +63,7 @@ namespace Sitecore.Commerce.Engine
             this._serviceProvider = serviceProvider;
 
             this.Configuration = configuration;
-            
+
             var appInsightsInstrumentationKey = this.Configuration.GetSection("ApplicationInsights:InstrumentationKey").Value;
             _telemetryClient = !string.IsNullOrWhiteSpace(appInsightsInstrumentationKey) ? new TelemetryClient { InstrumentationKey = appInsightsInstrumentationKey } : new TelemetryClient();
 
@@ -276,7 +276,7 @@ namespace Sitecore.Commerce.Engine
                     .AllowAnyMethod());
 
             app.UseAuthentication();
-            
+
             Task.Run(() => startNodePipeline.Run(this._nodeContext, this._nodeContext.PipelineContextOptions)).Wait();
 
             var environmentName = this.Configuration.GetSection("AppSettings:EnvironmentName").Value;

@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Sitecore.Commerce.Core;
+﻿using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Management;
+using System.Threading.Tasks;
 
 namespace Promethium.Plugin.Promotions.Resolvers
 {

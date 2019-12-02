@@ -1,9 +1,8 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Resolvers;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System.Linq;
-using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Actions
 {
@@ -63,7 +62,7 @@ namespace Promethium.Plugin.Promotions.Actions
             {
                 return;
             }
-            
+
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
             if (!Pm_Operator.Evaluate(productAmount, specificValue))

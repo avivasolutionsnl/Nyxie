@@ -1,10 +1,9 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Resolvers;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Framework.Rules;
-
 using System;
 using System.Linq;
-using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Actions
 {
@@ -65,7 +64,7 @@ namespace Promethium.Plugin.Promotions.Actions
             {
                 return;
             }
-            
+
             //Validate and apply action
             var cartQuantity = Convert.ToInt32(categoryLines.Sum(x => x.Quantity));
             var cartProductsToAward = (cartQuantity / itemsToPurchase) * itemsToAward;

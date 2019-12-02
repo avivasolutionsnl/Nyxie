@@ -1,13 +1,12 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Pipelines;
-
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Resolvers;
 
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
@@ -27,7 +26,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
             var commerceContext = context.CommerceContext;
-            
+
             var results = arg.ChildViews.OfType<EntityView>().Where(x => x.ItemId.IndexOf("-Category", StringComparison.OrdinalIgnoreCase) > 0);
             foreach (var result in results)
             {
@@ -36,7 +35,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 {
                     continue;
                 }
-                
+
                 var category = await _getCommand.Process(commerceContext, result.ItemId);
                 if (category == null)
                 {
@@ -47,7 +46,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     await categoryPathResolver.GetParentPath(commerceContext, category.ParentCategoryList,
                         string.Empty);
 
-                if(parentPath.Length > 0)
+                if (parentPath.Length > 0)
                 {
                     displayProperty.Value = $"{category.DisplayName} in {parentPath}";
                 }

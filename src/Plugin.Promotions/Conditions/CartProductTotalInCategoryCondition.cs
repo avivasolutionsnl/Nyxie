@@ -1,9 +1,8 @@
-﻿using Sitecore.Commerce.Core;
+﻿using Promethium.Plugin.Promotions.Resolvers;
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Framework.Rules;
-
 using System.Linq;
-using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions.Conditions
 {
@@ -48,7 +47,7 @@ namespace Promethium.Plugin.Promotions.Conditions
             {
                 return false;
             }
-            
+
             //Validate data against configuration
             var categoryTotal = categoryLines.Sum(line => line.Totals.GrandTotal.Amount);
             return Pm_Compares.Evaluate(categoryTotal, specificValue);
