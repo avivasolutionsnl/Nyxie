@@ -42,6 +42,201 @@ Fix indexes by:
 
 > If you get an error saying: 'field _indexname' not found: remove files in host [](./data/solr) folder. Restart containers and populate schema.
 
+## How to use
+
+### Qualifications
+
+#### Cart contains products in specific category
+Will apply the given benefit when the cart contains a product in a specific category.
+
+When a qualification is added to a promotion, the following conditions will be available in the list:
+
+`Cart contains [compares] [specific value] products in the [specific category] category`
+
+`Cart contains products in the [specific category] category for a total [compares] $ [specific value]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+| compares              | operator    |                |standard operators|
+| specific value        | integer     |                |indicates the numer of products compared using the configured operator|
+| specific category     | category    |                |The name of the category. This is a search box. |
+|Include sub categories |bool         |true            |indicates whether sub categories are included|
+
+> If nothing happens when entering the category name and no categories can be found: make sure the indexes have been build and see the fix indexes paragraph above.
+
+#### Cart has specific fulfillment
+Will apply the given benefit when the cart contains a specific fulfillment method.
+
+`Cart fulfillment is [operator] [specific fulfillment]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     | equals         | equals/does not equal          |
+|Fulfillment method     |fulfillment method||indicates the fulfillment method compared using the configured operator|
+
+> The qualification will not apply if no fulfillment has been chosen.
+
+#### Cart has specific payment
+Will apply the given benefit when the cart contains a specific payment method.
+
+`Cart payment method is [operator] [specific payment]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     | equals         | equals/does not equal          |
+|Payment method         |payment method|               |indicates the payment method compared using the configured operator|
+
+> The qualification will not apply if no payment has been chosen.
+
+#### Products in a specific category in order history
+Will apply the given benefit when the order history of the customer contains products in a specific category.
+
+`Order history contains [compares] [specific value] products in the [specific category] category`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|compares               |operator     |                |standard operators              |
+|specific value         |integer      |                |indicates the number of products compared using the configured operator|
+|specific               |category     |                |a fully qualified category path |
+|Include sub categories |bool         | true           |indicates whether sub categories are included|
+
+`Order history contains products in the [specific category] category for a total [compares] $ [specific value]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|compares               |operator     |                |standard operators              |
+|specific value         |integer      |                |indicates the subtotal of products compared using the configured operator|
+|specific               |category     |                |a fully qualified category path |
+|Include sub categories |bool         | true           |indicates whether sub categories are included|
+
+### Benefits
+
+#### Get a free gift
+Will add a free gift to the cart when the given qualification has been met.
+
+`Get [quantity] free [gift]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Product                | product     |                |the product to add as free gift |
+|Quantity               | integer     |1               |the number of products to add   |
+
+> The gift will be removed from the cart when the qualification is no longer met.
+
+#### % discount on every N-th qualifying product
+Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
+
+`For every [Items to award] of [Items to purchase] products in [Category] you get [Percentage Off] on the [Apply Award To] with a limit of [Award Limit]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Category               |category     |                |a fully qualified category path |
+|Include sub categories |bool         |true            |indicates whether sub categories are included|
+|Items to purchase      |integer      |                |indicates the number of items (N) to be puchased for the discount to be applied|
+|Items to award         |integer      |                |indicates the number of items (X) the discount will be applied to|
+|Percentage Off         |decimal      |                |the percentage to deduct from the item price|
+|Award Limit            |integer      |                |the maximum number of times the benefit will be applied|
+|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
+
+The action will do the following:
+
+1. Select the eligable items
+2. Sort the items by most/least expensive
+3. Calculate the number of times the discount should be applied 
+4. Apply the discount to the most/least expensive items
+
+> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
+
+> Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+#### $ discount on every N-th qualifying product
+
+Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
+
+`For every [Items to award] of [Items to purchase] products in [Category] you get [Amount Off] on the [Apply Award To] with a limit of [Award Limit]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Category               |category     |                |a fully qualified category path |
+|Include sub categories |bool         |true            |indicates whether sub categories are included|
+|Items to purchase      |integer      |                |indicates the number of items (N) to be puchased for the discount to be applied|
+|Items to award         |integer      |                |indicates the number of items (X) the discount will be applied to|
+|Amount Off             |decimal      |                |the amount to deduct from the item price|
+|Award Limit            |integer      |                |the maximum number of times the benefit will be applied|
+|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
+
+The action will do the following:
+
+1. Select the eligable items
+2. Sort the items by most/least expensive
+3. Calculate the number of times the discount should be applied 
+4. Apply the discount to the most/least expensive items
+
+> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
+
+> Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+#### Get $ discount on shipping
+Will deduct a certain amount of the shipping costs when the given qualification is met.
+
+`Get [specific amount] off the shipping cost`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Amount Off             |decimal      |                |the amount to deduct from the shipping cost|
+
+#### $ discount on products in a specific category
+Will deduct a certain amount of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+
+`When you buy [Operator] [Product count] products in [Category] you get [Amount off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     |                |standard operators              |
+|Product count          |integer      |                |indicates the numer of products compared using the configured operator|
+|Category               |category     |                |a fully qualified category path|
+|Include sub categories |bool         | true           |indicates whether sub categories are included|
+|Amount Off             |decimal      |                |the amount to deduct from the product price|
+|Award Limit            |integer      |                |the maximum number of products the benefit will be applied to|
+|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
+
+The action will do the following:
+
+1. Select the eligable items
+2. Sort the items by most/least expensive
+3. Calculate the number of times the discount should be applied 
+4. Apply the discount to the most/least expensive items
+
+> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
+
+> Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+#### % discount on products in a specific category
+Will deduct a certain percentage of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+
+`When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     |                |standard operators              |
+|Product count          |integer      |                |indicates the numer of products compared using the configured operator|
+|Category               |category     |                |a fully qualified category path|
+|Include sub categories |bool         | true           |indicates whether sub categories are included|
+|Percentage Off         |decimal      |                |the percentage to deduct from the product price|
+|Award Limit            |integer      |                |the maximum number of products the benefit will be applied to|
+|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
+
+The action will do the following:
+
+1. Select the eligable items
+2. Sort the items by most/least expensive
+3. Calculate the number of times the discount should be applied 
+4. Apply the discount to the most/least expensive items
+
+> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
+
+> Uses the same rounding algorithm as Sitecore uses in its benefits.
+
 ## Resources
 https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
 Out of the box, sitecore doesn't allow boolean values in Conditions.
