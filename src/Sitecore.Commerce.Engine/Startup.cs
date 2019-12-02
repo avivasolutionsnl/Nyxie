@@ -132,7 +132,7 @@ namespace Sitecore.Commerce.Engine
 
             this.SetupDataProtection(services);
 
-            var serializer = new EntitySerializerCommand(this._serviceProvider);
+            var serializer = new CommerceCommander(this._serviceProvider);
             this.StartupEnvironment = this.GetGlobalEnvironment(serializer);
             this._nodeContext.Environment = this.StartupEnvironment;
 
@@ -393,7 +393,7 @@ namespace Sitecore.Commerce.Engine
         /// </summary>
         /// <param name="serializer">The serializer.</param>
         /// <returns>A <see cref="CommerceEnvironment"/></returns>
-        private CommerceEnvironment GetGlobalEnvironment(EntitySerializerCommand serializer)
+        private CommerceEnvironment GetGlobalEnvironment(CommerceCommander serializer)
         {
             CommerceEnvironment environment;
             var bootstrapProviderFolderPath = String.Concat(Path.Combine(this._hostEnv.WebRootPath, "Bootstrap"), Path.DirectorySeparatorChar);
