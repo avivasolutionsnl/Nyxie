@@ -16,10 +16,10 @@
 
   <ItemGroup>
     <PackageReference Include="Sitecore.Commerce.Core">
-      <Version>3.0.17</Version>
+      <Version>4.0.72</Version>
     </PackageReference>
-    <PackageReference Include="Sitecore.Commerce.Plugin.Carts" Version="3.0.13" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Catalog" Version="3.0.15" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Carts" Version="4.0.18" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Catalog" Version="4.0.61" />
   </ItemGroup>
 
   <ItemGroup>
