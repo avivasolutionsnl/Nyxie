@@ -28,6 +28,12 @@ namespace Promethium.Plugin.Promotions.Resolvers
         private List<CartLineComponent> GetLinesMatchingCategory(CommerceContext commerceContext, string categorySitecoreId, bool includeSubCategories)
         {
             var lines = GetCartLines(commerceContext);
+
+            if (lines == null)
+            {
+                return new List<CartLineComponent>();
+            }
+
             return lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(categorySitecoreId, includeSubCategories)).ToList();
         }
 

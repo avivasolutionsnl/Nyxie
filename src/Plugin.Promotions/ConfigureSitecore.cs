@@ -4,6 +4,8 @@ using Sitecore.Framework.Configuration;
 using Sitecore.Framework.Pipelines.Definitions.Extensions;
 using Sitecore.Framework.Rules;
 using System.Reflection;
+using Promethium.Plugin.Promotions.Pipelines.Blocks;
+using Promethium.Plugin.Promotions.Resolvers;
 
 namespace Promethium.Plugin.Promotions
 {
@@ -23,6 +25,11 @@ namespace Promethium.Plugin.Promotions
             var assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
             services.RegisterAllCommands(assembly);
+
+            services.AddTransient<CategoryPathResolver>();
+            services.AddTransient<CategoryCartLinesResolver>();
+            services.AddTransient<CategoryOrderLinesResolver>();
+            services.AddTransient<OrderResolver>();
 
             services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterThisAssembly()));
 
@@ -134,6 +141,7 @@ namespace Promethium.Plugin.Promotions
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                .ConfigurePipeline< IRunningPluginsPipeline>(c => c.Add<RegisteredPluginBlock>())
             );
         }
     }

@@ -10,7 +10,7 @@ namespace Promethium.Plugin.Promotions.Resolvers
         private readonly SitecoreConnectionManager manager;
         private readonly GetCategoryCommand getCategoryCommand;
 
-        internal CategoryPathResolver(SitecoreConnectionManager manager, GetCategoryCommand getCategoryCommand)
+        public CategoryPathResolver(SitecoreConnectionManager manager, GetCategoryCommand getCategoryCommand)
         {
             this.manager = manager;
             this.getCategoryCommand = getCategoryCommand;
