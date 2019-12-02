@@ -47,7 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugin.Promotions\Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Plugin.Promotions\Plugin.Promotions.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
