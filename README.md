@@ -12,14 +12,12 @@
 Promethium.Serialization --> \build\website
 Sitecore.Commerce.Engine --> \build\commerce
 
+- Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
+    - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in (./env)
+
 - Copy your Sitecore license file (license.xml) to the .\license folder
 
-- Login in to the Docker repository using your Aviva credentials:
-```
-PS> az acr login --name avivasolutionsnl
-```
-
-- Spin up the environment, make sure you are using windows and not linux containers:
+- Spin up the environment (make sure you are using Windows and not Linux containers):
 ```
 PS> docker-compose up
 ```
@@ -39,18 +37,7 @@ Fix indexes by:
 
 > If you get an error saying: 'field _indexname' not found: remove files in host \cores folder. Restart containers and populate schema.
 
-## Build Promethium docker images
-- Run the docker script `.\Build-docker-images.ps1 ` 
-- Publish the docker images, for example:
-
-```
-docker push avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20190528
-docker push avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20190528
-docker push avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20190528
-```
-
 ## Resources
-
 https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
 Out of the box, sitecore doesn't allow boolean values in Conditions.
 To change this behavior we made our own version of the BuildRuleSetBlock in which we called our own SitecoreExtensions.ConvertToConditionExtended and SitecoreExtensions.ConvertToActionExtended.
