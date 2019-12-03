@@ -60,6 +60,13 @@ When a qualification is added to a promotion, the following conditions will be a
 
 `Cart contains [compares] [specific value] products in the [specific category] category`
 
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+| compares              | operator    |                |standard operators|
+| specific value        | integer     |                |indicates the subtotal of products compared using the configured operator|
+| specific category     | category    |                |The name of the category. This is a search box. |
+|Include sub categories |bool         |true            |indicates whether sub categories are included|
+
 `Cart contains products in the [specific category] category for a total [compares] $ [specific value]`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -74,6 +81,8 @@ When a qualification is added to a promotion, the following conditions will be a
 #### Cart has specific fulfillment
 Will apply the given benefit when the cart contains a specific fulfillment method.
 
+When a qualification is added to a promotion, the following condition will be available in the list:
+
 `Cart fulfillment is [operator] [specific fulfillment]`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -86,6 +95,8 @@ Will apply the given benefit when the cart contains a specific fulfillment metho
 #### Cart has specific payment
 Will apply the given benefit when the cart contains a specific payment method.
 
+When a qualification is added to a promotion, the following condition will be available in the list:
+
 `Cart payment method is [operator] [specific payment]`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -97,6 +108,8 @@ Will apply the given benefit when the cart contains a specific payment method.
 
 #### Products in a specific category in order history
 Will apply the given benefit when the order history of the customer contains products in a specific category.
+
+When a qualification is added to a promotion, the following conditions will be available in the list:
 
 `Order history contains [compares] [specific value] products in the [specific category] category`
 
@@ -121,6 +134,8 @@ Will apply the given benefit when the order history of the customer contains pro
 #### Get a free gift
 Will add a free gift to the cart when the given qualification has been met.
 
+When a benefit is added to a promotion, the following action will be available in the list:
+
 `Get [quantity] free [gift]`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -132,6 +147,8 @@ Will add a free gift to the cart when the given qualification has been met.
 
 #### % discount on every N-th qualifying product
 Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
+
+When a benefit is added to a promotion, the following action will be available in the list:
 
 `For every [Items to award] of [Items to purchase] products in [Category] you get [Percentage Off] on the [Apply Award To] with a limit of [Award Limit]`
 
@@ -160,6 +177,8 @@ The action will do the following:
 
 Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
 
+When a benefit is added to a promotion, the following action will be available in the list:
+
 `For every [Items to award] of [Items to purchase] products in [Category] you get [Amount Off] on the [Apply Award To] with a limit of [Award Limit]`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -186,6 +205,8 @@ The action will do the following:
 #### Get $ discount on shipping
 Will deduct a certain amount of the shipping costs when the given qualification is met.
 
+When a benefit is added to a promotion, the following action will be available in the list:
+
 `Get [specific amount] off the shipping cost`
 
 | Variable              | Type        | Default value  |Description                     |
@@ -194,6 +215,8 @@ Will deduct a certain amount of the shipping costs when the given qualification 
 
 #### $ discount on products in a specific category
 Will deduct a certain amount of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+
+When a benefit is added to a promotion, the following action will be available in the list:
 
 `When you buy [Operator] [Product count] products in [Category] you get [Amount off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
 
@@ -220,6 +243,8 @@ The action will do the following:
 
 #### % discount on products in a specific category
 Will deduct a certain percentage of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+
+When a benefit is added to a promotion, the following action will be available in the list:
 
 `When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
 
