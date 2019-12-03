@@ -132,7 +132,7 @@ namespace Sitecore.Commerce.Engine
 
             this.SetupDataProtection(services);
 
-            var serializer = new CommerceCommander(this._serviceProvider);
+            var serializer = new CommerceCommander();
             this.StartupEnvironment = this.GetGlobalEnvironment(serializer);
             this._nodeContext.Environment = this.StartupEnvironment;
 
