@@ -38,6 +38,7 @@ namespace Promethium.Plugin.Promotions
 
                 for (var i = 0; i < line.Quantity; i++)
                 {
+                    // Stop applying the discount when the number of items has exceeded the limit.
                     if (counter == options.ActionLimit)
                     {
                         return;
