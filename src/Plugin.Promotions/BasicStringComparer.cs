@@ -1,7 +1,7 @@
 ﻿using Sitecore.Commerce.Core;
 using System.Collections.Generic;
 
-namespace Promethium.Plugin.Promotions.Classes
+namespace Promethium.Plugin.Promotions
 {
     internal sealed class BasicStringComparer
     {

@@ -1,8 +1,5 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
+﻿using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System.Linq;
@@ -16,13 +13,11 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(OrderHistoryTotalInCategoryCondition))]
     public class OrderHistoryTotalInCategoryCondition : ICustomerCondition
     {
-        private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryOrderLinesResolver categoryOrderLinesResolver;
 
-        public OrderHistoryTotalInCategoryCondition(FindEntitiesInListCommand findEntitiesInListCommand, GetCategoryCommand getCategoryCommand)
+        public OrderHistoryTotalInCategoryCondition(CategoryOrderLinesResolver categoryOrderLinesResolver)
         {
-            _findEntitiesInListCommand = findEntitiesInListCommand;
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryOrderLinesResolver = categoryOrderLinesResolver;
         }
 
         public IRuleValue<string> Pm_SpecificCategory { get; set; }
@@ -46,11 +41,8 @@ namespace Promethium.Plugin.Promotions.Conditions
 
             //Get data
             var commerceContext = context.Fact<CommerceContext>();
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var orderHistoryFactory = new OrderHistoryFactory(commerceContext, _findEntitiesInListCommand);
-            var categoryLines = AsyncHelper.RunSync(() => orderHistoryFactory.GetOrderHistory(categorySitecoreId, includeSubCategories));
+            var categoryLines = AsyncHelper.RunSync(() =>
+                categoryOrderLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories));
             if (categoryLines == null)
             {
                 return false;

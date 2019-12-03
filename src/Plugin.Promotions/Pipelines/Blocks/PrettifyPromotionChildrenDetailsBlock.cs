@@ -1,10 +1,9 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using Promethium.Plugin.Promotions.Extensions;
 using Promethium.Plugin.Promotions.Properties;
+using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
-using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using System;
@@ -12,30 +11,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class PrettifyPromotionChildrenDetailsBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
         private readonly GetSellableItemCommand _getItemCommand;
-        private readonly SitecoreConnectionManager _manager;
-        private CommerceContext _commerceContext;
-        private CategoryFactory _categoryFactory;
+        private readonly CategoryPathResolver categoryPathResolver;
 
-        public PrettifyPromotionChildrenDetailsBlock(GetCategoryCommand getCategoryCommand, GetSellableItemCommand getItemCommand, SitecoreConnectionManager manager)
+        public PrettifyPromotionChildrenDetailsBlock(GetSellableItemCommand getItemCommand, CategoryPathResolver categoryPathResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
             _getItemCommand = getItemCommand;
-            _manager = manager;
+            this.categoryPathResolver = categoryPathResolver;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
-            _commerceContext = context.CommerceContext;
-            _categoryFactory = new CategoryFactory(_commerceContext, _manager, _getCategoryCommand);
-
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var type = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Type"));
@@ -44,13 +35,15 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return arg;
             }
 
-            await PrettifyChildDetails(arg, "Qualifications");
-            await PrettifyChildDetails(arg, "Benefits");
+            var commerceContext = context.CommerceContext;
+
+            await PrettifyChildDetails(arg, "Qualifications", commerceContext);
+            await PrettifyChildDetails(arg, "Benefits", commerceContext);
 
             return arg;
         }
 
-        private async Task PrettifyChildDetails(EntityView arg, string childPartName)
+        private async Task PrettifyChildDetails(EntityView arg, string childPartName, CommerceContext commerceContext)
         {
             if (arg.ChildViews.Any(x => x.Name.EqualsOrdinalIgnoreCase(childPartName)))
             {
@@ -66,13 +59,13 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 {
                     foreach (var child in childrenToProcess)
                     {
-                        await PrettifyChild(child);
+                        await PrettifyChild(child, commerceContext);
                     }
                 }
             }
         }
 
-        private async Task PrettifyChild(EntityView entity)
+        private async Task PrettifyChild(EntityView entity, CommerceContext commerceContext)
         {
             var originalEntity = entity.Properties.First(x => x.Name.EqualsOrdinalIgnoreCase("Condition") || x.Name.EqualsOrdinalIgnoreCase("Action"));
             originalEntity.IsHidden = true;
@@ -117,12 +110,12 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 {
                     variable.IsHidden = true;
 
-                    var variableValue = await PrettifyVariableValue(variable, entity.Properties);
+                    var variableValue = await PrettifyVariableValue(variable, entity.Properties, commerceContext);
                     fullEntity.Value = fullEntity.Value.Replace(match.Value, $"<strong>{variableValue}</strong>");
                 }
             }
 
-            fullEntity.Value = fullEntity.Value.Replace("$", _commerceContext.CurrentCurrency());
+            fullEntity.Value = fullEntity.Value.Replace("$", commerceContext.CurrentCurrency());
 
             // A quick and dirty resolution to let the content go over multiple lines.
             // Add extra div's with specific default classes because adding custom style is stripped by Angular.
@@ -130,7 +123,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             fullEntity.Value = $"<div class='dropdown-header p-0 border-0'><div class='col-form-legend p-0'>{fullEntity.Value}</div></div>";
         }
 
-        private async Task<string> PrettifyVariableValue(ViewProperty variable, List<ViewProperty> properties)
+        private async Task<string> PrettifyVariableValue(ViewProperty variable, List<ViewProperty> properties, CommerceContext commerceContext)
         {
             switch (variable.Name)
             {
@@ -140,7 +133,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     return variable.Value.PrettifyOperatorName();
 
                 case "Pm_SpecificCategory":
-                    return await PrettifyCategory(variable.Value, properties);
+                    return await PrettifyCategory(variable.Value, properties, commerceContext);
 
                 case "Pm_Date":
                     if (DateTimeOffset.TryParse(variable.Value, out DateTimeOffset date))
@@ -151,19 +144,19 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     return variable.Value;
 
                 case "Pm_ApplyActionTo":
-                    return ActionProductOrdener.Options.First(x => x.Name == variable.Value).DisplayName;
+                    return ApplicationOrder.Parse(variable.Value).DisplayName;
 
                 case "TargetItemId":
-                    return await PrettifyProduct(variable.Value);
+                    return await PrettifyProduct(variable.Value, commerceContext);
 
                 default:
                     return variable.Value;
             }
         }
 
-        private async Task<string> PrettifyCategory(string categoryCommerceId, List<ViewProperty> properties)
+        private async Task<string> PrettifyCategory(string categoryCommerceId, List<ViewProperty> properties, CommerceContext commerceContext)
         {
-            var output = await _categoryFactory.GetCategoryPath(categoryCommerceId);
+            var output = await categoryPathResolver.GetCategoryPath(commerceContext, categoryCommerceId);
 
             var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_IncludeSubCategories"));
             if (includeSubCategories != null)
@@ -179,9 +172,9 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             return output;
         }
 
-        private async Task<string> PrettifyProduct(string input)
+        private async Task<string> PrettifyProduct(string input, CommerceContext commerceContext)
         {
-            var sellableItem = await _getItemCommand.Process(_commerceContext, input, false);
+            var sellableItem = await _getItemCommand.Process(commerceContext, input, false);
             return sellableItem != null ? sellableItem.DisplayName : input;
         }
     }

@@ -50,11 +50,23 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             //Place parent path before the current children output
             var output = $"/{categoryId}{input}";
 
-            var item = await _manager.GetItemByIdAsync(_commerceContext, input);
+            var item = await _manager.GetItemByIdAsync(_commerceContext, categoryId);
 
-            return item["ParentCategoryList"] != null ?
-                await GetCategoryIdPath(item["ParentCategoryList"].ToString(), output) :
-                output;
+            var parentCategoryList = item["ParentCategoryList"];
+
+            if (parentCategoryList == null)
+            {
+                return output;
+            }
+
+            var parentCategoryId = parentCategoryList.ToString();
+
+            if (string.IsNullOrEmpty(parentCategoryId))
+            {
+                return output;
+            }
+
+            return await GetCategoryIdPath(parentCategoryId, output);
         }
     }
 }

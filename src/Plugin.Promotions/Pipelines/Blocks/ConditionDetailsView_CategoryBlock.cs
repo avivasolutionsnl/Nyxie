@@ -1,8 +1,8 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
+using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
-using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Commerce.Plugin.Search;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
@@ -10,19 +10,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Promethium.Plugin.Promotions.Factory;
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_CategoryBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
-        private readonly SitecoreConnectionManager _manager;
+        private readonly CategoryPathResolver categoryPathResolver;
 
-        public ConditionDetailsView_CategoryBlock(GetCategoryCommand getCategoryCommand, SitecoreConnectionManager manager)
+        public ConditionDetailsView_CategoryBlock(CategoryPathResolver categoryPathResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
-            _manager = manager;
+            this.categoryPathResolver = categoryPathResolver;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
@@ -67,7 +64,6 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
                 categorySelection.RawValue.ToString().IndexOf("-Category-", StringComparison.OrdinalIgnoreCase) > 0)
             {
-                var categoryFactory = new CategoryFactory(context.CommerceContext, _manager, _getCategoryCommand);
                 var readOnlyProp = new ViewProperty
                 {
                     DisplayName = $"Full category path of '{categorySelection.RawValue}'",
@@ -76,7 +72,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                     Name = "FullCategoryPath",
                     IsRequired = false,
                     OriginalType = "System.String",
-                    Value = await categoryFactory.GetCategoryPath(categorySelection.RawValue.ToString()),
+                    Value = await categoryPathResolver.GetCategoryPath(context.CommerceContext, categorySelection.RawValue.ToString()),
                 };
 
                 arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);

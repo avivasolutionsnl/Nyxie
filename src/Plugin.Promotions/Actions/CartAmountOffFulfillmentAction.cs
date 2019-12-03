@@ -1,5 +1,4 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Factory;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
@@ -46,12 +45,14 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Apply action
-            var actionFactory = new ActionFactory(commerceContext);
-            amountOff = actionFactory.ShouldRoundPriceCalc(amountOff);
+            amountOff = new MoneyEx(commerceContext, amountOff).Round().Value.Amount;
 
-            cart.Adjustments.Add(actionFactory.CreateCartLevelAwardedAdjustment(amountOff * -1, nameof(CartAmountOffFulfillmentAction)));
+            var adjustment = AwardedAdjustmentFactory.CreateCartLevelAwardedAdjustment(amountOff * -1,
+                nameof(CartAmountOffFulfillmentAction), commerceContext);
+            cart.Adjustments.Add(adjustment);
 
-            actionFactory.AddPromotionApplied(cart.GetComponent<MessagesComponent>(), nameof(CartAmountOffFulfillmentAction));
+            cart.GetComponent<MessagesComponent>()
+                .AddPromotionApplied(commerceContext, nameof(CartAmountOffFulfillmentAction));
         }
 
         private static decimal GetFulfillmentFee(Cart cart)

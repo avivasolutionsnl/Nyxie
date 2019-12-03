@@ -1,8 +1,6 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
+﻿using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System;
 using System.Linq;
@@ -16,11 +14,11 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
     public class CartEveryXItemsInCategoryPriceDiscountAction : ICartLineAction
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryCartLinesResolver categoryCartLinesResolver;
 
-        public CartEveryXItemsInCategoryPriceDiscountAction(GetCategoryCommand getCategoryCommand)
+        public CartEveryXItemsInCategoryPriceDiscountAction(CategoryCartLinesResolver categoryCartLinesResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
         public IRuleValue<decimal> Pm_ItemsToAward { get; set; }
@@ -61,11 +59,7 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var cartLineFactory = new CartLineFactory(commerceContext);
-            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
+            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
@@ -77,11 +71,18 @@ namespace Promethium.Plugin.Promotions.Actions
 
             var productsToAward = cartProductsToAward > actionLimit ? actionLimit : cartProductsToAward;
 
-            if (productsToAward > 0)
+            if (productsToAward <= 0)
             {
-                var actionFactory = new ActionFactory(commerceContext);
-                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, Convert.ToInt32(productsToAward), nameof(CartEveryXItemsInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
+                return;
             }
+
+            var discountApplicator = new DiscountApplicator(commerceContext);
+            discountApplicator.ApplyPriceDiscount(categoryLines, amountOff, new DiscountOptions
+            {
+                ActionLimit = Convert.ToInt32(productsToAward),
+                ApplicationOrder = ApplicationOrder.Parse(applyActionTo),
+                AwardingBlock = nameof(CartEveryXItemsInCategoryPriceDiscountAction)
+            });
         }
     }
 }

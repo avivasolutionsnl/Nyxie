@@ -1,8 +1,6 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
+﻿using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Rules;
 using System.Linq;
 
@@ -15,11 +13,11 @@ namespace Promethium.Plugin.Promotions.Actions
     [EntityIdentifier("Pm_" + nameof(CartItemsMatchingInCategoryPriceDiscountAction))]
     public class CartItemsMatchingInCategoryPriceDiscountAction : ICartLineAction
     {
-        private readonly GetCategoryCommand _getCategoryCommand;
+        private readonly CategoryCartLinesResolver categoryCartLinesResolver;
 
-        public CartItemsMatchingInCategoryPriceDiscountAction(GetCategoryCommand getCategoryCommand)
+        public CartItemsMatchingInCategoryPriceDiscountAction(CategoryCartLinesResolver categoryCartLinesResolver)
         {
-            _getCategoryCommand = getCategoryCommand;
+            this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
         public IBinaryOperator<decimal, decimal> Pm_Operator { get; set; }
@@ -59,11 +57,7 @@ namespace Promethium.Plugin.Promotions.Actions
             }
 
             //Get data
-            var categoryFactory = new CategoryFactory(commerceContext, null, _getCategoryCommand);
-            var categorySitecoreId = AsyncHelper.RunSync(() => categoryFactory.GetSitecoreIdFromCommerceId(specificCategory));
-
-            var cartLineFactory = new CartLineFactory(commerceContext);
-            var categoryLines = cartLineFactory.GetLinesMatchingCategory(categorySitecoreId, includeSubCategories);
+            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
             {
                 return;
@@ -71,11 +65,18 @@ namespace Promethium.Plugin.Promotions.Actions
 
             //Validate and apply action
             var productAmount = categoryLines.Sum(x => x.Quantity);
-            if (Pm_Operator.Evaluate(productAmount, specificValue))
+            if (!Pm_Operator.Evaluate(productAmount, specificValue))
             {
-                var actionFactory = new ActionFactory(commerceContext);
-                actionFactory.ApplyAction(categoryLines, amountOff, applyActionTo, actionLimit, nameof(CartItemsMatchingInCategoryPriceDiscountAction), ActionFactory.CalculatePriceDiscount);
+                return;
             }
+
+            var discountApplicator = new DiscountApplicator(commerceContext);
+            discountApplicator.ApplyPriceDiscount(categoryLines, amountOff, new DiscountOptions
+            {
+                ActionLimit = actionLimit,
+                ApplicationOrder = ApplicationOrder.Parse(applyActionTo),
+                AwardingBlock = nameof(CartItemsMatchingInCategoryPriceDiscountAction)
+            });
         }
     }
 }

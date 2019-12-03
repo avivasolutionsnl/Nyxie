@@ -1,7 +1,5 @@
-﻿using Promethium.Plugin.Promotions.Classes;
-using Promethium.Plugin.Promotions.Factory;
+﻿using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
 using System;
@@ -16,11 +14,11 @@ namespace Promethium.Plugin.Promotions.Conditions
     [EntityIdentifier("Pm_" + nameof(FirstPurchaseDateCondition))]
     public class FirstPurchaseDateCondition : ICustomerCondition
     {
-        private readonly FindEntitiesInListCommand _findEntitiesInListCommand;
+        private readonly OrderResolver orderResolver;
 
-        public FirstPurchaseDateCondition(FindEntitiesInListCommand findEntitiesInListCommand)
+        public FirstPurchaseDateCondition(OrderResolver orderResolver)
         {
-            _findEntitiesInListCommand = findEntitiesInListCommand;
+            this.orderResolver = orderResolver;
         }
 
         //Sitecore only adds Datetime operators out-of-the-box
@@ -32,8 +30,7 @@ namespace Promethium.Plugin.Promotions.Conditions
         public bool Evaluate(IRuleExecutionContext context)
         {
             var date = Pm_Date.Yield(context).DateTime;
-            var orderHistoryFactory = new OrderHistoryFactory(context.Fact<CommerceContext>(), _findEntitiesInListCommand);
-            var orders = AsyncHelper.RunSync(() => orderHistoryFactory.GetAllOrders());
+            var orders = AsyncHelper.RunSync(() => orderResolver.Resolve(context.Fact<CommerceContext>()));
 
             if (orders == null)
             {

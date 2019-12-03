@@ -48,7 +48,8 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 return null;
             }
             _ruleBuilder = _services.GetService<IRuleBuilderInit>();
-            var ruleSet1 = new RuleSet {
+            var ruleSet1 = new RuleSet
+            {
                 Id = $"{CommerceEntity.IdPrefix<RuleSet>() as object}{Guid.NewGuid() as object:N}"
             };
             var ruleSet2 = ruleSet1;
@@ -77,7 +78,7 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
             var model1 = model.Conditions.First();
             var metadata1 = _entityRegistry.GetMetadata(model1.LibraryId);
             var ruleBuilder = _ruleBuilder.When(model1.ConvertToConditionExtended(metadata1, _entityRegistry, _services));
-            for (var index = 1;index < model.Conditions.Count;++index)
+            for (var index = 1; index < model.Conditions.Count; ++index)
             {
                 var condition1 = model.Conditions[index];
                 var metadata2 = _entityRegistry.GetMetadata(condition1.LibraryId);

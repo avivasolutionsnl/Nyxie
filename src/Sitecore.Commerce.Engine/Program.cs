@@ -6,14 +6,14 @@
 
 namespace Sitecore.Commerce.Engine
 {
-    using System;
-    using System.IO;
-    using System.Net;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Serilog;
+    using System;
+    using System.IO;
+    using System.Net;
 
     /// <summary>
     /// Defines the program class

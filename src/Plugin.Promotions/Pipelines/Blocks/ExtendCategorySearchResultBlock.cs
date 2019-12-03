@@ -1,13 +1,13 @@
 ﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Factory;
+using Promethium.Plugin.Promotions.Resolvers;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
-using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Pipelines;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Promethium.Plugin.Promotions.Pipelines.Blocks
 {
@@ -15,20 +15,18 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
     public class ExtendCategorySearchResultBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly GetCategoryCommand _getCommand;
-        private readonly SitecoreConnectionManager _manager;
-        private CommerceContext _commerceContext;
+        private readonly CategoryPathResolver categoryPathResolver;
 
-        public ExtendCategorySearchResultBlock(GetCategoryCommand getCommand, SitecoreConnectionManager manager)
+        public ExtendCategorySearchResultBlock(GetCategoryCommand getCommand, CategoryPathResolver categoryPathResolver)
         {
             _getCommand = getCommand;
-            _manager = manager;
+            this.categoryPathResolver = categoryPathResolver;
         }
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
-            _commerceContext = context.CommerceContext;
-            
-            var factory = new CategoryFactory(context.CommerceContext, _manager, null);
+            var commerceContext = context.CommerceContext;
+
             var results = arg.ChildViews.OfType<EntityView>().Where(x => x.ItemId.IndexOf("-Category", StringComparison.OrdinalIgnoreCase) > 0);
             foreach (var result in results)
             {
@@ -37,15 +35,18 @@ namespace Promethium.Plugin.Promotions.Pipelines.Blocks
                 {
                     continue;
                 }
-                
-                var category = await _getCommand.Process(_commerceContext, result.ItemId);
+
+                var category = await _getCommand.Process(commerceContext, result.ItemId);
                 if (category == null)
                 {
                     continue;
                 }
 
-                var parentPath = await factory.GetParentPath(category.ParentCategoryList, string.Empty);
-                if(parentPath.Length > 0)
+                var parentPath =
+                    await categoryPathResolver.GetParentPath(commerceContext, category.ParentCategoryList,
+                        string.Empty);
+
+                if (parentPath.Length > 0)
                 {
                     displayProperty.Value = $"{category.DisplayName} in {parentPath}";
                 }
