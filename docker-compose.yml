@@ -140,9 +140,3 @@ services:
       - .\logs\identity:C:\inetpub\wwwroot\logs
     links:
       - sql
-
-# TODO:
-# networks:
-#   promethium:
-#     external:
-#       name: nat
