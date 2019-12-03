@@ -37,7 +37,7 @@ services:
     image: ${REGISTRY}sitecore-xc-xconnect-indexworker:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
       - ${LICENSE_PATH}:C:\license
-      - .\data\xconnect-indexworker:C:\IndexWorker\App_Data\logs
+      - .\logs\xconnect-indexworker:C:\IndexWorker\App_Data\logs
     mem_limit: 500MB
     links:
       - sql
@@ -47,7 +47,7 @@ services:
     image: ${REGISTRY}sitecore-xp-xconnect-processingengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
       - ${LICENSE_PATH}:C:\license
-      - .\data\xconnect-processingengine:C:\ProcessingEngine\App_Data\logs
+      - .\logs\xconnect-processingengine:C:\ProcessingEngine\App_Data\logs
     mem_limit: 500MB
     restart: unless-stopped
     links:
@@ -56,10 +56,11 @@ services:
 
   cd:
     image: ${REGISTRY}sitecore-xc-sxa-storefront-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
       - ${LICENSE_PATH}:C:\license
-      - .\data\cd:C:\inetpub\wwwroot\App_Data\logs
-      - .\build\website:C:\Workspace #TODO: Copy script
+      - .\logs\cd:C:\inetpub\wwwroot\App_Data\logs
+      - .\build\website:C:\src
     links:
       - commerce-ops
       - commerce-shops
@@ -69,10 +70,11 @@ services:
 
   cm:
     image: ${REGISTRY}sitecore-xc-sxa-storefront-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
       - ${LICENSE_PATH}:C:\license
-      - .\data\cm:C:\inetpub\wwwroot\App_Data\logs
-      - .\build\website:C:\Workspace #TODO: Copy script
+      - .\logs\cm:C:\inetpub\wwwroot\App_Data\logs
+      - .\build\website:C:\src
       - .\Unicorn:C:\inetpub\wwwroot\App_Data\Unicorn
     links:
       - sql
@@ -82,36 +84,40 @@ services:
 
   commerce-authoring:
     image: ${REGISTRY}sitecore-xc-engine-authoring:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
-      - .\data\commerce-authoring:C:\inetpub\wwwroot\wwwroot\logs
-      - .\build\commerce:C:\Workspace #TODO: Copy script
+      - .\logs\commerce-authoring:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
     links:
       - sql
       - solr
 
   commerce-minions:
     image: ${REGISTRY}sitecore-xc-engine-minions:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
-      - .\data\commerce-minions:C:\inetpub\wwwroot\wwwroot\logs
-      - .\build\commerce:C:\Workspace #TODO: Copy script
+      - .\logs\commerce-minions:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
     links:
       - sql
       - solr
 
   commerce-ops:
     image: ${REGISTRY}sitecore-xc-engine-ops:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
-      - .\data\commerce-ops:C:\inetpub\wwwroot\wwwroot\logs
-      - .\build\commerce:C:\Workspace #TODO: Copy script
+      - .\logs\commerce-ops:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
     links:
       - sql
       - solr
 
   commerce-shops:
     image: ${REGISTRY}sitecore-xc-engine-shops:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
     volumes:
-      - .\data\commerce-shops:C:\inetpub\wwwroot\wwwroot\logs
-      - .\build\commerce:C:\Workspace #TODO: Copy script
+      - .\logs\commerce-shops:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
     links:
       - sql
       - solr

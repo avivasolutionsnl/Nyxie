@@ -25,7 +25,10 @@ PS> docker-compose up
 To set the Docker container service names as DNS names on your host edit your `hosts` file. 
 A convenient tool to automatically do this is [whales-names](https://github.com/gregolsky/whales-names).
 
-Synchronize the development content by running Unicorn: [http://sitecore/unicorn.aspx?verb=sync](http://sitecore/unicorn.aspx?verb=sync).
+Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.2.x).
+> Unselect the Habitat catalog in `Commerce > Catalog Management > Catalogs` before adding a Storefront site
+
+Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
 
 Fix indexes by:
 
