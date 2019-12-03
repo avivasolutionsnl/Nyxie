@@ -1,85 +1,148 @@
 version: '2.4'
 
 services:
- commerce:
-  image: avivasolutionsnl.azurecr.io/promethium-commerce:9.1.0-20191128
-  mem_limit: 4096m
-  cpu_count: 6
-  command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
-  networks:
-    - promethium
-  volumes:
-    - .\logs\commerce\CommerceAuthoring_Sc9:C:\inetpub\wwwroot\CommerceAuthoring_Sc9\wwwroot\logs
-    - .\logs\commerce\CommerceMinions_Sc9:C:\inetpub\wwwroot\CommerceMinions_Sc9\wwwroot\logs
-    - .\logs\commerce\CommerceOps_Sc9:C:\inetpub\wwwroot\CommerceOps_Sc9\wwwroot\logs
-    - .\logs\commerce\CommerceShops_Sc9:C:\inetpub\wwwroot\CommerceShops_Sc9\wwwroot\logs
-    - .\build\commerce:C:\Workspace
-  depends_on:
-    - xconnect
-    - mssql
-    - solr
-    - sitecore
-    - identity
+  sql:
+    image: ${REGISTRY}sitecore-xc-sxa-storefront-sqldev:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - .\data\sql:C:\Data
+    mem_limit: 2GB
 
- identity:
-  image: avivasolutionsnl.azurecr.io/sitecore-xc-identity:9.1.0-20190528
-  command: -commerceHostname commerce -sitecoreHostname sitecore -identityHostname identity
-  networks:
-    - promethium
-  volumes:
-    - .\logs\identity:C:\inetpub\wwwroot\identity\app_data\logs
-    - .\license:C:\inetpub\wwwroot\identity\sitecoreruntime
-  depends_on:
-    - mssql
+  solr:
+    image: ${REGISTRY}sitecore-xc-sxa-solr:${SITECORE_VERSION}-nanoserver-${NANOSERVER_VERSION}
+    volumes:
+      - .\data\solr:C:\Data
+    mem_limit: 1GB
 
- mssql:
-  image: avivasolutionsnl.azurecr.io/promethium-mssql:9.1.0-20191128
-  mem_limit: 4096m
-  cpu_count: 4
-  networks:
-    - promethium
-  volumes:
-    - .\databases\wip:C:\Data
+  xconnect:
+    image: ${REGISTRY}sitecore-xc-xconnect:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\xconnect:C:\inetpub\wwwroot\App_Data\logs
+    mem_limit: 1GB
+    links:
+      - sql
+      - solr
 
- sitecore:
-  image: avivasolutionsnl.azurecr.io/promethium-sitecore:9.1.0-20191128
-  mem_limit: 8192m
-  cpu_count: 6
-  command: -commerceHostname commerce -identityHostname identity
-  networks:
-    - promethium
-  volumes:
-    - .\logs\sitecore:C:\inetpub\wwwroot\sitecore\App_Data\logs
-    - .\build\website:C:\Workspace
-    - .\Unicorn:C:\inetpub\wwwroot\sitecore\App_Data\Unicorn
-    - .\license:C:\license
-  depends_on:
-    - xconnect
-    - mssql
-    - solr
-    - identity
+  xconnect-automationengine:
+    image: ${REGISTRY}sitecore-xc-xconnect-automationengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\xconnect-automationengine:C:\AutomationEngine\App_Data\logs
+    mem_limit: 500MB
+    links:
+      - sql
+      - xconnect
 
- solr:
-  image: avivasolutionsnl.azurecr.io/promethium-solr:9.1.0-20191128
-  mem_limit: 4096m
-  cpu_count: 4
-  networks:
-    - promethium
-  volumes:
-    - .\cores:C:\Data
+  xconnect-indexworker:
+    image: ${REGISTRY}sitecore-xc-xconnect-indexworker:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\xconnect-indexworker:C:\IndexWorker\App_Data\logs
+    mem_limit: 500MB
+    links:
+      - sql
+      - solr
 
- xconnect:
-  image: avivasolutionsnl.azurecr.io/sitecore-xc-xconnect:9.1.0-20190528
-  networks:
-    - promethium
-  volumes:
-    - .\logs\xconnect:C:\inetpub\wwwroot\xconnect\App_data\Logs
-    - .\license:C:\license
-  depends_on:
-    - mssql
-    - solr
+  xconnect-processingengine:
+    image: ${REGISTRY}sitecore-xp-xconnect-processingengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\xconnect-processingengine:C:\ProcessingEngine\App_Data\logs
+    mem_limit: 500MB
+    restart: unless-stopped
+    links:
+      - sql
+      - xconnect
 
-networks:
-  promethium:
-    external:
-      name: nat
+  cd:
+    image: ${REGISTRY}sitecore-xc-sxa-storefront-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\cd:C:\inetpub\wwwroot\App_Data\logs
+      - .\build\website:C:\src
+    links:
+      - commerce-ops
+      - commerce-shops
+      - sql
+      - solr
+      - xconnect
+
+  cm:
+    image: ${REGISTRY}sitecore-xc-sxa-storefront-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\cm:C:\inetpub\wwwroot\App_Data\logs
+      - .\build\website:C:\src
+      - .\Unicorn:C:\inetpub\wwwroot\App_Data\Unicorn
+    links:
+      - sql
+      - solr
+      - xconnect
+      - commerce-authoring
+
+  commerce-authoring:
+    image: ${REGISTRY}sitecore-xc-engine-authoring:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - .\logs\commerce-authoring:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
+    mem_limit: 1GB
+    links:
+      - sql
+      - solr
+
+  commerce-minions:
+    image: ${REGISTRY}sitecore-xc-engine-minions:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - .\logs\commerce-minions:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
+    mem_limit: 1GB
+    links:
+      - sql
+      - solr
+
+  commerce-ops:
+    image: ${REGISTRY}sitecore-xc-engine-ops:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - .\logs\commerce-ops:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
+    mem_limit: 1GB
+    links:
+      - sql
+      - solr
+
+  commerce-shops:
+    image: ${REGISTRY}sitecore-xc-engine-shops:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    volumes:
+      - .\logs\commerce-shops:C:\inetpub\wwwroot\wwwroot\logs
+      - .\build\commerce:C:\src
+    mem_limit: 1GB
+    links:
+      - sql
+      - solr
+
+  bizfx:
+    image: ${REGISTRY}sitecore-xc-bizfx:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    ports:
+      - "4200:80"
+    mem_limit: 1GB
+    links:
+      - commerce-authoring
+      - identity
+
+  redis:
+    image: ${REGISTRY}sitecore-redis:3.0.504-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+
+  identity:
+    image: ${REGISTRY}sitecore-xc-identity:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\logs\identity:C:\inetpub\wwwroot\logs
+    mem_limit: 1GB
+    links:
+      - sql
