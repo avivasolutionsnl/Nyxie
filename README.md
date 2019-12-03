@@ -15,7 +15,7 @@ Sitecore.Commerce.Engine --> \build\commerce
 - Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
     - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in (./env)
 
-- Copy your Sitecore license file (license.xml) to the .\license folder
+- Copy your Sitecore license file (license.xml) to the [](./license) folder
 
 - Spin up the environment (make sure you are using Windows and not Linux containers):
 ```
@@ -38,7 +38,7 @@ Fix indexes by:
 - Update Data Templates
 - Goto control panel and rebuild the `sitecore_master_index` & `sitecore_sxa_master_index`
 
-> If you get an error saying: 'field _indexname' not found: remove files in host \cores folder. Restart containers and populate schema.
+> If you get an error saying: 'field _indexname' not found: remove files in host [](./data/solr) folder. Restart containers and populate schema.
 
 ## Resources
 https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
