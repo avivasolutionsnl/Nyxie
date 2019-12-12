@@ -1,4 +1,4 @@
-﻿# Trigger for all pull requests 
+# Trigger for all pull requests 
 # (this is achieved by not mentioning the pr: attribute at all..., see https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#pull-request-validation)
 
 # Don't trigger on tag/branch changes
