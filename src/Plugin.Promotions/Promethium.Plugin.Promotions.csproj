@@ -15,8 +15,13 @@
     <PackageReference Include="Sitecore.Commerce.Core">
       <Version>4.0.72</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.OData.Core" Version="7.5.0" PrivateAssets="All" />
     <PackageReference Include="Sitecore.Commerce.Plugin.Carts" Version="4.0.18" />
     <PackageReference Include="Sitecore.Commerce.Plugin.Catalog" Version="4.0.61" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Customers" Version="4.0.16" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Fulfillment" Version="4.0.27" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Management" Version="4.0.26" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Payments" Version="4.0.27" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
