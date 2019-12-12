@@ -1,0 +1,19 @@
+﻿trigger:
+  branches:
+    include:
+    - develop
+    - release/*
+    - master
+
+pr: none
+
+pool:
+  vmImage: 'VS2017-Win2016'
+
+steps:
+- task: PowerShell@2
+  displayName: Run NUKE Build (Pack)
+  inputs:
+    targetType: 'filePath'
+    filePath: build.ps1
+    arguments: Publish

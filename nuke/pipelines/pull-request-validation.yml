@@ -1,0 +1,16 @@
+﻿# Trigger for all pull requests 
+# (this is achieved by not mentioning the pr: attribute at all..., see https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#pull-request-validation)
+
+# Don't trigger on tag/branch changes
+trigger: none
+
+pool:
+  vmImage: 'VS2017-Win2016'
+
+steps:
+- task: PowerShell@2
+  displayName: Run NUKE Build (Pack)
+  inputs:
+    targetType: 'filePath'
+    filePath: build.ps1
+    arguments: Package
