@@ -40,7 +40,7 @@
 
     <PackageReference Include="Sitecore.Commerce.Plugin.Orders.DelayedAvailability" Version="4.0.26" />
     <PackageReference Include="Sitecore.Commerce.Plugin.FaultInjection" Version="4.0.26" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Content" Version="4.0.26" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Content" Version="4.0.26"/>
     <PackageReference Include="Sitecore.Commerce.Plugin.Workflow" Version="4.0.72" />
   </ItemGroup>
 
