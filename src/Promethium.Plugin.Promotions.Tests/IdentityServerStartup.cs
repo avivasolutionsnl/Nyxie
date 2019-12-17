@@ -18,13 +18,14 @@ namespace Promethium.Plugin.Promotions.Tests
         public void ConfigureServices(IServiceCollection services)
         {
             var builder = services.AddIdentityServer()
-                                  .AddTestUsers(new List<TestUser>{
+                                  .AddTestUsers(new List<TestUser>
+                                  {
                                       new TestUser
                                       {
                                           Username = "sitecore\\admin",
                                           Password = "b",
                                           IsActive = true,
-                                          SubjectId =  "sitecore\\admin",
+                                          SubjectId = "sitecore\\admin",
                                           Claims = new List<Claim>
                                           {
                                               new Claim("name", "admin"),
@@ -32,9 +33,9 @@ namespace Promethium.Plugin.Promotions.Tests
                                           }
                                       }
                                   })
-                                  .AddInMemoryApiResources(new []
+                                  .AddInMemoryApiResources(new[]
                                   {
-                                      new ApiResource("EngineAPI", new []{"name", "email", "role"})
+                                      new ApiResource("EngineAPI", new[] { "name", "email", "role" })
                                   })
                                   .AddInMemoryClients(new[]
                                   {

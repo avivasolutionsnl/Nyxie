@@ -6,7 +6,6 @@
     <IsPackable>false</IsPackable>
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="wwwroot\bootstrap\Global.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,59 +1,148 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 
-using FakeItEasy;
+using Microsoft.Extensions.DependencyInjection;
 
-using Microsoft.ApplicationInsights;
-using Microsoft.Extensions.Logging;
-
-using Promethium.Plugin.Promotions.Conditions;
+using Newtonsoft.Json;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
-using Sitecore.Framework.Rules;
+using Sitecore.Commerce.Plugin.Pricing;
+using Sitecore.Commerce.Plugin.Promotions;
+using Sitecore.Commerce.Plugin.Rules;
 
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Promethium.Plugin.Promotions.Tests
 {
-    public class CartFulfillmentConditionTests
-    {
-        [Fact]
-        public void Should_qualify()
+    [Collection("Engine collection")]
+    public class CartFulfillmentConditionTests 
+    { 
+        private readonly EngineFixture fixture;
+
+        public CartFulfillmentConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
         {
-            var condition = new CartFulfillmentCondition
+            engineFixture.SetOutput(testOutputHelper);
+            fixture = engineFixture;
+        }
+
+        [Fact]
+        public async void Should_qualify()
+        {
+            var client = fixture.Factory.CreateClient();
+
+            var promotion = new Promotion
             {
-                Pm_BasicStringCompare = new LiteralRuleValue<string>("Sitecore.Framework.Rules.StringEqualityOperator"),
-                Pm_SpecificFulfillment = new LiteralRuleValue<string>("GiftCard")
+                Id = "P001",
+                ValidFrom = DateTimeOffset.UtcNow.AddDays(-10),
+                ValidTo = DateTimeOffset.UtcNow.AddDays(10),
+                IsPersisted = true,
+                Published = true,
+                Name = "My promotion"
             };
 
-            var commerceContext = new CommerceContext(A.Fake<ILogger>(), new TelemetryClient(),
-                A.Fake<IGetLocalizableMessagePipeline>());
+            promotion.AddPolicies(new PromotionQualificationsPolicy
+            {
+                Qualifications = new[]
+                {
+                    new ConditionModel
+                    {
+                        Name = "Pm_CartFulfillmentCondition",
+                        LibraryId = "Pm_CartFulfillmentCondition",
+                        Properties = new List<PropertyModel>
+                        {
+                            new PropertyModel
+                            {
+                                Name = "Pm_BasicStringCompare",
+                                Value = "Sitecore.Framework.Rules.StringEqualityOperator"
+                            },
+                            new PropertyModel
+                            {
+                                Name = "Pm_SpecificFulfillment",
+                                Value = "Standard"
+                            }
+                        }
+                    }
+                }
+            }, new PromotionBenefitsPolicy
+            {
+                Benefits = new[]
+                {
+                    new ActionModel
+                    {
+                        Name = "CartSubtotalPercentOffAction",
+                        LibraryId = "CartSubtotalPercentOffAction",
+                        Properties = new List<PropertyModel>
+                        {
+                            new PropertyModel
+                            {
+                                Name = "PercentOff",
+                                Value = "10"
+                            }
+                        }
+                    }
+                }
+            });
+
+            promotion.AddComponents(new PromotionRulesComponent(), new ApprovalComponent("Approved"));
+
+            using (var scope = fixture.Factory.Server.Host.Services.CreateScope())
+            {
+                var block  = scope.ServiceProvider.GetRequiredService<BuildPromotionQualifyingRuleBlock>();
+
+                promotion = await block.Run(promotion, fixture.Factory.CreateCommerceContext().PipelineContext);
+
+                var applyingBlock = scope.ServiceProvider.GetRequiredService<BuildPromotionApplyingRuleBlock>();
+
+                promotion = await applyingBlock.Run(promotion, fixture.Factory.CreateCommerceContext().PipelineContext);
+            }
+
+            fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
+            fixture.Factory.AddEntity(promotion);
 
             var cart = new Cart
             {
-                Lines = new[] {new CartLineComponent() }
+                Id = "Cart01",
+                DateUpdated = DateTimeOffset.UtcNow
             };
-
-            cart.AddComponents(new FulfillmentComponent
+            cart.AddComponents(new ContactComponent
             {
-                FulfillmentMethod = new EntityReference("001", "GiftCard")
+                Language = "en"
+            }, new FulfillmentComponent
+            {
+                FulfillmentMethod = new EntityReference("001", "Standard")
             });
 
-            commerceContext.AddObject(cart);
-
-
-            bool result = condition.Evaluate(
-                new RuleExecutionContext(new FactProvider(new[]
+            cart.Lines.Add(new CartLineComponent
+            {
+                Quantity = 1,
+                ItemId = "001",
+                Policies = { new PurchaseOptionMoneyPolicy
                 {
-                    new LiteralFactResolver(commerceContext)
-                })));
+                    SellPrice = new Money(33),
+                }}
+            });
 
-            Assert.True(result);
+            cart.AddPolicies(new CalculateCartPolicy{ AlwaysCalculate = true});
+            fixture.Factory.AddEntity(cart);
+
+            var message = new HttpRequestMessage(HttpMethod.Get, "api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+         
+            var response = await client.SendAsync(message);
+
+            Assert.True(response.IsSuccessStatusCode);
+
+            var responseAsString = await response.Content.ReadAsStringAsync();
+
+            var resultCart =  JsonConvert.DeserializeObject<Cart>(responseAsString);
+
+            Assert.Contains(resultCart.Adjustments, c => c.AwardingBlock == nameof(CartSubtotalPercentOffAction));
         }
+
+
     }
+
 }

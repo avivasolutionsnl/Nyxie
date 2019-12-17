@@ -27,7 +27,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promethium.Serialization", "src\Promethium.Serialization\Promethium.Serialization.csproj", "{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "nuke\_build.csproj", "{751A6055-2A3B-4766-BB62-C784E9005F75}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promethium.Plugin.Promotions.Tests", "src\Promethium.Plugin.Promotions.Tests\Promethium.Plugin.Promotions.Tests.csproj", "{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promethium.Plugin.Promotions.Tests", "src\Promethium.Plugin.Promotions.Tests\Promethium.Plugin.Promotions.Tests.csproj", "{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.Habitat", "src\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj", "{059F30F0-5104-493E-BC6F-8F3D8B6F6785}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +38,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{751A6055-2A3B-4766-BB62-C784E9005F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{751A6055-2A3B-4766-BB62-C784E9005F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E68F9A9-396C-487C-BEB9-C24E47721E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E68F9A9-396C-487C-BEB9-C24E47721E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E68F9A9-396C-487C-BEB9-C24E47721E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,10 +49,16 @@ Global
 		{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751A6055-2A3B-4766-BB62-C784E9005F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751A6055-2A3B-4766-BB62-C784E9005F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059F30F0-5104-493E-BC6F-8F3D8B6F6785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059F30F0-5104-493E-BC6F-8F3D8B6F6785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059F30F0-5104-493E-BC6F-8F3D8B6F6785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059F30F0-5104-493E-BC6F-8F3D8B6F6785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,12 +40,13 @@
 
     <PackageReference Include="Sitecore.Commerce.Plugin.Orders.DelayedAvailability" Version="4.0.26" />
     <PackageReference Include="Sitecore.Commerce.Plugin.FaultInjection" Version="4.0.26" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Content" Version="4.0.26"/>
+    <PackageReference Include="Sitecore.Commerce.Plugin.Content" Version="4.0.26" />
     <PackageReference Include="Sitecore.Commerce.Plugin.Workflow" Version="4.0.72" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Plugin.Promotions\Promethium.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
