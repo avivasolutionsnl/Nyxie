@@ -152,6 +152,12 @@ namespace Promethium.Plugin.Promotions.Tests
             inMemoryListStore.Add(list, entity);
         }
 
+        public void ClearAllEntities()
+        {
+            inMemoryStore.Entities.Clear();
+            inMemoryListStore.Lists.Clear();
+        }
+
         public CommerceContext CreateCommerceContext()
         {
             using (IServiceScope scope = Server.Host.Services.CreateScope())

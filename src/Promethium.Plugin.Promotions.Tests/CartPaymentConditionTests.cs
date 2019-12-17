@@ -10,27 +10,27 @@ using Xunit.Abstractions;
 namespace Promethium.Plugin.Promotions.Tests
 {
     [Collection("Engine collection")]
-    public class CartFulfillmentConditionTests 
+    public class CartPaymentConditionTests 
     { 
         private readonly EngineFixture fixture;
 
-        public CartFulfillmentConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
+        public CartPaymentConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
         {
             engineFixture.SetOutput(testOutputHelper);
             fixture = engineFixture;
         }
 
         [Fact]
-        public async void Should_qualify_when_operator_is_equal_and_fulfillment_method_is_same()
+        public async void Should_qualify_when_operator_is_equal_and_payment_method_is_same()
         {
             fixture.Factory.ClearAllEntities();
 
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartFulfillmentConditionBuilder()
+                                  .QualifiedBy(new CartPaymentConditionBuilder()
                                       .Equal()
-                                      .WithValue("Standard"))
+                                      .WithValue("Federated"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -39,7 +39,7 @@ namespace Promethium.Plugin.Promotions.Tests
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Standard"))
+                             .WithPaymentMethod(new EntityReference("001", "Federated"))
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -50,16 +50,16 @@ namespace Promethium.Plugin.Promotions.Tests
         }
 
         [Fact]
-        public async void Should_not_qualify_when_operator_is_equal_and_fulfillment_method_is_different()
+        public async void Should_not_qualify_when_operator_is_equal_and_payment_method_is_different()
         {
             fixture.Factory.ClearAllEntities();
 
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartFulfillmentConditionBuilder()
+                                  .QualifiedBy(new CartPaymentConditionBuilder()
                                                .Equal()
-                                               .WithValue("Standard"))
+                                               .WithValue("Federated"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -68,7 +68,7 @@ namespace Promethium.Plugin.Promotions.Tests
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Express"))
+                             .WithPaymentMethod(new EntityReference("001", "Express"))
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -79,16 +79,16 @@ namespace Promethium.Plugin.Promotions.Tests
         }
 
         [Fact]
-        public async void Should_qualify_when_operator_is_not_equal_and_fulfillment_method_is_different()
+        public async void Should_qualify_when_operator_is_not_equal_and_payment_method_is_different()
         {
             fixture.Factory.ClearAllEntities();
 
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartFulfillmentConditionBuilder()
+                                  .QualifiedBy(new CartPaymentConditionBuilder()
                                                .NotEqual()
-                                               .WithValue("Standard"))
+                                               .WithValue("Federated"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -97,7 +97,7 @@ namespace Promethium.Plugin.Promotions.Tests
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Express"))
+                             .WithPaymentMethod(new EntityReference("001", "Express"))
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -109,16 +109,16 @@ namespace Promethium.Plugin.Promotions.Tests
 
 
         [Fact]
-        public async void Should_not_qualify_when_operator_is_not_equal_and_fulfillment_method_is_same()
+        public async void Should_not_qualify_when_operator_is_not_equal_and_payment_method_is_same()
         {
             fixture.Factory.ClearAllEntities();
 
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartFulfillmentConditionBuilder()
+                                  .QualifiedBy(new CartPaymentConditionBuilder()
                                                .NotEqual()
-                                               .WithValue("Standard"))
+                                               .WithValue("Federated"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -127,7 +127,7 @@ namespace Promethium.Plugin.Promotions.Tests
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Standard"))
+                             .WithPaymentMethod(new EntityReference("001", "Federated"))
                              .Build();
 
             fixture.Factory.AddEntity(cart);
