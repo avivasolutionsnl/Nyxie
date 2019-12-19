@@ -23,11 +23,18 @@ namespace Promethium.Plugin.Promotions.Tests
         public bool IsEnabled(LogLevel logLevel)
             => true;
 
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
+            Func<TState, Exception, string> formatter)
         {
-            _testOutputHelper.WriteLine($"{_categoryName} [{eventId}] {formatter(state, exception)}");
-            if (exception != null)
-                _testOutputHelper.WriteLine(exception.ToString());
+            try
+            {
+                _testOutputHelper.WriteLine($"{_categoryName} [{eventId}] {formatter(state, exception)}");
+                if (exception != null)
+                    _testOutputHelper.WriteLine(exception.ToString());
+            }
+            catch
+            {
+            }
         }
 
         private class NoopDisposable : IDisposable
