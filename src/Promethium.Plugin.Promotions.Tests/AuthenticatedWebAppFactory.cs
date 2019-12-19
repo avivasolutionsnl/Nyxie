@@ -62,7 +62,9 @@ namespace Promethium.Plugin.Promotions.Tests
                  .AddJsonFile("config.json", false, true);
                 b.AddInMemoryCollection(new Dictionary<string, string>
                 {
-                    { "AppSettings:SitecoreIdentityServerUrl", "http://localhost" }
+                    { "AppSettings:SitecoreIdentityServerUrl", "http://localhost" },
+                    //{ "Logging:LogLevel:Default", "Debug" },
+                    //{ "Logging:PipelineTraceLoggingEnabled", "true" }
                 });
             });
 
