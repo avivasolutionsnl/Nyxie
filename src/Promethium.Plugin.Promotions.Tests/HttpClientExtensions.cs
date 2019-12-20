@@ -34,9 +34,19 @@ namespace Promethium.Plugin.Promotions.Tests
             return await client.PutAsync(requestUri, new StringContent(json, Encoding.UTF8, "application/json")); ;
         }
 
-        public static async Task<T> GetJsonAsync<T>(this HttpClient client, string requestUri)
+        public static async Task<T> GetJsonAsync<T>(this HttpClient client, string requestUri, Dictionary<string, string> headers = null)
         {
-            var response = await client.GetAsync(requestUri);
+            var message = new HttpRequestMessage(HttpMethod.Get, requestUri);
+
+            if(headers != null)
+            {
+                foreach(KeyValuePair<string, string> header in headers)
+                {
+                    message.Headers.Add(header.Key, header.Value);
+                }
+            }
+
+            var response = await client.SendAsync(message);
 
             Assert.True(response.IsSuccessStatusCode);
 

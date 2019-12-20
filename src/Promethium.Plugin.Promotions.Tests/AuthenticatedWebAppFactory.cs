@@ -148,10 +148,17 @@ namespace Promethium.Plugin.Promotions.Tests
                 inMemoryStore.Add(entity);
             }
         }
-
         public void AddEntityToList(CommerceEntity entity, string list)
         {
             inMemoryListStore.Add(list, entity);
+        }
+
+        public void AddEntitiesToList(string list, params CommerceEntity[] entities)
+        {
+            foreach (CommerceEntity entity in entities)
+            {
+                inMemoryListStore.Add(list, entity);
+            }
         }
 
         public void ClearAllEntities()
