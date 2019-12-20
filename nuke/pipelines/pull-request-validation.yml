@@ -14,3 +14,10 @@ steps:
     targetType: 'filePath'
     filePath: build.ps1
     arguments: Package
+# This task publishes the test results to Azure DevOps, so that the results are visible in de "Tests" tab of the build
+- task: PublishTestResults@2
+  condition: always()
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: VSTest
+    testResultsFiles: '**/*.trx'
