@@ -86,7 +86,8 @@ partial class Build : NukeBuild
                $"*Tests/bin/{Configuration}/*/*.Tests.dll");
 
            Xunit2(x => x.AddTargetAssemblies(unitTestDlls.Select(x => x.ToString()))
-                                    .SetFramework("net471"));
+                                    .SetFramework("net471")
+                                    .AddResultReport(Xunit2ResultFormat.Xml, OutputDirectory / "testresults.xml"));
        });
 
     Target Package => _ => _

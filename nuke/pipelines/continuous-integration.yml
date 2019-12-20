@@ -22,5 +22,5 @@ steps:
   condition: always()
   displayName: 'Publish Test Results'
   inputs:
-    testResultsFormat: VSTest
-    testResultsFiles: '**/*.trx'
+    testResultsFormat: xUnit 2
+    testResultsFiles: 'output/testresults.xml'
