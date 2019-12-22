@@ -11,7 +11,7 @@ using Sitecore.Commerce.Plugin.Promotions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Promethium.Plugin.Promotions.Tests.Conditions
 {
     [Collection("Engine collection")]
     public class FirstPurchaseDateConditionTests

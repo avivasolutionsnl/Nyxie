@@ -12,14 +12,14 @@ using Sitecore.Commerce.Plugin.Promotions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Promethium.Plugin.Promotions.Tests.Conditions
 {
     [Collection("Engine collection")]
-    public class OrderHistoryAmountInCategoryConditionTests
+    public class OrderHistoryTotalInCategoryConditionTests
     {
         private readonly EngineFixture fixture;
 
-        public OrderHistoryAmountInCategoryConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
+        public OrderHistoryTotalInCategoryConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
         {
             engineFixture.SetOutput(testOutputHelper);
             fixture = engineFixture;
@@ -37,6 +37,7 @@ namespace Promethium.Plugin.Promotions.Tests
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
+                                   .Price(33)
                                    .InCategory("435345345"))
                         .Build();
 
@@ -44,9 +45,9 @@ namespace Promethium.Plugin.Promotions.Tests
                 string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId));
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .Total("33")
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
@@ -87,21 +88,23 @@ namespace Promethium.Plugin.Promotions.Tests
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
+                                   .Price(33)
                                    .InCategory("435345345"))
                         .Build();
 
             var secondOrder = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
+                                   .Price(33)
                                    .InCategory("435345345"))
                         .Build();
 
             fixture.Factory.AddEntitiesToList(string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId), order, secondOrder);
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("2") // Both orders have 1 product and total should be 2
+                                               .Total("66") // Both orders have 1 product and total should be 2
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
@@ -142,16 +145,17 @@ namespace Promethium.Plugin.Promotions.Tests
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
-                                   .InCategory("435345345"))
+                                   .Price(33)
+                        .InCategory("435345345"))
                         .Build();
 
             fixture.Factory.AddEntityToList(order,
                 string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId));
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .Total("33")
                                                .ForCategory("Tablets"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
@@ -192,6 +196,7 @@ namespace Promethium.Plugin.Promotions.Tests
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
+                                   .Price(33)
                                    .InCategory("/435345345/subcategory"))
                         .Build();
 
@@ -199,9 +204,9 @@ namespace Promethium.Plugin.Promotions.Tests
                 string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId));
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .Total("33")
                                                .ForCategory("Laptops")
                                                .IncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
@@ -243,6 +248,7 @@ namespace Promethium.Plugin.Promotions.Tests
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
                                    .Quantity(1)
+                                   .Price(33)
                                    .InCategory("/435345345/subcategory"))
                         .Build();
 
@@ -250,9 +256,9 @@ namespace Promethium.Plugin.Promotions.Tests
                 string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId));
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .Total("33")
                                                .ForCategory("Laptops")
                                                .DoesNotIncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
@@ -297,7 +303,7 @@ namespace Promethium.Plugin.Promotions.Tests
         [InlineData(Operator.LessThan, 10, 10, false)]
         [InlineData(Operator.NotEqual, 9, 10, true)]
         [InlineData(Operator.NotEqual, 10, 10, false)]
-        public async void Should_match_operator(Operator @operator, int numberOfProductsInPromotion, int numberOfProductsInOrder, bool shouldQualify )
+        public async void Should_match_operator(Operator @operator, int totalRequired, int totalInOrder, bool shouldQualify)
         {
             fixture.Factory.ClearAllEntities();
 
@@ -307,7 +313,8 @@ namespace Promethium.Plugin.Promotions.Tests
 
             var order = new OrderBuilder()
                         .WithLines(new LineBuilder()
-                                   .Quantity(numberOfProductsInOrder)
+                                   .Quantity(1)
+                                   .Price(totalInOrder)
                                    .InCategory("435345345"))
                         .Build();
 
@@ -315,9 +322,9 @@ namespace Promethium.Plugin.Promotions.Tests
                 string.Format(CultureInfo.InvariantCulture, "Orders-ByCustomer-{0}", customerId));
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
+                                  .QualifiedBy(new OrderHistoryTotalInCategoryConditionBuilder()
                                                .Operator(@operator)
-                                               .NumberOfProducts(numberOfProductsInPromotion.ToString())
+                                               .Total(totalRequired.ToString())
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))

@@ -8,14 +8,14 @@ using Sitecore.Commerce.Plugin.Promotions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Promethium.Plugin.Promotions.Tests.Conditions
 {
     [Collection("Engine collection")]
-    public class CartProductTotalInCategoryConditionTests
+    public class CartProductAmountInCategoryConditionTests
     {
         private readonly EngineFixture fixture;
 
-        public CartProductTotalInCategoryConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
+        public CartProductAmountInCategoryConditionTests(EngineFixture engineFixture, ITestOutputHelper testOutputHelper)
         {
             engineFixture.SetOutput(testOutputHelper);
             fixture = engineFixture;
@@ -29,9 +29,9 @@ namespace Promethium.Plugin.Promotions.Tests
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
+                                  .QualifiedBy(new CartProductAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .NumberOfProducts("1")
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
@@ -49,7 +49,6 @@ namespace Promethium.Plugin.Promotions.Tests
             var cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
                                         .Quantity(1)
-                                        .Price(33)
                                         .InCategory("435345345"))
                              .Build();
 
@@ -68,9 +67,9 @@ namespace Promethium.Plugin.Promotions.Tests
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
+                                  .QualifiedBy(new CartProductAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .NumberOfProducts("1")
                                                .ForCategory("Tablets"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
@@ -88,7 +87,6 @@ namespace Promethium.Plugin.Promotions.Tests
             var cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
                                         .Quantity(1)
-                                        .Price(33)
                                         .InCategory("435345345"))
                              .Build();
 
@@ -107,9 +105,9 @@ namespace Promethium.Plugin.Promotions.Tests
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
+                                  .QualifiedBy(new CartProductAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .NumberOfProducts("1")
                                                .ForCategory("Laptops")
                                                .IncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
@@ -128,7 +126,6 @@ namespace Promethium.Plugin.Promotions.Tests
             var cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
                                         .Quantity(1)
-                                        .Price(33)
                                         .InCategory("/435345345/subcategory"))
                              .Build();
 
@@ -147,9 +144,9 @@ namespace Promethium.Plugin.Promotions.Tests
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
+                                  .QualifiedBy(new CartProductAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .NumberOfProducts("1")
                                                .ForCategory("Laptops")
                                                .DoesNotIncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
@@ -168,7 +165,6 @@ namespace Promethium.Plugin.Promotions.Tests
             var cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
                                         .Quantity(1)
-                                        .Price(33)
                                         .InCategory("/435345345/subcategory"))
                              .Build();
 
@@ -194,18 +190,17 @@ namespace Promethium.Plugin.Promotions.Tests
         [InlineData(Operator.LessThan, 10, 10, false)]
         [InlineData(Operator.NotEqual, 9, 10, true)]
         [InlineData(Operator.NotEqual, 10, 10, false)]
-        public async void Should_match_operator(Operator @operator, int totalRequired, int totalInCart, bool shouldQualify )
+        public async void Should_match_operator(Operator @operator, int numberOfProductsInPromotion, int numberOfProductsInCart, bool shouldQualify )
         {
             fixture.Factory.ClearAllEntities();
 
             var client = fixture.Factory.CreateClient();
 
             var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
+                                  .QualifiedBy(new CartProductAmountInCategoryConditionBuilder()
                                                .Operator(@operator)
-                                               .Total(totalRequired.ToString())
-                                               .ForCategory("Laptops")
-                                               .DoesNotIncludeSubCategories())
+                                               .NumberOfProducts(numberOfProductsInPromotion.ToString())
+                                               .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -221,8 +216,7 @@ namespace Promethium.Plugin.Promotions.Tests
 
             Cart cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
-                                        .Quantity(1)
-                                        .Price(totalInCart)
+                                        .Quantity(numberOfProductsInCart)
                                         .InCategory("435345345"))
                              .Build();
 
