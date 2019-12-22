@@ -43,6 +43,10 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     {
                         SellPrice = new Money(price),
                     }
+                },
+                Totals = new Totals
+                {
+                    GrandTotal = new Money(quantity * price)
                 }
             };
 
