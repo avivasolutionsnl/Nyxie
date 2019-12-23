@@ -39,7 +39,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Standard"))
+                             .WithStandardFulfillment()
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -59,7 +59,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartFulfillmentConditionBuilder()
                                                .Equal()
-                                               .WithValue("Standard"))
+                                               .WithValue("Other"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -68,7 +68,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Express"))
+                             .WithStandardFulfillment()
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -88,7 +88,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartFulfillmentConditionBuilder()
                                                .NotEqual()
-                                               .WithValue("Standard"))
+                                               .WithValue("Other"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
                                       .PercentOff("10"))
                                   .Build(fixture.Factory);
@@ -97,7 +97,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Express"))
+                             .WithStandardFulfillment()
                              .Build();
 
             fixture.Factory.AddEntity(cart);
@@ -127,7 +127,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             fixture.Factory.AddEntity(promotion);
 
             var cart = await new CartBuilder()
-                             .WithFulfillment(new EntityReference("001", "Standard"))
+                             .WithStandardFulfillment()
                              .Build();
 
             fixture.Factory.AddEntity(cart);

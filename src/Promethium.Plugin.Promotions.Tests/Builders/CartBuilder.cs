@@ -6,6 +6,7 @@ using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Commerce.Plugin.Payments;
+using Sitecore.Commerce.Plugin.Pricing;
 
 namespace Promethium.Plugin.Promotions.Tests.Builders
 {
@@ -14,10 +15,11 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
         private EntityReference fullfilmentMethod = new EntityReference("001", "Standard");
         private EntityReference paymentMethod = new EntityReference("001", "Federated");
         private LineBuilder[] lineBuilders = new[] { new LineBuilder() };
+        private bool hasSplitFulfillment = false;
 
-        public CartBuilder WithFulfillment(EntityReference fullfilmentMethod)
+        public CartBuilder WithStandardFulfillment()
         {
-            this.fullfilmentMethod = fullfilmentMethod;
+            this.fullfilmentMethod = new EntityReference("001", "Standard");
             return this;
         }
 
@@ -33,6 +35,12 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             return this;
         }
 
+        public CartBuilder WithSplitFulfillment()
+        {
+            hasSplitFulfillment = true;
+            return this;
+        }
+
         public Task<Cart> Build()
         {
             var cart = new Cart
@@ -43,9 +51,6 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             cart.AddComponents(new ContactComponent
             {
                 Language = "en"
-            }, new FulfillmentComponent
-            {
-                FulfillmentMethod = fullfilmentMethod
             }, new PaymentComponent
             {
                 PaymentMethod = paymentMethod
@@ -54,6 +59,21 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             cart.Lines = lineBuilders.Select(x => x.Build()).ToList();
 
             cart.AddPolicies(new CalculateCartPolicy { AlwaysCalculate = true });
+
+            if (hasSplitFulfillment)
+            {
+                cart.AddComponents(new SplitFulfillmentComponent
+                {
+                    FulfillmentMethod = new EntityReference("002", "Split")
+                });
+            }
+            else
+            {
+                cart.AddComponents(new FulfillmentComponent
+                {
+                    FulfillmentMethod = fullfilmentMethod
+                });
+            }
 
             return Task.FromResult(cart);
         }

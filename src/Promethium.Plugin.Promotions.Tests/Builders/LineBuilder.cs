@@ -2,6 +2,7 @@
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Commerce.Plugin.Pricing;
 
 namespace Promethium.Plugin.Promotions.Tests.Builders
@@ -12,6 +13,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
         private decimal quantity = 1;
         private decimal price = 33;
         private string categorySitecoreId = null;
+        private EntityReference fullfilmentMethod = null;
 
         public LineBuilder Quantity(decimal quantity)
         {
@@ -30,7 +32,13 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             this.categorySitecoreId = categorySitecoreId;
             return this;
         }
-        
+
+        public LineBuilder WithStandardFulfillment()
+        {
+            this.fullfilmentMethod = new EntityReference("001", "Standard");
+            return this;
+        }
+
         public CartLineComponent Build()
         {
             var line = new CartLineComponent
@@ -49,6 +57,14 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     GrandTotal = new Money(quantity * price)
                 }
             };
+
+            if (fullfilmentMethod != null)
+            {
+                line.SetComponent(new FulfillmentComponent
+                {
+                    FulfillmentMethod = fullfilmentMethod
+                });
+            }
 
             if (categorySitecoreId != null)
             {
