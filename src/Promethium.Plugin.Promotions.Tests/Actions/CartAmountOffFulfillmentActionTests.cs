@@ -108,9 +108,11 @@ namespace Promethium.Plugin.Promotions.Tests.Actions
 
             var cart = await new CartBuilder()
                              .WithLines(new LineBuilder()
+                                        .IdentifiedBy("001")
                                         .Quantity(1)
                                         .WithStandardFulfillment() // Default fulfillment fee per line item is 2
                                         .Price(50), new LineBuilder()
+                                                    .IdentifiedBy("002")
                                                     .Quantity(1)
                                                     .WithStandardFulfillment() // Default fulfillment fee per line item is 2
                                                     .Price(50))

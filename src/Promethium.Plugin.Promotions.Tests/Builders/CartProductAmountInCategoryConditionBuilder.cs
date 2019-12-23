@@ -16,19 +16,6 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             this.category = category;
             return this;
         }
-
-        public CartProductAmountInCategoryConditionBuilder NumberOfProducts(string numberOfProducts)
-        {
-            this.numberOfProducts = numberOfProducts;
-            return this;
-        }
-
-        public CartProductAmountInCategoryConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-
         public CartProductAmountInCategoryConditionBuilder IncludeSubCategories()
         {
             includeSubCategories = "true";
@@ -41,6 +28,18 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             return this;
         }
 
+        public CartProductAmountInCategoryConditionBuilder NumberOfProducts(string numberOfProducts)
+        {
+            this.numberOfProducts = numberOfProducts;
+            return this;
+        }
+
+        public CartProductAmountInCategoryConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
+        }
+        
         public ConditionModel Build()
         {
             string comparer;

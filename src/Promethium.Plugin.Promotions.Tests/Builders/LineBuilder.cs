@@ -9,11 +9,18 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
 {
     public class LineBuilder
     {
+        private string lineId = "001";
         private string itemId = "001";
         private decimal quantity = 1;
         private decimal price = 33;
         private string categorySitecoreId = null;
         private EntityReference fullfilmentMethod = null;
+
+        public LineBuilder IdentifiedBy(string lineId)
+        {
+            this.lineId = lineId;
+            return this;
+        }
 
         public LineBuilder Quantity(decimal quantity)
         {
@@ -43,8 +50,10 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
         {
             var line = new CartLineComponent
             {
+                Id = lineId,
                 Quantity = quantity,
                 ItemId = itemId,
+                UnitListPrice = new Money(price),
                 Policies =
                 {
                     new PurchaseOptionMoneyPolicy
