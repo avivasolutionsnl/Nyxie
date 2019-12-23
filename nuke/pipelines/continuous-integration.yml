@@ -16,4 +16,4 @@ steps:
   inputs:
     targetType: 'filePath'
     filePath: build.ps1
-    arguments: Publish
+    arguments: Publish -GitHubAuthenticationToken $(GitHubAuthenticationToken)
