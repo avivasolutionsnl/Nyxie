@@ -22,6 +22,12 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             return this;
         }
 
+        public LineBuilder WithProductId(string productId)
+        {
+            itemId = productId;
+            return this;
+        }
+
         public LineBuilder Quantity(decimal quantity)
         {
             this.quantity = quantity;

@@ -52,27 +52,51 @@ namespace Promethium.Plugin.Promotions.Actions
                 return;
             }
 
-            var sellableItem = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
-            if (sellableItem != null)
+
+            cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartFreeGiftAction));
+
+            var giftLine = CreateLine(cart, commerceContext, targetItemId, quantity);
+
+            if(giftLine == null)
             {
-                var freeGift = new CartLineComponent
-                {
-                    ItemId = targetItemId,
-                    Quantity = quantity,
-                };
-
-                if (sellableItem.ListPrice.Amount > 0)
-                {
-                    var discount = new MoneyEx(commerceContext, sellableItem.ListPrice).Round().Value.Amount;
-
-                    freeGift.Adjustments.Add(AwardedAdjustmentFactory.CreateLineLevelAwardedAdjustment(discount * -1,
-                        nameof(CartFreeGiftAction), freeGift.Id, commerceContext));
-                }
-
-                var newCart = AsyncHelper.RunSync(() => _addCommand.Process(commerceContext, cart, freeGift));
-
-                newCart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartFreeGiftAction));
+                return;
             }
+
+            cart.Lines.Add(giftLine);
+        }
+
+        private CartLineComponent CreateLine(Cart cart, CommerceContext commerceContext, string targetItemId, decimal quantity)
+        {
+            var gift = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
+            if (gift == null)
+            {
+                return null;
+            }
+            
+            // To make sure all pipeline blocks are executed and do not influence the current cart, we add
+            // the gift line to a temporary cart and then copy it to the current cart. 
+            var temporaryCart = cart.Clone<Cart>();
+            temporaryCart.AddComponents(new TemporaryCartComponent(cart.Id));
+            
+            var freeGift = new CartLineComponent
+            {
+                ItemId = targetItemId,
+                Quantity = quantity
+            };
+
+            temporaryCart = AsyncHelper.RunSync(() => _addCommand.Process(commerceContext, temporaryCart, freeGift));
+
+            CartLineComponent line = temporaryCart.Lines.Single(x => x.ItemId == targetItemId);
+
+            if (gift.ListPrice.Amount > 0)
+            {
+                var discount = new MoneyEx(commerceContext, gift.ListPrice).Round().Value.Amount;
+
+                line.Adjustments.Add(AwardedAdjustmentFactory.CreateLineLevelAwardedAdjustment(discount * -1,
+                    nameof(CartFreeGiftAction), line.Id, commerceContext));
+            }
+            
+            return line;
         }
     }
 }

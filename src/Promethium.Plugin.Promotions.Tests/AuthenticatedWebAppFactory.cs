@@ -17,9 +17,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Promethium.Plugin.Promotions.Tests.Persistence;
+using Promethium.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Engine;
+using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Coupons;
 using Sitecore.Commerce.Plugin.Promotions;
 using Sitecore.Commerce.Plugin.SQL;
@@ -63,8 +66,8 @@ namespace Promethium.Plugin.Promotions.Tests
                 b.AddInMemoryCollection(new Dictionary<string, string>
                 {
                     { "AppSettings:SitecoreIdentityServerUrl", "http://localhost" },
-                    //{ "Logging:LogLevel:Default", "Debug" },
-                    //{ "Logging:PipelineTraceLoggingEnabled", "true" }
+                    { "Logging:LogLevel:Default", "Debug" },
+                    { "Logging:PipelineTraceLoggingEnabled", "true" }
                 });
             });
 
