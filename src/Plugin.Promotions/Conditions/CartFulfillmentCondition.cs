@@ -1,10 +1,11 @@
-﻿using Sitecore.Commerce.Core;
+﻿using System.Linq;
+
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Framework.Rules;
-using System.Linq;
 
-namespace Promethium.Plugin.Promotions.Conditions
+namespace Hotcakes.Plugin.Promotions.Conditions
 {
     /// <summary>
     /// A Sitecore Commerce condition for the qualification

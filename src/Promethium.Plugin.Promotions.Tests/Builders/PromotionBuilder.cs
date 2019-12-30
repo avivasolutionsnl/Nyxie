@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Promotions;
 
-namespace Promethium.Plugin.Promotions.Tests.Builders
+namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class PromotionBuilder
     {

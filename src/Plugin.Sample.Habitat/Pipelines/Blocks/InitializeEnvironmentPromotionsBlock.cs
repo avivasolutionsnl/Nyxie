@@ -1,23 +1,23 @@
 ﻿// © 2016 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
-namespace Plugin.Sample.Habitat
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Coupons;
+using Sitecore.Commerce.Plugin.Fulfillment;
+using Sitecore.Commerce.Plugin.Promotions;
+using Sitecore.Commerce.Plugin.Rules;
+using Sitecore.Framework.Pipelines;
+
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.Logging;
-
-    using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Carts;
-    using Sitecore.Commerce.Plugin.Coupons;
-    using Sitecore.Commerce.Plugin.Fulfillment;
-    using Sitecore.Commerce.Plugin.Promotions;
-    using Sitecore.Commerce.Plugin.Rules;
-    using Sitecore.Framework.Pipelines;
-
     /// <summary>
     /// Defines a block which bootstraps promotions.
     /// </summary>

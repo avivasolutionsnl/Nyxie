@@ -3,7 +3,7 @@ using System.Linq;
 
 using Sitecore.Commerce.Plugin.Orders;
 
-namespace Promethium.Plugin.Promotions.Tests.Builders
+namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class OrderBuilder
     {

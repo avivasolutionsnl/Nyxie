@@ -22,13 +22,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CopyToRoot", "CopyToRoot", 
 		src\WebDeployUpdates\CECloud_SCCPL\CopyToRoot\CreateUser.Shared.sql = src\WebDeployUpdates\CECloud_SCCPL\CopyToRoot\CreateUser.Shared.sql
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promethium.Plugin.Promotions", "src\Plugin.Promotions\Promethium.Plugin.Promotions.csproj", "{F11AC76F-E8CB-428C-BCC5-6A36AF04B014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotcakes.Plugin.Promotions", "src\Plugin.Promotions\Hotcakes.Plugin.Promotions.csproj", "{F11AC76F-E8CB-428C-BCC5-6A36AF04B014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promethium.Serialization", "src\Promethium.Serialization\Promethium.Serialization.csproj", "{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotcakes.Serialization", "src\Promethium.Serialization\Hotcakes.Serialization.csproj", "{634638FF-C3B9-42E4-BADF-7F0B6E5AA978}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "nuke\_build.csproj", "{751A6055-2A3B-4766-BB62-C784E9005F75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promethium.Plugin.Promotions.Tests", "src\Promethium.Plugin.Promotions.Tests\Promethium.Plugin.Promotions.Tests.csproj", "{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotcakes.Plugin.Promotions.Tests", "src\Promethium.Plugin.Promotions.Tests\Hotcakes.Plugin.Promotions.Tests.csproj", "{4877B22C-0E10-4ED8-9B9A-62740AD8CB01}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.Habitat", "src\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj", "{059F30F0-5104-493E-BC6F-8F3D8B6F6785}"
 EndProject

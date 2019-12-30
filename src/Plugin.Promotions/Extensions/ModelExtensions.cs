@@ -1,13 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Sitecore.Commerce.Plugin.Rules;
-using Sitecore.Framework.Rules;
-using Sitecore.Framework.Rules.Registry;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Promethium.Plugin.Promotions.Extensions
+using Microsoft.Extensions.DependencyInjection;
+
+using Sitecore.Commerce.Plugin.Rules;
+using Sitecore.Framework.Rules;
+using Sitecore.Framework.Rules.Registry;
+
+namespace Hotcakes.Plugin.Promotions.Extensions
 {
     internal static class ModelExtensions
     {

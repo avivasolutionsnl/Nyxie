@@ -5,6 +5,8 @@ using System.IO;
 using System.Net.Http;
 using System.Reflection;
 
+using Hotcakes.Plugin.Promotions.Tests.Persistence;
+
 using IdentityServer4.AccessTokenValidation;
 
 using Microsoft.ApplicationInsights;
@@ -16,8 +18,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-using Promethium.Plugin.Promotions.Tests.Persistence;
-
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Engine;
 using Sitecore.Commerce.Plugin.SQL;
@@ -25,9 +25,9 @@ using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
 using Xunit.Abstractions;
 
-using FindEntityBlock = Promethium.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks.FindEntityBlock;
+using FindEntityBlock = Hotcakes.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks.FindEntityBlock;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class AuthenticatedWebAppFactory : WebApplicationFactory<Startup>
     {

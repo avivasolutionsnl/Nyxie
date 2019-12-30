@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class XunitLoggerProvider : ILoggerProvider
     {

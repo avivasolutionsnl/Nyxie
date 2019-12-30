@@ -1,12 +1,14 @@
-﻿using Promethium.Plugin.Promotions.Components;
-using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Resolvers
+using Hotcakes.Plugin.Promotions.Components;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
+
+namespace Hotcakes.Plugin.Promotions.Resolvers
 {
     public class CategoryOrderLinesResolver
     {

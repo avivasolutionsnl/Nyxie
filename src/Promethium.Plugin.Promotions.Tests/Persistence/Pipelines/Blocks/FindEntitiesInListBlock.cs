@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Sitecore.Commerce.Core;
 using Sitecore.Framework.Pipelines;
 
-namespace Promethium.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks
+namespace Hotcakes.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks
 {
     [PipelineDisplayName("InMemory.Persistence.FindEntitiesInListBlock")]
     public class FindEntitiesInListBlock : PipelineBlock<FindEntitiesInListArgument, FindEntitiesInListArgument, CommercePipelineExecutionContext>

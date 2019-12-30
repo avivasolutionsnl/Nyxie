@@ -1,8 +1,9 @@
-﻿using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Plugin.Pricing;
-using System;
+﻿using System;
 
-namespace Promethium.Plugin.Promotions
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Pricing;
+
+namespace Hotcakes.Plugin.Promotions
 {
     public class MoneyEx
     {

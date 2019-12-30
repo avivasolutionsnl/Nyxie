@@ -1,6 +1,6 @@
 ﻿using Sitecore.Commerce.Core;
 
-namespace Promethium.Plugin.Promotions.Tests.Persistence
+namespace Hotcakes.Plugin.Promotions.Tests.Persistence
 {
     public interface IStore
     {

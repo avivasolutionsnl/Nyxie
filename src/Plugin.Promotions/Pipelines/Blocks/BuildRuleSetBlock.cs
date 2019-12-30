@@ -1,17 +1,20 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Hotcakes.Plugin.Promotions.Extensions;
+
+using Microsoft.Extensions.DependencyInjection;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Rules;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 using Sitecore.Framework.Rules;
 using Sitecore.Framework.Rules.Registry;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Pipelines.Blocks
+namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     /// <summary>
     /// Copy of Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock

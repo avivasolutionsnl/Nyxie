@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 
-using Promethium.Plugin.Promotions.Actions;
-using Promethium.Plugin.Promotions.Tests.Builders;
+using Hotcakes.Plugin.Promotions.Actions;
+using Hotcakes.Plugin.Promotions.Tests.Builders;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
@@ -13,7 +13,7 @@ using Sitecore.Commerce.Plugin.Promotions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests.Actions
+namespace Hotcakes.Plugin.Promotions.Tests.Actions
 {
     [Collection("Engine collection")]
     public class CartItemsMatchingInCategoryPriceDiscountActionTests

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.SQL;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class DummyGetDatabaseVersionCommand : GetDatabaseVersionCommand
     {

@@ -6,8 +6,8 @@
     <TargetFramework>net471</TargetFramework>
     <PackageTags>$(PackageTags);Commerce;Promotion;Plugin</PackageTags>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <AssemblyName>Promethium.Plugin.Promotions</AssemblyName>
-    <RootNamespace>Promethium.Plugin.Promotions</RootNamespace>
+    <AssemblyName>Hotcakes.Plugin.Promotions</AssemblyName>
+    <RootNamespace>Hotcakes.Plugin.Promotions</RootNamespace>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 

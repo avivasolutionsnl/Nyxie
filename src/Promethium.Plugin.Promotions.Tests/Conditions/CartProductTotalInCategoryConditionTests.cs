@@ -1,4 +1,4 @@
-﻿using Promethium.Plugin.Promotions.Tests.Builders;
+﻿using Hotcakes.Plugin.Promotions.Tests.Builders;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
@@ -8,7 +8,7 @@ using Sitecore.Commerce.Plugin.Promotions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests.Conditions
+namespace Hotcakes.Plugin.Promotions.Tests.Conditions
 {
     [Collection("Engine collection")]
     public class CartProductTotalInCategoryConditionTests

@@ -1,11 +1,13 @@
-﻿using Promethium.Plugin.Promotions.Resolvers;
+﻿using System;
+using System.Linq;
+
+using Hotcakes.Plugin.Promotions.Resolvers;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Framework.Rules;
-using System;
-using System.Linq;
 
-namespace Promethium.Plugin.Promotions.Actions
+namespace Hotcakes.Plugin.Promotions.Actions
 {
     /// <summary>
     /// A Sitecore Commerce action for the benefit

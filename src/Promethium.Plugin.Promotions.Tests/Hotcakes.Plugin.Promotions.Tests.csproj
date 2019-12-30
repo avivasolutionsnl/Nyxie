@@ -111,7 +111,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plugin.Promotions\Promethium.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Plugin.Promotions\Hotcakes.Plugin.Promotions.csproj" />
     <ProjectReference Include="..\Sitecore.Commerce.Engine\Sitecore.Commerce.Engine.csproj" />
   </ItemGroup>
 

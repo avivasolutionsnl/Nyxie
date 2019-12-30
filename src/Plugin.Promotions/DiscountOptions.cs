@@ -1,4 +1,4 @@
-﻿namespace Promethium.Plugin.Promotions
+﻿namespace Hotcakes.Plugin.Promotions
 {
     public class DiscountOptions
     {

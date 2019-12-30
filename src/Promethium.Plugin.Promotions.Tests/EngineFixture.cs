@@ -6,14 +6,13 @@ using IdentityModel.Client;
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Logging;
 
 using Sitecore.Commerce.Engine;
 
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class EngineFixture : IAsyncLifetime
     {

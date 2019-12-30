@@ -1,7 +1,8 @@
-﻿using Sitecore.Commerce.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Promethium.Plugin.Promotions
+using Sitecore.Commerce.Core;
+
+namespace Hotcakes.Plugin.Promotions
 {
     internal sealed class BasicStringComparer
     {

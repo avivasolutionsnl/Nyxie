@@ -1,11 +1,11 @@
-﻿using Promethium.Plugin.Promotions.Components;
+﻿using Hotcakes.Plugin.Promotions.Components;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Fulfillment;
 using Sitecore.Commerce.Plugin.Pricing;
 
-namespace Promethium.Plugin.Promotions.Tests.Builders
+namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class LineBuilder
     {

@@ -1,5 +1,7 @@
 ﻿// © 2016 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
+using Plugin.Sample.Habitat.Pipelines.Blocks;
+
 namespace Plugin.Sample.Habitat
 {
     using System.Reflection;

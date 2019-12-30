@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Promethium.Plugin.Promotions.Tests
+namespace Hotcakes.Plugin.Promotions.Tests
 {
     [CollectionDefinition("Engine collection")]
     public class EngineCollection : ICollectionFixture<EngineFixture>

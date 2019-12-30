@@ -1,7 +1,8 @@
-﻿using Promethium.Plugin.Promotions.Properties;
-using System;
+﻿using System;
 
-namespace Promethium.Plugin.Promotions.Extensions
+using Hotcakes.Plugin.Promotions.Properties;
+
+namespace Hotcakes.Plugin.Promotions.Extensions
 {
     internal static class StringExtensions
     {

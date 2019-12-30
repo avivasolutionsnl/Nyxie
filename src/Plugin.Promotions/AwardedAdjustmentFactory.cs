@@ -2,7 +2,7 @@
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Pricing;
 
-namespace Promethium.Plugin.Promotions
+namespace Hotcakes.Plugin.Promotions
 {
     public class AwardedAdjustmentFactory
     {

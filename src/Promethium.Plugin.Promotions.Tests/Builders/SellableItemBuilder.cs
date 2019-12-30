@@ -3,7 +3,7 @@ using Sitecore.Commerce.Plugin.Availability;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Pricing;
 
-namespace Promethium.Plugin.Promotions.Tests.Builders
+namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class SellableItemBuilder
     {

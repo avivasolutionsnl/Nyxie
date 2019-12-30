@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
 
 using Sitecore.Commerce.Core;
 
-namespace Promethium.Plugin.Promotions.Tests.Persistence
+namespace Hotcakes.Plugin.Promotions.Tests.Persistence
 {
     public class InMemoryStore : IStore
     {

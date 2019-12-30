@@ -1,6 +1,6 @@
 ﻿using Sitecore.Commerce.Core;
 
-namespace Promethium.Plugin.Promotions.Extensions
+namespace Hotcakes.Plugin.Promotions.Extensions
 {
     public static class MessagesComponentExtensions
     {

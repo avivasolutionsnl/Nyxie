@@ -1,10 +1,12 @@
-﻿using Promethium.Plugin.Promotions.Resolvers;
+﻿using System.Linq;
+
+using Hotcakes.Plugin.Promotions.Resolvers;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Customers;
 using Sitecore.Framework.Rules;
-using System.Linq;
 
-namespace Promethium.Plugin.Promotions.Conditions
+namespace Hotcakes.Plugin.Promotions.Conditions
 {
     /// <summary>
     /// A Sitecore Commerce condition for the qualification

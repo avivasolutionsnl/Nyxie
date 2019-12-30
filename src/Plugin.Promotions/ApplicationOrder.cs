@@ -1,10 +1,12 @@
-﻿using Promethium.Plugin.Promotions.Properties;
-using Sitecore.Commerce.Plugin.Carts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Promethium.Plugin.Promotions
+using Hotcakes.Plugin.Promotions.Properties;
+
+using Sitecore.Commerce.Plugin.Carts;
+
+namespace Hotcakes.Plugin.Promotions
 {
     public class ApplicationOrder
     {

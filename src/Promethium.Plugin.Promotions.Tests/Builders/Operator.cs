@@ -1,4 +1,4 @@
-﻿namespace Promethium.Plugin.Promotions.Tests.Builders
+﻿namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public enum Operator
     {

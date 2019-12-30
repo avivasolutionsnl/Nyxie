@@ -1,17 +1,19 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Resolvers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Hotcakes.Plugin.Promotions.Extensions;
+using Hotcakes.Plugin.Promotions.Resolvers;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Search;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Pipelines.Blocks
+namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     public class ConditionDetailsView_CategoryBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {

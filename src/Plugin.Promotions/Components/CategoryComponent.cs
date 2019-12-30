@@ -1,8 +1,9 @@
-﻿using Sitecore.Commerce.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Promethium.Plugin.Promotions.Components
+using Sitecore.Commerce.Core;
+
+namespace Hotcakes.Plugin.Promotions.Components
 {
     public class CategoryComponent : Component
     {

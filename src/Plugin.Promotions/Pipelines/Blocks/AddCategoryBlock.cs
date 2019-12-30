@@ -1,14 +1,16 @@
-﻿using Promethium.Plugin.Promotions.Components;
-using Promethium.Plugin.Promotions.Extensions;
+﻿using System.Linq;
+using System.Threading.Tasks;
+
+using Hotcakes.Plugin.Promotions.Components;
+using Hotcakes.Plugin.Promotions.Extensions;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Pipelines;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Pipelines.Blocks
+namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     public class AddCategoryBlock : PipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
     {

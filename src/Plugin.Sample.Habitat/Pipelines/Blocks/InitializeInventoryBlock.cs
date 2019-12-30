@@ -1,19 +1,18 @@
 ﻿// © 2017 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
-namespace Plugin.Sample.Habitat
+using System.IO;
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Internal;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Inventory;
+using Sitecore.Framework.Pipelines;
+
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
-    using System.Threading.Tasks;
-
-    using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Catalog;
-    using Sitecore.Framework.Pipelines;
-    using Sitecore.Commerce.Plugin.Inventory;
-
-    using System.IO;
-
-    using Microsoft.AspNetCore.Http.Internal;
-    using Microsoft.AspNetCore.Hosting;
-
     /// <summary>
     /// Ensure Habitat inventory has been loaded.
     /// </summary>

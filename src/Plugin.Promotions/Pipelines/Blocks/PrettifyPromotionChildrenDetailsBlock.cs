@@ -1,18 +1,20 @@
-﻿using Promethium.Plugin.Promotions.Extensions;
-using Promethium.Plugin.Promotions.Properties;
-using Promethium.Plugin.Promotions.Resolvers;
-using Sitecore.Commerce.Core;
-using Sitecore.Commerce.EntityViews;
-using Sitecore.Commerce.Plugin.Catalog;
-using Sitecore.Framework.Conditions;
-using Sitecore.Framework.Pipelines;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Pipelines.Blocks
+using Hotcakes.Plugin.Promotions.Extensions;
+using Hotcakes.Plugin.Promotions.Properties;
+using Hotcakes.Plugin.Promotions.Resolvers;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Framework.Conditions;
+using Sitecore.Framework.Pipelines;
+
+namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     public class PrettifyPromotionChildrenDetailsBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {

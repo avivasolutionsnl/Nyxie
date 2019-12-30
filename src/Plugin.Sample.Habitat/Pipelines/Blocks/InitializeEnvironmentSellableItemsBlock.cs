@@ -4,18 +4,20 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Plugin.Sample.Habitat
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.Extensions.Logging;
-    using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Availability;
-    using Sitecore.Commerce.Plugin.Catalog;
-    using Sitecore.Commerce.Plugin.Pricing;
-    using Sitecore.Framework.Pipelines;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
+using Microsoft.Extensions.Logging;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Availability;
+using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Pricing;
+using Sitecore.Framework.Pipelines;
+
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
+{
     /// <summary>
     /// Defines a block which bootstraps sellable items the Habitat sample environment.
     /// </summary>

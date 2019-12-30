@@ -1,10 +1,11 @@
-﻿using Sitecore.Commerce.Core;
-using Sitecore.Framework.Pipelines;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Pipelines.Blocks
+using Sitecore.Commerce.Core;
+using Sitecore.Framework.Pipelines;
+
+namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     public class RegisteredPluginBlock : PipelineBlock<IEnumerable<RegisteredPluginModel>, IEnumerable<RegisteredPluginModel>, CommercePipelineExecutionContext>
     {

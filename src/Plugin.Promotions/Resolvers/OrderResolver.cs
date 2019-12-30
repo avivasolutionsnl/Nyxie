@@ -1,11 +1,12 @@
-﻿using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
-using Sitecore.Commerce.Plugin.Orders;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 
-namespace Promethium.Plugin.Promotions.Resolvers
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Core.Commands;
+using Sitecore.Commerce.Plugin.Orders;
+
+namespace Hotcakes.Plugin.Promotions.Resolvers
 {
     public class OrderResolver
     {

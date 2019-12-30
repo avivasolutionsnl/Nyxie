@@ -2,13 +2,15 @@
 
 using System.IO;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Internal;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Framework.Pipelines;
 
-namespace Plugin.Sample.Habitat
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
     /// <summary>
     /// Ensure Habitat catalog has been loaded.
