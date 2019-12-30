@@ -16,7 +16,7 @@ steps:
   inputs:
     targetType: 'filePath'
     filePath: build.ps1
-    arguments: Publish
+    arguments: Publish -GitHubAuthenticationToken $(GitHubAuthenticationToken)
 # This task publishes the test results to Azure DevOps, so that the results are visible in de "Tests" tab of the build
 - task: PublishTestResults@2
   condition: always()

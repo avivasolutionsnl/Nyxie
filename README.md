@@ -1,8 +1,6 @@
 # Promethium
 
-[![Master Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=master)
-
-[![Develop Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=develop)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=develop)
+[![Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=master)
 
 ## Prerequisites
 - Windows 10 update 1809
