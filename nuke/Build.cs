@@ -8,6 +8,7 @@ using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.MSBuild;
+using Nuke.Common.Tools.Xunit;
 using Nuke.Common.Utilities.Collections;
 using Nuke.GitHub;
 using static Nuke.GitHub.GitHubTasks;
@@ -18,6 +19,7 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using static Nuke.Common.Tools.Xunit.XunitTasks;
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
@@ -76,8 +78,20 @@ partial class Build : NukeBuild
                 .SetNodeReuse(IsLocalBuild));
         });
 
-    Target Package => _ => _
+    Target RunTests => _ => _
        .DependsOn(Compile)
+       .Executes(() =>
+       {
+           var unitTestDlls = SourceDirectory.GlobFiles(
+               $"*Tests/bin/{Configuration}/*/*.Tests.dll");
+
+           Xunit2(x => x.AddTargetAssemblies(unitTestDlls.Select(x => x.ToString()))
+                                    .SetFramework("net471")
+                                    .AddResultReport(Xunit2ResultFormat.Xml, OutputDirectory / "testresults.xml"));
+       });
+
+    Target Package => _ => _
+       .DependsOn(RunTests)
        .Executes(() =>
        {
            Courier(c => c.SetTargetFolder(RootDirectory / "unicorn")

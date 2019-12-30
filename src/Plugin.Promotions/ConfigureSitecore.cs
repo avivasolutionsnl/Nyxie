@@ -31,7 +31,7 @@ namespace Promethium.Plugin.Promotions
             services.AddTransient<CategoryOrderLinesResolver>();
             services.AddTransient<OrderResolver>();
 
-            services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterThisAssembly()));
+            services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterAssembly(assembly)));
 
             services.Sitecore().Pipelines(config => config
                 .ConfigurePipeline<Sitecore.Commerce.Plugin.Carts.IAddCartLinePipeline>(configure => configure

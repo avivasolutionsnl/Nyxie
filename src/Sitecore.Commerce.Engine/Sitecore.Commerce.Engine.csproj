@@ -46,6 +46,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Plugin.Promotions\Promethium.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

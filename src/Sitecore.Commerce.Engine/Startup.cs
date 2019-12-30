@@ -267,15 +267,19 @@ namespace Sitecore.Commerce.Engine
                 app.UseStatusCodePages();
             }
 
-            app.UseClientCertificateValidationMiddleware(certificatesSettings);
-
             app.UseCors(builder =>
                 builder.WithOrigins(allowedOriginsOptions.Value.ToArray())
-                    .AllowCredentials()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod());
+                       .AllowCredentials()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod());
 
-            app.UseAuthentication();
+            ConfigureAuthentication(app, certificatesSettings, allowedOriginsOptions);
+
+            app.Use((c, next) =>
+            {
+
+                return next();
+            });
 
             Task.Run(() => startNodePipeline.Run(this._nodeContext, this._nodeContext.PipelineContextOptions)).Wait();
 
@@ -306,6 +310,12 @@ namespace Sitecore.Commerce.Engine
             app.UseRouter(new ODataRoute("CommerceOps", opsModel));
 
             this._nodeContext.PipelineTraceLoggingEnabled = loggingSettings.Value.PipelineTraceLoggingEnabled;
+        }
+
+        protected virtual void ConfigureAuthentication(IApplicationBuilder app, IOptions<CertificatesSettings> certificatesSettings, IOptions<List<string>> allowedOriginsOptions)
+        {
+            app.UseClientCertificateValidationMiddleware(certificatesSettings);
+            app.UseAuthentication();
         }
 
         /// <summary>
@@ -408,6 +418,12 @@ namespace Sitecore.Commerce.Engine
 
             if (!string.IsNullOrEmpty(bootstrapFile))
             {
+                string path = this._nodeContext.BootstrapProviderPath + bootstrapFile + ".json";
+                Console.WriteLine("Loading entity from file:" + path);
+
+                string serialized = File.ReadAllText(path);
+                CommerceEntity.Inflate<CommerceEnvironment>(serialized);
+
                 this._nodeContext.BootstrapEnvironmentPath = bootstrapFile;
 
                 this._nodeContext.AddDataMessage("NodeStartup", $"GlobalEnvironmentFrom='Configuration: {bootstrapFile}'");
