@@ -7,11 +7,11 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
     public class CartPaymentConditionBuilder : IQualificationBuilder
     {
         private string comparer = "Sitecore.Framework.Rules.StringEqualityOperator";
-        private string value = "Standard";
+        private string paymentMethodName = "Standard";
 
-        public CartPaymentConditionBuilder WithValue(string value)
+        public CartPaymentConditionBuilder WithValue(string paymentMethodName)
         {
-            this.value = value;
+            this.paymentMethodName = paymentMethodName;
             return this;
         }
 
@@ -43,7 +43,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     new PropertyModel
                     {
                         Name = "Pm_SpecificPayment",
-                        Value = value
+                        Value = paymentMethodName
                     }
                 }
             };

@@ -6,7 +6,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
 {
     public class CartItemsMatchingInCategoryPriceDiscountActionBuilder : IBenefitBuilder
     {
-        private string amountOff = "10";
+        private decimal amountOff = 10;
         private Operator @operator;
         private int numberOfProducts;
         private int actionLimit;
@@ -14,7 +14,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
         private string category = "";
         private string includeSubCategories = "false";
 
-        public CartItemsMatchingInCategoryPriceDiscountActionBuilder AmountOff(string amount)
+        public CartItemsMatchingInCategoryPriceDiscountActionBuilder AmountOff(decimal amount)
         {
             amountOff = amount;
             return this;
@@ -96,7 +96,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     new PropertyModel
                     {
                         Name = "Pm_AmountOff",
-                        Value = amountOff
+                        Value = amountOff.ToString()
                     },
                     new PropertyModel
                     {

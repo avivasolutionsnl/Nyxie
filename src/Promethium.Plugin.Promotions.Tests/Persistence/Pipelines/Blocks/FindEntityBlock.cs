@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Sitecore.Commerce.Core;
@@ -9,7 +6,7 @@ using Sitecore.Framework.Pipelines;
 
 namespace Promethium.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks
 {
-    [PipelineDisplayName("Isocore.Persistence.FindEntityBlock")]
+    [PipelineDisplayName("InMemory.Persistence.FindEntityBlock")]
     public class FindEntityBlock : PipelineBlock<FindEntityArgument, CommerceEntity, CommercePipelineExecutionContext>
     {
         private readonly IStore store;

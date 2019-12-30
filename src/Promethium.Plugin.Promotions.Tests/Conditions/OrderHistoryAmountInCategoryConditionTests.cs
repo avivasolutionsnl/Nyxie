@@ -46,10 +46,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .NumberOfProducts(1)
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -101,10 +101,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("2") // Both orders have 1 product and total should be 2
+                                               .NumberOfProducts(2) // Both orders have 1 product and total should be 2
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -151,10 +151,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .NumberOfProducts(1)
                                                .ForCategory("Tablets"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -201,11 +201,11 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .NumberOfProducts(1)
                                                .ForCategory("Laptops")
                                                .IncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -252,11 +252,11 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .NumberOfProducts("1")
+                                               .NumberOfProducts(1)
                                                .ForCategory("Laptops")
                                                .DoesNotIncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -317,10 +317,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new OrderHistoryAmountInCategoryConditionBuilder()
                                                .Operator(@operator)
-                                               .NumberOfProducts(numberOfProductsInPromotion.ToString())
+                                               .NumberOfProducts(numberOfProductsInPromotion)
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());

@@ -7,11 +7,11 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
     public class CartFulfillmentConditionBuilder : IQualificationBuilder
     {
         private string comparer = "Sitecore.Framework.Rules.StringEqualityOperator";
-        private string value = "Standard";
+        private string fulfillmentMethodName = "Standard";
 
-        public CartFulfillmentConditionBuilder WithValue(string value)
+        public CartFulfillmentConditionBuilder WithValue(string fulfillmentMethodName)
         {
-            this.value = value;
+            this.fulfillmentMethodName = fulfillmentMethodName;
             return this;
         }
 
@@ -43,7 +43,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     new PropertyModel
                     {
                         Name = "Pm_SpecificFulfillment",
-                        Value = value
+                        Value = fulfillmentMethodName
                     }
                 }
             };

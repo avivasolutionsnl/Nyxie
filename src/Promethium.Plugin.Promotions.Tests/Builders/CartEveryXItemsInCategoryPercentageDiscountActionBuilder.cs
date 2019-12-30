@@ -6,7 +6,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
 {
     public class CartEveryXItemsInCategoryPercentageDiscountActionBuilder : IBenefitBuilder
     {
-        private string percentageOff = "10";
+        private decimal percentageOff = 10;
         private decimal itemsToAward;
         private decimal itemsToPurchase;
         private int actionLimit;
@@ -14,7 +14,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
         private string category = "";
         private string includeSubCategories = "false";
 
-        public CartEveryXItemsInCategoryPercentageDiscountActionBuilder PercentageOff(string value)
+        public CartEveryXItemsInCategoryPercentageDiscountActionBuilder PercentageOff(decimal value)
         {
             percentageOff = value;
             return this;
@@ -73,7 +73,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     new PropertyModel
                     {
                         Name = "Pm_PercentageOff",
-                        Value = percentageOff
+                        Value = percentageOff.ToString()
                     },
                     new PropertyModel
                     {

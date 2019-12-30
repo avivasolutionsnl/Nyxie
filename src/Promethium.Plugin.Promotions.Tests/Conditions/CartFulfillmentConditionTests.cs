@@ -32,7 +32,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
                                       .Equal()
                                       .WithValue("Standard"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -61,7 +61,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
                                                .Equal()
                                                .WithValue("Other"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -90,7 +90,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
                                                .NotEqual()
                                                .WithValue("Other"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -120,7 +120,7 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
                                                .NotEqual()
                                                .WithValue("Standard"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());

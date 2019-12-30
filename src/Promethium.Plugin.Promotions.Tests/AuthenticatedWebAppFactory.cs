@@ -17,14 +17,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Promethium.Plugin.Promotions.Tests.Persistence;
-using Promethium.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Engine;
-using Sitecore.Commerce.Plugin.Carts;
-using Sitecore.Commerce.Plugin.Catalog;
-using Sitecore.Commerce.Plugin.Coupons;
-using Sitecore.Commerce.Plugin.Promotions;
 using Sitecore.Commerce.Plugin.SQL;
 using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
@@ -82,7 +77,7 @@ namespace Promethium.Plugin.Promotions.Tests
                 {
                     options.Authority = "http://localhost";
 
-                    // IMPORTANT PART HERE
+                    // This makes sure the commerce engine contacts the in memory identity server
                     options.JwtBackChannelHandler = identityServerHandler;
                     options.IntrospectionDiscoveryHandler = identityServerHandler;
                     options.IntrospectionBackChannelHandler = identityServerHandler;
@@ -104,9 +99,7 @@ namespace Promethium.Plugin.Promotions.Tests
                 var assembly = Assembly.GetExecutingAssembly();
                 services.RegisterAllPipelineBlocks(assembly);
 
-                services.Sitecore().Pipelines(config => config
-                                                        //.ConfigurePipeline<IPersistEntityPipeline>(c => c.Add<PersistEntityBlock>().Before<StoreEntityInMemoryCacheBlock>())
-                                                        .ConfigurePipeline<IFindEntitiesInListPipeline>(c =>
+                services.Sitecore().Pipelines(config => config.ConfigurePipeline<IFindEntitiesInListPipeline>(c =>
                                                         {
                                                             c.Clear();
                                                             c.Add<Persistence.Pipelines.Blocks.FindEntitiesInListBlock>();
@@ -115,21 +108,6 @@ namespace Promethium.Plugin.Promotions.Tests
                                                         {
                                                             c.Clear();
                                                             c.Add<FindEntityBlock>();
-                                                        })
-                                                        .ConfigurePipeline<IDiscoverPromotionsPipeline>(c =>
-                                                        {
-                                                            c.Replace<FilterPromotionsByValidDateBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterPromotionsByValidDateBlock>>();
-                                                            c.Replace<FilterNotApprovedPromotionsBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterNotApprovedPromotionsBlock>>();
-                                                            c.Replace<FilterPromotionsByItemsBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterPromotionsByItemsBlock>>();
-                                                            c.Replace<FilterPromotionsByBookAssociatedCatalogsBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterPromotionsByBookAssociatedCatalogsBlock>>();
-                                                            c.Replace<FilterPromotionsByBenefitTypeBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterPromotionsByBenefitTypeBlock>>();
-                                                            c.Replace<FilterPromotionsByCouponBlock, Persistence.Pipelines.Blocks.
-                                                                LoggingBlock<FilterPromotionsByCouponBlock>>();
                                                         }));
             });
         }

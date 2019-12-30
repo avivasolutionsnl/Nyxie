@@ -7,7 +7,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
     public class CartProductTotalInCategoryConditionBuilder : IQualificationBuilder
     {
         private string category = "";
-        private string total = "0";
+        private decimal total = 0;
         private string includeSubCategories = "false";
         private Operator @operator = Builders.Operator.Equal;
 
@@ -17,7 +17,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
             return this;
         }
 
-        public CartProductTotalInCategoryConditionBuilder Total(string total)
+        public CartProductTotalInCategoryConditionBuilder Total(decimal total)
         {
             this.total = total;
             return this;
@@ -86,7 +86,7 @@ namespace Promethium.Plugin.Promotions.Tests.Builders
                     new PropertyModel
                     {
                         Name = "Pm_SpecificValue",
-                        Value = total
+                        Value = total.ToString()
                     },
                     new PropertyModel
                     {

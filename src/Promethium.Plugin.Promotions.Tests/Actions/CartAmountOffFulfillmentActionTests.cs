@@ -36,7 +36,7 @@ namespace Promethium.Plugin.Promotions.Tests.Actions
                                   .QualifiedBy(new IsCurrentDayConditionBuilder()
                                                .Day(DateTime.Now.Day)) 
                                   .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff("2"))
+                                      .AmountOff(2))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -68,7 +68,7 @@ namespace Promethium.Plugin.Promotions.Tests.Actions
                                   .QualifiedBy(new IsCurrentDayConditionBuilder()
                                       .Day(DateTime.Now.Day)) 
                                   .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff("8")) // Fee = 5, Discount = 8
+                                      .AmountOff(8)) // Fee = 5, Discount = 8
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -100,7 +100,7 @@ namespace Promethium.Plugin.Promotions.Tests.Actions
                                   .QualifiedBy(new IsCurrentDayConditionBuilder()
                                       .Day(DateTime.Now.Day)) 
                                   .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff("3")) // Fee = 2 * 2, Discount = 3
+                                      .AmountOff(3)) // Fee = 2 * 2, Discount = 3
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());

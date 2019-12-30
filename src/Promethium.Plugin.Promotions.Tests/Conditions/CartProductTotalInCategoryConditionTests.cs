@@ -31,10 +31,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .Total(33)
                                                .ForCategory("Laptops"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -70,10 +70,10 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .Total(33)
                                                .ForCategory("Tablets"))
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -109,11 +109,11 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .Total(33)
                                                .ForCategory("Laptops")
                                                .IncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -149,11 +149,11 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
                                                .Operator(Operator.Equal)
-                                               .Total("33")
+                                               .Total(33)
                                                .ForCategory("Laptops")
                                                .DoesNotIncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
@@ -203,11 +203,11 @@ namespace Promethium.Plugin.Promotions.Tests.Conditions
             var promotion = await new PromotionBuilder()
                                   .QualifiedBy(new CartProductTotalInCategoryConditionBuilder()
                                                .Operator(@operator)
-                                               .Total(totalRequired.ToString())
+                                               .Total(totalRequired)
                                                .ForCategory("Laptops")
                                                .DoesNotIncludeSubCategories())
                                   .BenefitBy(new CartSubtotalPercentOffActionBuilder()
-                                      .PercentOff("10"))
+                                      .PercentOff(10))
                                   .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
