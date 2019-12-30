@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Promethium.Serialization</RootNamespace>
-    <AssemblyName>Promethium.Serialization</AssemblyName>
+    <RootNamespace>Hotcakes.Serialization</RootNamespace>
+    <AssemblyName>Hotcakes.Serialization</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -90,7 +90,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Rainbow.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
-    <Content Include="App_Config\Include\Promethium.Unicorn.config" />
+    <Content Include="App_Config\Include\Hotcakes.Unicorn.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.UI.IdentityServer.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.UI.DeployedContentEditorWarnings.config.disabled" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.UI.config" />

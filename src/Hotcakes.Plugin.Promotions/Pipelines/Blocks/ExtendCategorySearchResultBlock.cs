@@ -12,7 +12,6 @@ using Sitecore.Framework.Pipelines;
 
 namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
-    [PipelineDisplayName("Search.Promethium.Block.ExtendCategorySearchResult")]
     public class ExtendCategorySearchResultBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly GetCategoryCommand _getCommand;

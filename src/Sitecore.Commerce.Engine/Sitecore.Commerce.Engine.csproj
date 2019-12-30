@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plugin.Promotions\Hotcakes.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Hotcakes.Plugin.Promotions\Hotcakes.Plugin.Promotions.csproj" />
     <ProjectReference Include="..\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj" />
   </ItemGroup>
 
