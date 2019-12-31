@@ -54,7 +54,7 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
                     .First(x => x.Name.EqualsOrdinalIgnoreCase(childPartName));
                 var childrenToProcess = childPart.ChildViews
                     .OfType<EntityView>()
-                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Pm_")))
+                    .Where(x => x.Properties.Any(y => y.Name.StartsWith("Hc_")))
                     .ToList();
 
                 if (childrenToProcess.Any())
@@ -129,15 +129,15 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             switch (variable.Name)
             {
-                case "Pm_BasicStringCompare":
-                case "Pm_Compares":
-                case "Pm_Operator":
+                case "Hc_BasicStringCompare":
+                case "Hc_Compares":
+                case "Hc_Operator":
                     return variable.Value.PrettifyOperatorName();
 
-                case "Pm_SpecificCategory":
+                case "Hc_SpecificCategory":
                     return await PrettifyCategory(variable.Value, properties, commerceContext);
 
-                case "Pm_Date":
+                case "Hc_Date":
                     if (DateTimeOffset.TryParse(variable.Value, out DateTimeOffset date))
                     {
                         return date.LocalDateTime.ToString("d MMM yyyy HH:mm");
@@ -145,7 +145,7 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 
                     return variable.Value;
 
-                case "Pm_ApplyActionTo":
+                case "Hc_ApplyActionTo":
                     return ApplicationOrder.Parse(variable.Value).DisplayName;
 
                 case "TargetItemId":
@@ -160,7 +160,7 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             var output = await categoryPathResolver.GetCategoryPath(commerceContext, categoryCommerceId);
 
-            var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_IncludeSubCategories"));
+            var includeSubCategories = properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_IncludeSubCategories"));
             if (includeSubCategories != null)
             {
                 includeSubCategories.IsHidden = true;

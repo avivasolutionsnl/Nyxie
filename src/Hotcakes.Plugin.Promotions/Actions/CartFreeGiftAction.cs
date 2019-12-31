@@ -13,7 +13,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
     /// A Sitecore Commerce action for the benefit
     /// "Get [quantity] free [gift]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartFreeGiftAction))]
+    [EntityIdentifier("Hc_" + nameof(CartFreeGiftAction))]
     public class CartFreeGiftAction : ICartAction
     {
         private readonly GetSellableItemCommand _getCommand;
@@ -25,7 +25,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
             _addCommand = addCommand;
         }
 
-        public IRuleValue<decimal> Pm_Quantity { get; set; }
+        public IRuleValue<decimal> Hc_Quantity { get; set; }
 
         public IRuleValue<string> TargetItemId { get; set; }
 
@@ -38,7 +38,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
                 return;
             }
 
-            var quantity = Pm_Quantity.Yield(context);
+            var quantity = Hc_Quantity.Yield(context);
             var targetItemId = TargetItemId.Yield(context);
 
             if (quantity == 0 || string.IsNullOrEmpty(targetItemId))

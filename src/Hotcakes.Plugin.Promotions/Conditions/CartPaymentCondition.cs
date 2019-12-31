@@ -11,18 +11,18 @@ namespace Hotcakes.Plugin.Promotions.Conditions
     /// A Sitecore Commerce condition for the qualification
     /// "Cart has [operator] [specific payment]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartPaymentCondition))]
+    [EntityIdentifier("Hc_" + nameof(CartPaymentCondition))]
     public class CartPaymentCondition : ICondition
     {
-        public IRuleValue<string> Pm_BasicStringCompare { get; set; }
+        public IRuleValue<string> Hc_BasicStringCompare { get; set; }
 
-        public IRuleValue<string> Pm_SpecificPayment { get; set; }
+        public IRuleValue<string> Hc_SpecificPayment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificPayment = Pm_SpecificPayment.Yield(context);
-            var basicStringCompare = Pm_BasicStringCompare.Yield(context);
+            var specificPayment = Hc_SpecificPayment.Yield(context);
+            var basicStringCompare = Hc_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificPayment) || string.IsNullOrEmpty(basicStringCompare))
             {
                 return false;

@@ -13,7 +13,7 @@ namespace Hotcakes.Plugin.Promotions.Conditions
     /// A Sitecore Commerce condition for the qualification
     /// "Current Customer last purchase is [operator] [date]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(LastPurchaseDateCondition))]
+    [EntityIdentifier("Hc_" + nameof(LastPurchaseDateCondition))]
     public class LastPurchaseDateCondition : ICustomerCondition
     {
         private readonly OrderResolver orderResolver;
@@ -24,14 +24,14 @@ namespace Hotcakes.Plugin.Promotions.Conditions
         }
 
         //Sitecore only adds Datetime operators out-of-the-box
-        public IBinaryOperator<DateTime, DateTime> Pm_Operator { get; set; }
+        public IBinaryOperator<DateTime, DateTime> Hc_Operator { get; set; }
 
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
-        public IRuleValue<DateTimeOffset> Pm_Date { get; set; }
+        public IRuleValue<DateTimeOffset> Hc_Date { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
-            var date = Pm_Date.Yield(context).DateTime;
+            var date = Hc_Date.Yield(context).DateTime;
 
             var orders = AsyncHelper.RunSync(() => orderResolver.Resolve(context.Fact<CommerceContext>()));
 
@@ -41,7 +41,7 @@ namespace Hotcakes.Plugin.Promotions.Conditions
             }
 
             var lastPurchaseDate = orders.Max(x => x.OrderPlacedDate).DateTime;
-            return Pm_Operator.Evaluate(lastPurchaseDate, date);
+            return Hc_Operator.Evaluate(lastPurchaseDate, date);
         }
     }
 }

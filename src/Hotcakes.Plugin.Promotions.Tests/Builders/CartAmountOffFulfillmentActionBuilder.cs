@@ -18,13 +18,13 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         {
             return new ActionModel
             {
-                Name = "Pm_CartAmountOffFulfillmentAction",
-                LibraryId = "Pm_CartAmountOffFulfillmentAction",
+                Name = "Hc_CartAmountOffFulfillmentAction",
+                LibraryId = "Hc_CartAmountOffFulfillmentAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificAmount",
+                        Name = "Hc_SpecificAmount",
                         Value = amountOff.ToString()
                     }
                 }

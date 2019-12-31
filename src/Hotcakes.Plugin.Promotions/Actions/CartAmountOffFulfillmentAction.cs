@@ -13,10 +13,10 @@ namespace Hotcakes.Plugin.Promotions.Actions
     /// A Sitecore Commerce action for the benefit
     /// "Get [specific amount] off the shipping cost"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartAmountOffFulfillmentAction))]
+    [EntityIdentifier("Hc_" + nameof(CartAmountOffFulfillmentAction))]
     public class CartAmountOffFulfillmentAction : ICartAction
     {
-        public IRuleValue<decimal> Pm_SpecificAmount { get; set; }
+        public IRuleValue<decimal> Hc_SpecificAmount { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
@@ -28,7 +28,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
                 return;
             }
 
-            var amountOff = Pm_SpecificAmount.Yield(context);
+            var amountOff = Hc_SpecificAmount.Yield(context);
             if (amountOff == 0)
             {
                 return;

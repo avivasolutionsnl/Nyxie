@@ -89,44 +89,44 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 
             return new ActionModel
             {
-                Name = "Pm_CartItemsMatchingInCategoryPriceDiscountAction",
-                LibraryId = "Pm_CartItemsMatchingInCategoryPriceDiscountAction",
+                Name = "Hc_CartItemsMatchingInCategoryPriceDiscountAction",
+                LibraryId = "Hc_CartItemsMatchingInCategoryPriceDiscountAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_AmountOff",
+                        Name = "Hc_AmountOff",
                         Value = amountOff.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificValue",
+                        Name = "Hc_SpecificValue",
                         Value = numberOfProducts.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_Operator",
+                        Name = "Hc_Operator",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_ApplyActionTo",
+                        Name = "Hc_ApplyActionTo",
                         Value = applicationOrder.Name
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_ActionLimit",
+                        Name = "Hc_ActionLimit",
                         Value = actionLimit.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificCategory",
+                        Name = "Hc_SpecificCategory",
                         Value = category
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_IncludeSubCategories",
+                        Name = "Hc_IncludeSubCategories",
                         Value = includeSubCategories
                     }
                 }

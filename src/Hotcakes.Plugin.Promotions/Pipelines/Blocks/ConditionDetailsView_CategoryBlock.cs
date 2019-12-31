@@ -29,12 +29,12 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var entity = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition") || p.Name.EqualsOrdinalIgnoreCase("Action"));
-            if (entity == null || !entity.RawValue.ToString().StartsWith("Pm_") || !entity.RawValue.ToString().Contains("InCategory"))
+            if (entity == null || !entity.RawValue.ToString().StartsWith("Hc_") || !entity.RawValue.ToString().Contains("InCategory"))
             {
                 return arg;
             }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificCategory"));
+            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificCategory"));
             if (categorySelection == null)
             {
                 return arg;

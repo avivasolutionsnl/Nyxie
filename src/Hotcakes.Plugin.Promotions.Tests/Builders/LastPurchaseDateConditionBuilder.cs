@@ -49,19 +49,19 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 
             return new ConditionModel
             {
-                Name = "Pm_LastPurchaseDateCondition",
-                LibraryId = "Pm_LastPurchaseDateCondition",
+                Name = "Hc_LastPurchaseDateCondition",
+                LibraryId = "Hc_LastPurchaseDateCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_Operator",
+                        Name = "Hc_Operator",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_Date",
+                        Name = "Hc_Date",
                         Value = date.ToString()
                     }
                 }

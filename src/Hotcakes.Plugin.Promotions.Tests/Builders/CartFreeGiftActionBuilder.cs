@@ -25,13 +25,13 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         {
             return new ActionModel
             {
-                Name = "Pm_CartFreeGiftAction",
-                LibraryId = "Pm_CartFreeGiftAction",
+                Name = "Hc_CartFreeGiftAction",
+                LibraryId = "Hc_CartFreeGiftAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_Quantity",
+                        Name = "Hc_Quantity",
                         Value = quantity.ToString()
                     },
                     new PropertyModel

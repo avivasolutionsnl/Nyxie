@@ -12,7 +12,7 @@ namespace Hotcakes.Plugin.Promotions.Conditions
     /// A Sitecore Commerce condition for the qualification
     /// "Cart contains [compares] [specific value] products in the [specific category]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartProductAmountInCategoryCondition))]
+    [EntityIdentifier("Hc_" + nameof(CartProductAmountInCategoryCondition))]
     public class CartProductAmountInCategoryCondition : ICartsCondition
     {
         private readonly CategoryCartLinesResolver categoryCartLinesResolver;
@@ -22,23 +22,23 @@ namespace Hotcakes.Plugin.Promotions.Conditions
             this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
-        public IBinaryOperator<decimal, decimal> Pm_Compares { get; set; }
+        public IBinaryOperator<decimal, decimal> Hc_Compares { get; set; }
 
-        public IRuleValue<decimal> Pm_SpecificValue { get; set; }
+        public IRuleValue<decimal> Hc_SpecificValue { get; set; }
 
-        public IRuleValue<string> Pm_SpecificCategory { get; set; }
+        public IRuleValue<string> Hc_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Pm_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Hc_IncludeSubCategories { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Pm_SpecificCategory.Yield(context);
-            var specificValue = Pm_SpecificValue.Yield(context);
-            var includeSubCategories = Pm_IncludeSubCategories.Yield(context);
-            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Pm_Compares == null)
+            var specificCategory = Hc_SpecificCategory.Yield(context);
+            var specificValue = Hc_SpecificValue.Yield(context);
+            var includeSubCategories = Hc_IncludeSubCategories.Yield(context);
+            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Hc_Compares == null)
             {
                 return false;
             }
@@ -52,7 +52,7 @@ namespace Hotcakes.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             var productAmount = categoryLines.Sum(x => x.Quantity);
-            return Pm_Compares.Evaluate(productAmount, specificValue);
+            return Hc_Compares.Evaluate(productAmount, specificValue);
         }
     }
 }

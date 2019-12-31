@@ -67,29 +67,29 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 
             return new ConditionModel
             {
-                Name = "Pm_CartProductAmountInCategoryCondition",
-                LibraryId = "Pm_CartProductAmountInCategoryCondition",
+                Name = "Hc_CartProductAmountInCategoryCondition",
+                LibraryId = "Hc_CartProductAmountInCategoryCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificCategory",
+                        Name = "Hc_SpecificCategory",
                         Value = category
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_Compares",
+                        Name = "Hc_Compares",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificValue",
+                        Name = "Hc_SpecificValue",
                         Value = numberOfProducts.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_IncludeSubCategories",
+                        Name = "Hc_IncludeSubCategories",
                         Value = includeSubCategories
                     }
                 }

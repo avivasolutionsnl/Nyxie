@@ -25,12 +25,12 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Pm_") || !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") || !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
             {
                 return arg;
             }
 
-            var fulfillmentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_SpecificFulfillment"));
+            var fulfillmentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificFulfillment"));
             if (fulfillmentSelection != null)
             {
                 var fulfillmentMethods = await _getCommand.Process(context.CommerceContext);

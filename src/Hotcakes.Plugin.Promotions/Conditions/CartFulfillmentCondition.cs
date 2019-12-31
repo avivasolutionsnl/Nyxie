@@ -11,18 +11,18 @@ namespace Hotcakes.Plugin.Promotions.Conditions
     /// A Sitecore Commerce condition for the qualification
     /// "Cart has [operator] [specific fulfillment]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartFulfillmentCondition))]
+    [EntityIdentifier("Hc_" + nameof(CartFulfillmentCondition))]
     public class CartFulfillmentCondition : IFulfillmentCondition
     {
-        public IRuleValue<string> Pm_BasicStringCompare { get; set; }
+        public IRuleValue<string> Hc_BasicStringCompare { get; set; }
 
-        public IRuleValue<string> Pm_SpecificFulfillment { get; set; }
+        public IRuleValue<string> Hc_SpecificFulfillment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificFulfillment = Pm_SpecificFulfillment.Yield(context);
-            var basicStringCompare = Pm_BasicStringCompare.Yield(context);
+            var specificFulfillment = Hc_SpecificFulfillment.Yield(context);
+            var basicStringCompare = Hc_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificFulfillment) || string.IsNullOrEmpty(basicStringCompare))
             {
                 return false;

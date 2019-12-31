@@ -17,12 +17,12 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Pm_") || !condition.RawValue.ToString().EndsWith("Condition"))
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") || !condition.RawValue.ToString().EndsWith("Condition"))
             {
                 return Task.FromResult(arg);
             }
 
-            var stringComparer = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Pm_BasicStringCompare"));
+            var stringComparer = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_BasicStringCompare"));
             stringComparer?.Policies.Add(new AvailableSelectionsPolicy(BasicStringComparer.Options));
 
             return Task.FromResult(arg);

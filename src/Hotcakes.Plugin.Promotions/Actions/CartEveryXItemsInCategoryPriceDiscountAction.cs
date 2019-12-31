@@ -13,7 +13,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
     /// A Sitecore Commerce action for the benefit
     /// "For every [Items to award] of [Items to purchase] products in [Category] you get [Amount Off] on the [Apply Award To] with a limit of [Award Limit]"
     /// </summary>
-    [EntityIdentifier("Pm_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
+    [EntityIdentifier("Hc_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
     public class CartEveryXItemsInCategoryPriceDiscountAction : ICartLineAction
     {
         private readonly CategoryCartLinesResolver categoryCartLinesResolver;
@@ -23,32 +23,32 @@ namespace Hotcakes.Plugin.Promotions.Actions
             this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
-        public IRuleValue<decimal> Pm_ItemsToAward { get; set; }
+        public IRuleValue<decimal> Hc_ItemsToAward { get; set; }
 
-        public IRuleValue<decimal> Pm_ItemsToPurchase { get; set; }
+        public IRuleValue<decimal> Hc_ItemsToPurchase { get; set; }
 
-        public IRuleValue<string> Pm_SpecificCategory { get; set; }
+        public IRuleValue<string> Hc_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Pm_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Hc_IncludeSubCategories { get; set; }
 
-        public IRuleValue<decimal> Pm_AmountOff { get; set; }
+        public IRuleValue<decimal> Hc_AmountOff { get; set; }
 
-        public IRuleValue<string> Pm_ApplyActionTo { get; set; }
+        public IRuleValue<string> Hc_ApplyActionTo { get; set; }
 
-        public IRuleValue<int> Pm_ActionLimit { get; set; }
+        public IRuleValue<int> Hc_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Pm_SpecificCategory.Yield(context);
-            var itemsToAward = Pm_ItemsToAward.Yield(context);
-            var itemsToPurchase = Pm_ItemsToPurchase.Yield(context);
-            var includeSubCategories = Pm_IncludeSubCategories.Yield(context);
-            var amountOff = Pm_AmountOff.Yield(context);
-            var applyActionTo = Pm_ApplyActionTo.Yield(context);
-            var actionLimit = Pm_ActionLimit.Yield(context);
+            var specificCategory = Hc_SpecificCategory.Yield(context);
+            var itemsToAward = Hc_ItemsToAward.Yield(context);
+            var itemsToPurchase = Hc_ItemsToPurchase.Yield(context);
+            var includeSubCategories = Hc_IncludeSubCategories.Yield(context);
+            var amountOff = Hc_AmountOff.Yield(context);
+            var applyActionTo = Hc_ApplyActionTo.Yield(context);
+            var actionLimit = Hc_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 itemsToAward == 0 ||

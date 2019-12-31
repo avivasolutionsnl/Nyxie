@@ -31,18 +31,18 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         {
             return new ConditionModel
             {
-                Name = "Pm_CartFulfillmentCondition",
-                LibraryId = "Pm_CartFulfillmentCondition",
+                Name = "Hc_CartFulfillmentCondition",
+                LibraryId = "Hc_CartFulfillmentCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Pm_BasicStringCompare",
+                        Name = "Hc_BasicStringCompare",
                         Value = comparer
                     },
                     new PropertyModel
                     {
-                        Name = "Pm_SpecificFulfillment",
+                        Name = "Hc_SpecificFulfillment",
                         Value = fulfillmentMethodName
                     }
                 }
