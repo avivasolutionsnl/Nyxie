@@ -15,25 +15,27 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
     public class AddCategoryBlock : PipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
     {
         private readonly SitecoreConnectionManager _manager;
+        private readonly GetSellableItemCommand getSellableItemCommand;
         private CommerceContext _commerceContext;
 
-        public AddCategoryBlock(SitecoreConnectionManager manager)
+        public AddCategoryBlock(SitecoreConnectionManager manager, GetSellableItemCommand getSellableItemCommand)
         {
             _manager = manager;
+            this.getSellableItemCommand = getSellableItemCommand;
         }
 
         public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
         {
             _commerceContext = context.CommerceContext;
-
-            var sellableItem = context.CommerceContext.GetEntity<SellableItem>();
-
+            
             var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
             var addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
             if (addedLine == null)
             {
                 return arg;
             }
+
+            var sellableItem = await getSellableItemCommand.Process(_commerceContext, addedLine.ItemId, false);
 
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())
