@@ -4,15 +4,15 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Plugin.Sample.Habitat
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Framework.Pipelines;
+
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    using Sitecore.Commerce.Core;
-    using Sitecore.Framework.Pipelines;
-
     /// <summary>
     /// Defines the registered plugin block.
     /// </summary>

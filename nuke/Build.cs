@@ -95,10 +95,10 @@ partial class Build : NukeBuild
        .Executes(() =>
        {
            Courier(c => c.SetTargetFolder(RootDirectory / "unicorn")
-                         .SetOutputPackage(OutputDirectory / $"Promethium-{GitVersion.AssemblySemVer}.update")
+                         .SetOutputPackage(OutputDirectory / $"Hotcakes-{GitVersion.AssemblySemVer}.update")
                          .SetRainbowFormat(true));
 
-           DotNetPack(s => s.SetProject(SourceDirectory / "Plugin.Promotions/Promethium.Plugin.Promotions.csproj")
+           DotNetPack(s => s.SetProject(SourceDirectory / "Hotcakes.Plugin.Promotions/Hotcakes.Plugin.Promotions.csproj")
                .SetOutputDirectory(OutputDirectory));
        });
 

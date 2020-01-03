@@ -1,0 +1,21 @@
+﻿---
+ID: "6eec9d44-892b-4c3c-bd0d-2313c09ef56f"
+Parent: "cba44a1c-9802-48ab-a008-0d08b72deedf"
+Template: "5dd201a0-5b3d-4e82-8cca-608d5905c3a1"
+Path: /sitecore/Commerce/Commerce Control Panel/Commerce Engine Settings/Commerce Terms/BusinessTools/Conditions/Hc_LastPurchaseDateCondition
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190930T110703Z
+    - ID: "290defd0-7b9a-4541-a326-87c44bee5309"
+      Hint: Value
+      Value: "Current Customer last purchase is [operator] [date]"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

@@ -1,14 +1,15 @@
 ﻿// © 2018 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
-namespace Plugin.Sample.Habitat
-{
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Catalog;
-    using Sitecore.Commerce.Plugin.Pricing;
-    using Sitecore.Framework.Pipelines;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using Sitecore.Commerce.Core;
+using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Pricing;
+using Sitecore.Framework.Pipelines;
+
+namespace Plugin.Sample.Habitat.Pipelines.Blocks
+{
     /// <summary>
     /// Ensure that a bundle is created
     /// </summary>
