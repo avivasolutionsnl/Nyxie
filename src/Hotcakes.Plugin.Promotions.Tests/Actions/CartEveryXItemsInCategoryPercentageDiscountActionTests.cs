@@ -108,8 +108,91 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
 
             var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
 
-            var line = resultCart.Lines.Single(x => x.Id == "001");
+            var line = resultCart.Lines.Single(x => x.Id == "002");
             
+            Assert.DoesNotContain(line.Adjustments, x => x.AwardingBlock == nameof(CartEveryXItemsInCategoryPercentageDiscountAction));
+        }
+
+        [Fact]
+        public async void Should_not_benefit_when_items_to_purchase_does_not_match()
+        {
+            fixture.Factory.ClearAllEntities();
+
+            var client = fixture.Factory.CreateClient();
+
+            var promotion = await new PromotionBuilder()
+                                  .QualifiedBy(new IsCurrentDayConditionBuilder()
+                                      .Day(DateTime.Now.Day))
+                                  .BenefitBy(new CartEveryXItemsInCategoryPercentageDiscountActionBuilder()
+                                      .PercentageOff(50)
+                                      .ForCategory("Laptops")
+                                      .ItemsToAward(2)
+                                      .ItemsToPurchase(3)
+                                      .ApplyActionTo(ApplicationOrder.Ascending)
+                                      .ActionLimit(1))
+                                  .Build(fixture.Factory);
+
+            fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
+            fixture.Factory.AddEntity(promotion);
+
+            fixture.Factory.AddEntity(new Category
+            {
+                Id = "Laptops".ToEntityId<Category>(),
+                SitecoreId = "435345345"
+            });
+
+            var cart = await new CartBuilder()
+                             .WithLines(new LineBuilder().IdentifiedBy("001").Quantity(1).InCategory("435345345").Price(40))
+                             .Build();
+
+            fixture.Factory.AddEntity(cart);
+
+            var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+
+            var line = resultCart.Lines.Single(x => x.Id == "001");
+
+            Assert.DoesNotContain(line.Adjustments, x => x.AwardingBlock == nameof(CartEveryXItemsInCategoryPercentageDiscountAction));
+        }
+
+
+        [Fact]
+        public async void Should_not_benefit_when_items_to_purchase_does_not_match_second_scenario()
+        {
+            fixture.Factory.ClearAllEntities();
+
+            var client = fixture.Factory.CreateClient();
+
+            var promotion = await new PromotionBuilder()
+                                  .QualifiedBy(new IsCurrentDayConditionBuilder()
+                                      .Day(DateTime.Now.Day))
+                                  .BenefitBy(new CartEveryXItemsInCategoryPercentageDiscountActionBuilder()
+                                             .PercentageOff(50)
+                                             .ForCategory("Laptops")
+                                             .ItemsToAward(2)
+                                             .ItemsToPurchase(3)
+                                             .ApplyActionTo(ApplicationOrder.Ascending)
+                                             .ActionLimit(1))
+                                  .Build(fixture.Factory);
+
+            fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
+            fixture.Factory.AddEntity(promotion);
+
+            fixture.Factory.AddEntity(new Category
+            {
+                Id = "Laptops".ToEntityId<Category>(),
+                SitecoreId = "435345345"
+            });
+
+            var cart = await new CartBuilder()
+                             .WithLines(new LineBuilder().IdentifiedBy("001").Quantity(2).InCategory("435345345").Price(40))
+                             .Build();
+
+            fixture.Factory.AddEntity(cart);
+
+            var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+
+            var line = resultCart.Lines.Single(x => x.Id == "001");
+
             Assert.DoesNotContain(line.Adjustments, x => x.AwardingBlock == nameof(CartEveryXItemsInCategoryPercentageDiscountAction));
         }
 
