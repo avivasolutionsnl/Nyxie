@@ -9,18 +9,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         private decimal quantity = 1;
         private string targetId;
 
-        public CartFreeGiftActionBuilder Quantity(decimal quantity)
-        {
-            this.quantity = quantity;
-            return this;
-        }
-        
-        public CartFreeGiftActionBuilder Gift(string targetId)
-        {
-            this.targetId = targetId;
-            return this;
-        }
-
         public ActionModel Build()
         {
             return new ActionModel
@@ -41,6 +29,18 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartFreeGiftActionBuilder Quantity(decimal quantity)
+        {
+            this.quantity = quantity;
+            return this;
+        }
+
+        public CartFreeGiftActionBuilder Gift(string targetId)
+        {
+            this.targetId = targetId;
+            return this;
         }
     }
 }

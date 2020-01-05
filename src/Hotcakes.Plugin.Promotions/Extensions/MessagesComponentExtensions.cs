@@ -4,11 +4,13 @@ namespace Hotcakes.Plugin.Promotions.Extensions
 {
     public static class MessagesComponentExtensions
     {
-        public static void AddPromotionApplied(this MessagesComponent messageComponent, CommerceContext commerceContext, string awardingBlock)
+        public static void AddPromotionApplied(this MessagesComponent messageComponent, CommerceContext commerceContext,
+            string awardingBlock)
         {
             var propertiesModel = commerceContext.GetObject<PropertiesModel>();
-            var promotionName = propertiesModel?.GetPropertyValue("PromotionId") ?? awardingBlock;
-            messageComponent.AddMessage(commerceContext.GetPolicy<KnownMessageCodePolicy>().Promotions, $"PromotionApplied: {promotionName}");
+            object promotionName = propertiesModel?.GetPropertyValue("PromotionId") ?? awardingBlock;
+            messageComponent.AddMessage(commerceContext.GetPolicy<KnownMessageCodePolicy>().Promotions,
+                $"PromotionApplied: {promotionName}");
         }
     }
 }

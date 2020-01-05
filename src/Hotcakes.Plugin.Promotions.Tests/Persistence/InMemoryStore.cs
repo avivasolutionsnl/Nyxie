@@ -18,9 +18,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Persistence
             CommerceEntity entity;
 
             if (Entities.TryGetValue(key, out entity))
-            {
                 return entity;
-            }
 
             return null;
         }

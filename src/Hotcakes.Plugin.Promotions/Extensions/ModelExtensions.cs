@@ -14,25 +14,25 @@ namespace Hotcakes.Plugin.Promotions.Extensions
     internal static class ModelExtensions
     {
         /// <summary>
-        /// Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToCondition to allow boolean values
+        ///     Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToCondition to allow boolean values
         /// </summary>
         internal static ICondition ConvertToConditionExtended(
-          this ConditionModel model,
-          IEntityMetadata metaData,
-          IEntityRegistry registry,
-          IServiceProvider services)
+            this ConditionModel model,
+            IEntityMetadata metaData,
+            IEntityRegistry registry,
+            IServiceProvider services)
         {
             return model.Properties.Convert<ICondition>(metaData, registry, services);
         }
 
         /// <summary>
-        /// Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToAction to allow boolean values
+        ///     Extension of Sitecore.Commerce.Plugin.Rules.ModelExtensions.ConvertToAction to allow boolean values
         /// </summary>
         internal static IAction ConvertToActionExtended(
-          this ActionModel model,
-          IEntityMetadata metaData,
-          IEntityRegistry registry,
-          IServiceProvider services)
+            this ActionModel model,
+            IEntityMetadata metaData,
+            IEntityRegistry registry,
+            IServiceProvider services)
         {
             return model.Properties.Convert<IAction>(metaData, registry, services);
         }
@@ -44,104 +44,81 @@ namespace Hotcakes.Plugin.Promotions.Extensions
             IServiceProvider services) where T : IMappableRuleEntity
         {
             if (metaData.Type.GetCustomAttributes(typeof(ObsoleteAttribute), false).Any())
-            {
                 return default;
-            }
 
             if (!(ActivatorUtilities.CreateInstance(services, metaData.Type) is T instance1))
-            {
                 return default;
-            }
-            var properties = instance1
-                .GetType()
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            PropertyInfo[] properties = instance1
+                                        .GetType()
+                                        .GetProperties(BindingFlags.Instance | BindingFlags.Public);
             if (properties.Any(p => IsBinaryOperator(p.PropertyType)))
-            {
                 ProcessBinaryOperation(modelProperties, registry, services, properties, instance1);
-            }
-            foreach (var property in modelProperties)
-            {
+            foreach (PropertyModel property in modelProperties)
                 ConvertToLiteralRuleValue(property, instance1);
-            }
             return instance1;
         }
 
-        private static void ProcessBinaryOperation(IEnumerable<PropertyModel> modelProperties, IEntityRegistry registry, IServiceProvider services, PropertyInfo[] properties, IMappableRuleEntity instance)
+        private static void ProcessBinaryOperation(IEnumerable<PropertyModel> modelProperties, IEntityRegistry registry,
+            IServiceProvider services, PropertyInfo[] properties, IMappableRuleEntity instance)
         {
-            var operatorModelProperty = modelProperties.FirstOrDefault(x => x.IsOperator);
+            PropertyModel operatorModelProperty = modelProperties.FirstOrDefault(x => x.IsOperator);
             if (operatorModelProperty == null)
-            {
                 return;
-            }
 
-            var entityMetadata = registry
-                .GetOperators()
-                .FirstOrDefault(m =>
-                    m.Type.FullName != null &&
-                    m.Type.FullName.EqualsOrdinalIgnoreCase(operatorModelProperty.Value));
-            var instance2 = ActivatorUtilities.CreateInstance(services, entityMetadata?.Type);
+            IEntityMetadata entityMetadata = registry
+                                             .GetOperators()
+                                             .FirstOrDefault(m =>
+                                                 m.Type.FullName != null &&
+                                                 m.Type.FullName.EqualsOrdinalIgnoreCase(operatorModelProperty.Value));
+            object instance2 = ActivatorUtilities.CreateInstance(services, entityMetadata?.Type);
 
-            var propertyInfo = properties.FirstOrDefault(p => IsBinaryOperator(p.PropertyType));
+            PropertyInfo propertyInfo = properties.FirstOrDefault(p => IsBinaryOperator(p.PropertyType));
             propertyInfo?.SetValue(instance, instance2);
         }
 
         private static void ConvertToLiteralRuleValue(PropertyModel property1, IMappableRuleEntity instance)
         {
             if (property1.IsOperator)
-            {
                 return;
-            }
 
-            var property2 = instance
-                .GetType()
-                .GetProperty(property1.Name, BindingFlags.Instance | BindingFlags.Public);
+            PropertyInfo property2 = instance
+                                     .GetType()
+                                     .GetProperty(property1.Name, BindingFlags.Instance | BindingFlags.Public);
             if (property2 == null)
-            { return; }
-
-            var type = property2.PropertyType.IsGenericType &&
-                           typeof(IRuleValue<>).IsAssignableFrom(property2.PropertyType.GetGenericTypeDefinition()) ?
-                property2.PropertyType.GetGenericArguments().FirstOrDefault() :
-                property2.PropertyType;
-            if (type == null)
-            {
                 return;
-            }
+
+            Type type = property2.PropertyType.IsGenericType &&
+                        typeof(IRuleValue<>).IsAssignableFrom(property2.PropertyType.GetGenericTypeDefinition())
+                ? property2.PropertyType.GetGenericArguments().FirstOrDefault()
+                : property2.PropertyType;
+            if (type == null)
+                return;
 
             object literalRuleValue = null;
             switch (type.FullName)
             {
                 case "System.DateTime":
-                    if (DateTime.TryParse(property1.Value, out var dateTimeResult))
-                    {
-                        literalRuleValue = new LiteralRuleValue<DateTime>() { Value = dateTimeResult };
-                    }
+                    if (DateTime.TryParse(property1.Value, out DateTime dateTimeResult))
+                        literalRuleValue = new LiteralRuleValue<DateTime> { Value = dateTimeResult };
                     break;
                 case "System.DateTimeOffset":
-                    if (DateTimeOffset.TryParse(property1.Value, out var dateTimeOffsetResult))
-                    {
-                        literalRuleValue = new LiteralRuleValue<DateTimeOffset>() { Value = dateTimeOffsetResult };
-                    }
+                    if (DateTimeOffset.TryParse(property1.Value, out DateTimeOffset dateTimeOffsetResult))
+                        literalRuleValue = new LiteralRuleValue<DateTimeOffset> { Value = dateTimeOffsetResult };
                     break;
                 case "System.Int32":
-                    if (int.TryParse(property1.Value, out var intResult))
-                    {
-                        literalRuleValue = new LiteralRuleValue<int>() { Value = intResult };
-                    }
+                    if (int.TryParse(property1.Value, out int intResult))
+                        literalRuleValue = new LiteralRuleValue<int> { Value = intResult };
                     break;
                 case "System.Decimal":
-                    if (decimal.TryParse(property1.Value, out var decimalResult))
-                    {
+                    if (decimal.TryParse(property1.Value, out decimal decimalResult))
                         literalRuleValue = new LiteralRuleValue<decimal> { Value = decimalResult };
-                    }
                     break;
                 case "System.Boolean":
-                    if (bool.TryParse(property1.Value, out var booleanResult))
-                    {
+                    if (bool.TryParse(property1.Value, out bool booleanResult))
                         literalRuleValue = new LiteralRuleValue<bool> { Value = booleanResult };
-                    }
                     break;
                 default:
-                    literalRuleValue = new LiteralRuleValue<string>() { Value = property1.Value };
+                    literalRuleValue = new LiteralRuleValue<string> { Value = property1.Value };
                     break;
             }
 

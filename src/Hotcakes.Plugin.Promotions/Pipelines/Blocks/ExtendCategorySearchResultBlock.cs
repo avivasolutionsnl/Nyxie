@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,35 +26,30 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 
         public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
         {
-            var commerceContext = context.CommerceContext;
+            CommerceContext commerceContext = context.CommerceContext;
 
-            var results = arg.ChildViews.OfType<EntityView>().Where(x => x.ItemId.IndexOf("-Category", StringComparison.OrdinalIgnoreCase) > 0);
-            foreach (var result in results)
+            IEnumerable<EntityView> results = arg.ChildViews.OfType<EntityView>()
+                                                 .Where(
+                                                     x => x.ItemId.IndexOf("-Category", StringComparison.OrdinalIgnoreCase) > 0);
+            foreach (EntityView result in results)
             {
-                var displayProperty = result.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("DisplayName"));
+                ViewProperty displayProperty =
+                    result.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("DisplayName"));
                 if (displayProperty == null)
-                {
                     continue;
-                }
 
-                var category = await _getCommand.Process(commerceContext, result.ItemId);
+                Category category = await _getCommand.Process(commerceContext, result.ItemId);
                 if (category == null)
-                {
                     continue;
-                }
 
-                var parentPath =
+                string parentPath =
                     await categoryPathResolver.GetParentPath(commerceContext, category.ParentCategoryList,
                         string.Empty);
 
                 if (parentPath.Length > 0)
-                {
                     displayProperty.Value = $"{category.DisplayName} in {parentPath}";
-                }
                 else
-                {
                     displayProperty.Value = category.DisplayName;
-                }
             }
 
             return arg;

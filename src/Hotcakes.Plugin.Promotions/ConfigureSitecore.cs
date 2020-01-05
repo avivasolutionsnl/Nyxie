@@ -6,26 +6,34 @@ using Hotcakes.Plugin.Promotions.Resolvers;
 using Microsoft.Extensions.DependencyInjection;
 
 using Sitecore.Commerce.Core;
+using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Carts;
+using Sitecore.Commerce.Plugin.Catalog;
+using Sitecore.Commerce.Plugin.Rules;
+using Sitecore.Commerce.Plugin.Search;
 using Sitecore.Framework.Configuration;
 using Sitecore.Framework.Pipelines.Definitions.Extensions;
 using Sitecore.Framework.Rules;
 
+using BuildRuleSetBlock = Hotcakes.Plugin.Promotions.Pipelines.Blocks.BuildRuleSetBlock;
+using RegisteredPluginBlock = Hotcakes.Plugin.Promotions.Pipelines.Blocks.RegisteredPluginBlock;
+
 namespace Hotcakes.Plugin.Promotions
 {
     /// <summary>
-    /// The configure sitecore class.
+    ///     The configure sitecore class.
     /// </summary>
     public class ConfigureSitecore : IConfigureSitecore
     {
         /// <summary>
-        /// The configure services.
+        ///     The configure services.
         /// </summary>
         /// <param name="services">
-        /// The services.
+        ///     The services.
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
             services.RegisterAllCommands(assembly);
 
@@ -37,114 +45,178 @@ namespace Hotcakes.Plugin.Promotions
             services.Sitecore().Rules(rules => rules.Registry(reg => reg.RegisterAssembly(assembly)));
 
             services.Sitecore().Pipelines(config => config
-                .ConfigurePipeline<Sitecore.Commerce.Plugin.Carts.IAddCartLinePipeline>(configure => configure
-                    .Add<Pipelines.Blocks.AddCategoryBlock>()
-                    .Before<Sitecore.Commerce.Plugin.Carts.PersistCartBlock>())
+                                                    .ConfigurePipeline<IAddCartLinePipeline>(configure => configure
+                                                                                                          .Add<AddCategoryBlock>()
+                                                                                                          .Before<PersistCartBlock
+                                                                                                          >())
 
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_CategoryBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                GetPromotionQualificationDetailsViewBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_FulfillmentBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_CategoryBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_PaymentBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_FulfillmentBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_BasicStringCompareBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_PaymentBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_ApplyActionTo
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_BasicStringCompareBlock
+                                                                                                            >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
-                    .After<Sitecore.Commerce.Plugin.Catalog.GetPromotionQualificationDetailsViewBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                PrettifyPromotionChildrenDetailsBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                IFormatEntityViewPipeline
+                                                                                                            >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<ISearchPipeline>(configure => configure
+                                                                                                     .Add<
+                                                                                                         ExtendCategorySearchResultBlock
+                                                                                                     >()
+                                                                                                     .After<
+                                                                                                         IFormatEntityViewPipeline
+                                                                                                     >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_CategoryBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           DoActionSelectQualificationBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_FulfillmentBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_CategoryBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_PaymentBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_FulfillmentBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_BasicStringCompareBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_PaymentBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_ApplyActionTo
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_BasicStringCompareBlock
+                                                                                                       >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_FulfillmentBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_CategoryBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_PaymentBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_FulfillmentBlock
+                                                                                                            >())
+                                                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure
+                                                                                                            .Add<
+                                                                                                                ConditionDetailsView_BasicStringCompareBlock
+                                                                                                            >()
+                                                                                                            .After<
+                                                                                                                ConditionDetailsView_PaymentBlock
+                                                                                                            >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_ApplyActionTo>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_CategoryBlock
+                                                                                                       >()
+                                                                                                       .After<Sitecore.Commerce.
+                                                                                                           Plugin.Promotions.
+                                                                                                           DoActionSelectQualificationBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_FulfillmentBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_CategoryBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_PaymentBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_FulfillmentBlock
+                                                                                                       >())
+                                                    .ConfigurePipeline<IDoActionPipeline>(configure => configure
+                                                                                                       .Add<
+                                                                                                           ConditionDetailsView_BasicStringCompareBlock
+                                                                                                       >()
+                                                                                                       .After<
+                                                                                                           ConditionDetailsView_PaymentBlock
+                                                                                                       >())
 
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IBuildRuleSetPipeline>(configure => configure
+                                                                                                           .Remove<Sitecore.
+                                                                                                               Commerce.Plugin.
+                                                                                                               Rules.
+                                                                                                               BuildRuleSetBlock>()
+                                                                                                           .Add<BuildRuleSetBlock
+                                                                                                           >())
 
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.PrettifyPromotionChildrenDetailsBlock>()
-                    .After<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IFormatEntityViewPipeline>(configure => configure
+                                                                                                               .Add<
+                                                                                                                   PrettifySelectOptionsBlock
+                                                                                                               >()
+                                                                                                               .After<
+                                                                                                                   HighlightLocalizableViewPropertiesBlock
+                                                                                                               >())
 
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.Plugin.Search.ISearchPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ExtendCategorySearchResultBlock>()
-                    .After<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>())
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
-                    .After<Sitecore.Commerce.Plugin.Catalog.DoActionSelectQualificationBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_ApplyActionTo>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>())
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IGetEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>()
-                    .After<Sitecore.Commerce.Plugin.Promotions.DoActionSelectQualificationBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_CategoryBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_FulfillmentBlock>())
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IDoActionPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.ConditionDetailsView_BasicStringCompareBlock>()
-                    .After<Pipelines.Blocks.ConditionDetailsView_PaymentBlock>())
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.Plugin.Rules.IBuildRuleSetPipeline>(configure => configure
-                    .Remove<Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock>()
-                    .Add<Pipelines.Blocks.BuildRuleSetBlock>())
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<Sitecore.Commerce.EntityViews.IFormatEntityViewPipeline>(configure => configure
-                    .Add<Pipelines.Blocks.PrettifySelectOptionsBlock>()
-                    .After<Sitecore.Commerce.EntityViews.HighlightLocalizableViewPropertiesBlock>())
-
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                .ConfigurePipeline<IRunningPluginsPipeline>(c => c.Add<RegisteredPluginBlock>())
+                                                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    .ConfigurePipeline<IRunningPluginsPipeline>(
+                                                        c => c.Add<RegisteredPluginBlock>())
             );
         }
     }

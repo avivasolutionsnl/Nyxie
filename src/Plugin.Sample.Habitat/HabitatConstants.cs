@@ -7,28 +7,28 @@
 namespace Plugin.Sample.Habitat
 {
     /// <summary>
-    /// The Habitat constants.
+    ///     The Habitat constants.
     /// </summary>
     public static class HabitatConstants
     {
         /// <summary>
-        /// The initialize sellable items block name.
+        ///     The initialize bundles block name.
         /// </summary>
-        public const string InitializeSellableItemsBlock = "Habitat.block.InitializeSellableItemsBlock";
+        public const string InitializeBundlesBlock = "Habitat.block.InitializeBundles";
 
         /// <summary>
-        /// The initialize catalog block name.
+        ///     The initialize catalog block name.
         /// </summary>
         public const string InitializeCatalogBlock = "Habitat.block.InitializeCatalogBlock";
 
         /// <summary>
-        /// The registered plugin block name.
+        ///     The initialize sellable items block name.
         /// </summary>
-        public const string RegisteredPluginBlock = "Habitat.block.RegisteredPlugin";
+        public const string InitializeSellableItemsBlock = "Habitat.block.InitializeSellableItemsBlock";
 
         /// <summary>
-        /// The initialize bundles block name.
+        ///     The registered plugin block name.
         /// </summary>
-        public const string InitializeBundlesBlock = "Habitat.block.InitializeBundles";
+        public const string RegisteredPluginBlock = "Habitat.block.RegisteredPlugin";
     }
 }

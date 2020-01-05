@@ -14,7 +14,7 @@ using Sitecore.Framework.Pipelines;
 namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
     /// <summary>
-    /// Defines the registered plugin block.
+    ///     Defines the registered plugin block.
     /// </summary>
     /// <seealso>
     ///     <cref>
@@ -24,28 +24,28 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
     ///     </cref>
     /// </seealso>
     [PipelineDisplayName(HabitatConstants.RegisteredPluginBlock)]
-    public class RegisteredPluginBlock : PipelineBlock<IEnumerable<RegisteredPluginModel>, IEnumerable<RegisteredPluginModel>, CommercePipelineExecutionContext>
+    public class RegisteredPluginBlock : PipelineBlock<IEnumerable<RegisteredPluginModel>, IEnumerable<RegisteredPluginModel>,
+        CommercePipelineExecutionContext>
     {
         /// <summary>
-        /// The run.
+        ///     The run.
         /// </summary>
         /// <param name="arg">
-        /// The argument.
+        ///     The argument.
         /// </param>
         /// <param name="context">
-        /// The context.
+        ///     The context.
         /// </param>
         /// <returns>
-        /// The list of <see cref="RegisteredPluginModel"/>
+        ///     The list of <see cref="RegisteredPluginModel" />
         /// </returns>
-        public override Task<IEnumerable<RegisteredPluginModel>> Run(IEnumerable<RegisteredPluginModel> arg, CommercePipelineExecutionContext context)
+        public override Task<IEnumerable<RegisteredPluginModel>> Run(IEnumerable<RegisteredPluginModel> arg,
+            CommercePipelineExecutionContext context)
         {
             if (arg == null)
-            {
                 return Task.FromResult((IEnumerable<RegisteredPluginModel>)null);
-            }
 
-            var plugins = arg.ToList();
+            List<RegisteredPluginModel> plugins = arg.ToList();
             PluginHelper.RegisterPlugin(this, plugins);
 
             return Task.FromResult(plugins.AsEnumerable());

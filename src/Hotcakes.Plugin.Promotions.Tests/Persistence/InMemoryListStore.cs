@@ -8,7 +8,8 @@ namespace Hotcakes.Plugin.Promotions.Tests.Persistence
 {
     public class InMemoryListStore : IListStore
     {
-        public ConcurrentDictionary<string, ConcurrentBag<CommerceEntity>> Lists = new ConcurrentDictionary<string, ConcurrentBag<CommerceEntity>>();
+        public ConcurrentDictionary<string, ConcurrentBag<CommerceEntity>> Lists =
+            new ConcurrentDictionary<string, ConcurrentBag<CommerceEntity>>();
 
         public void Add(string list, CommerceEntity entity)
         {
@@ -20,9 +21,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Persistence
             ConcurrentBag<CommerceEntity> entities;
 
             if (!Lists.TryGetValue(list, out entities))
-            {
                 return Enumerable.Empty<CommerceEntity>();
-            }
 
             return entities.ToArray();
         }

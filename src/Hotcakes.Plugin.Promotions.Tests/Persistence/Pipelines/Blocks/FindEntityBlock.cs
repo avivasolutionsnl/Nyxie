@@ -18,12 +18,10 @@ namespace Hotcakes.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks
 
         public override Task<CommerceEntity> Run(FindEntityArgument arg, CommercePipelineExecutionContext context)
         {
-            var entity = store.Find(arg.EntityId);
+            CommerceEntity entity = store.Find(arg.EntityId);
 
             if (entity == null && arg.ShouldCreate)
-            {
                 entity = Activator.CreateInstance(arg.EntityType) as CommerceEntity;
-            }
 
             return Task.FromResult(entity);
         }

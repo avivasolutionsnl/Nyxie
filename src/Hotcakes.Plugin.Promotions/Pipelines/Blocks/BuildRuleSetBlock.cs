@@ -17,15 +17,15 @@ using Sitecore.Framework.Rules.Registry;
 namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
     /// <summary>
-    /// Copy of Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock
-    /// The only changes are calling the extended functions
+    ///     Copy of Sitecore.Commerce.Plugin.Rules.BuildRuleSetBlock
+    ///     The only changes are calling the extended functions
     /// </summary>
     [PipelineDisplayName("Rules.blocks.buildruleset")]
     public class BuildRuleSetBlock : PipelineBlock<IEnumerable<RuleModel>, RuleSet, CommercePipelineExecutionContext>
     {
         private readonly IEntityRegistry _entityRegistry;
-        private IRuleBuilderInit _ruleBuilder;
         private readonly IServiceProvider _services;
+        private IRuleBuilderInit _ruleBuilder;
 
         public BuildRuleSetBlock(IEntityRegistry entityRegistry, IServiceProvider services)
         {
@@ -34,58 +34,60 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         }
 
         public override async Task<RuleSet> Run(
-          IEnumerable<RuleModel> arg,
-          CommercePipelineExecutionContext context)
+            IEnumerable<RuleModel> arg,
+            CommercePipelineExecutionContext context)
         {
-            var source = arg as List<RuleModel> ?? arg.ToList();
+            List<RuleModel> source = arg as List<RuleModel> ?? arg.ToList();
             // ISSUE: explicit non-virtual call
             Condition.Requires(source).IsNotNull($"{Name}: The argument cannot be null");
 
             if (!source.Any())
             {
-                var executionContext = context;
-                var error = context.GetPolicy<KnownResultCodes>().Error;
+                CommercePipelineExecutionContext executionContext = context;
+                string error = context.GetPolicy<KnownResultCodes>().Error;
                 executionContext.Abort(await context.CommerceContext
-                    .AddMessage(error, "RulesCannotBeNullOrEmpty", null, "Rules cannot be null or empty.")
-                    .ConfigureAwait(false), context);
+                                                    .AddMessage(error, "RulesCannotBeNullOrEmpty", null,
+                                                        "Rules cannot be null or empty.")
+                                                    .ConfigureAwait(false), context);
                 return null;
             }
+
             _ruleBuilder = _services.GetService<IRuleBuilderInit>();
             var ruleSet1 = new RuleSet
             {
                 Id = $"{CommerceEntity.IdPrefix<RuleSet>() as object}{Guid.NewGuid() as object:N}"
             };
-            var ruleSet2 = ruleSet1;
-            foreach (var model in source.Where(rm => rm != null))
-            {
+            RuleSet ruleSet2 = ruleSet1;
+            foreach (RuleModel model in source.Where(rm => rm != null))
                 try
                 {
                     ruleSet2.Rules.Add(BuildRule(model));
                 }
                 catch (Exception ex)
                 {
-                    var executionContext = context;
-                    var error = context.GetPolicy<KnownResultCodes>().Error;
+                    CommercePipelineExecutionContext executionContext = context;
+                    string error = context.GetPolicy<KnownResultCodes>().Error;
                     var args = new object[] { model.Name, ex };
                     executionContext.Abort(await context.CommerceContext
-                        .AddMessage(error, "RuleNotBuilt", args, $"Rule '{model.Name}' cannot be built.")
-                        .ConfigureAwait(false), context);
+                                                        .AddMessage(error, "RuleNotBuilt", args,
+                                                            $"Rule '{model.Name}' cannot be built.")
+                                                        .ConfigureAwait(false), context);
                     return null;
                 }
-            }
+
             return ruleSet2;
         }
 
         protected virtual IRule BuildRule(RuleModel model)
         {
-            var model1 = model.Conditions.First();
-            var metadata1 = _entityRegistry.GetMetadata(model1.LibraryId);
-            var ruleBuilder = _ruleBuilder.When(model1.ConvertToConditionExtended(metadata1, _entityRegistry, _services));
+            ConditionModel model1 = model.Conditions.First();
+            IEntityMetadata metadata1 = _entityRegistry.GetMetadata(model1.LibraryId);
+            IRuleBuilder ruleBuilder = _ruleBuilder.When(model1.ConvertToConditionExtended(metadata1, _entityRegistry, _services));
             for (var index = 1; index < model.Conditions.Count; ++index)
             {
-                var condition1 = model.Conditions[index];
-                var metadata2 = _entityRegistry.GetMetadata(condition1.LibraryId);
-                var condition2 = condition1.ConvertToConditionExtended(metadata2, _entityRegistry, _services);
+                ConditionModel condition1 = model.Conditions[index];
+                IEntityMetadata metadata2 = _entityRegistry.GetMetadata(condition1.LibraryId);
+                ICondition condition2 = condition1.ConvertToConditionExtended(metadata2, _entityRegistry, _services);
                 if (!string.IsNullOrEmpty(condition1.ConditionOperator))
                 {
                     if (condition1.ConditionOperator.ToUpperInvariant() == "OR")
@@ -94,18 +96,21 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
                         ruleBuilder.And(condition2);
                 }
             }
-            foreach (var thenAction in model.ThenActions)
+
+            foreach (ActionModel thenAction in model.ThenActions)
             {
-                var metadata2 = _entityRegistry.GetMetadata(thenAction.LibraryId);
-                var action = thenAction.ConvertToActionExtended(metadata2, _entityRegistry, _services);
+                IEntityMetadata metadata2 = _entityRegistry.GetMetadata(thenAction.LibraryId);
+                IAction action = thenAction.ConvertToActionExtended(metadata2, _entityRegistry, _services);
                 ruleBuilder.Then(action);
             }
-            foreach (var elseAction in model.ElseActions)
+
+            foreach (ActionModel elseAction in model.ElseActions)
             {
-                var metadata2 = _entityRegistry.GetMetadata(elseAction.LibraryId);
-                var action = elseAction.ConvertToActionExtended(metadata2, _entityRegistry, _services);
+                IEntityMetadata metadata2 = _entityRegistry.GetMetadata(elseAction.LibraryId);
+                IAction action = elseAction.ConvertToActionExtended(metadata2, _entityRegistry, _services);
                 ruleBuilder.Else(action);
             }
+
             return ruleBuilder.ToRule();
         }
     }

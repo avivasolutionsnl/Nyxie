@@ -7,39 +7,9 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     public class CartProductTotalInCategoryConditionBuilder : IQualificationBuilder
     {
         private string category = "";
-        private decimal total = 0;
         private string includeSubCategories = "false";
         private Operator @operator = Builders.Operator.Equal;
-
-        public CartProductTotalInCategoryConditionBuilder ForCategory(string category)
-        {
-            this.category = category;
-            return this;
-        }
-
-        public CartProductTotalInCategoryConditionBuilder Total(decimal total)
-        {
-            this.total = total;
-            return this;
-        }
-
-        public CartProductTotalInCategoryConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-
-        public CartProductTotalInCategoryConditionBuilder IncludeSubCategories()
-        {
-            includeSubCategories = "true";
-            return this;
-        }
-
-        public CartProductTotalInCategoryConditionBuilder DoesNotIncludeSubCategories()
-        {
-            includeSubCategories = "false";
-            return this;
-        }
+        private decimal total;
 
         public ConditionModel Build()
         {
@@ -95,6 +65,36 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartProductTotalInCategoryConditionBuilder ForCategory(string category)
+        {
+            this.category = category;
+            return this;
+        }
+
+        public CartProductTotalInCategoryConditionBuilder Total(decimal total)
+        {
+            this.total = total;
+            return this;
+        }
+
+        public CartProductTotalInCategoryConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
+        }
+
+        public CartProductTotalInCategoryConditionBuilder IncludeSubCategories()
+        {
+            includeSubCategories = "true";
+            return this;
+        }
+
+        public CartProductTotalInCategoryConditionBuilder DoesNotIncludeSubCategories()
+        {
+            includeSubCategories = "false";
+            return this;
         }
     }
 }

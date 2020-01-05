@@ -9,24 +9,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         private string comparer = "Sitecore.Framework.Rules.StringEqualityOperator";
         private string fulfillmentMethodName = "Standard";
 
-        public CartFulfillmentConditionBuilder WithValue(string fulfillmentMethodName)
-        {
-            this.fulfillmentMethodName = fulfillmentMethodName;
-            return this;
-        }
-
-        public CartFulfillmentConditionBuilder Equal()
-        {
-            this.comparer = "Sitecore.Framework.Rules.StringEqualityOperator";
-            return this;
-        }
-
-        public CartFulfillmentConditionBuilder NotEqual()
-        {
-            this.comparer = "Sitecore.Framework.Rules.StringNotEqualityOperator";
-            return this;
-        }
-
         public ConditionModel Build()
         {
             return new ConditionModel
@@ -47,6 +29,24 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartFulfillmentConditionBuilder WithValue(string fulfillmentMethodName)
+        {
+            this.fulfillmentMethodName = fulfillmentMethodName;
+            return this;
+        }
+
+        public CartFulfillmentConditionBuilder Equal()
+        {
+            comparer = "Sitecore.Framework.Rules.StringEqualityOperator";
+            return this;
+        }
+
+        public CartFulfillmentConditionBuilder NotEqual()
+        {
+            comparer = "Sitecore.Framework.Rules.StringNotEqualityOperator";
+            return this;
         }
     }
 }

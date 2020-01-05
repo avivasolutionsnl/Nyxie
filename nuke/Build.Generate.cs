@@ -1,9 +1,4 @@
-﻿using System.CodeDom.Compiler;
-
-using Nuke.Common;
-using static Nuke.Common.IO.PathConstruction;
-
-using CodeGenerator = Nuke.CodeGeneration.CodeGenerator;
+﻿using CodeGenerator = Nuke.CodeGeneration.CodeGenerator;
 
 partial class Build : NukeBuild
 {

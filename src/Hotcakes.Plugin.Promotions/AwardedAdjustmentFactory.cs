@@ -6,10 +6,11 @@ namespace Hotcakes.Plugin.Promotions
 {
     public class AwardedAdjustmentFactory
     {
-        public static CartLevelAwardedAdjustment CreateCartLevelAwardedAdjustment(decimal amountOff, string awardingBlock, CommerceContext commerceContext)
+        public static CartLevelAwardedAdjustment CreateCartLevelAwardedAdjustment(decimal amountOff, string awardingBlock,
+            CommerceContext commerceContext)
         {
             var propertiesModel = commerceContext.GetObject<PropertiesModel>();
-            var discount = commerceContext.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
+            string discount = commerceContext.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
 
             var adjustment = new CartLevelAwardedAdjustment
             {
@@ -18,26 +19,27 @@ namespace Hotcakes.Plugin.Promotions
                 Adjustment = new Money(commerceContext.CurrentCurrency(), amountOff),
                 AdjustmentType = discount,
                 IsTaxable = false,
-                AwardingBlock = awardingBlock,
+                AwardingBlock = awardingBlock
             };
 
             return adjustment;
         }
 
-        public static CartLineLevelAwardedAdjustment CreateLineLevelAwardedAdjustment(decimal amountOff, string awardingBlock, string lineItemId, CommerceContext commerceContext)
+        public static CartLineLevelAwardedAdjustment CreateLineLevelAwardedAdjustment(decimal amountOff, string awardingBlock,
+            string lineItemId, CommerceContext commerceContext)
         {
             var propertiesModel = commerceContext.GetObject<PropertiesModel>();
-            var discount = commerceContext.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
+            string discount = commerceContext.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount;
 
-            var adjustment = new CartLineLevelAwardedAdjustment()
+            var adjustment = new CartLineLevelAwardedAdjustment
             {
-                Name = (propertiesModel?.GetPropertyValue("PromotionText") as string ?? discount),
-                DisplayName = (propertiesModel?.GetPropertyValue("PromotionCartText") as string ?? discount),
+                Name = propertiesModel?.GetPropertyValue("PromotionText") as string ?? discount,
+                DisplayName = propertiesModel?.GetPropertyValue("PromotionCartText") as string ?? discount,
                 Adjustment = new Money(commerceContext.CurrentCurrency(), amountOff),
                 AdjustmentType = discount,
                 IsTaxable = false,
                 AwardingBlock = awardingBlock,
-                LineItemId = lineItemId,
+                LineItemId = lineItemId
             };
 
             return adjustment;

@@ -10,14 +10,14 @@ using Sitecore.Framework.Rules;
 namespace Hotcakes.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A Sitecore Commerce action for the benefit
-    /// "Get [quantity] free [gift]"
+    ///     A Sitecore Commerce action for the benefit
+    ///     "Get [quantity] free [gift]"
     /// </summary>
     [EntityIdentifier("Hc_" + nameof(CartFreeGiftAction))]
     public class CartFreeGiftAction : ICartAction
     {
-        private readonly GetSellableItemCommand _getCommand;
         private readonly AddCartLineCommand _addCommand;
+        private readonly GetSellableItemCommand _getCommand;
 
         public CartFreeGiftAction(GetSellableItemCommand getCommand, AddCartLineCommand addCommand)
         {
@@ -34,51 +34,40 @@ namespace Hotcakes.Plugin.Promotions.Actions
             var commerceContext = context.Fact<CommerceContext>();
             var cart = commerceContext?.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any())
-            {
                 return;
-            }
 
-            var quantity = Hc_Quantity.Yield(context);
-            var targetItemId = TargetItemId.Yield(context);
+            decimal quantity = Hc_Quantity.Yield(context);
+            string targetItemId = TargetItemId.Yield(context);
 
             if (quantity == 0 || string.IsNullOrEmpty(targetItemId))
-            {
                 return;
-            }
 
             if (cart.Lines.Any(x => x.ItemId == targetItemId && x.Quantity == quantity))
-            {
                 //After the product is added
                 //You only get the product for free once :)
                 return;
-            }
-
 
             cart.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, nameof(CartFreeGiftAction));
 
-            var giftLine = CreateLine(cart, commerceContext, targetItemId, quantity);
+            CartLineComponent giftLine = CreateLine(cart, commerceContext, targetItemId, quantity);
 
-            if(giftLine == null)
-            {
+            if (giftLine == null)
                 return;
-            }
 
             cart.Lines.Add(giftLine);
         }
 
         private CartLineComponent CreateLine(Cart cart, CommerceContext commerceContext, string targetItemId, decimal quantity)
         {
-            var gift = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
+            SellableItem gift = AsyncHelper.RunSync(() => _getCommand.Process(commerceContext, targetItemId, false));
             if (gift == null)
-            {
                 return null;
-            }
-            
+
             // To make sure all pipeline blocks are executed and do not influence the current cart, we add
             // the gift line to a temporary cart and then copy it to the current cart. 
             var temporaryCart = cart.Clone<Cart>();
             temporaryCart.AddComponents(new TemporaryCartComponent(cart.Id));
-            
+
             var freeGift = new CartLineComponent
             {
                 ItemId = targetItemId,
@@ -91,12 +80,12 @@ namespace Hotcakes.Plugin.Promotions.Actions
 
             if (gift.ListPrice.Amount > 0)
             {
-                var discount = new MoneyEx(commerceContext, gift.ListPrice).Round().Value.Amount;
+                decimal discount = new MoneyEx(commerceContext, gift.ListPrice).Round().Value.Amount;
 
                 line.Adjustments.Add(AwardedAdjustmentFactory.CreateLineLevelAwardedAdjustment(discount * -1,
                     nameof(CartFreeGiftAction), line.Id, commerceContext));
             }
-            
+
             return line;
         }
     }

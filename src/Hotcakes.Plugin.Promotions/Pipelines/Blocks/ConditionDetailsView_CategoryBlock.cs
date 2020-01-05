@@ -28,25 +28,23 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var entity = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition") || p.Name.EqualsOrdinalIgnoreCase("Action"));
-            if (entity == null || !entity.RawValue.ToString().StartsWith("Hc_") || !entity.RawValue.ToString().Contains("InCategory"))
-            {
+            ViewProperty entity = arg.Properties.FirstOrDefault(p =>
+                p.Name.EqualsOrdinalIgnoreCase("Condition") || p.Name.EqualsOrdinalIgnoreCase("Action"));
+            if (entity == null || !entity.RawValue.ToString().StartsWith("Hc_") ||
+                !entity.RawValue.ToString().Contains("InCategory"))
                 return arg;
-            }
 
-            var categorySelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificCategory"));
+            ViewProperty categorySelection =
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificCategory"));
             if (categorySelection == null)
-            {
                 return arg;
-            }
 
-            var policyByType = SearchScopePolicy.GetPolicyByType(context.CommerceContext, context.CommerceContext.Environment, typeof(Category));
+            SearchScopePolicy policyByType = SearchScopePolicy.GetPolicyByType(context.CommerceContext,
+                context.CommerceContext.Environment, typeof(Category));
             if (policyByType == null)
-            {
                 return arg;
-            }
 
-            var policy = new Policy()
+            var policy = new Policy
             {
                 PolicyId = "EntityType",
                 Models = new List<Model> { new Model { Name = nameof(Category) } }
@@ -60,7 +58,8 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
             return arg;
         }
 
-        private async Task AddReadOnlyFullPath(EntityView arg, CommercePipelineExecutionContext context, ViewProperty categorySelection)
+        private async Task AddReadOnlyFullPath(EntityView arg, CommercePipelineExecutionContext context,
+            ViewProperty categorySelection)
         {
             if (categorySelection.RawValue != null &&
                 !string.IsNullOrEmpty(categorySelection.RawValue.ToString()) &&
@@ -74,7 +73,8 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
                     Name = "FullCategoryPath",
                     IsRequired = false,
                     OriginalType = "System.String",
-                    Value = await categoryPathResolver.GetCategoryPath(context.CommerceContext, categorySelection.RawValue.ToString()),
+                    Value = await categoryPathResolver.GetCategoryPath(context.CommerceContext,
+                        categorySelection.RawValue.ToString())
                 };
 
                 arg.Properties.Insert(arg.Properties.IndexOf(categorySelection) + 1, readOnlyProp);

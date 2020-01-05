@@ -8,12 +8,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     {
         private int day;
 
-        public IsCurrentDayConditionBuilder Day(int day)
-        {
-            this.day = day;
-            return this;
-        }
-
         public ConditionModel Build()
         {
             return new ConditionModel
@@ -29,6 +23,12 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public IsCurrentDayConditionBuilder Day(int day)
+        {
+            this.day = day;
+            return this;
         }
     }
 }

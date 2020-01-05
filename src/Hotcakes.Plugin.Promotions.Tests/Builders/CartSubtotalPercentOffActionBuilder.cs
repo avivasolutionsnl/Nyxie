@@ -8,12 +8,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     {
         private decimal percentOff = 10;
 
-        public CartSubtotalPercentOffActionBuilder PercentOff(decimal value)
-        {
-            percentOff = value;
-            return this;
-        }
-
         public ActionModel Build()
         {
             return new ActionModel
@@ -29,6 +23,12 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartSubtotalPercentOffActionBuilder PercentOff(decimal value)
+        {
+            percentOff = value;
+            return this;
         }
     }
 }

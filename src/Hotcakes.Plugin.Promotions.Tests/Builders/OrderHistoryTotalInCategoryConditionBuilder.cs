@@ -7,39 +7,9 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     public class OrderHistoryTotalInCategoryConditionBuilder : IQualificationBuilder
     {
         private string category = "";
-        private decimal total = 0;
         private string includeSubCategories = "false";
         private Operator @operator = Builders.Operator.Equal;
-
-        public OrderHistoryTotalInCategoryConditionBuilder ForCategory(string category)
-        {
-            this.category = category;
-            return this;
-        }
-
-        public OrderHistoryTotalInCategoryConditionBuilder Total(decimal total)
-        {
-            this.total = total;
-            return this;
-        }
-
-        public OrderHistoryTotalInCategoryConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-
-        public OrderHistoryTotalInCategoryConditionBuilder IncludeSubCategories()
-        {
-            includeSubCategories = "true";
-            return this;
-        }
-
-        public OrderHistoryTotalInCategoryConditionBuilder DoesNotIncludeSubCategories()
-        {
-            includeSubCategories = "false";
-            return this;
-        }
+        private decimal total;
 
         public ConditionModel Build()
         {
@@ -95,6 +65,36 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public OrderHistoryTotalInCategoryConditionBuilder ForCategory(string category)
+        {
+            this.category = category;
+            return this;
+        }
+
+        public OrderHistoryTotalInCategoryConditionBuilder Total(decimal total)
+        {
+            this.total = total;
+            return this;
+        }
+
+        public OrderHistoryTotalInCategoryConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
+        }
+
+        public OrderHistoryTotalInCategoryConditionBuilder IncludeSubCategories()
+        {
+            includeSubCategories = "true";
+            return this;
+        }
+
+        public OrderHistoryTotalInCategoryConditionBuilder DoesNotIncludeSubCategories()
+        {
+            includeSubCategories = "false";
+            return this;
         }
     }
 }

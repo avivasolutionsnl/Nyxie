@@ -16,30 +16,23 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") || !condition.RawValue.ToString().EndsWith("Condition"))
-            {
+            ViewProperty condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") ||
+                !condition.RawValue.ToString().EndsWith("Condition"))
                 return Task.FromResult(arg);
-            }
 
-            foreach (var property in arg.Properties)
+            foreach (ViewProperty property in arg.Properties)
             {
                 if (property.Policies == null || !property.Policies.Any())
-                {
                     continue;
-                }
 
-                foreach (var policy in property.Policies)
+                foreach (Policy policy in property.Policies)
                 {
                     if (!(policy is AvailableSelectionsPolicy selectionsPolicy))
-                    {
                         continue;
-                    }
 
-                    foreach (var selection in selectionsPolicy.List)
-                    {
+                    foreach (Selection selection in selectionsPolicy.List)
                         selection.DisplayName = selection.DisplayName.PrettifyOperatorName();
-                    }
                 }
             }
 

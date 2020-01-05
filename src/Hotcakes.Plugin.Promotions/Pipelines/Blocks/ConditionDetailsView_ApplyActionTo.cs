@@ -16,13 +16,11 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var action = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Action"));
+            ViewProperty action = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Action"));
             if (action == null || !action.RawValue.ToString().StartsWith("Hc_") || !action.RawValue.ToString().EndsWith("Action"))
-            {
                 return Task.FromResult(arg);
-            }
 
-            var applyActionTo = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_ApplyActionTo"));
+            ViewProperty applyActionTo = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_ApplyActionTo"));
             applyActionTo?.Policies.Add(new AvailableSelectionsPolicy(
                 ApplicationOrder.All.Select(x => new Selection
                 {

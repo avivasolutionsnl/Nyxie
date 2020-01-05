@@ -7,39 +7,10 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     public class CartProductAmountInCategoryConditionBuilder : IQualificationBuilder
     {
         private string category = "";
-        private int numberOfProducts = 0;
         private string includeSubCategories = "false";
+        private int numberOfProducts;
         private Operator @operator = Builders.Operator.Equal;
 
-        public CartProductAmountInCategoryConditionBuilder ForCategory(string category)
-        {
-            this.category = category;
-            return this;
-        }
-        public CartProductAmountInCategoryConditionBuilder IncludeSubCategories()
-        {
-            includeSubCategories = "true";
-            return this;
-        }
-
-        public CartProductAmountInCategoryConditionBuilder DoesNotIncludeSubCategories()
-        {
-            includeSubCategories = "false";
-            return this;
-        }
-
-        public CartProductAmountInCategoryConditionBuilder NumberOfProducts(int numberOfProducts)
-        {
-            this.numberOfProducts = numberOfProducts;
-            return this;
-        }
-
-        public CartProductAmountInCategoryConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-        
         public ConditionModel Build()
         {
             string comparer;
@@ -94,6 +65,36 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartProductAmountInCategoryConditionBuilder ForCategory(string category)
+        {
+            this.category = category;
+            return this;
+        }
+
+        public CartProductAmountInCategoryConditionBuilder IncludeSubCategories()
+        {
+            includeSubCategories = "true";
+            return this;
+        }
+
+        public CartProductAmountInCategoryConditionBuilder DoesNotIncludeSubCategories()
+        {
+            includeSubCategories = "false";
+            return this;
+        }
+
+        public CartProductAmountInCategoryConditionBuilder NumberOfProducts(int numberOfProducts)
+        {
+            this.numberOfProducts = numberOfProducts;
+            return this;
+        }
+
+        public CartProductAmountInCategoryConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
         }
     }
 }
