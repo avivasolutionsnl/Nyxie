@@ -113,8 +113,10 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
             Assert.DoesNotContain(line.Adjustments, x => x.AwardingBlock == nameof(CartEveryXItemsInCategoryPriceDiscountAction));
         }
 
-        [Fact]
-        public async void Should_not_benefit_when_items_to_purchase_does_not_match()
+        [Theory]
+        [InlineData(3, 1)]
+        [InlineData(3, 2)]
+        public async void Should_not_benefit_when_items_to_purchase_does_not_match(int itemsToPurchase, int quantityInCart)
         {
             fixture.Factory.ClearAllEntities();
 
@@ -127,7 +129,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
                                       .AmountOff(10)
                                       .ForCategory("Laptops")
                                       .ItemsToAward(2)
-                                      .ItemsToPurchase(3)
+                                      .ItemsToPurchase(itemsToPurchase)
                                       .ApplyActionTo(ApplicationOrder.Ascending)
                                       .ActionLimit(1))
                                   .Build(fixture.Factory);
@@ -142,7 +144,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
             });
 
             var cart = await new CartBuilder()
-                             .WithLines(new LineBuilder().IdentifiedBy("001").Quantity(1).InCategory("435345345").Price(40))
+                             .WithLines(new LineBuilder().IdentifiedBy("001").Quantity(quantityInCart).InCategory("435345345").Price(40))
                              .Build();
 
             fixture.Factory.AddEntity(cart);
