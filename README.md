@@ -105,6 +105,7 @@ When a qualification is added to a promotion, the following condition will be av
 |Payment method         |payment method|               |indicates the payment method compared using the configured operator|
 
 > The qualification will not apply if no payment has been chosen.
+> When the cart contains multiple payments, the qualification will apply if any of them match the configured payment method.
 
 #### Products in a specific category in order history
 Will apply the given benefit when the order history of the customer contains products in a specific category.
