@@ -244,7 +244,7 @@ The action will do the following:
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 #### % discount on products in a specific category
-Will deduct a certain percentage of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+Will apply a percentageamount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
