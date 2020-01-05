@@ -175,7 +175,7 @@ The action will do the following:
 
 #### $ discount on every N-th qualifying product
 
-Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
+Will apply a fixed amount discount to a number of products, when the specified minimum amount of products are added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
