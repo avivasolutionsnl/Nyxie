@@ -91,6 +91,7 @@ When a qualification is added to a promotion, the following condition will be av
 |Fulfillment method     |fulfillment method||indicates the fulfillment method compared using the configured operator|
 
 > The qualification will not apply if no fulfillment has been chosen.
+> When the cart contains multiple fulfillments, the qualification will apply if any of them match the configured fulfillment method.
 
 #### Cart has specific payment
 Will apply the given benefit when the cart contains a specific payment method.
