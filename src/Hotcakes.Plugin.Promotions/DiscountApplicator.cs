@@ -47,7 +47,6 @@ namespace Hotcakes.Plugin.Promotions
                     }
 
                     line.Adjustments.Add(AwardedAdjustmentFactory.CreateLineLevelAwardedAdjustment(discount.Amount * -1, options.AwardingBlock, line.ItemId, commerceContext));
-                    //line.Totals.SubTotal.Amount -= discount.Amount;
 
                     line.GetComponent<MessagesComponent>().AddPromotionApplied(commerceContext, options.AwardingBlock);
 

@@ -69,7 +69,7 @@ namespace Hotcakes.Plugin.Promotions.Actions
 
             //Validate and apply action
             var cartQuantity = Convert.ToInt32(categoryLines.Sum(x => x.Quantity));
-            var cartProductsToAward = (cartQuantity / itemsToPurchase) * itemsToAward;
+            var cartProductsToAward = Math.Floor(cartQuantity / itemsToPurchase) * itemsToAward;
 
             var productsToAward = cartProductsToAward > actionLimit ? actionLimit : cartProductsToAward;
 
