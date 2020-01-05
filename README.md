@@ -1,46 +1,15 @@
-# Promethium
+# ![Hotcakes](./logo.png)
 
 [![Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=master)
 
-## Prerequisites
-- Windows 10 update 1809
-- Docker for Windows version >= 18.09.1
-- Visual Studio 15.5.3
+Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
 
-## Getting started 
-- Open a console en navigate to the repository root folder.
-
-- Build the project in Visual Studio and publish the projects to the following folders
-Promethium.Serialization --> \build\website
-Sitecore.Commerce.Engine --> \build\commerce
-
-- Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
-    - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in (./env)
-
-- Copy your Sitecore license file (license.xml) to the [](./license) folder
-
-- Spin up the environment (make sure you are using Windows and not Linux containers):
-```
-PS> docker-compose up
-```
-
-To set the Docker container service names as DNS names on your host edit your `hosts` file. 
-A convenient tool to automatically do this is [whales-names](https://github.com/gregolsky/whales-names).
-
-Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.2.x).
-> Unselect the Habitat catalog in `Commerce > Catalog Management > Catalogs` before adding a Storefront site
-
-Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
-
-Fix indexes by:
-
-- Opening the content editor
-- Goto the commerce tab
-- Delete Data Templates
-- Update Data Templates
-- Goto control panel and rebuild the `sitecore_master_index` & `sitecore_sxa_master_index`
-
-> If you get an error saying: 'field _indexname' not found: remove files in host [](./data/solr) folder. Restart containers and populate schema.
+## Getting started
+1. Download both the Sitecore .update package and the .nuget packags from the GitHub releases page. 
+2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project. 
+3. Install the Sitecore .update package using the Sitecore Control Panel.
+4. Synchronze the Commerce Control Panel using the Sitecore Commerce Postman scripts: ContentAPISamples -> DoActions -> Sync content item.
+5. The new qualifications and benefits are now available in the bizfx tools.
 
 ## How to use
 
@@ -384,6 +353,48 @@ The action will do the following:
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
 
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+## Contributing
+
+### Prerequisites
+- Windows 10 update 1809
+- Docker for Windows version >= 18.09.1
+- Visual Studio 15.5.3
+
+### Setup a development environment
+- Open a console en navigate to the repository root folder.
+
+- Build the project in Visual Studio and publish the projects to the following folders
+Hotcakes.Serialization --> \build\website
+Sitecore.Commerce.Engine --> \build\commerce
+
+- Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
+    - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in (./env)
+
+- Copy your Sitecore license file (license.xml) to the [](./license) folder
+
+- Spin up the environment (make sure you are using Windows and not Linux containers):
+```
+PS> docker-compose up
+```
+
+To set the Docker container service names as DNS names on your host edit your `hosts` file. 
+A convenient tool to automatically do this is [whales-names](https://github.com/gregolsky/whales-names).
+
+Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.2.x).
+> Unselect the Habitat catalog in `Commerce > Catalog Management > Catalogs` before adding a Storefront site
+
+Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
+
+Fix indexes by:
+
+- Opening the content editor
+- Goto the commerce tab
+- Delete Data Templates
+- Update Data Templates
+- Goto control panel and rebuild the `sitecore_master_index` & `sitecore_sxa_master_index`
+
+> If you get an error saying: 'field _indexname' not found: remove files in host [](./data/solr) folder. Restart containers and populate schema.
 
 ## Resources
 https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
