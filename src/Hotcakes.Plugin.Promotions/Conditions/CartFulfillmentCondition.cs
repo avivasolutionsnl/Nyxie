@@ -8,8 +8,8 @@ using Sitecore.Framework.Rules;
 namespace Hotcakes.Plugin.Promotions.Conditions
 {
     /// <summary>
-    /// A Sitecore Commerce condition for the qualification
-    /// "Cart has [operator] [specific fulfillment]"
+    ///     A Sitecore Commerce condition for the qualification
+    ///     "Cart has [operator] [specific fulfillment]"
     /// </summary>
     [EntityIdentifier("Hc_" + nameof(CartFulfillmentCondition))]
     public class CartFulfillmentCondition : IFulfillmentCondition
@@ -21,28 +21,22 @@ namespace Hotcakes.Plugin.Promotions.Conditions
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            var specificFulfillment = Hc_SpecificFulfillment.Yield(context);
-            var basicStringCompare = Hc_BasicStringCompare.Yield(context);
+            string specificFulfillment = Hc_SpecificFulfillment.Yield(context);
+            string basicStringCompare = Hc_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificFulfillment) || string.IsNullOrEmpty(basicStringCompare))
-            {
                 return false;
-            }
 
             //Get Data
             var cart = context.Fact<CommerceContext>()?.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any() || !cart.HasComponent<FulfillmentComponent>())
-            {
                 return false;
-            }
 
             var fulfillment = cart.GetComponent<FulfillmentComponent>();
             if (fulfillment == null)
-            {
                 return false;
-            }
 
             //Validate data against configuration
-            var selectedFulfillment = fulfillment.FulfillmentMethod.Name;
+            string selectedFulfillment = fulfillment.FulfillmentMethod.Name;
             return BasicStringComparer.Evaluate(basicStringCompare, selectedFulfillment, specificFulfillment);
         }
     }

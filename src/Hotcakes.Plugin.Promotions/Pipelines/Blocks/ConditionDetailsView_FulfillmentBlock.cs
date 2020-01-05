@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Hotcakes.Plugin.Promotions.Extensions;
@@ -24,17 +25,18 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") || !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
-            {
+            ViewProperty condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") ||
+                !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
                 return arg;
-            }
 
-            var fulfillmentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificFulfillment"));
+            ViewProperty fulfillmentSelection =
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificFulfillment"));
             if (fulfillmentSelection != null)
             {
-                var fulfillmentMethods = await _getCommand.Process(context.CommerceContext);
-                var options = fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
+                IEnumerable<FulfillmentMethod> fulfillmentMethods = await _getCommand.Process(context.CommerceContext);
+                IEnumerable<Selection> options =
+                    fulfillmentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
                 var policy = new AvailableSelectionsPolicy(options);
                 fulfillmentSelection.Policies.Add(policy);

@@ -14,7 +14,7 @@ using Sitecore.Framework.Pipelines;
 namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
     /// <summary>
-    /// Ensure Habitat inventory has been loaded.
+    ///     Ensure Habitat inventory has been loaded.
     /// </summary>
     /// <seealso>
     ///     <cref>
@@ -26,7 +26,7 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
     public class InitializeInventoryBlock : PipelineBlock<string, string, CommercePipelineExecutionContext>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InitializeCatalogBlock"/> class.
+        ///     Initializes a new instance of the <see cref="InitializeCatalogBlock" /> class.
         /// </summary>
         /// <param name="hostingEnvironment">The hosting environment.</param>
         /// <param name="importInventorySetsCommand">The import catalog command.</param>
@@ -34,22 +34,22 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
             IHostingEnvironment hostingEnvironment,
             ImportInventorySetsCommand importInventorySetsCommand)
         {
-            this.HostingEnvironment = hostingEnvironment;
-            this.ImportInventorySetsCommand = importInventorySetsCommand;
+            HostingEnvironment = hostingEnvironment;
+            ImportInventorySetsCommand = importInventorySetsCommand;
         }
 
         /// <summary>
-        /// Gets the <see cref="IHostingEnvironment"/> implementation.
+        ///     Gets the <see cref="IHostingEnvironment" /> implementation.
         /// </summary>
         protected IHostingEnvironment HostingEnvironment { get; }
 
         /// <summary>
-        /// Gets the <see cref="ImportInventorySetsCommand"/> implementation.
+        ///     Gets the <see cref="ImportInventorySetsCommand" /> implementation.
         /// </summary>
         protected ImportInventorySetsCommand ImportInventorySetsCommand { get; }
 
         /// <summary>
-        /// Executes the block.
+        ///     Executes the block.
         /// </summary>
         /// <param name="arg">The argument.</param>
         /// <param name="context">The context.</param>
@@ -60,14 +60,13 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
 
             // Check if this environment has subscribed to this Artifact Set
             if (!context.GetPolicy<EnvironmentInitializationPolicy>().InitialArtifactSets.Contains(artifactSet))
-            {
                 return arg;
-            }
 
-            using (var stream = new FileStream(this.GetPath("Habitat_Inventory.zip"), FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(GetPath("Habitat_Inventory.zip"), FileMode.Open, FileAccess.Read))
             {
                 var file = new FormFile(stream, 0, stream.Length, stream.Name, stream.Name);
-                await this.ImportInventorySetsCommand.Process(context.CommerceContext, file, CatalogConstants.Replace, -1, 10).ConfigureAwait(false);
+                await ImportInventorySetsCommand.Process(context.CommerceContext, file, CatalogConstants.Replace, -1, 10)
+                                                .ConfigureAwait(false);
             }
 
             return arg;
@@ -75,7 +74,7 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
 
         private string GetPath(string fileName)
         {
-            return Path.Combine(this.HostingEnvironment.WebRootPath, "data", "Catalogs", fileName);
+            return Path.Combine(HostingEnvironment.WebRootPath, "data", "Catalogs", fileName);
         }
     }
 }

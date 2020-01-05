@@ -15,7 +15,7 @@ namespace Hotcakes.Plugin.Promotions
             Options = new List<Selection>
             {
                 new Selection { DisplayName = "Sitecore.Core.Operators.StringEqualityOperator", Name = EqualName },
-                new Selection { DisplayName = "Sitecore.Core.Operators.StringNotEqualityOperator", Name = NotEqualName },
+                new Selection { DisplayName = "Sitecore.Core.Operators.StringNotEqualityOperator", Name = NotEqualName }
             };
         }
 

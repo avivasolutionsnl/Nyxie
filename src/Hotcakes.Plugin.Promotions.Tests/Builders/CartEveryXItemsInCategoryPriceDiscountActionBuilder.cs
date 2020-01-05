@@ -6,61 +6,13 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class CartEveryXItemsInCategoryPriceDiscountActionBuilder : IBenefitBuilder
     {
-        private decimal amountOff = 10;
-        private decimal itemsToAward;
-        private decimal itemsToPurchase;
         private int actionLimit;
+        private decimal amountOff = 10;
         private ApplicationOrder applicationOrder;
         private string category = "";
         private string includeSubCategories = "false";
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder AmountOff(decimal value)
-        {
-            amountOff = value;
-            return this;
-        }
-        
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ItemsToAward(decimal value)
-        {
-            itemsToAward = value;
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ItemsToPurchase(decimal value)
-        {
-            itemsToPurchase = value;
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ActionLimit(int limit)
-        {
-            actionLimit = limit;
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ApplyActionTo(ApplicationOrder applicationOrder)
-        {
-            this.applicationOrder = applicationOrder;
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ForCategory(string category)
-        {
-            this.category = category;
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder IncludeSubCategories()
-        {
-            includeSubCategories = "true";
-            return this;
-        }
-
-        public CartEveryXItemsInCategoryPriceDiscountActionBuilder DoesNotIncludeSubCategories()
-        {
-            includeSubCategories = "false";
-            return this;
-        }
+        private decimal itemsToAward;
+        private decimal itemsToPurchase;
 
         public ActionModel Build()
         {
@@ -107,6 +59,54 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder AmountOff(decimal value)
+        {
+            amountOff = value;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ItemsToAward(decimal value)
+        {
+            itemsToAward = value;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ItemsToPurchase(decimal value)
+        {
+            itemsToPurchase = value;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ActionLimit(int limit)
+        {
+            actionLimit = limit;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ApplyActionTo(ApplicationOrder applicationOrder)
+        {
+            this.applicationOrder = applicationOrder;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder ForCategory(string category)
+        {
+            this.category = category;
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder IncludeSubCategories()
+        {
+            includeSubCategories = "true";
+            return this;
+        }
+
+        public CartEveryXItemsInCategoryPriceDiscountActionBuilder DoesNotIncludeSubCategories()
+        {
+            includeSubCategories = "false";
+            return this;
         }
     }
 }

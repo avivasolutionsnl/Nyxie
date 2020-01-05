@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using Hotcakes.Plugin.Promotions.Resolvers;
 
@@ -9,8 +10,9 @@ using Sitecore.Framework.Rules;
 namespace Hotcakes.Plugin.Promotions.Actions
 {
     /// <summary>
-    /// A Sitecore Commerce action for the benefit
-    /// "When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product (ordered by [apply award to]) with a maximum of [award limit] products"
+    ///     A Sitecore Commerce action for the benefit
+    ///     "When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product
+    ///     (ordered by [apply award to]) with a maximum of [award limit] products"
     /// </summary>
     [EntityIdentifier("Hc_" + nameof(CartItemsMatchingInCategoryPercentageDiscountAction))]
     public class CartItemsMatchingInCategoryPercentageDiscountAction : ICartLineAction
@@ -41,12 +43,12 @@ namespace Hotcakes.Plugin.Promotions.Actions
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Hc_SpecificCategory.Yield(context);
-            var specificValue = Hc_SpecificValue.Yield(context);
-            var includeSubCategories = Hc_IncludeSubCategories.Yield(context);
-            var percentageOff = Hc_PercentageOff.Yield(context);
-            var applyActionTo = Hc_ApplyActionTo.Yield(context);
-            var actionLimit = Hc_ActionLimit.Yield(context);
+            string specificCategory = Hc_SpecificCategory.Yield(context);
+            decimal specificValue = Hc_SpecificValue.Yield(context);
+            bool includeSubCategories = Hc_IncludeSubCategories.Yield(context);
+            decimal percentageOff = Hc_PercentageOff.Yield(context);
+            string applyActionTo = Hc_ApplyActionTo.Yield(context);
+            int actionLimit = Hc_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 specificValue == 0 ||
@@ -54,23 +56,18 @@ namespace Hotcakes.Plugin.Promotions.Actions
                 string.IsNullOrEmpty(applyActionTo) ||
                 actionLimit == 0 ||
                 Hc_Operator == null)
-            {
                 return;
-            }
 
             //Get data
-            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
+            IEnumerable<CartLineComponent> categoryLines =
+                categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
-            {
                 return;
-            }
 
             //Validate and apply action
-            var productAmount = categoryLines.Sum(x => x.Quantity);
+            decimal productAmount = categoryLines.Sum(x => x.Quantity);
             if (!Hc_Operator.Evaluate(productAmount, specificValue))
-            {
                 return;
-            }
 
             var discountApplicator = new DiscountApplicator(commerceContext);
             discountApplicator.ApplyPercentageDiscount(categoryLines, percentageOff, new DiscountOptions

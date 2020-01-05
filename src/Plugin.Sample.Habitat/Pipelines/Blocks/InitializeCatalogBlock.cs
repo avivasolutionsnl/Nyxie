@@ -13,7 +13,7 @@ using Sitecore.Framework.Pipelines;
 namespace Plugin.Sample.Habitat.Pipelines.Blocks
 {
     /// <summary>
-    /// Ensure Habitat catalog has been loaded.
+    ///     Ensure Habitat catalog has been loaded.
     /// </summary>
     /// <seealso>
     ///     <cref>
@@ -28,7 +28,7 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
         private readonly ImportCatalogsCommand _importCatalogsCommand;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InitializeCatalogBlock"/> class.
+        ///     Initializes a new instance of the <see cref="InitializeCatalogBlock" /> class.
         /// </summary>
         /// <param name="hostingEnvironment">The hosting environment.</param>
         /// <param name="importCatalogsCommand">The import catalogs command.</param>
@@ -41,7 +41,7 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
         }
 
         /// <summary>
-        /// Executes the block.
+        ///     Executes the block.
         /// </summary>
         /// <param name="arg">The argument.</param>
         /// <param name="context">The context.</param>
@@ -52,9 +52,7 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
 
             // Check if this environment has subscribed to this Artifact Set
             if (!context.GetPolicy<EnvironmentInitializationPolicy>().InitialArtifactSets.Contains(artifactSet))
-            {
                 return arg;
-            }
 
             // Similar LocalizationEntity entities are imported from a zip archive file and from creating it automatically, therefore skip LocalizeEntityBlock in IPrepPersistEntityPipeline to prevent SQL constraint violation.
             context.CommerceContext.AddPolicyKeys(new[]
@@ -74,9 +72,9 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
         }
 
         /// <summary>
-        /// Import catalog from file.
+        ///     Import catalog from file.
         /// </summary>
-        /// <param name="context">The context to execute <see cref="ImportCatalogsCommand"/>.</param>
+        /// <param name="context">The context to execute <see cref="ImportCatalogsCommand" />.</param>
         /// <returns></returns>
         protected virtual async Task ImportCatalogAsync(CommercePipelineExecutionContext context)
         {
@@ -84,7 +82,8 @@ namespace Plugin.Sample.Habitat.Pipelines.Blocks
             {
                 var file = new FormFile(stream, 0, stream.Length, stream.Name, stream.Name);
 
-                await _importCatalogsCommand.Process(context.CommerceContext, file, CatalogConstants.Replace, -1, 10).ConfigureAwait(false);
+                await _importCatalogsCommand.Process(context.CommerceContext, file, CatalogConstants.Replace, -1, 10)
+                                            .ConfigureAwait(false);
             }
         }
 

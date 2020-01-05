@@ -9,6 +9,7 @@ using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Catalog;
 using Sitecore.Commerce.Plugin.Management;
 using Sitecore.Framework.Pipelines;
+using Sitecore.Services.Core.Model;
 
 namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
 {
@@ -27,24 +28,18 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
         {
             _commerceContext = context.CommerceContext;
-            
-            var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
-            var addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
-            if (addedLine == null)
-            {
-                return arg;
-            }
 
-            var sellableItem = await getSellableItemCommand.Process(_commerceContext, addedLine.ItemId, false);
+            var cartLine = context.CommerceContext.GetObject<CartLineArgument>();
+            CartLineComponent addedLine = arg.Lines.FirstOrDefault(line => line.Id.EqualsOrdinalIgnoreCase(cartLine.Line.Id));
+            if (addedLine == null)
+                return arg;
+
+            SellableItem sellableItem = await getSellableItemCommand.Process(_commerceContext, addedLine.ItemId, false);
 
             var categoryComponent = addedLine.GetComponent<CategoryComponent>();
             if (sellableItem.ParentCategoryList != null && !categoryComponent.ParentCategoryList.Any())
-            {
-                foreach (var categoryId in sellableItem.ParentCategoryList.Split('|'))
-                {
+                foreach (string categoryId in sellableItem.ParentCategoryList.Split('|'))
                     categoryComponent.ParentCategoryList.Add(await GetCategoryIdPath(categoryId, ""));
-                }
-            }
 
             return arg;
         }
@@ -52,23 +47,19 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         private async Task<string> GetCategoryIdPath(string categoryId, string input)
         {
             //Place parent path before the current children output
-            var output = $"/{categoryId}{input}";
+            string output = $"/{categoryId}{input}";
 
-            var item = await _manager.GetItemByIdAsync(_commerceContext, categoryId);
+            ItemModel item = await _manager.GetItemByIdAsync(_commerceContext, categoryId);
 
-            var parentCategoryList = item["ParentCategoryList"];
+            object parentCategoryList = item["ParentCategoryList"];
 
             if (parentCategoryList == null)
-            {
                 return output;
-            }
 
-            var parentCategoryId = parentCategoryList.ToString();
+            string parentCategoryId = parentCategoryList.ToString();
 
             if (string.IsNullOrEmpty(parentCategoryId))
-            {
                 return output;
-            }
 
             return await GetCategoryIdPath(parentCategoryId, output);
         }

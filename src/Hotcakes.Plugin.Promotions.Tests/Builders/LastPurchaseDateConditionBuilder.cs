@@ -10,18 +10,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
         private DateTimeOffset date;
         private Operator @operator;
 
-        public LastPurchaseDateConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-
-        public LastPurchaseDateConditionBuilder Date(DateTimeOffset date)
-        {
-            this.date = date;
-            return this;
-        }
-
         public ConditionModel Build()
         {
             string comparer;
@@ -66,6 +54,18 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public LastPurchaseDateConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
+        }
+
+        public LastPurchaseDateConditionBuilder Date(DateTimeOffset date)
+        {
+            this.date = date;
+            return this;
         }
     }
 }

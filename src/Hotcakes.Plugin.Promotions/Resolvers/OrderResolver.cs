@@ -20,15 +20,14 @@ namespace Hotcakes.Plugin.Promotions.Resolvers
         public async Task<List<Order>> Resolve(CommerceContext commerceContext)
         {
             if (commerceContext == null || !commerceContext.CurrentUserIsRegistered())
-            {
                 return null;
-            }
 
-            var listName = string.Format(CultureInfo.InvariantCulture,
+            string listName = string.Format(CultureInfo.InvariantCulture,
                 commerceContext.GetPolicy<KnownOrderListsPolicy>().CustomerOrders,
                 commerceContext.CurrentCustomerId());
 
-            var result = await findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue);
+            CommerceList<Order> result =
+                await findEntitiesInListCommand.Process<Order>(commerceContext, listName, 0, int.MaxValue);
 
             return result?.Items;
         }

@@ -8,8 +8,8 @@ namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class XunitLogger : ILogger
     {
-        private readonly ITestOutputHelper _testOutputHelper;
         private readonly string _categoryName;
+        private readonly ITestOutputHelper _testOutputHelper;
 
         public XunitLogger(ITestOutputHelper testOutputHelper, string categoryName)
         {
@@ -18,10 +18,14 @@ namespace Hotcakes.Plugin.Promotions.Tests
         }
 
         public IDisposable BeginScope<TState>(TState state)
-            => NoopDisposable.Instance;
+        {
+            return NoopDisposable.Instance;
+        }
 
         public bool IsEnabled(LogLevel logLevel)
-            => true;
+        {
+            return true;
+        }
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
             Func<TState, Exception, string> formatter)
@@ -39,9 +43,11 @@ namespace Hotcakes.Plugin.Promotions.Tests
 
         private class NoopDisposable : IDisposable
         {
-            public static NoopDisposable Instance = new NoopDisposable();
+            public static readonly NoopDisposable Instance = new NoopDisposable();
+
             public void Dispose()
-            { }
+            {
+            }
         }
     }
 }

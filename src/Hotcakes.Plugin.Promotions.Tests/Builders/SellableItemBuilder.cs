@@ -7,10 +7,10 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class SellableItemBuilder
     {
+        private string catalog = "My Catalog";
         private string id = "001";
         private string name = "My product";
         private decimal price = 99;
-        private string catalog = "My Catalog";
 
         public SellableItemBuilder IdentifiedBy(string id)
         {
@@ -54,7 +54,8 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
             {
                 ChildComponents = new[]
                 {
-                    new CatalogComponent{
+                    new CatalogComponent
+                    {
                         Name = catalog
                     }
                 }

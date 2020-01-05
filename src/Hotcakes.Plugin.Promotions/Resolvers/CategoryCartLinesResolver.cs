@@ -22,37 +22,35 @@ namespace Hotcakes.Plugin.Promotions.Resolvers
         public IEnumerable<CartLineComponent> Resolve(CommerceContext commerceContext, string category, bool includeSubCategories)
         {
             //Get data
-            var categorySitecoreId = AsyncHelper.RunSync(() => GetSitecoreIdFromCommerceId(commerceContext, category));
+            string categorySitecoreId = AsyncHelper.RunSync(() => GetSitecoreIdFromCommerceId(commerceContext, category));
 
             return GetLinesMatchingCategory(commerceContext, categorySitecoreId, includeSubCategories);
         }
 
-        private List<CartLineComponent> GetLinesMatchingCategory(CommerceContext commerceContext, string categorySitecoreId, bool includeSubCategories)
+        private List<CartLineComponent> GetLinesMatchingCategory(CommerceContext commerceContext, string categorySitecoreId,
+            bool includeSubCategories)
         {
-            var lines = GetCartLines(commerceContext);
+            IEnumerable<CartLineComponent> lines = GetCartLines(commerceContext);
 
             if (lines == null)
-            {
                 return new List<CartLineComponent>();
-            }
 
-            return lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(categorySitecoreId, includeSubCategories)).ToList();
+            return lines.Where(line => line.GetComponent<CategoryComponent>().IsMatch(categorySitecoreId, includeSubCategories))
+                        .ToList();
         }
 
         private IEnumerable<CartLineComponent> GetCartLines(CommerceContext commerceContext)
         {
             var cart = commerceContext.GetObject<Cart>();
             if (cart == null || !cart.Lines.Any())
-            {
                 return null;
-            }
 
             return cart.Lines;
         }
 
         private async Task<string> GetSitecoreIdFromCommerceId(CommerceContext commerceContext, string categoryCommerceId)
         {
-            var category = await getCategoryCommand.Process(commerceContext, categoryCommerceId);
+            Category category = await getCategoryCommand.Process(commerceContext, categoryCommerceId);
 
             return category?.SitecoreId;
         }

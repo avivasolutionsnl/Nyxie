@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http;
 
 using Hotcakes.Plugin.Promotions.Actions;
 using Hotcakes.Plugin.Promotions.Tests.Builders;
@@ -30,27 +31,30 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
         {
             fixture.Factory.ClearAllEntities();
 
-            var client = fixture.Factory.CreateClient();
+            HttpClient client = fixture.Factory.CreateClient();
 
-            var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new IsCurrentDayConditionBuilder()
-                                               .Day(DateTime.Now.Day)) 
-                                  .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff(2))
-                                  .Build(fixture.Factory);
+            Promotion promotion = await new PromotionBuilder()
+                                        .QualifiedBy(new IsCurrentDayConditionBuilder()
+                                            .Day(DateTime.Now.Day))
+                                        .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
+                                            .AmountOff(2))
+                                        .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
             fixture.Factory.AddEntity(promotion);
 
-            var cart = await new CartBuilder()
-                             .WithLines(new LineBuilder().Quantity(1).Price(50))
-                             .WithStandardFulfillment() // Default fulfillment fee is 5
-                             .Build();
+            Cart cart = await new CartBuilder()
+                              .WithLines(new LineBuilder().Quantity(1).Price(50))
+                              .WithStandardFulfillment() // Default fulfillment fee is 5
+                              .Build();
 
             fixture.Factory.AddEntity(cart);
 
-            var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
-            AwardedAdjustment adjustment = resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
+            Cart resultCart =
+                await client.GetJsonAsync<Cart>(
+                    "api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+            AwardedAdjustment adjustment =
+                resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
             Assert.Equal(-2, adjustment.Adjustment.Amount);
 
             // Subtotal = 50, Tax is 10% = 5, Fulfillment fee = 5 - 2 = 3
@@ -62,27 +66,30 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
         {
             fixture.Factory.ClearAllEntities();
 
-            var client = fixture.Factory.CreateClient();
+            HttpClient client = fixture.Factory.CreateClient();
 
-            var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new IsCurrentDayConditionBuilder()
-                                      .Day(DateTime.Now.Day)) 
-                                  .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff(8)) // Fee = 5, Discount = 8
-                                  .Build(fixture.Factory);
+            Promotion promotion = await new PromotionBuilder()
+                                        .QualifiedBy(new IsCurrentDayConditionBuilder()
+                                            .Day(DateTime.Now.Day))
+                                        .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
+                                            .AmountOff(8)) // Fee = 5, Discount = 8
+                                        .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
             fixture.Factory.AddEntity(promotion);
 
-            var cart = await new CartBuilder()
-                             .WithLines(new LineBuilder().Quantity(1).Price(50))
-                             .WithStandardFulfillment() // Default fulfillment fee = 5 
-                             .Build();
+            Cart cart = await new CartBuilder()
+                              .WithLines(new LineBuilder().Quantity(1).Price(50))
+                              .WithStandardFulfillment() // Default fulfillment fee = 5 
+                              .Build();
 
             fixture.Factory.AddEntity(cart);
 
-            var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
-            AwardedAdjustment adjustment = resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
+            Cart resultCart =
+                await client.GetJsonAsync<Cart>(
+                    "api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+            AwardedAdjustment adjustment =
+                resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
             Assert.Equal(-5, adjustment.Adjustment.Amount);
 
             // Subtotal = 50, Tax is 10% = 5, Fulfillment fee = 5 - 5 = 0
@@ -94,35 +101,38 @@ namespace Hotcakes.Plugin.Promotions.Tests.Actions
         {
             fixture.Factory.ClearAllEntities();
 
-            var client = fixture.Factory.CreateClient();
+            HttpClient client = fixture.Factory.CreateClient();
 
-            var promotion = await new PromotionBuilder()
-                                  .QualifiedBy(new IsCurrentDayConditionBuilder()
-                                      .Day(DateTime.Now.Day)) 
-                                  .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
-                                      .AmountOff(3)) // Fee = 2 * 2, Discount = 3
-                                  .Build(fixture.Factory);
+            Promotion promotion = await new PromotionBuilder()
+                                        .QualifiedBy(new IsCurrentDayConditionBuilder()
+                                            .Day(DateTime.Now.Day))
+                                        .BenefitBy(new CartAmountOffFulfillmentActionBuilder()
+                                            .AmountOff(3)) // Fee = 2 * 2, Discount = 3
+                                        .Build(fixture.Factory);
 
             fixture.Factory.AddEntityToList(promotion, CommerceEntity.ListName<Promotion>());
             fixture.Factory.AddEntity(promotion);
 
-            var cart = await new CartBuilder()
-                             .WithLines(new LineBuilder()
-                                        .IdentifiedBy("001")
-                                        .Quantity(1)
-                                        .WithStandardFulfillment() // Default fulfillment fee per line item is 2
-                                        .Price(50), new LineBuilder()
-                                                    .IdentifiedBy("002")
-                                                    .Quantity(1)
-                                                    .WithStandardFulfillment() // Default fulfillment fee per line item is 2
-                                                    .Price(50))
-                             .WithSplitFulfillment()
-                             .Build();
+            Cart cart = await new CartBuilder()
+                              .WithLines(new LineBuilder()
+                                         .IdentifiedBy("001")
+                                         .Quantity(1)
+                                         .WithStandardFulfillment() // Default fulfillment fee per line item is 2
+                                         .Price(50), new LineBuilder()
+                                                     .IdentifiedBy("002")
+                                                     .Quantity(1)
+                                                     .WithStandardFulfillment() // Default fulfillment fee per line item is 2
+                                                     .Price(50))
+                              .WithSplitFulfillment()
+                              .Build();
 
             fixture.Factory.AddEntity(cart);
 
-            var resultCart = await client.GetJsonAsync<Cart>("api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
-            AwardedAdjustment adjustment = resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
+            Cart resultCart =
+                await client.GetJsonAsync<Cart>(
+                    "api/Carts('Cart01')?$expand=Lines($expand=CartLineComponents($expand=ChildComponents)),Components");
+            AwardedAdjustment adjustment =
+                resultCart.Adjustments.Single(x => x.AwardingBlock == nameof(CartAmountOffFulfillmentAction));
             Assert.Equal(-3, adjustment.Adjustment.Amount);
 
             // Subtotal = 100, Tax is 10% = 10, Fulfillment fee = 2*2 - 3 = 1

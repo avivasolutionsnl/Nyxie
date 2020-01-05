@@ -9,12 +9,12 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class LineBuilder
     {
-        private string lineId = "001";
+        private string categorySitecoreId;
+        private EntityReference fullfilmentMethod;
         private string itemId = "001";
-        private decimal quantity = 1;
+        private string lineId = "001";
         private decimal price = 33;
-        private string categorySitecoreId = null;
-        private EntityReference fullfilmentMethod = null;
+        private decimal quantity = 1;
 
         public LineBuilder IdentifiedBy(string lineId)
         {
@@ -48,7 +48,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 
         public LineBuilder WithStandardFulfillment()
         {
-            this.fullfilmentMethod = new EntityReference("001", "Standard");
+            fullfilmentMethod = new EntityReference("001", "Standard");
             return this;
         }
 
@@ -64,7 +64,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                 {
                     new PurchaseOptionMoneyPolicy
                     {
-                        SellPrice = new Money(price),
+                        SellPrice = new Money(price)
                     }
                 },
                 Totals = new Totals
@@ -74,12 +74,10 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
             };
 
             if (fullfilmentMethod != null)
-            {
                 line.SetComponent(new FulfillmentComponent
                 {
                     FulfillmentMethod = fullfilmentMethod
                 });
-            }
 
             if (categorySitecoreId != null)
             {

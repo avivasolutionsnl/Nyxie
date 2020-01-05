@@ -1,4 +1,3 @@
-
 public static partial class CourierTasks
 {
     public static string GetToolPath()
