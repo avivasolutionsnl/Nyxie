@@ -203,7 +203,7 @@ The action will do the following:
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 #### Get $ discount on shipping
-Will deduct a certain amount of the shipping costs when the given qualification is met.
+Will deduct a fixed amount from the shipping costs when the given qualification is met.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
