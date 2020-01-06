@@ -99,7 +99,8 @@ partial class Build : NukeBuild
                          .SetRainbowFormat(true));
 
            DotNetPack(s => s.SetProject(SourceDirectory / "Hotcakes.Plugin.Promotions/Hotcakes.Plugin.Promotions.csproj")
-               .SetOutputDirectory(OutputDirectory));
+                            .SetVersion(GitVersion.AssemblySemVer)
+                            .SetOutputDirectory(OutputDirectory));
        });
 
     Target Publish => _ => _
