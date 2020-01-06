@@ -96,7 +96,7 @@ When a qualification is added to a promotion, the following conditions will be a
 |Include sub categories |bool         | true           |indicates whether sub categories are included|
 
 #### Customer first purchase date
-Will apply the given benefit when the user is a logged in customer and has placed an order at a certain date.
+Will apply the given benefit when the user is a logged in customer and has placed an order at a given date.
 
 When a qualification is added to a promotion, the following condition will be available in the list:
 
@@ -135,7 +135,7 @@ When a benefit is added to a promotion, the following action will be available i
 > The gift will be removed from the cart when the qualification is no longer met.
 
 #### % discount on every N-th qualifying product
-Will apply a percentage discount to a number of products, when the specified minimum amount of products have been added to the cart.
+Will apply a fixed amount discount to a number of products, when the specified minimum amount of products are added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
@@ -289,7 +289,7 @@ The action will do the following:
 
 #### $ discount on every N-th qualifying product
 
-Will apply a percentage discount to a certain number of products when a cartain number of those products have been added to the cart.
+Will apply a fixed amount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
@@ -317,7 +317,7 @@ The action will do the following:
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 #### Get $ discount on shipping
-Will deduct a certain amount of the shipping costs when the given qualification is met.
+Will deduct a fixed amount from the shipping costs when the given qualification is met.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
@@ -328,7 +328,7 @@ When a benefit is added to a promotion, the following action will be available i
 |Amount Off             |decimal      |                |the amount to deduct from the shipping cost|
 
 #### $ discount on products in a specific category
-Will deduct a certain amount of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+Will apply a fixed amount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
@@ -356,7 +356,7 @@ The action will do the following:
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 #### % discount on products in a specific category
-Will deduct a certain percentage of a certain number of products in a certain group, when a certain amount of products in that group have been added to the cart.
+Will apply a percentageamount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
