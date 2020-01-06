@@ -5,7 +5,7 @@
 Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
 
 ## Getting started
-1. Download both the Sitecore .update package and the .nuget packags from the GitHub releases page. 
+1. Download the Sitecore .update package and the .nuget package from the GitHub releases page. 
 2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project. 
 3. Install the Sitecore .update package using the Sitecore Control Panel.
 4. Synchronze the Commerce Control Panel using the Sitecore Commerce Postman scripts: ContentAPISamples -> DoActions -> Sync content item.
@@ -40,7 +40,7 @@ When a qualification is added to a promotion, the following conditions will be a
 | specific category     | category    |                |The name of the category. This is a search box. |
 |Include sub categories |bool         |true            |indicates whether sub categories are included|
 
-> If nothing happens when entering the category name and no categories can be found: make sure the indexes have been build and see the fix indexes paragraph above.
+> If nothing happens when entering the category name and no categories can be found: make sure the indexes have been build and see the fix indexes paragraph below.
 
 #### Cart has specific fulfillment
 Will apply the given benefit when the cart contains a specific fulfillment method.
