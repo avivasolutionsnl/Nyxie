@@ -15,6 +15,8 @@ Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine wit
 
 ### Qualifications
 
+The following qualifications are part of Hotcakes and can be selected in the bixfix tools.
+
 #### Cart contains products in specific category
 Will apply the given benefit when the cart contains a product in a specific category.
 
@@ -93,7 +95,30 @@ When a qualification is added to a promotion, the following conditions will be a
 |specific               |category     |                |a fully qualified category path |
 |Include sub categories |bool         | true           |indicates whether sub categories are included|
 
+#### Customer first purchase date
+Will apply the given benefit when the user is a logged in customer and has placed an order at a certain date.
+
+When a qualification is added to a promotion, the following condition will be available in the list:
+
+`Current Customer first purchase is [operator] [date]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     |                | standard operator          |
+|Date                   |date|                         |indicates the date compared using the configured operator|
+
+`Current Customer last purchase is [operator] [date]`
+
+| Variable              | Type        | Default value  |Description                     |
+| -------------         |-------------| -----          | --------                       |
+|Operator               |operator     |                | standard operator          |
+|Date                   |date|                         |indicates the date compared using the configured operator|
+
+> When comparing dates uing the Equal operator, the dates will need to have the same year, month, day, hour, minute, seconds and milliseconds in order for them to be considered equal.
+
 ### Benefits
+
+The following benefits are part of Hotcakes and can be selected in the bixfix tools.
 
 #### Get a free gift
 Will add a free gift to the cart when the given qualification has been met.
@@ -137,6 +162,8 @@ The action will do the following:
 
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
+> This benefit currently does not support decimals in the quantity
+
 #### $ discount on every N-th qualifying product
 
 Will apply a fixed amount discount to a number of products, when the specified minimum amount of products are added to the cart.
@@ -165,6 +192,8 @@ The action will do the following:
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
 
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+> This benefit currently does not support decimals in the quantity
 
 #### Get $ discount on shipping
 Will deduct a fixed amount from the shipping costs when the given qualification is met.
@@ -381,20 +410,24 @@ PS> docker-compose up
 To set the Docker container service names as DNS names on your host edit your `hosts` file. 
 A convenient tool to automatically do this is [whales-names](https://github.com/gregolsky/whales-names).
 
+Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
+
 Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.2.x).
 > Unselect the Habitat catalog in `Commerce > Catalog Management > Catalogs` before adding a Storefront site
-
-Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
 
 Fix indexes by:
 
 - Opening the content editor
+- Make sure the Habitat catalog is selected in the Commerce Control panel 
 - Goto the commerce tab
 - Delete Data Templates
 - Update Data Templates
 - Goto control panel and rebuild the `sitecore_master_index` & `sitecore_sxa_master_index`
 
 > If you get an error saying: 'field _indexname' not found: remove files in host [](./data/solr) folder. Restart containers and populate schema.
+
+## Known issues
+- For the category related qualifications and benefits to work we need to add a custom component to the cart line when a product is added. This component adds the category path and in order to determine this path it uses the Sitecore Item API. This call to the Item API is not ideal and we should try to determine the category path without the call.
 
 ## Resources
 https://sitecoresmurf.wordpress.com/2019/07/18/known-issues-limitations-and-extending-promotion-plugin-in-sitecore-commerce-9/
