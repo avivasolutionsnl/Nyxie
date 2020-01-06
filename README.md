@@ -1,6 +1,8 @@
 # ![Hotcakes](./logo.png)
 
 [![Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=master)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
 
