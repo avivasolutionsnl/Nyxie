@@ -1,0 +1,26 @@
+trigger:
+  branches:
+    include:
+    - develop
+    - release/*
+    - master
+
+pr: none
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- task: PowerShell@2
+  displayName: Run NUKE Build (Pack)
+  inputs:
+    targetType: 'filePath'
+    filePath: build.ps1
+    arguments: Publish -GitHubAuthenticationToken $(GitHubAuthenticationToken)
+# This task publishes the test results to Azure DevOps, so that the results are visible in de "Tests" tab of the build
+- task: PublishTestResults@2
+  condition: always()
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: XUnit
+    testResultsFiles: 'output/testresults.xml'

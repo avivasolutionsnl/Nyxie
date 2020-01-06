@@ -22,6 +22,7 @@
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
 
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
+    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.1.*" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.*" />
 
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.*" />
@@ -45,7 +46,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plugin.Promotions\Promethium.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Hotcakes.Plugin.Promotions\Hotcakes.Plugin.Promotions.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
