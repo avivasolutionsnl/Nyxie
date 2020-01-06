@@ -25,20 +25,22 @@ using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
 using Xunit.Abstractions;
 
+using FindEntitiesInListBlock = Hotcakes.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks.FindEntitiesInListBlock;
 using FindEntityBlock = Hotcakes.Plugin.Promotions.Tests.Persistence.Pipelines.Blocks.FindEntityBlock;
 
 namespace Hotcakes.Plugin.Promotions.Tests
 {
     public class AuthenticatedWebAppFactory : WebApplicationFactory<Startup>
     {
-        private readonly string token;
-        private readonly HttpMessageHandler identityServerHandler;
         private readonly Func<ITestOutputHelper> getTestOutputHelper;
+        private readonly HttpMessageHandler identityServerHandler;
+        private readonly string token;
+        private readonly InMemoryListStore inMemoryListStore = new InMemoryListStore();
 
-        private InMemoryStore inMemoryStore = new InMemoryStore();
-        private InMemoryListStore inMemoryListStore = new InMemoryListStore();
+        private readonly InMemoryStore inMemoryStore = new InMemoryStore();
 
-        public AuthenticatedWebAppFactory(string token, HttpMessageHandler identityServerHandler, Func<ITestOutputHelper> getTestOutputHelper)
+        public AuthenticatedWebAppFactory(string token, HttpMessageHandler identityServerHandler,
+            Func<ITestOutputHelper> getTestOutputHelper)
         {
             this.token = token;
             this.identityServerHandler = identityServerHandler;
@@ -55,7 +57,7 @@ namespace Hotcakes.Plugin.Promotions.Tests
             builder.UseWebRoot(Path.GetFullPath("wwwroot"));
 
             builder.ConfigureAppConfiguration((context, b) =>
-            { 
+            {
                 b.SetBasePath(Path.GetFullPath("wwwroot"))
                  .AddJsonFile("config.json", false, true);
                 b.AddInMemoryCollection(new Dictionary<string, string>
@@ -72,7 +74,8 @@ namespace Hotcakes.Plugin.Promotions.Tests
                    .UseStartup<Startup>();
 
             builder.ConfigureLogging(c => { c.AddProvider(new XunitLoggerProvider(getTestOutputHelper())); });
-            builder.ConfigureServices(c => {
+            builder.ConfigureServices(c =>
+            {
                 c.Configure<IdentityServerAuthenticationOptions>("Bearer", options =>
                 {
                     options.Authority = "http://localhost";
@@ -83,7 +86,7 @@ namespace Hotcakes.Plugin.Promotions.Tests
                     options.IntrospectionBackChannelHandler = identityServerHandler;
                 });
             });
-            
+
             builder.ConfigureTestServices(services =>
             {
                 services.AddTransient<GetDatabaseVersionCommand, DummyGetDatabaseVersionCommand>();
@@ -92,23 +95,22 @@ namespace Hotcakes.Plugin.Promotions.Tests
                 services.AddSingleton<IStore>(inMemoryStore);
                 services.AddSingleton(inMemoryStore);
 
-
                 services.AddSingleton<IListStore>(inMemoryListStore);
                 services.AddSingleton(inMemoryListStore);
 
-                var assembly = Assembly.GetExecutingAssembly();
+                Assembly assembly = Assembly.GetExecutingAssembly();
                 services.RegisterAllPipelineBlocks(assembly);
 
                 services.Sitecore().Pipelines(config => config.ConfigurePipeline<IFindEntitiesInListPipeline>(c =>
-                                                        {
-                                                            c.Clear();
-                                                            c.Add<Persistence.Pipelines.Blocks.FindEntitiesInListBlock>();
-                                                        })
-                                                        .ConfigurePipeline<IFindEntityPipeline>(c =>
-                                                        {
-                                                            c.Clear();
-                                                            c.Add<FindEntityBlock>();
-                                                        }));
+                                                              {
+                                                                  c.Clear();
+                                                                  c.Add<FindEntitiesInListBlock>();
+                                                              })
+                                                              .ConfigurePipeline<IFindEntityPipeline>(c =>
+                                                              {
+                                                                  c.Clear();
+                                                                  c.Add<FindEntityBlock>();
+                                                              }));
             });
         }
 
@@ -125,10 +127,9 @@ namespace Hotcakes.Plugin.Promotions.Tests
         public void AddEntities(params CommerceEntity[] entities)
         {
             foreach (CommerceEntity entity in entities)
-            {
                 inMemoryStore.Add(entity);
-            }
         }
+
         public void AddEntityToList(CommerceEntity entity, string list)
         {
             inMemoryListStore.Add(list, entity);
@@ -137,9 +138,7 @@ namespace Hotcakes.Plugin.Promotions.Tests
         public void AddEntitiesToList(string list, params CommerceEntity[] entities)
         {
             foreach (CommerceEntity entity in entities)
-            {
                 inMemoryListStore.Add(list, entity);
-            }
         }
 
         public void ClearAllEntities()
@@ -155,13 +154,13 @@ namespace Hotcakes.Plugin.Promotions.Tests
                 var logger = scope.ServiceProvider.GetService<ILogger<CommerceController>>();
                 var messagePipeline = scope.ServiceProvider.GetService<IGetLocalizableMessagePipeline>();
                 var service = scope.ServiceProvider.GetService<ITrackActivityPipeline>();
-                var globalEnvironment = scope.ServiceProvider.GetService<CommerceEnvironment>(); 
+                var globalEnvironment = scope.ServiceProvider.GetService<CommerceEnvironment>();
                 return new CommerceContext(logger, new TelemetryClient(), messagePipeline)
                 {
                     GlobalEnvironment = globalEnvironment,
                     Environment = globalEnvironment,
-                    ConnectionId = Guid.NewGuid().ToString("N", (IFormatProvider)CultureInfo.InvariantCulture),
-                    CorrelationId = Guid.NewGuid().ToString("N", (IFormatProvider)CultureInfo.InvariantCulture),
+                    ConnectionId = Guid.NewGuid().ToString("N", CultureInfo.InvariantCulture),
+                    CorrelationId = Guid.NewGuid().ToString("N", CultureInfo.InvariantCulture),
                     TrackActivityPipeline = service,
                     PipelineTraceLoggingEnabled = true
                 };

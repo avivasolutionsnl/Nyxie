@@ -7,39 +7,9 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     public class OrderHistoryAmountInCategoryConditionBuilder : IQualificationBuilder
     {
         private string category = "";
-        private int numberOfProducts = 0;
         private string includeSubCategories = "false";
+        private int numberOfProducts;
         private Operator @operator = Builders.Operator.Equal;
-
-        public OrderHistoryAmountInCategoryConditionBuilder ForCategory(string category)
-        {
-            this.category = category;
-            return this;
-        }
-
-        public OrderHistoryAmountInCategoryConditionBuilder NumberOfProducts(int numberOfProducts)
-        {
-            this.numberOfProducts = numberOfProducts;
-            return this;
-        }
-
-        public OrderHistoryAmountInCategoryConditionBuilder Operator(Operator @operator)
-        {
-            this.@operator = @operator;
-            return this;
-        }
-
-        public OrderHistoryAmountInCategoryConditionBuilder IncludeSubCategories()
-        {
-            includeSubCategories = "true";
-            return this;
-        }
-
-        public OrderHistoryAmountInCategoryConditionBuilder DoesNotIncludeSubCategories()
-        {
-            includeSubCategories = "false";
-            return this;
-        }
 
         public ConditionModel Build()
         {
@@ -95,6 +65,36 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public OrderHistoryAmountInCategoryConditionBuilder ForCategory(string category)
+        {
+            this.category = category;
+            return this;
+        }
+
+        public OrderHistoryAmountInCategoryConditionBuilder NumberOfProducts(int numberOfProducts)
+        {
+            this.numberOfProducts = numberOfProducts;
+            return this;
+        }
+
+        public OrderHistoryAmountInCategoryConditionBuilder Operator(Operator @operator)
+        {
+            this.@operator = @operator;
+            return this;
+        }
+
+        public OrderHistoryAmountInCategoryConditionBuilder IncludeSubCategories()
+        {
+            includeSubCategories = "true";
+            return this;
+        }
+
+        public OrderHistoryAmountInCategoryConditionBuilder DoesNotIncludeSubCategories()
+        {
+            includeSubCategories = "false";
+            return this;
         }
     }
 }

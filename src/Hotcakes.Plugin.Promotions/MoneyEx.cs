@@ -9,8 +9,6 @@ namespace Hotcakes.Plugin.Promotions
     {
         private readonly GlobalPricingPolicy pricingPolicy;
 
-        public Money Value { get; }
-
         public MoneyEx(GlobalPricingPolicy pricingPolicy, Money value)
         {
             this.pricingPolicy = pricingPolicy;
@@ -27,20 +25,19 @@ namespace Hotcakes.Plugin.Promotions
         {
         }
 
+        public Money Value { get; }
+
         public MoneyEx Round()
         {
             if (pricingPolicy.ShouldRoundPriceCalc)
-            {
                 return new MoneyEx(pricingPolicy, new Money(Value.CurrencyCode, Math.Round(Value.Amount,
                     pricingPolicy.RoundDigits,
                     pricingPolicy.MidPointRoundUp
                         ? MidpointRounding.AwayFromZero
                         : MidpointRounding.ToEven)));
-            }
 
             return new MoneyEx(pricingPolicy, Value);
         }
-
 
         public MoneyEx CalculatePriceDiscount(decimal amountOff)
         {

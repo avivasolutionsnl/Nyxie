@@ -15,7 +15,8 @@ namespace Hotcakes.Plugin.Promotions.Tests
         {
             string json = JsonConvert.SerializeObject(body);
 
-            return await client.PostAsync(requestUri, new StringContent(json, Encoding.UTF8, "application/json")); ;
+            return await client.PostAsync(requestUri, new StringContent(json, Encoding.UTF8, "application/json"));
+            ;
         }
 
         public static async Task<HttpResponseMessage> PostAsync(this HttpClient client, string requestUri)
@@ -29,26 +30,24 @@ namespace Hotcakes.Plugin.Promotions.Tests
         {
             string json = JsonConvert.SerializeObject(body);
 
-            return await client.PutAsync(requestUri, new StringContent(json, Encoding.UTF8, "application/json")); ;
+            return await client.PutAsync(requestUri, new StringContent(json, Encoding.UTF8, "application/json"));
+            ;
         }
 
-        public static async Task<T> GetJsonAsync<T>(this HttpClient client, string requestUri, Dictionary<string, string> headers = null)
+        public static async Task<T> GetJsonAsync<T>(this HttpClient client, string requestUri,
+            Dictionary<string, string> headers = null)
         {
             var message = new HttpRequestMessage(HttpMethod.Get, requestUri);
 
-            if(headers != null)
-            {
-                foreach(KeyValuePair<string, string> header in headers)
-                {
+            if (headers != null)
+                foreach (KeyValuePair<string, string> header in headers)
                     message.Headers.Add(header.Key, header.Value);
-                }
-            }
 
-            var response = await client.SendAsync(message);
+            HttpResponseMessage response = await client.SendAsync(message);
 
             Assert.True(response.IsSuccessStatusCode);
 
-            var responseAsString = await response.Content.ReadAsStringAsync();
+            string responseAsString = await response.Content.ReadAsStringAsync();
 
             return JsonConvert.DeserializeObject<T>(responseAsString);
         }

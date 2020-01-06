@@ -12,13 +12,13 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     public class CartBuilder
     {
         private EntityReference fullfilmentMethod = new EntityReference("001", "Standard");
+        private bool hasSplitFulfillment;
+        private LineBuilder[] lineBuilders = { new LineBuilder() };
         private EntityReference paymentMethod = new EntityReference("001", "Federated");
-        private LineBuilder[] lineBuilders = new[] { new LineBuilder() };
-        private bool hasSplitFulfillment = false;
 
         public CartBuilder WithStandardFulfillment()
         {
-            this.fullfilmentMethod = new EntityReference("001", "Standard");
+            fullfilmentMethod = new EntityReference("001", "Standard");
             return this;
         }
 
@@ -60,19 +60,15 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
             cart.AddPolicies(new CalculateCartPolicy { AlwaysCalculate = true });
 
             if (hasSplitFulfillment)
-            {
                 cart.AddComponents(new SplitFulfillmentComponent
                 {
                     FulfillmentMethod = new EntityReference("002", "Split")
                 });
-            }
             else
-            {
                 cart.AddComponents(new FulfillmentComponent
                 {
                     FulfillmentMethod = fullfilmentMethod
                 });
-            }
 
             return Task.FromResult(cart);
         }

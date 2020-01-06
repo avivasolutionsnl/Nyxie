@@ -1,32 +1,32 @@
 ﻿// © 2016 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
+using System.Reflection;
+
+using Microsoft.Extensions.DependencyInjection;
+
 using Plugin.Sample.Habitat.Pipelines.Blocks;
+
+using Sitecore.Commerce.Core;
+using Sitecore.Framework.Configuration;
+using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
 namespace Plugin.Sample.Habitat
 {
-    using System.Reflection;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using Sitecore.Commerce.Core;
-    using Sitecore.Framework.Configuration;
-    using Sitecore.Framework.Pipelines.Definitions.Extensions;
-
     /// <summary>
-    /// The Habitat configure class.
+    ///     The Habitat configure class.
     /// </summary>
     /// <seealso cref="IConfigureSitecore" />
     public class ConfigureSitecore : IConfigureSitecore
     {
         /// <summary>
-        /// The configure services.
+        ///     The configure services.
         /// </summary>
         /// <param name="services">
-        /// The services.
+        ///     The services.
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
 
             services.Sitecore().Pipelines(
@@ -36,11 +36,11 @@ namespace Plugin.Sample.Habitat
                             d =>
                             {
                                 d.Add<InitializeCatalogBlock>()
-                                    .Add<InitializeEnvironmentSellableItemsBlock>()
-                                    .Add<InitializeEnvironmentBundlesBlock>()
-                                    .Add<InitializeInventoryBlock>()
-                                    .Add<InitializeEnvironmentPricingBlock>()
-                                    .Add<InitializeEnvironmentPromotionsBlock>();
+                                 .Add<InitializeEnvironmentSellableItemsBlock>()
+                                 .Add<InitializeEnvironmentBundlesBlock>()
+                                 .Add<InitializeInventoryBlock>()
+                                 .Add<InitializeEnvironmentPricingBlock>()
+                                 .Add<InitializeEnvironmentPromotionsBlock>();
                             })
                         .ConfigurePipeline<IRunningPluginsPipeline>(c =>
                         {

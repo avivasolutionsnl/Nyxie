@@ -11,14 +11,15 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 {
     public class PromotionBuilder
     {
-        private IQualificationBuilder[] qualificationBuilders;
         private IBenefitBuilder[] benefitBuilders;
+        private IQualificationBuilder[] qualificationBuilders;
 
         public PromotionBuilder QualifiedBy(params IQualificationBuilder[] qualificationBuilders)
         {
             this.qualificationBuilders = qualificationBuilders;
             return this;
         }
+
         public PromotionBuilder BenefitBy(params IBenefitBuilder[] benefitBuilders)
         {
             this.benefitBuilders = benefitBuilders;
@@ -47,7 +48,7 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
 
             promotion.AddComponents(new PromotionRulesComponent(), new ApprovalComponent("Approved"));
 
-            using (var scope = factory.Server.Host.Services.CreateScope())
+            using (IServiceScope scope = factory.Server.Host.Services.CreateScope())
             {
                 var block = scope.ServiceProvider.GetRequiredService<BuildPromotionQualifyingRuleBlock>();
                 promotion = await block.Run(promotion, factory.CreateCommerceContext().PipelineContext);

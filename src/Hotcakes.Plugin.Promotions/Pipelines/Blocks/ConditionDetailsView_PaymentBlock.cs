@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Hotcakes.Plugin.Promotions.Extensions;
@@ -24,17 +25,18 @@ namespace Hotcakes.Plugin.Promotions.Pipelines.Blocks
         {
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
-            var condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") || !condition.RawValue.ToString().EndsWith("PaymentCondition"))
-            {
+            ViewProperty condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") ||
+                !condition.RawValue.ToString().EndsWith("PaymentCondition"))
                 return arg;
-            }
 
-            var paymentSelection = arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificPayment"));
+            ViewProperty paymentSelection =
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificPayment"));
             if (paymentSelection != null)
             {
-                var paymentMethods = await _getCommand.Process(context.CommerceContext);
-                var options = paymentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
+                IEnumerable<PaymentMethod> paymentMethods = await _getCommand.Process(context.CommerceContext);
+                IEnumerable<Selection> options =
+                    paymentMethods.Select(x => new Selection { DisplayName = x.DisplayName, Name = x.Name });
 
                 var policy = new AvailableSelectionsPolicy(options);
 

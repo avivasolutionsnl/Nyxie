@@ -26,6 +26,7 @@ namespace Hotcakes.Plugin.Promotions.Extensions
                 //Lookup the user friendly value for the display name
                 displayName = Resources.ResourceManager.GetString(displayName);
             }
+
             return displayName;
         }
 

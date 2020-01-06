@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using Hotcakes.Plugin.Promotions.Resolvers;
 
@@ -9,8 +10,8 @@ using Sitecore.Framework.Rules;
 namespace Hotcakes.Plugin.Promotions.Conditions
 {
     /// <summary>
-    /// A Sitecore Commerce condition for the qualification
-    /// "Cart contains [compares] [specific value] products in the [specific category]"
+    ///     A Sitecore Commerce condition for the qualification
+    ///     "Cart contains [compares] [specific value] products in the [specific category]"
     /// </summary>
     [EntityIdentifier("Hc_" + nameof(CartProductAmountInCategoryCondition))]
     public class CartProductAmountInCategoryCondition : ICartsCondition
@@ -35,23 +36,20 @@ namespace Hotcakes.Plugin.Promotions.Conditions
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            var specificCategory = Hc_SpecificCategory.Yield(context);
-            var specificValue = Hc_SpecificValue.Yield(context);
-            var includeSubCategories = Hc_IncludeSubCategories.Yield(context);
+            string specificCategory = Hc_SpecificCategory.Yield(context);
+            decimal specificValue = Hc_SpecificValue.Yield(context);
+            bool includeSubCategories = Hc_IncludeSubCategories.Yield(context);
             if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Hc_Compares == null)
-            {
                 return false;
-            }
 
             //Get Data
-            var categoryLines = categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
+            IEnumerable<CartLineComponent> categoryLines =
+                categoryCartLinesResolver.Resolve(commerceContext, specificCategory, includeSubCategories);
             if (categoryLines == null)
-            {
                 return false;
-            }
 
             //Validate data against configuration
-            var productAmount = categoryLines.Sum(x => x.Quantity);
+            decimal productAmount = categoryLines.Sum(x => x.Quantity);
             return Hc_Compares.Evaluate(productAmount, specificValue);
         }
     }

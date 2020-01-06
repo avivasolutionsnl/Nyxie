@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -17,29 +18,24 @@ namespace Hotcakes.Plugin.Promotions.Tests
     public class EngineFixture : IAsyncLifetime
     {
         private ITestOutputHelper testOutputHelper;
-        
+
         public string AccessToken { get; private set; }
-        
+
         public AuthenticatedWebAppFactory Factory { get; private set; }
 
-        public void SetOutput(ITestOutputHelper testOutputHelper)
-        {
-            this.testOutputHelper = testOutputHelper;
-        }
-        
         public async Task InitializeAsync()
         {
             SetEntryAssembly<Startup>();
 
-            var builder = new WebHostBuilder()
+            IWebHostBuilder builder = new WebHostBuilder()
                 .UseStartup<IdentityServerStartup>();
             var server = new TestServer(builder);
 
-            var idClient = server.CreateClient();
+            HttpClient idClient = server.CreateClient();
 
-            var disco = await idClient.GetDiscoveryDocumentAsync();
-            
-            var tokenResponse = await idClient.RequestPasswordTokenAsync(new PasswordTokenRequest
+            DiscoveryResponse disco = await idClient.GetDiscoveryDocumentAsync();
+
+            TokenResponse tokenResponse = await idClient.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
                 Address = disco.TokenEndpoint,
                 UserName = "sitecore\\admin",
@@ -52,6 +48,16 @@ namespace Hotcakes.Plugin.Promotions.Tests
             AccessToken = tokenResponse.AccessToken;
 
             Factory = new AuthenticatedWebAppFactory(AccessToken, server.CreateHandler(), () => testOutputHelper);
+        }
+
+        public Task DisposeAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public void SetOutput(ITestOutputHelper testOutputHelper)
+        {
+            this.testOutputHelper = testOutputHelper;
         }
 
         private static void SetEntryAssembly<T>()
@@ -67,11 +73,6 @@ namespace Hotcakes.Plugin.Promotions.Tests
             FieldInfo domainManagerField =
                 domain.GetType().GetField("_domainManager", BindingFlags.Instance | BindingFlags.NonPublic);
             domainManagerField.SetValue(domain, manager);
-        }
-
-        public Task DisposeAsync()
-        {
-            return Task.CompletedTask;
         }
     }
 }

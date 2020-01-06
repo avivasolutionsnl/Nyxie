@@ -1,45 +1,46 @@
 {
-  "$schema": "https://raw.githubusercontent.com/nuke-build/common/develop/source/Nuke.CodeGeneration/schema.json",
-  "references": [
+  "$schema" : "https://raw.githubusercontent.com/nuke-build/common/develop/source/Nuke.CodeGeneration/schema.json",
+  "references" : [
     "https://karma-runner.github.io/3.0/config/configuration-file.html"
   ],
-  "name": "Courier",
-  "officialUrl": "https://karma-runner.github.io/",
-  "help": "Sitecore Courier aims to fill the gap between the development and production environments when building websites with Sitecore CMS.",
-  "customExecutable": true,
-  "tasks": [
+  "name" : "Courier",
+  "officialUrl" : "https://karma-runner.github.io/",
+  "help" :
+    "Sitecore Courier aims to fill the gap between the development and production environments when building websites with Sitecore CMS.",
+  "customExecutable" : true,
+  "tasks" : [
     {
-      "settingsClass": {
-        "properties": [
+      "settingsClass" : {
+        "properties" : [
           {
-            "name": "SourceFolder",
-            "type": "string",
-            "format": "-s {value}",
-            "help": "Source folder (optional, only needed for Delta Packages)"
+            "name" : "SourceFolder",
+            "type" : "string",
+            "format" : "-s {value}",
+            "help" : "Source folder (optional, only needed for Delta Packages)"
           },
           {
-            "name": "TargetFolder",
-            "type": "string",
-            "format": "-t {value}",
-            "help": "Target folder"
+            "name" : "TargetFolder",
+            "type" : "string",
+            "format" : "-t {value}",
+            "help" : "Target folder"
           },
           {
-            "name": "OutputPackage",
-            "type": "string",
-            "format": "-o {value}",
-            "help": "Output package (will be created)"
+            "name" : "OutputPackage",
+            "type" : "string",
+            "format" : "-o {value}",
+            "help" : "Output package (will be created)"
           },
           {
-            "name": "RainbowFormat",
-            "type": "bool",
-            "format": "-r",
-            "help": "Add if you want to use Rainbow serialization format, otherwise it will treat .yml as files"
+            "name" : "RainbowFormat",
+            "type" : "bool",
+            "format" : "-r",
+            "help" : "Add if you want to use Rainbow serialization format, otherwise it will treat .yml as files"
           },
           {
-            "name": "AddFiles",
-            "type": "bool",
-            "format": "-f",
-            "help": "Add if you want to include files to the package when using Rainbow serialization format"
+            "name" : "AddFiles",
+            "type" : "bool",
+            "format" : "-f",
+            "help" : "Add if you want to include files to the package when using Rainbow serialization format"
           }
         ]
       }

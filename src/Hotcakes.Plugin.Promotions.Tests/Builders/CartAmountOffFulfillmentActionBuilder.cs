@@ -8,12 +8,6 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
     {
         private decimal amountOff = 10;
 
-        public CartAmountOffFulfillmentActionBuilder AmountOff(decimal value)
-        {
-            amountOff = value;
-            return this;
-        }
-
         public ActionModel Build()
         {
             return new ActionModel
@@ -29,6 +23,12 @@ namespace Hotcakes.Plugin.Promotions.Tests.Builders
                     }
                 }
             };
+        }
+
+        public CartAmountOffFulfillmentActionBuilder AmountOff(decimal value)
+        {
+            amountOff = value;
+            return this;
         }
     }
 }

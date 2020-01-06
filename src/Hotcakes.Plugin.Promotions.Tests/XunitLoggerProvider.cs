@@ -14,9 +14,12 @@ namespace Hotcakes.Plugin.Promotions.Tests
         }
 
         public ILogger CreateLogger(string categoryName)
-            => new XunitLogger(_testOutputHelper, categoryName);
+        {
+            return new XunitLogger(_testOutputHelper, categoryName);
+        }
 
         public void Dispose()
-        { }
+        {
+        }
     }
 }
