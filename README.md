@@ -4,20 +4,22 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Nyxie is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
+Nyxie is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful promotion options
+
+It introduces 8 new qualifications and 6 new benefits. In addition these qualifications and benefits are displayed in the business tools in an easy to read way.
 
 ## Getting started
 1. Download the Sitecore .update package and the .nuget package from the GitHub releases page. 
 2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project. 
 3. Install the Sitecore .update package using the Sitecore Control Panel.
 4. Synchronze the Commerce Control Panel using the Sitecore Commerce Postman scripts: ContentAPISamples -> DoActions -> Sync content item.
-5. The new qualifications and benefits are now available in the bizfx tools.
+5. The new qualifications and benefits are now available in the business tools tools.
 
 ## How to use
 
 ### Qualifications  
 
-The following qualifications are part of Nyxie and can be selected in the bixfix tools.
+The following qualifications are part of Nyxie and can be selected in the business tools tools.
 
 #### Cart contains products in specific category
 Will apply the given benefit when the cart contains a product in a specific category.
@@ -263,6 +265,11 @@ The action will do the following:
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
 
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
+
+## Display of qualification and benefits
+To make the qualification and benefits Nyxie introduces more readable by users, each qualification and benefit comes with a custom view that translates it to a single sentence.
+
+# ![Custom view](./customview.png)
 
 ## Contributing
 
