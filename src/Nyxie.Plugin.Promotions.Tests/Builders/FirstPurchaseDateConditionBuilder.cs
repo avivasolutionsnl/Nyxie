@@ -37,19 +37,19 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
 
             return new ConditionModel
             {
-                Name = "Hc_FirstPurchaseDateCondition",
-                LibraryId = "Hc_FirstPurchaseDateCondition",
+                Name = "Ny_FirstPurchaseDateCondition",
+                LibraryId = "Ny_FirstPurchaseDateCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_Operator",
+                        Name = "Ny_Operator",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_Date",
+                        Name = "Ny_Date",
                         Value = date.ToString()
                     }
                 }

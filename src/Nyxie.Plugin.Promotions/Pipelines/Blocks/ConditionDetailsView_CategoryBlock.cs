@@ -30,12 +30,12 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
 
             ViewProperty entity = arg.Properties.FirstOrDefault(p =>
                 p.Name.EqualsOrdinalIgnoreCase("Condition") || p.Name.EqualsOrdinalIgnoreCase("Action"));
-            if (entity == null || !entity.RawValue.ToString().StartsWith("Hc_") ||
+            if (entity == null || !entity.RawValue.ToString().StartsWith("Ny_") ||
                 !entity.RawValue.ToString().Contains("InCategory"))
                 return arg;
 
             ViewProperty categorySelection =
-                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificCategory"));
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Ny_SpecificCategory"));
             if (categorySelection == null)
                 return arg;
 

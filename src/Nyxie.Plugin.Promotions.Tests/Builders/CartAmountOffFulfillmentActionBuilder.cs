@@ -12,13 +12,13 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
         {
             return new ActionModel
             {
-                Name = "Hc_CartAmountOffFulfillmentAction",
-                LibraryId = "Hc_CartAmountOffFulfillmentAction",
+                Name = "Ny_CartAmountOffFulfillmentAction",
+                LibraryId = "Ny_CartAmountOffFulfillmentAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificAmount",
+                        Name = "Ny_SpecificAmount",
                         Value = amountOff.ToString()
                     }
                 }

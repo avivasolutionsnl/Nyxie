@@ -53,7 +53,7 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
                                           .First(x => x.Name.EqualsOrdinalIgnoreCase(childPartName));
                 List<EntityView> childrenToProcess = childPart.ChildViews
                                                               .OfType<EntityView>()
-                                                              .Where(x => x.Properties.Any(y => y.Name.StartsWith("Hc_")))
+                                                              .Where(x => x.Properties.Any(y => y.Name.StartsWith("Ny_")))
                                                               .ToList();
 
                 if (childrenToProcess.Any())
@@ -127,21 +127,21 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
         {
             switch (variable.Name)
             {
-                case "Hc_BasicStringCompare":
-                case "Hc_Compares":
-                case "Hc_Operator":
+                case "Ny_BasicStringCompare":
+                case "Ny_Compares":
+                case "Ny_Operator":
                     return variable.Value.PrettifyOperatorName();
 
-                case "Hc_SpecificCategory":
+                case "Ny_SpecificCategory":
                     return await PrettifyCategory(variable.Value, properties, commerceContext);
 
-                case "Hc_Date":
+                case "Ny_Date":
                     if (DateTimeOffset.TryParse(variable.Value, out DateTimeOffset date))
                         return date.LocalDateTime.ToString("d MMM yyyy HH:mm");
 
                     return variable.Value;
 
-                case "Hc_ApplyActionTo":
+                case "Ny_ApplyActionTo":
                     return ApplicationOrder.Parse(variable.Value).DisplayName;
 
                 case "TargetItemId":
@@ -158,7 +158,7 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
             string output = await categoryPathResolver.GetCategoryPath(commerceContext, categoryCommerceId);
 
             ViewProperty includeSubCategories =
-                properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_IncludeSubCategories"));
+                properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Ny_IncludeSubCategories"));
             if (includeSubCategories != null)
             {
                 includeSubCategories.IsHidden = true;

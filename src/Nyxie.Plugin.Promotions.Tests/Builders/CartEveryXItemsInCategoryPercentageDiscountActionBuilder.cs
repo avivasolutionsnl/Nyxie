@@ -18,43 +18,43 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
         {
             return new ActionModel
             {
-                Name = "Hc_CartEveryXItemsInCategoryPercentageDiscountAction",
-                LibraryId = "Hc_CartEveryXItemsInCategoryPercentageDiscountAction",
+                Name = "Ny_CartEveryXItemsInCategoryPercentageDiscountAction",
+                LibraryId = "Ny_CartEveryXItemsInCategoryPercentageDiscountAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_PercentageOff",
+                        Name = "Ny_PercentageOff",
                         Value = percentageOff.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ItemsToAward",
+                        Name = "Ny_ItemsToAward",
                         Value = itemsToAward.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ItemsToPurchase",
+                        Name = "Ny_ItemsToPurchase",
                         Value = itemsToPurchase.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ApplyActionTo",
+                        Name = "Ny_ApplyActionTo",
                         Value = applicationOrder.Name
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ActionLimit",
+                        Name = "Ny_ActionLimit",
                         Value = actionLimit.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificCategory",
+                        Name = "Ny_SpecificCategory",
                         Value = category
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_IncludeSubCategories",
+                        Name = "Ny_IncludeSubCategories",
                         Value = includeSubCategories
                     }
                 }

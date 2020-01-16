@@ -13,7 +13,7 @@ namespace Nyxie.Plugin.Promotions.Conditions
     ///     A Sitecore Commerce condition for the qualification
     ///     "Cart contains [compares] [specific value] products in the [specific category]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartProductAmountInCategoryCondition))]
+    [EntityIdentifier("Ny_" + nameof(CartProductAmountInCategoryCondition))]
     public class CartProductAmountInCategoryCondition : ICartsCondition
     {
         private readonly CategoryCartLinesResolver categoryCartLinesResolver;
@@ -23,23 +23,23 @@ namespace Nyxie.Plugin.Promotions.Conditions
             this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
-        public IBinaryOperator<decimal, decimal> Hc_Compares { get; set; }
+        public IBinaryOperator<decimal, decimal> Ny_Compares { get; set; }
 
-        public IRuleValue<decimal> Hc_SpecificValue { get; set; }
+        public IRuleValue<decimal> Ny_SpecificValue { get; set; }
 
-        public IRuleValue<string> Hc_SpecificCategory { get; set; }
+        public IRuleValue<string> Ny_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Hc_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Ny_IncludeSubCategories { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            string specificCategory = Hc_SpecificCategory.Yield(context);
-            decimal specificValue = Hc_SpecificValue.Yield(context);
-            bool includeSubCategories = Hc_IncludeSubCategories.Yield(context);
-            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Hc_Compares == null)
+            string specificCategory = Ny_SpecificCategory.Yield(context);
+            decimal specificValue = Ny_SpecificValue.Yield(context);
+            bool includeSubCategories = Ny_IncludeSubCategories.Yield(context);
+            if (string.IsNullOrEmpty(specificCategory) || specificValue == 0 || Ny_Compares == null)
                 return false;
 
             //Get Data
@@ -50,7 +50,7 @@ namespace Nyxie.Plugin.Promotions.Conditions
 
             //Validate data against configuration
             decimal productAmount = categoryLines.Sum(x => x.Quantity);
-            return Hc_Compares.Evaluate(productAmount, specificValue);
+            return Ny_Compares.Evaluate(productAmount, specificValue);
         }
     }
 }

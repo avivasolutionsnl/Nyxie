@@ -38,29 +38,29 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
 
             return new ConditionModel
             {
-                Name = "Hc_OrderHistoryAmountInCategoryCondition",
-                LibraryId = "Hc_OrderHistoryAmountInCategoryCondition",
+                Name = "Ny_OrderHistoryAmountInCategoryCondition",
+                LibraryId = "Ny_OrderHistoryAmountInCategoryCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificCategory",
+                        Name = "Ny_SpecificCategory",
                         Value = category
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_Compares",
+                        Name = "Ny_Compares",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificValue",
+                        Name = "Ny_SpecificValue",
                         Value = numberOfProducts.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_IncludeSubCategories",
+                        Name = "Ny_IncludeSubCategories",
                         Value = includeSubCategories
                     }
                 }

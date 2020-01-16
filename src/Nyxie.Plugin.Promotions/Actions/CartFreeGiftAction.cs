@@ -13,7 +13,7 @@ namespace Nyxie.Plugin.Promotions.Actions
     ///     A Sitecore Commerce action for the benefit
     ///     "Get [quantity] free [gift]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartFreeGiftAction))]
+    [EntityIdentifier("Ny_" + nameof(CartFreeGiftAction))]
     public class CartFreeGiftAction : ICartAction
     {
         private readonly AddCartLineCommand _addCommand;
@@ -25,7 +25,7 @@ namespace Nyxie.Plugin.Promotions.Actions
             _addCommand = addCommand;
         }
 
-        public IRuleValue<decimal> Hc_Quantity { get; set; }
+        public IRuleValue<decimal> Ny_Quantity { get; set; }
 
         public IRuleValue<string> TargetItemId { get; set; }
 
@@ -36,7 +36,7 @@ namespace Nyxie.Plugin.Promotions.Actions
             if (cart == null || !cart.Lines.Any())
                 return;
 
-            decimal quantity = Hc_Quantity.Yield(context);
+            decimal quantity = Ny_Quantity.Yield(context);
             string targetItemId = TargetItemId.Yield(context);
 
             if (quantity == 0 || string.IsNullOrEmpty(targetItemId))

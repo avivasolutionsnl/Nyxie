@@ -11,18 +11,18 @@ namespace Nyxie.Plugin.Promotions.Conditions
     ///     A Sitecore Commerce condition for the qualification
     ///     "Cart has [operator] [specific payment]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartPaymentCondition))]
+    [EntityIdentifier("Ny_" + nameof(CartPaymentCondition))]
     public class CartPaymentCondition : ICondition
     {
-        public IRuleValue<string> Hc_BasicStringCompare { get; set; }
+        public IRuleValue<string> Ny_BasicStringCompare { get; set; }
 
-        public IRuleValue<string> Hc_SpecificPayment { get; set; }
+        public IRuleValue<string> Ny_SpecificPayment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            string specificPayment = Hc_SpecificPayment.Yield(context);
-            string basicStringCompare = Hc_BasicStringCompare.Yield(context);
+            string specificPayment = Ny_SpecificPayment.Yield(context);
+            string basicStringCompare = Ny_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificPayment) || string.IsNullOrEmpty(basicStringCompare))
                 return false;
 

@@ -13,18 +13,18 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
         {
             return new ConditionModel
             {
-                Name = "Hc_CartPaymentCondition",
-                LibraryId = "Hc_CartPaymentCondition",
+                Name = "Ny_CartPaymentCondition",
+                LibraryId = "Ny_CartPaymentCondition",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_BasicStringCompare",
+                        Name = "Ny_BasicStringCompare",
                         Value = comparer
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificPayment",
+                        Name = "Ny_SpecificPayment",
                         Value = paymentMethodName
                     }
                 }

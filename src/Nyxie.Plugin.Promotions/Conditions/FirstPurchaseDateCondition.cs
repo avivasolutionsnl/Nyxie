@@ -15,7 +15,7 @@ namespace Nyxie.Plugin.Promotions.Conditions
     ///     A Sitecore Commerce condition for the qualification
     ///     "Current Customer first purchase is [operator] [date]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(FirstPurchaseDateCondition))]
+    [EntityIdentifier("Ny_" + nameof(FirstPurchaseDateCondition))]
     public class FirstPurchaseDateCondition : ICustomerCondition
     {
         private readonly OrderResolver orderResolver;
@@ -26,21 +26,21 @@ namespace Nyxie.Plugin.Promotions.Conditions
         }
 
         //Sitecore only adds Datetime operators out-of-the-box
-        public IBinaryOperator<DateTime, DateTime> Hc_Operator { get; set; }
+        public IBinaryOperator<DateTime, DateTime> Ny_Operator { get; set; }
 
         //Out-of-the-box DatetimeOffset get's a nice editor and Datetime not
-        public IRuleValue<DateTimeOffset> Hc_Date { get; set; }
+        public IRuleValue<DateTimeOffset> Ny_Date { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
-            DateTime date = Hc_Date.Yield(context).DateTime;
+            DateTime date = Ny_Date.Yield(context).DateTime;
             List<Order> orders = AsyncHelper.RunSync(() => orderResolver.Resolve(context.Fact<CommerceContext>()));
 
             if (orders == null)
                 return false;
 
             DateTime firstPurchaseDate = orders.Min(x => x.OrderPlacedDate).DateTime;
-            return Hc_Operator.Evaluate(firstPurchaseDate, date);
+            return Ny_Operator.Evaluate(firstPurchaseDate, date);
         }
     }
 }

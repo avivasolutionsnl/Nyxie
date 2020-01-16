@@ -41,44 +41,44 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
 
             return new ActionModel
             {
-                Name = "Hc_CartItemsMatchingInCategoryPercentageDiscountAction",
-                LibraryId = "Hc_CartItemsMatchingInCategoryPercentageDiscountAction",
+                Name = "Ny_CartItemsMatchingInCategoryPercentageDiscountAction",
+                LibraryId = "Ny_CartItemsMatchingInCategoryPercentageDiscountAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_PercentageOff",
+                        Name = "Ny_PercentageOff",
                         Value = percentageOff.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificValue",
+                        Name = "Ny_SpecificValue",
                         Value = numberOfProducts.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_Operator",
+                        Name = "Ny_Operator",
                         Value = comparer,
                         IsOperator = true
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ApplyActionTo",
+                        Name = "Ny_ApplyActionTo",
                         Value = applicationOrder.Name
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_ActionLimit",
+                        Name = "Ny_ActionLimit",
                         Value = actionLimit.ToString()
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_SpecificCategory",
+                        Name = "Ny_SpecificCategory",
                         Value = category
                     },
                     new PropertyModel
                     {
-                        Name = "Hc_IncludeSubCategories",
+                        Name = "Ny_IncludeSubCategories",
                         Value = includeSubCategories
                     }
                 }

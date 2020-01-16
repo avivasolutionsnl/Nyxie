@@ -15,7 +15,7 @@ namespace Nyxie.Plugin.Promotions.Actions
     ///     "For every [Items to award] of [Items to purchase] products in [Category] you get [Amount Off] on the [Apply Award
     ///     To] with a limit of [Award Limit]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
+    [EntityIdentifier("Ny_" + nameof(CartEveryXItemsInCategoryPriceDiscountAction))]
     public class CartEveryXItemsInCategoryPriceDiscountAction : ICartLineAction
     {
         private readonly CategoryCartLinesResolver categoryCartLinesResolver;
@@ -25,32 +25,32 @@ namespace Nyxie.Plugin.Promotions.Actions
             this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
-        public IRuleValue<decimal> Hc_ItemsToAward { get; set; }
+        public IRuleValue<decimal> Ny_ItemsToAward { get; set; }
 
-        public IRuleValue<decimal> Hc_ItemsToPurchase { get; set; }
+        public IRuleValue<decimal> Ny_ItemsToPurchase { get; set; }
 
-        public IRuleValue<string> Hc_SpecificCategory { get; set; }
+        public IRuleValue<string> Ny_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Hc_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Ny_IncludeSubCategories { get; set; }
 
-        public IRuleValue<decimal> Hc_AmountOff { get; set; }
+        public IRuleValue<decimal> Ny_AmountOff { get; set; }
 
-        public IRuleValue<string> Hc_ApplyActionTo { get; set; }
+        public IRuleValue<string> Ny_ApplyActionTo { get; set; }
 
-        public IRuleValue<int> Hc_ActionLimit { get; set; }
+        public IRuleValue<int> Ny_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            string specificCategory = Hc_SpecificCategory.Yield(context);
-            decimal itemsToAward = Hc_ItemsToAward.Yield(context);
-            decimal itemsToPurchase = Hc_ItemsToPurchase.Yield(context);
-            bool includeSubCategories = Hc_IncludeSubCategories.Yield(context);
-            decimal amountOff = Hc_AmountOff.Yield(context);
-            string applyActionTo = Hc_ApplyActionTo.Yield(context);
-            int actionLimit = Hc_ActionLimit.Yield(context);
+            string specificCategory = Ny_SpecificCategory.Yield(context);
+            decimal itemsToAward = Ny_ItemsToAward.Yield(context);
+            decimal itemsToPurchase = Ny_ItemsToPurchase.Yield(context);
+            bool includeSubCategories = Ny_IncludeSubCategories.Yield(context);
+            decimal amountOff = Ny_AmountOff.Yield(context);
+            string applyActionTo = Ny_ApplyActionTo.Yield(context);
+            int actionLimit = Ny_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 itemsToAward == 0 ||

@@ -26,12 +26,12 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             ViewProperty condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") ||
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Ny_") ||
                 !condition.RawValue.ToString().EndsWith("FulfillmentCondition"))
                 return arg;
 
             ViewProperty fulfillmentSelection =
-                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificFulfillment"));
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Ny_SpecificFulfillment"));
             if (fulfillmentSelection != null)
             {
                 IEnumerable<FulfillmentMethod> fulfillmentMethods = await _getCommand.Process(context.CommerceContext);

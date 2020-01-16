@@ -13,13 +13,13 @@ namespace Nyxie.Plugin.Promotions.Tests.Builders
         {
             return new ActionModel
             {
-                Name = "Hc_CartFreeGiftAction",
-                LibraryId = "Hc_CartFreeGiftAction",
+                Name = "Ny_CartFreeGiftAction",
+                LibraryId = "Ny_CartFreeGiftAction",
                 Properties = new List<PropertyModel>
                 {
                     new PropertyModel
                     {
-                        Name = "Hc_Quantity",
+                        Name = "Ny_Quantity",
                         Value = quantity.ToString()
                     },
                     new PropertyModel

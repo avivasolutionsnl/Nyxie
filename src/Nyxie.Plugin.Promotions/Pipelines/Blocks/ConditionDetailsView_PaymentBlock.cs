@@ -26,12 +26,12 @@ namespace Nyxie.Plugin.Promotions.Pipelines.Blocks
             Condition.Requires(arg).IsNotNull(arg.Name + ": The argument cannot be null");
 
             ViewProperty condition = arg.Properties.FirstOrDefault(p => p.Name.EqualsOrdinalIgnoreCase("Condition"));
-            if (condition == null || !condition.RawValue.ToString().StartsWith("Hc_") ||
+            if (condition == null || !condition.RawValue.ToString().StartsWith("Ny_") ||
                 !condition.RawValue.ToString().EndsWith("PaymentCondition"))
                 return arg;
 
             ViewProperty paymentSelection =
-                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Hc_SpecificPayment"));
+                arg.Properties.FirstOrDefault(x => x.Name.EqualsOrdinalIgnoreCase("Ny_SpecificPayment"));
             if (paymentSelection != null)
             {
                 IEnumerable<PaymentMethod> paymentMethods = await _getCommand.Process(context.CommerceContext);

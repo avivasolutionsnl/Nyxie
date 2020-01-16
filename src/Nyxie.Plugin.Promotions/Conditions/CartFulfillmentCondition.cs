@@ -11,18 +11,18 @@ namespace Nyxie.Plugin.Promotions.Conditions
     ///     A Sitecore Commerce condition for the qualification
     ///     "Cart has [operator] [specific fulfillment]"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartFulfillmentCondition))]
+    [EntityIdentifier("Ny_" + nameof(CartFulfillmentCondition))]
     public class CartFulfillmentCondition : IFulfillmentCondition
     {
-        public IRuleValue<string> Hc_BasicStringCompare { get; set; }
+        public IRuleValue<string> Ny_BasicStringCompare { get; set; }
 
-        public IRuleValue<string> Hc_SpecificFulfillment { get; set; }
+        public IRuleValue<string> Ny_SpecificFulfillment { get; set; }
 
         public bool Evaluate(IRuleExecutionContext context)
         {
             //Get configuration
-            string specificFulfillment = Hc_SpecificFulfillment.Yield(context);
-            string basicStringCompare = Hc_BasicStringCompare.Yield(context);
+            string specificFulfillment = Ny_SpecificFulfillment.Yield(context);
+            string basicStringCompare = Ny_BasicStringCompare.Yield(context);
             if (string.IsNullOrEmpty(specificFulfillment) || string.IsNullOrEmpty(basicStringCompare))
                 return false;
 

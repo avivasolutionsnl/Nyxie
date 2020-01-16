@@ -14,10 +14,10 @@ namespace Nyxie.Plugin.Promotions.Actions
     ///     A Sitecore Commerce action for the benefit
     ///     "Get [specific amount] off the shipping cost"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartAmountOffFulfillmentAction))]
+    [EntityIdentifier("Ny_" + nameof(CartAmountOffFulfillmentAction))]
     public class CartAmountOffFulfillmentAction : ICartAction
     {
-        public IRuleValue<decimal> Hc_SpecificAmount { get; set; }
+        public IRuleValue<decimal> Ny_SpecificAmount { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
@@ -27,7 +27,7 @@ namespace Nyxie.Plugin.Promotions.Actions
             if (cart == null || !cart.Lines.Any() || !cart.HasComponent<FulfillmentComponent>())
                 return;
 
-            decimal amountOff = Hc_SpecificAmount.Yield(context);
+            decimal amountOff = Ny_SpecificAmount.Yield(context);
             if (amountOff == 0)
                 return;
 

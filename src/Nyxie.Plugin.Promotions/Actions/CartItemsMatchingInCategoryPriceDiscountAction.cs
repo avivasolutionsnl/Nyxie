@@ -14,7 +14,7 @@ namespace Nyxie.Plugin.Promotions.Actions
     ///     "When you buy [Operator] [Product count] products in [Category] you get [Amount off] per product (ordered by [apply
     ///     award to]) with a maximum of [award limit] products"
     /// </summary>
-    [EntityIdentifier("Hc_" + nameof(CartItemsMatchingInCategoryPriceDiscountAction))]
+    [EntityIdentifier("Ny_" + nameof(CartItemsMatchingInCategoryPriceDiscountAction))]
     public class CartItemsMatchingInCategoryPriceDiscountAction : ICartLineAction
     {
         private readonly CategoryCartLinesResolver categoryCartLinesResolver;
@@ -24,38 +24,38 @@ namespace Nyxie.Plugin.Promotions.Actions
             this.categoryCartLinesResolver = categoryCartLinesResolver;
         }
 
-        public IBinaryOperator<decimal, decimal> Hc_Operator { get; set; }
+        public IBinaryOperator<decimal, decimal> Ny_Operator { get; set; }
 
-        public IRuleValue<decimal> Hc_SpecificValue { get; set; }
+        public IRuleValue<decimal> Ny_SpecificValue { get; set; }
 
-        public IRuleValue<string> Hc_SpecificCategory { get; set; }
+        public IRuleValue<string> Ny_SpecificCategory { get; set; }
 
-        public IRuleValue<bool> Hc_IncludeSubCategories { get; set; }
+        public IRuleValue<bool> Ny_IncludeSubCategories { get; set; }
 
-        public IRuleValue<decimal> Hc_AmountOff { get; set; }
+        public IRuleValue<decimal> Ny_AmountOff { get; set; }
 
-        public IRuleValue<string> Hc_ApplyActionTo { get; set; }
+        public IRuleValue<string> Ny_ApplyActionTo { get; set; }
 
-        public IRuleValue<int> Hc_ActionLimit { get; set; }
+        public IRuleValue<int> Ny_ActionLimit { get; set; }
 
         public void Execute(IRuleExecutionContext context)
         {
             var commerceContext = context.Fact<CommerceContext>();
 
             //Get configuration
-            string specificCategory = Hc_SpecificCategory.Yield(context);
-            decimal specificValue = Hc_SpecificValue.Yield(context);
-            bool includeSubCategories = Hc_IncludeSubCategories.Yield(context);
-            decimal amountOff = Hc_AmountOff.Yield(context);
-            string applyActionTo = Hc_ApplyActionTo.Yield(context);
-            int actionLimit = Hc_ActionLimit.Yield(context);
+            string specificCategory = Ny_SpecificCategory.Yield(context);
+            decimal specificValue = Ny_SpecificValue.Yield(context);
+            bool includeSubCategories = Ny_IncludeSubCategories.Yield(context);
+            decimal amountOff = Ny_AmountOff.Yield(context);
+            string applyActionTo = Ny_ApplyActionTo.Yield(context);
+            int actionLimit = Ny_ActionLimit.Yield(context);
 
             if (string.IsNullOrEmpty(specificCategory) ||
                 specificValue == 0 ||
                 amountOff == 0 ||
                 string.IsNullOrEmpty(applyActionTo) ||
                 actionLimit == 0 ||
-                Hc_Operator == null)
+                Ny_Operator == null)
                 return;
 
             //Get data
@@ -66,7 +66,7 @@ namespace Nyxie.Plugin.Promotions.Actions
 
             //Validate and apply action
             decimal productAmount = categoryLines.Sum(x => x.Quantity);
-            if (!Hc_Operator.Evaluate(productAmount, specificValue))
+            if (!Ny_Operator.Evaluate(productAmount, specificValue))
                 return;
 
             var discountApplicator = new DiscountApplicator(commerceContext);
