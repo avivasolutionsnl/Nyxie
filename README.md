@@ -13,7 +13,7 @@ It introduces 8 new qualifications and 6 new benefits. In addition these qualifi
 2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project. 
 3. Install the Sitecore .update package using the Sitecore Control Panel.
 4. Synchronze the Commerce Control Panel using the Sitecore Commerce Postman scripts: ContentAPISamples -> DoActions -> Sync content item.
-5. The new qualifications and benefits are now available in the business tools tools.
+5. The new qualifications and benefits are now available in the business tools.
 
 ## How to use
 
