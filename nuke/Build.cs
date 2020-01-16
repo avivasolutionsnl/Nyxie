@@ -95,10 +95,10 @@ partial class Build : NukeBuild
        .Executes(() =>
        {
            Courier(c => c.SetTargetFolder(RootDirectory / "unicorn")
-                         .SetOutputPackage(OutputDirectory / $"Hotcakes-{GitVersion.AssemblySemVer}.update")
+                         .SetOutputPackage(OutputDirectory / $"Nyxie-{GitVersion.AssemblySemVer}.update")
                          .SetRainbowFormat(true));
 
-           DotNetPack(s => s.SetProject(SourceDirectory / "Hotcakes.Plugin.Promotions/Hotcakes.Plugin.Promotions.csproj")
+           DotNetPack(s => s.SetProject(SourceDirectory / "Nyxie.Plugin.Promotions/Nyxie.Plugin.Promotions.csproj")
                             .SetVersion(GitVersion.AssemblySemVer)
                             .SetOutputDirectory(OutputDirectory));
        });
