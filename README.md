@@ -19,7 +19,7 @@ It introduces 8 new qualifications and 6 new benefits. In addition these qualifi
 
 ### Qualifications  
 
-The following qualifications are part of Nyxie and can be selected in the business tools tools.
+The following qualifications are part of Nyxie and can be selected in the business tools.
 
 #### Cart contains products in specific category
 Will apply the given benefit when the cart contains a product in a specific category.
