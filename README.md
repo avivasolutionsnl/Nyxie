@@ -1,10 +1,10 @@
-# ![Hotcakes](./logo.png)
+# ![Nyxie](./logo.png)
 
-[![Build Status](https://dev.azure.com/avivasolutions-public/Hotcakes/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Hotcakes/_build/latest?definitionId=6&branchName=master)
+[![Build Status](https://dev.azure.com/avivasolutions-public/Nyxie/_apis/build/status/Continuous%20integration?branchName=master)](https://dev.azure.com/avivasolutions-public/Nyxie/_build/latest?definitionId=6&branchName=master)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
+Nyxie is a plugin for Sitecore Commerce that extends the Promotion Engine with a number of useful qualifications and benefits.
 
 ## Getting started
 1. Download the Sitecore .update package and the .nuget package from the GitHub releases page. 
@@ -15,9 +15,9 @@ Hotcakes is a plugin for Sitecore Commerce that extends the Promotion Engine wit
 
 ## How to use
 
-### Qualifications
+### Qualifications  
 
-The following qualifications are part of Hotcakes and can be selected in the bixfix tools.
+The following qualifications are part of Nyxie and can be selected in the bixfix tools.
 
 #### Cart contains products in specific category
 Will apply the given benefit when the cart contains a product in a specific category.
@@ -120,7 +120,7 @@ When a qualification is added to a promotion, the following condition will be av
 
 ### Benefits
 
-The following benefits are part of Hotcakes and can be selected in the bixfix tools.
+The following benefits are part of Nyxie and can be selected in the bixfix tools.
 
 #### Get a free gift
 Will add a free gift to the cart when the given qualification has been met.
@@ -396,7 +396,7 @@ The action will do the following:
 - Open a console en navigate to the repository root folder.
 
 - Build the project in Visual Studio and publish the projects to the following folders
-Hotcakes.Serialization --> \build\website
+Nyxie.Serialization --> \build\website
 Sitecore.Commerce.Engine --> \build\commerce
 
 - Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
