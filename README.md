@@ -116,7 +116,7 @@ When a qualification is added to a promotion, the following condition will be av
 |Operator               |operator     |                | standard operator          |
 |Date                   |date|                         |indicates the date compared using the configured operator|
 
-> When comparing dates uing the Equal operator, the dates will need to have the same year, month, day, hour, minute, seconds and milliseconds in order for them to be considered equal.
+> When comparing dates using the Equal operator, the dates will need to have the same year, month, day, hour, minute, seconds and milliseconds in order for them to be considered equal.
 
 ### Benefits
 
