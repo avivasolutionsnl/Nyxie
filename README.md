@@ -168,7 +168,7 @@ The action will do the following:
 
 #### $ discount on every N-th qualifying product
 
-Will apply a fixed amount discount to a number of products, when the specified minimum amount of products are added to the cart.
+Will apply a fixed amount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
 
 When a benefit is added to a promotion, the following action will be available in the list:
 
@@ -196,127 +196,6 @@ The action will do the following:
 > Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 > This benefit currently does not support decimals in the quantity
-
-#### Get $ discount on shipping
-Will deduct a fixed amount from the shipping costs when the given qualification is met.
-
-When a benefit is added to a promotion, the following action will be available in the list:
-
-`Get [specific amount] off the shipping cost`
-
-| Variable              | Type        | Default value  |Description                     |
-| -------------         |-------------| -----          | --------                       |
-|Amount Off             |decimal      |                |the amount to deduct from the shipping cost|
-
-#### $ discount on products in a specific category
-Will apply a fixed amount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
-
-When a benefit is added to a promotion, the following action will be available in the list:
-
-`When you buy [Operator] [Product count] products in [Category] you get [Amount off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
-
-| Variable              | Type        | Default value  |Description                     |
-| -------------         |-------------| -----          | --------                       |
-|Operator               |operator     |                |standard operators              |
-|Product count          |integer      |                |indicates the numer of products compared using the configured operator|
-|Category               |category     |                |a fully qualified category path|
-|Include sub categories |bool         | true           |indicates whether sub categories are included|
-|Amount Off             |decimal      |                |the amount to deduct from the product price|
-|Award Limit            |integer      |                |the maximum number of products the benefit will be applied to|
-|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
-
-The action will do the following:
-
-1. Select the eligable items
-2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
-4. Apply the discount to the most/least expensive items
-
-> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
-
-> Uses the same rounding algorithm as Sitecore uses in its benefits.
-
-#### % discount on products in a specific category
-Will apply a percentageamount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
-
-When a benefit is added to a promotion, the following action will be available in the list:
-
-`When you buy [Operator] [specific value] products in [specific category] you get [Percentage off] per product (ordered by [apply award to]) with a maximum of [award limit] products`
-
-| Variable              | Type        | Default value  |Description                     |
-| -------------         |-------------| -----          | --------                       |
-|Operator               |operator     |                |standard operators              |
-|Product count          |integer      |                |indicates the numer of products compared using the configured operator|
-|Category               |category     |                |a fully qualified category path|
-|Include sub categories |bool         | true           |indicates whether sub categories are included|
-|Percentage Off         |decimal      |                |the percentage to deduct from the product price|
-|Award Limit            |integer      |                |the maximum number of products the benefit will be applied to|
-|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
-
-The action will do the following:
-
-1. Select the eligable items
-2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
-4. Apply the discount to the most/least expensive items
-
-> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
-
-> Uses the same rounding algorithm as Sitecore uses in its benefits.
-
-## Resources
-
-`For every [Items to award] of [Items to purchase] products in [Category] you get [Percentage Off] on the [Apply Award To] with a limit of [Award Limit]`
-
-| Variable              | Type        | Default value  |Description                     |
-| -------------         |-------------| -----          | --------                       |
-|Category               |category     |                |a fully qualified category path |
-|Include sub categories |bool         |true            |indicates whether sub categories are included|
-|Items to purchase      |integer      |                |indicates the number of items (N) to be puchased for the discount to be applied|
-|Items to award         |integer      |                |indicates the number of items (X) the discount will be applied to|
-|Percentage Off         |decimal      |                |the percentage to deduct from the item price|
-|Award Limit            |integer      |                |the maximum number of times the benefit will be applied|
-|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
-
-The action will do the following:
-
-1. Select the eligable items
-2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
-4. Apply the discount to the most/least expensive items
-
-> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
-
-> Uses the same rounding algorithm as Sitecore uses in its benefits.
-
-#### $ discount on every N-th qualifying product
-
-Will apply a fixed amount discount to a number of products in a category, when a specified amount of products from that category have been added to the cart.
-
-When a benefit is added to a promotion, the following action will be available in the list:
-
-`For every [Items to award] of [Items to purchase] products in [Category] you get [Amount Off] on the [Apply Award To] with a limit of [Award Limit]`
-
-| Variable              | Type        | Default value  |Description                     |
-| -------------         |-------------| -----          | --------                       |
-|Category               |category     |                |a fully qualified category path |
-|Include sub categories |bool         |true            |indicates whether sub categories are included|
-|Items to purchase      |integer      |                |indicates the number of items (N) to be puchased for the discount to be applied|
-|Items to award         |integer      |                |indicates the number of items (X) the discount will be applied to|
-|Amount Off             |decimal      |                |the amount to deduct from the item price|
-|Award Limit            |integer      |                |the maximum number of times the benefit will be applied|
-|Apply Award To         |option       |Least Expensive Items First |indicates whether the most of least expensive items will be awarded first: Most Expensive Items First/Least Expensive Items First|
-
-The action will do the following:
-
-1. Select the eligable items
-2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
-4. Apply the discount to the most/least expensive items
-
-> Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
-
-> Uses the same rounding algorithm as Sitecore uses in its benefits.
 
 #### Get $ discount on shipping
 Will deduct a fixed amount from the shipping costs when the given qualification is met.
