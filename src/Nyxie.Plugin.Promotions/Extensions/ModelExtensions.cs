@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 using Microsoft.Extensions.DependencyInjection;
-
+using Sitecore.Commerce.Core;
 using Sitecore.Commerce.Plugin.Rules;
 using Sitecore.Framework.Rules;
 using Sitecore.Framework.Rules.Registry;

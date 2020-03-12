@@ -47,7 +47,7 @@ namespace Nyxie.Plugin.Promotions
             services.Sitecore().Pipelines(config => config
                                                     .ConfigurePipeline<IAddCartLinePipeline>(configure => configure
                                                                                                           .Add<AddCategoryBlock>()
-                                                                                                          .Before<PersistCartBlock
+                                                                                                          .Before<PrepArgumentToPersistEntityBlock<Cart>
                                                                                                           >())
 
                                                     ////////////////////////////////////////////////////////////////////////////////////////////////////

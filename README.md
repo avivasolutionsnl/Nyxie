@@ -298,7 +298,7 @@ A convenient tool to automatically do this is [whales-names](https://github.com/
 
 Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
 
-Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.2.x).
+Initialize your Commerce Engine and setup a Storefront according to the instructions [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.3.x).
 > Unselect the Habitat catalog in `Commerce > Catalog Management > Catalogs` before adding a Storefront site
 
 Fix indexes by:

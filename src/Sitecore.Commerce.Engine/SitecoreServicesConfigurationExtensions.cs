@@ -1,11 +1,6 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SitecoreServiceConfigurationExtensions.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2018
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿// © 2018 Sitecore Corporation A/S. All rights reserved. Sitecore® is a registered trademark of Sitecore Corporation A/S.
 
 using Microsoft.Extensions.DependencyInjection;
-
 using Sitecore.Commerce.Plugin.Carts;
 using Sitecore.Commerce.Plugin.Coupons;
 using Sitecore.Commerce.Plugin.Fulfillment;
@@ -18,55 +13,40 @@ using Sitecore.Framework.Pipelines.Definitions.Extensions;
 namespace Sitecore.Commerce.Engine
 {
     /// <summary>
-    ///     The sitecore services configuration xtensions.
+    /// The sitecore services configuration xtensions.
     /// </summary>
     public static class SitecoreServiceConfigurationExtensions
     {
         /// <summary>
-        ///     The configure commerce pipelines.
+        /// The configure commerce pipelines.
         /// </summary>
         /// <param name="services">
-        ///     The sitecore services configuration.
+        /// The sitecore services configuration.
         /// </param>
         /// <returns>
-        ///     The <see cref="ISitecoreServicesConfiguration" />.
+        /// The <see cref="ISitecoreServicesConfiguration"/>.
         /// </returns>
         public static ISitecoreServicesConfiguration ConfigureCommercePipelines(this ISitecoreServicesConfiguration services)
         {
             services.Pipelines(config => config
-                                         .ConfigurePipeline<IPopulateValidateCartPipeline>(builder => builder
-                                                                                                      .Add<ValidateCartCouponsBlock
-                                                                                                      >().After<
-                                                                                                          PopulateCartLineItemsBlock
-                                                                                                      >())
-                                         .ConfigurePipeline<ICalculateCartLinesPipeline>(builder => builder
-                                                                                                    .Add<
-                                                                                                        CalculateCartLinesSubTotalsBlock
-                                                                                                    >()
-                                                                                                    .Add<
-                                                                                                        CalculateCartLinesFulfillmentBlock
-                                                                                                    >()
-                                                                                                    .Add<
-                                                                                                        CalculateCartLinesPromotionsBlock
-                                                                                                    >()
-                                                                                                    .Add<CalculateCartLinesTaxBlock
-                                                                                                    >()
-                                                                                                    .Add<
-                                                                                                        CalculateCartLinesTotalsBlock
-                                                                                                    >())
-                                         .ConfigurePipeline<ICalculateCartPipeline>(builder => builder
-                                                                                               .Add<CalculateCartSubTotalsBlock>()
-                                                                                               .Add<CalculateCartFulfillmentBlock
-                                                                                               >()
-                                                                                               .Add<CalculateCartPromotionsBlock>()
-                                                                                               .Add<CalculateCartTaxBlock>()
-                                                                                               .Add<CalculateCartTotalsBlock>()
-                                                                                               .Add<CalculateCartPaymentsBlock>()
-                                                                                               .Add<WriteCartTotalsToContextBlock
-                                                                                               >())
-                                         .ConfigurePipeline<IAddPaymentsPipeline>(builder =>
-                                             builder.Add<ValidateCartHasFulfillmentBlock>()
-                                                    .After<ValidateCartAndPaymentsBlock>()));
+                .ConfigurePipeline<IPopulateValidateCartPipeline>(builder => builder
+                    .Add<ValidateCartCouponsBlock>().After<PopulateCartLineItemsBlock>())
+                .ConfigurePipeline<ICalculateCartLinesPipeline>(builder => builder
+                    .Add<CalculateCartLinesSubTotalsBlock>()
+                    .Add<CalculateCartLinesFulfillmentBlock>()
+                    .Add<CalculateCartLinesPromotionsBlock>()
+                    .Add<CalculateCartLinesTaxBlock>()
+                    .Add<CalculateCartLinesTotalsBlock>())
+                .ConfigurePipeline<ICalculateCartPipeline>(builder => builder
+                    .Add<CalculateCartSubTotalsBlock>()
+                    .Add<CalculateCartFulfillmentBlock>()
+                    .Add<CalculateCartPromotionsBlock>()
+                    .Add<CalculateCartTaxBlock>()
+                    .Add<CalculateCartTotalsBlock>()
+                    .Add<CalculateCartPaymentsBlock>()
+                    .Add<WriteCartTotalsToContextBlock>())
+                .ConfigurePipeline<IAddPaymentsPipeline>(builder =>
+                    builder.Add<ValidateCartHasFulfillmentBlock>().After<ValidateCartAndPaymentsBlock>()));
 
             return services;
         }
