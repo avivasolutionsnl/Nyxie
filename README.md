@@ -288,7 +288,7 @@ Sitecore.Commerce.Engine --> \build\commerce
 - Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
     - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in [](./env)
 
-- Spin up the environment (make sure you are using Windows and not Linux containers):
+- Spin up the environment, see [here](https://github.com/Sitecore/docker-images/tree/master/windows/tests/9.3.x#prerequisites-and-considerations) for prerequisites e.g. wrt. use of Sitecore license (make sure you are using Windows and not Linux containers):
 ```
 PS> docker-compose up
 ```
