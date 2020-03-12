@@ -9,15 +9,15 @@ Nyxie is a plugin for Sitecore Commerce that extends the Promotion Engine with a
 It introduces 8 new qualifications and 6 new benefits. In addition these qualifications and benefits are displayed in the business tools in an easy to read way.
 
 ## Getting started
-1. Download the Sitecore .update package and the .nuget package from the GitHub releases page. 
-2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project. 
+1. Download the Sitecore .update package and the .nuget package from the GitHub releases page.
+2. Install the .nuget package in a local nuget registry or folder and add it to the Sitecore Commerce Engine project.
 3. Install the Sitecore .update package using the Sitecore Control Panel.
 4. Synchronze the Commerce Control Panel using the Sitecore Commerce Postman scripts: ContentAPISamples -> DoActions -> Sync content item.
 5. The new qualifications and benefits are now available in the business tools.
 
 ## How to use
 
-### Qualifications  
+### Qualifications
 
 The following qualifications are part of Nyxie and can be selected in the business tools.
 
@@ -159,7 +159,7 @@ The action will do the following:
 
 1. Select the eligable items
 2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
+3. Calculate the number of times the discount should be applied
 4. Apply the discount to the most/least expensive items
 
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
@@ -190,7 +190,7 @@ The action will do the following:
 
 1. Select the eligable items
 2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
+3. Calculate the number of times the discount should be applied
 4. Apply the discount to the most/least expensive items
 
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
@@ -231,7 +231,7 @@ The action will do the following:
 
 1. Select the eligable items
 2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
+3. Calculate the number of times the discount should be applied
 4. Apply the discount to the most/least expensive items
 
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
@@ -259,7 +259,7 @@ The action will do the following:
 
 1. Select the eligable items
 2. Sort the items by most/least expensive
-3. Calculate the number of times the discount should be applied 
+3. Calculate the number of times the discount should be applied
 4. Apply the discount to the most/least expensive items
 
 > Cart line quantity is taken into account, meaning that a cart line with a quantity of 10 could have the discount applied twice, resulting in 2 discounted products and 8 at full price.
@@ -286,16 +286,14 @@ Nyxie.Serialization --> \build\website
 Sitecore.Commerce.Engine --> \build\commerce
 
 - Build Sitecore XC Docker images according to the instructions found here: https://github.com/Sitecore/docker-images
-    - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in (./env)
-
-- Copy your Sitecore license file (license.xml) to the [](./license) folder
+    - Or if you have pre-built Docker images available in a registry, set the `REGISTRY` in [](./env)
 
 - Spin up the environment (make sure you are using Windows and not Linux containers):
 ```
 PS> docker-compose up
 ```
 
-To set the Docker container service names as DNS names on your host edit your `hosts` file. 
+To set the Docker container service names as DNS names on your host edit your `hosts` file.
 A convenient tool to automatically do this is [whales-names](https://github.com/gregolsky/whales-names).
 
 Synchronize the development content by running Unicorn: [http://cm/unicorn.aspx?verb=sync](http://cm/unicorn.aspx?verb=sync).
@@ -306,7 +304,7 @@ Initialize your Commerce Engine and setup a Storefront according to the instruct
 Fix indexes by:
 
 - Opening the content editor
-- Make sure the Habitat catalog is selected in the Commerce Control panel 
+- Make sure the Habitat catalog is selected in the Commerce Control panel
 - Goto the commerce tab
 - Delete Data Templates
 - Update Data Templates
