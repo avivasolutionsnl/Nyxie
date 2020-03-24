@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sitecore.Commerce.Plugin.Coupons" Version="4.0.*" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Fulfillment" Version="4.0.*" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.GiftCards" Version="4.0.*" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Inventory" Version="4.0.*" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Coupons" Version="5.0.20" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Fulfillment" Version="5.0.20" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.GiftCards" Version="5.0.10" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Inventory" Version="5.0.18" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

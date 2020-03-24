@@ -29,10 +29,5 @@ namespace Nyxie.Plugin.Promotions.Extensions
 
             return displayName;
         }
-
-        internal static bool EqualsOrdinalIgnoreCase(this string value1, string value2)
-        {
-            return value1.Equals(value2, StringComparison.OrdinalIgnoreCase);
-        }
     }
 }
